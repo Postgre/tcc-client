@@ -1,0 +1,632 @@
+---
+title: My Account
+body_class: page-aside-left
+---
+
+{{#content "css" mode="prepend"}}
+<link rel="stylesheet" href="{{assets}}/examples/css/pages/user.css">
+{{/content}}
+
+
+{{#content "js_vendor" mode="append"}}
+<script src="{{assets}}/vendor/aspaginator/jquery.asPaginator.min.js"></script>
+{{/content}}
+
+{{#content "js" mode="append"}}
+<script src="{{assets}}/js/Plugin/aspaginator.js"></script>
+<script src="{{assets}}/js/Plugin/responsive-tabs.js"></script>
+<script src="{{assets}}/js/Plugin/tabs.js"></script>
+{{/content}}
+
+{{#extend "customer-account"}}
+    {{#content "page-main"}}
+        <div class="page-header">
+            <h1 class="page-title">Account Users</h1>
+        </div>
+        <div class="page-content">
+            <!-- Panel -->
+            <div class="panel">
+                <div class="panel-body">
+                    <form class="page-search-form" role="search">
+                        <div class="input-search input-search-dark">
+                            <i class="input-search-icon md-search" aria-hidden="true"></i>
+                            <input type="text" class="form-control" id="inputSearch" name="search" placeholder="Search Users">
+                            <button type="button" class="input-search-close icon md-close" aria-label="Close"></button>
+                        </div>
+                    </form>
+
+                    <div class="nav-tabs-horizontal nav-tabs-animate" data-plugin="tabs">
+
+                        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                            <li class="nav-item" role="presentation"><a class="active nav-link" data-toggle="tab" href="#all_contacts"
+                                                                        aria-controls="all_contacts" role="tab">All Contacts</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#my_contacts" aria-controls="my_contacts"
+                                                                        role="tab">My Contacts</a></li>
+                            <li class="dropdown nav-item" role="presentation">
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Contacts </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item" data-toggle="tab" href="#all_contacts" aria-controls="all_contacts"
+                                       role="tab">All Contacts</a>
+                                    <a class="active dropdown-item" data-toggle="tab" href="#my_contacts" aria-controls="my_contacts"
+                                       role="tab">My Contacts</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane animation-fade active" id="all_contacts" role="tabpanel">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-online">
+                                                    <img src="{{assets}}/portraits/1.jpg" alt="...">
+                                                    <i class="avatar avatar-busy"></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Herman Beck
+                                                    <small>Last Access: 1 hour ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 4425 Golf Course Rd
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-away">
+                                                    <img src="{{assets}}/portraits/2.jpg" alt="...">
+                                                    <i class="avatar avatar-busy"></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Mary Adams
+                                                    <small>Last Access: 2 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 1391 Depaul Dr
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-busy">
+                                                    <img src="{{assets}}/portraits/3.jpg" alt="...">
+                                                    <i class="avatar avatar-busy"></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Caleb Richards
+                                                    <small>Last Access: 3 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 5067 E Center St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-success btn-sm">
+                                                    <i class="icon md-check" aria-hidden="true"></i>Following
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <nav>
+                                    <ul data-plugin="paginator" data-total="10" data-skin="pagination-no-border"></ul>
+                                </nav>
+                            </div>
+
+                            <div class="tab-pane animation-fade" id="my_contacts" role="tabpanel">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-online">
+                                                    <img src="{{assets}}/portraits/13.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Sarah Graves
+                                                    <small>Last Access: 1 hour ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 4190 W Lone Mountain Rd
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-away">
+                                                    <img src="{{assets}}/portraits/14.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Andrew Hoffman
+                                                    <small>Last Access: 2 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 2849 Spring St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-success btn-sm">
+                                                    <i class="icon md-check" aria-hidden="true"></i>Following
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-busy">
+                                                    <img src="{{assets}}/portraits/15.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Camila Lynch
+                                                    <small>Last Access: 3 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 2128 W Campbell St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-off">
+                                                    <img src="{{assets}}/portraits/16.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Ramon Dunn
+                                                    <small>Last Access: 4 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 7014 Pecan Acres Ln
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-online">
+                                                    <img src="{{assets}}/portraits/17.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Scott Sanders
+                                                    <small>Last Access: 5 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 2797 Airport St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-success btn-sm">
+                                                    <i class="icon md-check" aria-hidden="true"></i>Following
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-away">
+                                                    <img src="{{assets}}/portraits/18.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Nina Wells
+                                                    <small>Last Access: 6 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 1020 Crescent Canyon St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-busy">
+                                                    <img src="{{assets}}/portraits/19.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Beverly Grant
+                                                    <small>Last Access: 7 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 3356 Crockett St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-off">
+                                                    <img src="{{assets}}/portraits/20.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Marvin Nelson
+                                                    <small>Last Access: 8 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 1504 Mcgowen St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-success btn-sm">
+                                                    <i class="icon md-check" aria-hidden="true"></i>Following
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-online">
+                                                    <img src="{{assets}}/portraits/1.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Herman Beck
+                                                    <small>Last Access: 9 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 5858 Abby Park St
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-away">
+                                                    <img src="{{assets}}/portraits/2.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Mary Adams
+                                                    <small>Last Access: 10 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 8901 Genschaw Rd
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <div class="pr-20">
+                                                <div class="avatar avatar-busy">
+                                                    <img src="{{assets}}/portraits/3.jpg" alt="...">
+                                                    <i></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-5">
+                                                    Caleb Richards
+                                                    <small>Last Access: 11 hours ago</small>
+                                                </h5>
+                                                <p>
+                                                    <i class="icon icon-color md-pin" aria-hidden="true"></i>                            Street 7715 Washington Ave
+                                                </p>
+                                                <div>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-email" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a class="text-action" href="javascript:void(0)">
+                                                        <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="pl-20 align-self-center">
+                                                <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <nav>
+                                    <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Panel -->
+        </div>
+    {{/content}}
+{{/extend}}

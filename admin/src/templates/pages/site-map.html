@@ -1,0 +1,255 @@
+---
+title: Site Map
+---
+
+{{#extend "layout-default"}}
+
+  {{#content "css" mode="prepend"}}
+    <link rel="stylesheet" href="{{assets}}/pages/css/pages/site-map.css">
+  {{/content}}
+
+
+  {{#content "js" mode="append"}}
+    <script src="{{assets}}/js/Plugin/panel.js"></script>
+  {{/content}}
+
+
+  {{#content "body"}}
+
+    <!-- Page -->
+    <div class="page">
+      <!-- Page Header -->
+      <div class="page-header">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{dest '/index.html'}}">Home</a></li>
+          <li class="breadcrumb-item active">Pages</li>
+        </ol>
+        <h1 class="page-title">Site Map</h1>
+      </div>
+      <!-- End Page Header -->
+      <!-- Page Content -->
+      <div class="page-content container-fluid">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xxl-3 col-lg-6 col-md-6">
+                <!-- Sitemap List -->
+                <h4>Customer</h4>
+                <ul class="sitemap-list">
+                  <li>
+                    <a href="#">
+                      <i class="wb-dashboard mr-10"></i>
+                      <span>Account</span>
+                    </a>
+                    <!-- Sitemap Children -->
+                    <ul>
+                      <li>
+                        <a href="{{dest 'customer-account-profile.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Profile</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-account-users.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Account Users</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-account-billing.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Billing</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-account-proccess.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Booking Proccess</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-account-expect.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>What to Expect</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <!-- End Sitemap Children -->
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="wb-calendar mr-10"></i>
+                      <span>Events</span>
+                    </a>
+                    <!-- Sitemap Children -->
+                    <ul>
+                      <li>
+                        <a href="{{dest 'customer-events-calendar.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Events Calendar</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-events-info.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Your Information</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-events-details.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Event Details</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-events-fees.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Travel Fees</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-events-caroler.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Lead Caroler</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'customer-events-requests.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Special Requests</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <!-- End Sitemap Children -->
+                  </li>
+                </ul>
+                <!-- End Sitemap List -->
+              </div>
+              <div class="col-xxl-3 col-lg-6 col-md-6">
+                <!-- Sitemap List -->
+                <h4>Caroler</h4>
+                <ul class="sitemap-list">
+                  <li>
+                    <a href="#">
+                      <i class="wb-dashboard mr-10"></i>
+                      <span>Profile</span>
+                    </a>
+                    <!-- Sitemap Children -->
+                    <ul>
+                      <li>
+                        <a href="{{dest 'caroler-account-profile.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>My Profile</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'caroler-account-agreement.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Performance Agreement</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'caroler-account-tax.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Tax Forms</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'caroler-account-cash.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Square Cash ID</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'caroler-account-costume.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Costume</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'caroler-account-calendar.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Calendar</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'caroler-account-stars.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Stars</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <!-- End Sitemap Children -->
+                  </li>
+                </ul>
+                <!-- End Sitemap List -->
+              </div>
+              <div class="col-xxl-3 col-lg-6 col-md-6">
+                <!-- Sitemap List -->
+                <h4>Director</h4>
+                <ul class="sitemap-list">
+                  <li>
+                    <a href="#">
+                      <i class="wb-dashboard mr-10"></i>
+                      <span>Market</span>
+                    </a>
+                    <!-- Sitemap Children -->
+                    <ul>
+                      <li>
+                        <a href="{{dest 'director-market-profile.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Market Profile</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'director-market-location.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Location Page</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'director-market-carolers.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Caroler Configuration</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'director-market-pricing.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Pricing</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'director-market-availability.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Availability</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'director-market-travel.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Travel Expenses</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{{dest 'director-market-payment.html'}}">
+                          <i class="icon wb-link float-right"></i>
+                          <span>Payment Information</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <!-- End Sitemap Children -->
+                  </li>
+                </ul>
+                <!-- End Sitemap List -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Page Content -->
+    </div>
+    <!-- End Page -->
+
+  {{/content}}
+{{/extend}}

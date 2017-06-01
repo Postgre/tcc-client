@@ -1,0 +1,47 @@
+---
+title: My Account
+body_class: page-aside-left
+---
+
+{{#extend "layout-default"}}
+
+  {{#content "body"}}
+
+    <!-- Page -->
+    <div class="page">
+      <div class="page-aside">
+          <!---page-aside-inner-->
+          <div class="page-aside-switch">
+              <i class="icon md-chevron-left" aria-hidden="true"></i>
+              <i class="icon md-chevron-right" aria-hidden="true"></i>
+          </div>
+          <div class="page-aside-inner page-aside-scroll">
+              <div data-role="container">
+                  <div data-role="content">
+                      <section class="page-aside-section">
+                          <h5 class="page-aside-title">ACCOUNT</h5>
+                          <div class="list-group">
+                              <a class="list-group-item {{#active 'customer-account-profile.html'}}active{{/active}}" href="customer-account-profile.html"><i class="icon md-account" aria-hidden="true"></i>Profile</a>
+                              <a class="list-group-item {{#active 'customer-account-users.html'}} active{{/active}}" href="customer-account-users.html"><i class="icon md-accounts-add" aria-hidden="true"></i>Users</a>
+                              <a class="list-group-item {{#active 'customer-account-billing.html'}} active{{/active}}" href="customer-account-billing.html"><i class="icon md-money-box" aria-hidden="true"></i>Billing</a>
+                              <a class="list-group-item {{#active 'customer-account-proccess.html'}} active{{/active}}" href="customer-account-proccess.html"><i class="icon md-account-calendar" aria-hidden="true"></i>Booking Proccess</a>
+                              <a class="list-group-item {{#active 'customer-account-expect.html'}} active{{/active}}" href="customer-account-expect.html"><i class="icon md-folder" aria-hidden="true"></i>What to Expect</a>
+                              <a class="list-group-item {{#active 'customer-account-feedback.html'}} active{{/active}}" href="customer-account-feedback.html"><i class="icon md-assignment-check" aria-hidden="true"></i>Feedback</a>
+                              <a class="list-group-item {{#active 'customer-account-help.html'}} active{{/active}}" href="customer-account-help.html"><i class="icon md-folder" aria-hidden="true"></i>Help</a>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+          </div>
+        <!---page-aside-inner-->
+      </div>
+      <div class="page-main">
+          {{#block "page-main"}}
+              <h2>Hello World</h2>
+          {{/block}}
+      </div>
+    </div>
+    <!-- End Page -->
+
+  {{/content}}
+{{/extend}}

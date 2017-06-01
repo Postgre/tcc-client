@@ -1,0 +1,39 @@
+---
+title: Landing
+---
+
+{{#extend "layout-default"}}
+
+  {{#content "css_vendor" mode="append"}}
+  <link rel="stylesheet" href="{{assets}}/vendor/toastr/toastr.css">
+  {{/content}}
+
+  {{#content "css" mode="prepend"}}
+  <link rel="stylesheet" href="{{assets}}/pages/css/advanced/toastr.css">
+  {{/content}}
+
+
+  {{#content "js_vendor" mode="append"}}
+  <script src="{{assets}}/vendor/toastr/toastr.js"></script>
+  {{/content}}
+
+  {{#content "js" mode="append"}}
+  <script src="{{assets}}/js/Plugin/toastr.js"></script>
+  {{/content}}
+
+  {{#content "scripts" mode="replace"}}
+    <script src="{{assets}}/pages/js/index.js"></script>
+  {{/content}}
+
+  {{#content "body"}}
+
+    <!-- Page -->
+    <div class="page">
+      <div class="page-content container-fluid">
+
+      </div>
+    </div>
+    <!-- End Page -->
+
+  {{/content}}
+{{/extend}}
