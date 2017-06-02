@@ -1,0 +1,152 @@
+@media (min-width: 992px) {
+
+    #top-bar {
+        z-index: 299;
+        border: 0;
+    }
+
+    #top-bar.transparent-topbar { background: transparent !important; }
+
+    #top-bar.transparent-topbar + #header.transparent-header + #slider,
+    #top-bar.transparent-topbar + #header.transparent-header + .page-title-parallax {
+        margin-bottom: -145px;
+        top: -145px;
+    }
+
+    .top-links > ul > li { border: 0; }
+
+    .top-links > ul > li > a {
+        padding-left: 17px;
+        padding-right: 17px;
+        color: #EEE;
+        font-weight: normal;
+        text-transform: capitalize;
+        font-size: 13px;
+    }
+
+    .top-links > ul > li:hover { background-color: transparent; }
+
+    .top-links > ul > li.top-bar-highlight > a {
+        height: 30px;
+        line-height: 30px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        border: 1px solid #EEE;
+        border-radius: 15px;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .top-links > ul > li.top-bar-highlight:hover > a {
+        background-color: #FFF;
+        color: #222;
+    }
+
+    .top-links li a { font-family: 'Rubik'; }
+
+    #primary-menu ul li > a {
+        padding-top: 29px;
+        padding-bottom: 29px;
+    }
+
+    #top-search,
+    #top-cart,
+    #side-panel-trigger {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #top-cart .top-cart-content { top: 50px; }
+
+    #header,
+    #header-wrap,
+    #logo img { height: 80px; }
+
+    #header-wrap {
+        -webkit-transition: background-color .3s ease;
+        -o-transition: background-color .3s ease;
+        transition: background-color .3s ease;
+    }
+
+    #primary-menu ul ul:not(.mega-menu-column) {
+        width: 210px;
+        border-radius: 3px;
+        border: 0;
+        background-color: #800020;
+    }
+
+    #primary-menu ul ul li:not(:first-child) { border-top: 1px dotted rgba(255,255,255,0.1) !important; }
+
+    #primary-menu ul ul li > a {
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: 400;
+        padding: 12px 17px;
+        color: #FFF;
+        font-family: 'Rubik', sans-serif !important;
+    }
+
+    #primary-menu ul ul li:hover > a { padding-left: 20px; }
+
+    .dark #primary-menu:not(.not-dark) ul ul,
+    .dark #primary-menu:not(.not-dark) ul li .mega-menu-content,
+    #primary-menu.dark ul ul,
+    #primary-menu.dark ul li .mega-menu-content { background-color: #800020; }
+
+    .dark #primary-menu:not(.not-dark) ul ul li > a,
+    #primary-menu.dark ul ul li > a { color: #CCC !important; }
+
+    .dark #primary-menu:not(.not-dark) ul ul li:hover > a,
+    #primary-menu.dark ul ul li:hover > a {
+        background-color: rgba(255,255,255,0.025);
+        color: #800020 !important;
+        border-radius: 3px;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+    .top-links ul li { border-left: 0 !important; }
+
+    .top-links ul .top-bar-highlight div.top-link-section {
+        left: 0 !important;
+        right: auto !important;
+    }
+}
+
+@media (max-width: 479px) {
+    .top-links ul .top-bar-highlight { display: block; }
+
+    .top-links ul div.top-link-section {
+        width: 100%;
+    }
+}
+
+
+.dark #header:not(.transparent-header),
+#header.dark:not(.transparent-header),
+#header.dark.sticky-header.transparent-header #header-wrap:not(.not-dark),
+#footer.dark { background-color: #800020; }
+
+.dark #header:not(.transparent-header),
+#header.dark:not(.transparent-header) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+
+
+#primary-menu ul li > a {
+    padding-left: 17px;
+    padding-right: 17px;
+    font-weight: 400;
+    font-size: 13px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+
+.dark #header-wrap:not(.not-dark) #primary-menu > ul > li:hover > a,
+.dark #header-wrap:not(.not-dark) #primary-menu > ul > li.current > a,
+.dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li:hover > a,
+.dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li.current > a { color: #DDD; }

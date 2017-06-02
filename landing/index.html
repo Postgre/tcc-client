@@ -257,7 +257,7 @@
                 ============================================= -->
                 <nav id="primary-menu" class="with-arrows">
                     <ul>
-                        <li class="current"><a href="#about">
+                        <li class="current"><a href="about.html">
                             <div>About</div>
                         </a></li>
                         <li><a href="#gallery">
@@ -580,7 +580,17 @@
 										        </span>
                                 </div>
                             </div>
-                            <div class=" col-md-4 col-sm-12 col-md-offset-1 clearfix float-right">
+                            <div class="col-md-3 col-sm-12 clearfix">
+                                <label for="" style="display:block;">Multiple Events at Same Location?</label>
+                                <input class="bt-switch" type="checkbox" checked data-on-text="Yes" data-off-text="No" data-on-color="themecolor" data-off-color="themecolor">
+                            </div>
+                            <div class="col-md-3 col-sm-12 clearfix">
+                                <label for="" style="display:block;">Multiple Events at Same Location?</label>
+                                <input class="bt-switch" type="checkbox" checked data-on-text="Yes" data-off-text="No" data-on-color="themecolor" data-off-color="themecolor">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-8 float-right">
                                 <button class="button button-3d button-rounded btn-block nomargin"
                                         style="margin-top: 35px !important;">Check Rates and Availability!
                                 </button>
@@ -942,16 +952,21 @@
         $('#featuredLocationsMap').vectorMap({
             map: 'usa_en',
             backgroundColor: null,
-            color: '#006666',
+            color: '#800020',
             hoverOpacity: 0.7,
-            selectedColor: '#333',
             enableZoom: true,
             showTooltip: true,
+            selectedRegions: [
+                "NY", "CA", "TX", "FL", "AL", "GA", "DC", "PA", "NJ", "MA", "IL"
+            ],
+            selectedColor: "#ff0034",
             values: [],
             scaleColors: ['#339966', '#006666'],
             normalizeFunction: 'polynomial'
         });
     });
+
+    jQuery(".bt-switch").bootstrapSwitch();
 </script>
 
 <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
