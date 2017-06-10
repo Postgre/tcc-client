@@ -290,6 +290,11 @@
         //   window.localStorage.setItem('startTour', true);
         // }
       }
+    }], [{
+      key: 'test',
+      value: function test() {
+        return true;
+      }
     }]);
     return Site;
   }(_Base3.default);

@@ -38,7 +38,7 @@ module.exports = function(grunt) {
   grunt.registerTask('lint', ['csslint', 'jshint']);
 
   // Clean task.
-  grunt.registerTask('clean-dist', ['clean:html', 'clean:css', 'clean:js', 'clean:skins', 'clean:pages',]);
+  grunt.registerTask('clean-dist', ['clean:html', 'clean:css', 'clean:js', 'clean:skins', 'clean:examples',]);
 
   // Html distribution task.
   grunt.registerTask('dist-html', ['clean:html', 'hb', 'prettify', 'notify:html']);
@@ -54,15 +54,12 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-skins', ['clean:skins', 'sass:skins', 'autoprefixer:skins', 'csscomb:skins', 'cssmin:skins', 'notify:skins']);
 
   // Examples distribution task.
-  // grunt.registerTask('dist-examples-js',  ['concat:examples', 'uglify:examples']);
-  // grunt.registerTask('dist-examples-css', ['sass:examples', 'autoprefixer:examples', 'csscomb:examples', 'cssmin:examples', 'notify:examples']);
-  // grunt.registerTask('dist-examples',  ['clean:examples', 'dist-examples-js', 'dist-examples-css']);
-  grunt.registerTask('dist-pages-js',  ['concat:pages', 'uglify:pages']);
-  grunt.registerTask('dist-pages-css', ['sass:pages', 'autoprefixer:pages', 'csscomb:pages', 'cssmin:pages', 'notify:pages']);
-  grunt.registerTask('dist-pages',  ['clean:pages', 'dist-pages-js', 'dist-pages-css']);
+  grunt.registerTask('dist-examples-js',  ['concat:examples', 'uglify:examples']);
+  grunt.registerTask('dist-examples-css', ['sass:examples', 'autoprefixer:examples', 'csscomb:examples', 'cssmin:examples', 'notify:examples']);
+  grunt.registerTask('dist-examples',  ['clean:examples', 'dist-examples-js', 'dist-examples-css']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['dist-html', 'dist-css', 'dist-js', 'dist-skins', 'dist-pages', 'notify:all']);
+  grunt.registerTask('dist', ['dist-html', 'dist-css', 'dist-js', 'dist-skins', 'dist-examples', 'notify:all']);
 
 
   grunt.registerTask('default', ['dist']);

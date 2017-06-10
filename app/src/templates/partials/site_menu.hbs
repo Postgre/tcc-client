@@ -1,29 +1,20 @@
 <ul class="site-menu" data-plugin="menu">
-    <li class="site-menu-item {{#active 'dashboard'}}active{{/active}}">
-    <a href="javascript:void(0)">
-      <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-      <span class="site-menu-title">Landing Page</span>
-      <div class="site-menu-badge">
-        <span class="badge badge-pill badge-success">3</span>
-      </div>
-    </a>
-  </li>
-    <li class="site-menu-item {{#active 'login'}}active{{/active}}">
-        <a href="login.html">
-            <i class="site-menu-icon wb-user" aria-hidden="true"></i>
-            <span class="site-menu-title">Login</span>
+    <li class="bdManagerOnly site-menu-item {{#active 'project-center'}} active open{{/active}}">
+        <a href="{{html}}project-center.html">
+            <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+            <span class="site-menu-title"> Project Center </span>
         </a>
     </li>
-    <li class="site-menu-item {{#active 'register'}}active{{/active}}">
-        <a href="register.html">
-            <i class="site-menu-icon wb-user" aria-hidden="true"></i>
-            <span class="site-menu-title">Register</span>
+    <li class="site-menu-item {{#active 'codebook'}} active open{{/active}}">
+        <a href="{{html}}codebook.html">
+            <i class="site-menu-icon wb-book" aria-hidden="true"></i>
+            <span class="site-menu-title">Code Book</span>
         </a>
     </li>
-    <li class="site-menu-item {{#active 'site-map'}}active{{/active}}">
-        <a href="site-map.html">
-            <i class="site-menu-icon wb-folder" aria-hidden="true"></i>
-            <span class="site-menu-title">Site Map</span>
+    <li class="site-menu-item {{#active 'assignments'}} active open{{/active}}">
+        <a href="{{html}}assignments.html">
+            <i class="site-menu-icon wb-pencil" aria-hidden="true"></i>
+            <span class="site-menu-title">My Assignments</span>
         </a>
     </li>
 </ul>

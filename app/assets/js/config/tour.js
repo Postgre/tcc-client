@@ -1,6 +1,6 @@
 /*!
- * the-christmas-carolers_client (http://thechristmascarolers.com)
- * Copyright 2017 Chris Rocco
+ * bigdata (https://uab-energetics.github.io/bigdata-app/html/)
+ * Copyright 2017 chrisrocco
  * Licensed under the Themeforest Standard Licenses
  */
 (function(Config) {
@@ -12,7 +12,7 @@
       intro: "Offcanvas Menu <p class='content'>It is nice custom navigation for desktop users and a seek off-canvas menu for tablet and mobile users</p>"
     }, {
       element: "#toggleFullscreen",
-      intro: "Full Screen <p class='content'>Click this button you can view the app template in full screen</p>"
+      intro: "Full Screen <p class='content'>Click this button you can view the admin template in full screen</p>"
     }, {
       element: "#toggleChat",
       position: 'left',

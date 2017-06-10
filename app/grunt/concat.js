@@ -25,11 +25,11 @@ module.exports = function (grunt) {
       src: pluginsSrc,
       dest: '<%= config.destination.js %>/plugins.js'
     },
-    pages: {
+    examples: {
       expand: true,
-      cwd: '<%= config.source.pages %>/js',
+      cwd: '<%= config.source.examples %>/js',
       src: ['**/*.js'],
-      dest: '<%= config.destination.pages %>/js',
+      dest: '<%= config.destination.examples %>/js',
     }
   };
 };

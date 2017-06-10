@@ -17,11 +17,11 @@ module.exports = function () {
       src: ['*.css', '!*.min.css'],
       dest: '<%= config.destination.skins %>'
     },
-    pages: {
+    examples: {
       expand: true,
-      cwd: '<%= config.destination.pages %>/css',
+      cwd: '<%= config.destination.examples %>/css',
       src: ['**/*.css', '!**/*.min.css'],
-      dest: '<%= config.destination.pages %>/css'
+      dest: '<%= config.destination.examples %>/css'
     },
   };
 };

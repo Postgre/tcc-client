@@ -6,6 +6,6 @@ module.exports = function () {
     css: '<%= config.destination.css %>',
     js: '<%= config.destination.js %>',
     skins: '<%= config.destination.skins %>/**/*.css',
-    pages: ['<%= config.destination.pages %>/css/**/*.css', '<%= config.destination.pages %>/js/**/*.js'],
+    examples: ['<%= config.destination.examples %>/css/**/*.css', '<%= config.destination.examples %>/js/**/*.js'],
   };
 };

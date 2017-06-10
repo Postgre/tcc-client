@@ -26,9 +26,9 @@ module.exports = function () {
         message: 'Skins Generated!'
       }
     },
-    pages: {
+    examples: {
       options: {
-        message: 'Pages Generated!'
+        message: 'Examples Generated!'
       }
     },
     all: {

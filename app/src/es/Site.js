@@ -257,6 +257,10 @@ class Site extends Base {
     //   window.localStorage.setItem('startTour', true);
     // }
   }
+
+  static test(){
+    return true;
+  }
 }
 
 let instance = null;

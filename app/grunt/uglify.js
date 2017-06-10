@@ -26,12 +26,12 @@ module.exports = function () {
         ext: '.min.js'
       }]
     },
-    pages: {
+    examples: {
       files: [{
         expand: true,
-        cwd: '<%= config.destination.pages %>/js',
+        cwd: '<%= config.destination.examples %>/js',
         src: ['**/*.js', '!**/*.min.js'],
-        dest: '<%= config.destination.pages %>/js',
+        dest: '<%= config.destination.examples %>/js',
         ext: '.min.js'
       }]
     }

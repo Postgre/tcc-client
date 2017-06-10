@@ -60,5 +60,5 @@ export {
   get,
   set,
   getColor,
-  colors
+  colors,
 };

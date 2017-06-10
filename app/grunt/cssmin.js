@@ -33,13 +33,13 @@ module.exports = function () {
         }
       ]
     },
-    pages: {
+    examples: {
       files: [
         {
           expand: true,
-          cwd: '<%= config.destination.pages %>/css',
+          cwd: '<%= config.destination.examples %>/css',
           src: ['**/*.css', '!**/*.min.css'],
-          dest: '<%= config.destination.pages %>/css',
+          dest: '<%= config.destination.examples %>/css',
           ext: '.min.css',
           extDot: 'last'
         }

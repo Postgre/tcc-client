@@ -17,11 +17,11 @@ module.exports = function () {
       },
       src: ['<%= config.destination.skins %>/*.css', '!<%= config.destination.skins %>/*.min.css']
     },
-    pages: {
+    examples: {
       options: {
         map: false
       },
-      src: ['<%= config.destination.pages %>/**/*.css', '!<%= config.destination.pages %>/**/*.min.css']
+      src: ['<%= config.destination.examples %>/**/*.css', '!<%= config.destination.examples %>/**/*.min.css']
     },
   };
 };

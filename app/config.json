@@ -4,16 +4,14 @@
 		"css": "assets/css",
 		"js": "assets/js",
 		"skins": "assets/skins",
-		"examples": "assets/examples",
-		"pages":	"assets/pages"
+		"examples": "assets/examples"
 	},
 	"source": {
 		"sass": "src/scss",
 		"js": "src/js",
 		"es": "src/es",
 		"skins": "src/skins",
-		"examples": "src/examples",
-		"pages":	"src/pages"
+		"examples": "src/examples"
 	},
 	"html": "html",
 	"templates": {
