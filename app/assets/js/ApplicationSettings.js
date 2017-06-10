@@ -1,6 +1,6 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define('/URLs', ['exports'], factory);
+        define('/ApplicationSettings', ['exports'], factory);
     } else if (typeof exports !== "undefined") {
         factory(exports);
     } else {
@@ -8,7 +8,7 @@
             exports: {}
         };
         factory(mod.exports);
-        global.URLs = mod.exports;
+        global.ApplicationSettings = mod.exports;
     }
 })(this, function (exports) {
     'use strict';

@@ -1,27 +1,27 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define("/AuthService", ["exports", "src/es/URLs"], factory);
+        define("/AuthService", ["exports", "src/es/ApplicationSettings"], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require("src/es/URLs"));
+        factory(exports, require("src/es/ApplicationSettings"));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.URLs);
+        factory(mod.exports, global.ApplicationSettings);
         global.AuthService = mod.exports;
     }
-})(this, function (exports, _URLs) {
+})(this, function (exports, _ApplicationSettings) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
-    exports.getToken = exports.getUser = exports.logout = exports.register = exports.login = undefined;
-    var URLs = babelHelpers.interopRequireWildcard(_URLs);
+    exports.hasRole = exports.getToken = exports.getUser = exports.logout = exports.register = exports.login = undefined;
+    var ApplicationSettings = babelHelpers.interopRequireWildcard(_ApplicationSettings);
 
 
-    var TOKEN_PROVIDER = URLs.getUrl("login");
-    var REGISTER = URLs.getUrl("register");
+    var TOKEN_PROVIDER = ApplicationSettings.getUrl("login");
+    var REGISTER = ApplicationSettings.getUrl("register");
 
     function login(email, password, win, fail) {
         return $.ajax({
@@ -61,10 +61,18 @@
     function getToken() {
         return localStorage['api_token'];
     }
+    function hasRole(role) {
+        var user = getUser();
+        if (!user) return false;
+        if (!user.roles) return false;
+
+        return user.roles.indexOf(role) !== -1;
+    }
 
     exports.login = login;
     exports.register = register;
     exports.logout = logout;
     exports.getUser = getUser;
     exports.getToken = getToken;
+    exports.hasRole = hasRole;
 });

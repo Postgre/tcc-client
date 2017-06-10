@@ -1,7 +1,7 @@
-import * as URLs from 'src/es/URLs';
+import * as ApplicationSettings from 'src/es/ApplicationSettings';
 
-const TOKEN_PROVIDER = URLs.getUrl( "login" );
-const REGISTER = URLs.getUrl( "register" );
+const TOKEN_PROVIDER = ApplicationSettings.getUrl( "login" );
+const REGISTER = ApplicationSettings.getUrl( "register" );
 
 function login( email, password, win, fail ){
     return $.ajax({
@@ -41,11 +41,19 @@ function getUser(){
 function getToken(){
     return localStorage['api_token'];
 }
+function hasRole( role ){
+    var user = getUser();
+    if( !user ) return false;
+    if( !user.roles ) return false;
+
+    return ( user.roles.indexOf( role ) !== -1 );
+}
 
 export {
     login,
     register,
     logout,
     getUser,
-    getToken
+    getToken,
+    hasRole
 }

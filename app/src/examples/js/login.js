@@ -8,8 +8,12 @@
 
 })(document, window, jQuery);
 
+window.DEFAULT_CALLBACK = "index.html";
 
 function login(){
+    /* Temp */
+    window.location = DEFAULT_CALLBACK;
+    /* Temp */
     var email = $("#emailInput").val();
     var password = $("#passwordInput").val();
 

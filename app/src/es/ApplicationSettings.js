@@ -4,6 +4,7 @@ urls['login'] = urls['api'] + "/users/login";
 urls['register'] = urls['api'] + "/users/register";
 urls['resetPasswordCallback'] = "https://dev.researchcoder.com/reset-password.html";
 
+
 if (localStorage.hostOverride) {
     urls['api'] = localStorage.hostOverride;
     urls['login'] = urls['api'] + "/users/login";
