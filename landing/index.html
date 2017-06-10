@@ -895,6 +895,93 @@
 ============================================= -->
 <div id="gotoTop" class="icon-angle-up"></div>
 
+<!-- Modals
+============================================= -->
+<div id="quoteModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">EVENT ESTIMATE</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <h4>Pricing Breakdown</h4>
+
+                                <table class="table cart">
+                                    <tbody>
+                                    <tr class="cart_item">
+                                        <td class="notopborder cart-product-name">
+                                            <strong>N Carolers</strong>
+                                        </td>
+
+                                        <td class="notopborder cart-product-name">
+                                            <span class="amount">$400.94</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Travel Fees</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount">$45.37</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Special Dates</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount">$120.77</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Discounts & Promos</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount"> - $50.00</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Total</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount color lead"><strong>$106.94</strong></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="accordion clearfix">
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Direct Bank Transfer</div>
+                                <div class="acc_content clearfix">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</div>
+
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Cheque Payment</div>
+                                <div class="acc_content clearfix">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</div>
+
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Paypal</div>
+                                <div class="acc_content clearfix">Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.</div>
+                            </div>
+                            <a href="#" class="button button-3d fright">Book Now</a>
+                            <a href="#" class="button button-3d fright">Save Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- External JavaScripts
 ============================================= -->
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -1118,7 +1205,9 @@
 ============================================= -->
 <script type="text/javascript">
     function parseRatesFrom(){
-        alert("Handled");
+        var modal = "#quoteModal";
+        $( modal ).modal("show");
+
         return false;
     }
     function parseLoginForm(){
