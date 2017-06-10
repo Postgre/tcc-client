@@ -1,7 +1,7 @@
 @import "vars";
 
-$bg-start: $color-primary-600;
-$bg-end:   $color-primary-800;//#1571b1;
+$bg-start: $color-tcc-primary;
+$bg-end:   $color-tcc-primary;//#1571b1;
 
 .page-login-v3 {
   &:before {
@@ -53,6 +53,8 @@ $bg-end:   $color-primary-800;//#1571b1;
       color: #a3afb7;
       font-weight: $font-weight-normal;
     }
+
+
   }
 }
 

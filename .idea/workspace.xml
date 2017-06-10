@@ -2,426 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c2677e-bbfb-4c1b-99fb-236b9319b3de" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/alertify.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/animation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/bootbox-sweetalert.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/context-menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/highlight.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/lightbox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/lightbox/test-ajax-2.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/lightbox/test-ajax.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/maps-google.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/maps-vector.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/masonry.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/rating.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/scrollable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/sortable-nestable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/toastr.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/advanced/treeview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/angular/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/calendar/calendar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/contacts/contacts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/contacts/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/documents/article.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/documents/articles.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/documents/categories.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/forum/forum.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/forum/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/location/location.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/mailbox/mailbox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/mailbox/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/media/overview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/media/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/message/message.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/notebook/notebook.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/projects/projects.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/taskboard/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/taskboard/taskboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/travel/travel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/work/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/apps/work/work.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/caroler-account-agreement.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/caroler-account-calendar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/caroler-account-cash.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/caroler-account-costume.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/caroler-account-profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/caroler-account-stars.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/caroler-account-tax.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/c3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/chartist.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/chartjs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/eventdrops.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/flot.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/gauges.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/morris.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/peity.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/pie-progress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/rickshaw.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/charts/sparkline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-account-billing.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-account-expect.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-account-feedback.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-account-help.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-account-proccess.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-account-profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-account-users.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-events-calendar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-events-caroler.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-events-details.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-events-fees.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-events-info.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-events-payments.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/customer-events-requests.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/dashboard/analytics.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/dashboard/ecommerce.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/dashboard/team.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/dashboard/v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/director-market-availability.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/director-market-carolers.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/director-market-location.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/director-market-payment.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/director-market-pricing.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/director-market-profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/director-market-travel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/advanced.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/editor-ace.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/editor-markdown.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/editor-summernote.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/file-uploads.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/general.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/image-cropping.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/layouts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/masks.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/material.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/validation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/forms/wizard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/aside-left-fixed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/aside-left-static.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/aside-right-fixed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/aside-right-static.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/bordered-header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/boxed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/grids.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/headers.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/layout-grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/menubar-disable-hover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/menubar-fold.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/menubar-open.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/menubar-push.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/panel-transition.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/layouts/two-columns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/blank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/code-editor.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/email-articles.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/email-news.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/email-post.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/email-thumbnail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/email-welcome.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/error-400.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/error-403.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/error-404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/error-500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/error-503.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/eventdrops.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/faq.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/forgot-password.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/gallery-grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/gallery.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/invoice.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/lockscreen.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/login-v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/login-v3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/maintenance.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/map-google.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/map-vector.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/profile-v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/profile-v3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/project.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/register-v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/register-v3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/register.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/search-result.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/site-map.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/pages/user.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/alerts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/blockquotes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/breadcrumbs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/chat.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/comments.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/cover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/media.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/nav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/navbars.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/overlay.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/pagination.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/pricing-tables.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/ribbon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/step.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/testimonials.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/timeline-simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/structure/timeline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/basic.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/bootstrap.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/datatable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/editable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/floatthead.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/footable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/jqtabledit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/jsgrid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/responsive.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/tables/table-dragger.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/badges.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/buttons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/cards.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/carousel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/colors.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/dropdowns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/7-stroke.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/brand-icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/font-awesome.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/glyphicons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/ionicons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/material-design.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/mfglabs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/octicons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/open-iconic.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/themify.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/weather-icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/icons/web-icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/images.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/modals.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/panel-actions.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/panel-portlets.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/panel-structure.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/progress-bars.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/tabs-accordions.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/tags.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/tooltip-popover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/typography.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/uikit/utilities.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/widgets/blog.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/widgets/chart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/widgets/data.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/widgets/social.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/widgets/statistics.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/html/widgets/weather.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/alertify.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/animation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/bootbox-sweetalert.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/context-menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/highlight.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/lightbox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/lightbox/test-ajax-2.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/lightbox/test-ajax.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/maps-google.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/maps-vector.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/masonry.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/rating.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/scrollable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/sortable-nestable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/toastr.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/advanced/treeview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/angular/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/calendar/calendar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/contacts/contacts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/contacts/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/documents/article.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/documents/articles.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/documents/categories.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/forum/forum.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/forum/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/location/location.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/mailbox/mailbox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/mailbox/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/media/overview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/media/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/message/message.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/notebook/notebook.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/projects/projects.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/taskboard/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/taskboard/taskboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/travel/travel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/work/panel.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/apps/work/work.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/c3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/chartist.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/chartjs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/eventdrops.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/flot.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/gauges.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/morris.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/peity.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/pie-progress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/rickshaw.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/charts/sparkline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/dashboard/analytics.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/dashboard/ecommerce.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/dashboard/team.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/dashboard/v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/advanced.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/editor-ace.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/editor-markdown.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/editor-summernote.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/file-uploads.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/general.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/image-cropping.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/layouts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/masks.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/material.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/validation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/forms/wizard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/aside-left-fixed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/aside-left-static.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/aside-right-fixed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/aside-right-static.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/bordered-header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/boxed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/grids.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/headers.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/layout-grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/menubar-disable-hover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/menubar-fold.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/menubar-open.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/menubar-push.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/panel-transition.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/layouts/two-columns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/blank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/code-editor.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/email-articles.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/email-news.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/email-post.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/email-thumbnail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/email-welcome.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/error-400.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/error-403.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/error-404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/error-500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/error-503.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/eventdrops.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/faq.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/forgot-password.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/gallery-grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/gallery.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/invoice.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/lockscreen.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/login-v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/login-v3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/maintenance.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/map-google.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/map-vector.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/profile-v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/profile-v3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/project.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/register-v2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/register-v3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/register.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/search-result.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/site-map.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/pages/user.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/alerts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/blockquotes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/breadcrumbs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/chat.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/comments.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/cover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/media.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/nav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/navbars.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/overlay.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/pagination.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/pricing-tables.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/ribbon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/step.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/testimonials.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/timeline-simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/structure/timeline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/basic.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/bootstrap.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/datatable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/editable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/floatthead.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/footable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/jqtabledit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/jsgrid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/responsive.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/tables/table-dragger.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/badges.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/buttons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/cards.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/carousel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/colors.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/dropdowns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/7-stroke.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/brand-icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/font-awesome.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/glyphicons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/ionicons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/material-design.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/mfglabs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/octicons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/open-iconic.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/themify.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/weather-icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/icons/web-icons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/images.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/modals.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/panel-actions.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/panel-portlets.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/panel-structure.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/progress-bars.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/tabs-accordions.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/tags.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/tooltip-popover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/typography.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/uikit/utilities.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/widgets/blog.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/widgets/chart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/widgets/data.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/widgets/social.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/widgets/statistics.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/templates/pages/widgets/weather.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/caroler-account-agreement.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/caroler/account/agreement.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/caroler-account-calendar.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/caroler/account/calendar.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/caroler-account-cash.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/caroler/account/cash.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/caroler-account-costume.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/caroler/account/costume.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/caroler-account-profile.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/caroler/account/profile.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/caroler-account-stars.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/caroler/account/stars.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/caroler-account-tax.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/caroler/account/tax.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-account-billing.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/account/billing.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-account-expect.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/account/expect.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-account-feedback.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/account/feedback.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-account-help.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/account/help.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-account-proccess.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/account/proccess.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-account-profile.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/account/profile.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-account-users.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/account/users.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-events-calendar.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/events/calendar.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-events-caroler.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/events/caroler.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-events-details.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/events/details.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-events-fees.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/events/fees.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-events-info.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/events/info.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-events-payments.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/events/payments.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/customer-events-requests.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/customer/events/requests.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/director-market-availability.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/availability.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/director-market-carolers.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/carolers.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/director-market-location.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/location.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/director-market-payment.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/payment.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/director-market-pricing.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/pricing.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/director-market-profile.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/profile.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/templates/pages/director-market-travel.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/travel.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config.json" afterPath="$PROJECT_DIR$/app/config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/index.html" afterPath="$PROJECT_DIR$/app/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/site-map.html" afterPath="$PROJECT_DIR$/app/html/site-map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/helpers/dest.js" afterPath="$PROJECT_DIR$/app/src/templates/helpers/dest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/css/pages/login-v3.css" afterPath="$PROJECT_DIR$/app/assets/examples/css/pages/login-v3.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/css/pages/login-v3.min.css" afterPath="$PROJECT_DIR$/app/assets/examples/css/pages/login-v3.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/login.html" afterPath="$PROJECT_DIR$/app/html/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/register.html" afterPath="$PROJECT_DIR$/app/html/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/examples/scss/pages/login-v3.scss" afterPath="$PROJECT_DIR$/app/src/examples/scss/pages/login-v3.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/scss/_vars-customs.scss" afterPath="$PROJECT_DIR$/app/src/scss/_vars-customs.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/pages/login.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/pages/register.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/.idea/workspace.xml" afterPath="$PROJECT_DIR$/landing/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/index.html" afterPath="$PROJECT_DIR$/landing/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -433,32 +24,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dest.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/templates/helpers/dest.js">
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/templates/pages/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="170">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="babel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/grunt/babel.js">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/templates/pages/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/config.json">
+      <file leaf-file-name="login-v3.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/examples/scss/pages/login-v3.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-              <folding />
+            <state relative-caret-position="476">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding>
+                <element signature="e#446#1109#2" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -481,7 +74,19 @@
       <find>data-target</find>
       <find>cart totals</find>
       <find>modal</find>
+      <find>primary</find>
+      <find>c</find>
+      <find>color</find>
+      <find>color-p</find>
+      <find>color-prim</find>
+      <find>color-primary</find>
+      <find>color-primary-</find>
+      <find>color-primary-60</find>
+      <find>color-primary-600</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\Users\chris\Desktop\tcc-client\app\src\scss</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -500,6 +105,9 @@
         <option value="$PROJECT_DIR$/app/src/templates/helpers/dest.js" />
         <option value="$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs" />
         <option value="$PROJECT_DIR$/app/config.json" />
+        <option value="$PROJECT_DIR$/app/src/scss/_vars-customs.scss" />
+        <option value="$PROJECT_DIR$/app/src/examples/scss/pages/login-v3.scss" />
+        <option value="$PROJECT_DIR$/app/src/templates/pages/login.html" />
       </list>
     </option>
   </component>
@@ -534,7 +142,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -578,9 +185,102 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scss" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scss" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -593,16 +293,17 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\chris\Desktop\tcc-app\landing" />
-      <recent name="C:\Users\chris\Desktop\tcc-app\landing\css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\director\markets" />
       <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\director" />
       <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\customer\events" />
       <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\customer\account" />
       <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\caroler\account" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages" />
+      <recent name="C:\Users\chris\Desktop\tcc-app\landing" />
+      <recent name="C:\Users\chris\Desktop\tcc-app\landing\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -707,16 +408,18 @@
       <workItem from="1497054623090" duration="1386000" />
       <workItem from="1497116452099" duration="861000" />
       <workItem from="1497117414256" duration="1497000" />
+      <workItem from="1497127963499" duration="1007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20258000" />
+    <option name="totallyTimeSpent" value="21265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26599148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -746,11 +449,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/templates/helpers/dest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/grunt/babel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1496756263539" expanded="true" signature="72:550" ph="{&quot;sourceRoot&quot;: '&lt;%= config.source.es %&gt;'...}" />
+            <marker date="1496756263539" expanded="true" signature="257:544" ph="[...]" />
+            <marker date="1496756263539" expanded="true" signature="258:523" ph="[...]" />
+            <marker date="1496756263539" expanded="true" signature="291:522" ph="{...}" />
+            <marker date="1496756263539" expanded="true" signature="312:514" ph="{&quot;jquery&quot;: &quot;jQuery&quot;...}" />
+            <marker date="1496756263539" expanded="true" signature="575:719" ph="[...]" />
+            <marker date="1496756263539" expanded="true" signature="576:718" ph="{&quot;cwd&quot;: '&lt;%= config.source.es %&gt;'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/templates/partials/site_menu.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -929,31 +663,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/landing/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="917" column="53" lean-forward="false" selection-start-line="917" selection-start-column="53" selection-end-line="917" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Web Templates/canvas-html/checkout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="932" column="87" lean-forward="false" selection-start-line="886" selection-start-column="28" selection-end-line="932" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -975,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -991,12 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4328">
           <caret line="1191" column="5" lean-forward="false" selection-start-line="1191" selection-start-column="5" selection-end-line="1191" selection-end-column="5" />
-          <folding>
-            <element signature="e#32410#32415#0#HTML" expanded="true" />
-            <element signature="e#32984#32989#0#HTML" expanded="true" />
-            <element signature="e#39328#39333#0#HTML" expanded="true" />
-            <element signature="e#39646#39651#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1004,14 +709,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/helpers/dest.js">
+    <entry file="file://$PROJECT_DIR$/app/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="425">
+          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1020,14 +724,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1496756263539" expanded="true" signature="72:550" ph="{&quot;sourceRoot&quot;: '&lt;%= config.source.es %&gt;'...}" />
+            <marker date="1496756263539" expanded="true" signature="257:544" ph="[...]" />
+            <marker date="1496756263539" expanded="true" signature="258:523" ph="[...]" />
+            <marker date="1496756263539" expanded="true" signature="291:522" ph="{...}" />
+            <marker date="1496756263539" expanded="true" signature="312:514" ph="{&quot;jquery&quot;: &quot;jQuery&quot;...}" />
+            <marker date="1496756263539" expanded="true" signature="575:719" ph="[...]" />
+            <marker date="1496756263539" expanded="true" signature="576:718" ph="{&quot;cwd&quot;: '&lt;%= config.source.es %&gt;'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/helpers/dest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config.json">
+    <entry file="file://$PROJECT_DIR$/landing/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        <state relative-caret-position="12206">
+          <caret line="917" column="53" lean-forward="false" selection-start-line="917" selection-start-column="53" selection-end-line="917" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/examples/scss/pages/login-v2.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/_vars.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/_vars-components.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/site.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/_vars-color.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/scss/_vars-customs.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/examples/scss/pages/login-v3.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#446#1109#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
           <folding />
         </state>
       </provider>
