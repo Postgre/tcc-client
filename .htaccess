@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^test$ /landing [NC]
+RewriteRule ^test$ landing/index.html [NC]
