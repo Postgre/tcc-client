@@ -4,7 +4,7 @@
 # make the changes to the file according to the instructions.
 #==============================================================
 # Do not change this line.
-RewriteEngine on
+RewriteEngine ond
 # Change yourdomain.com to be your primary domain.
 RewriteCond %{HTTP_HOST} ^(tcc.)?vectorwebdevelopment.com$
 # Change 'subfolder' to be the folder you will use for your primary domain.
