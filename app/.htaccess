@@ -6,7 +6,7 @@
 # Do not change this line.
 RewriteEngine on
 # Change yourdomain.com to be your primary domain.
-RewriteCond %{HTTP_HOST} ^(www.)?tcc.vectorwebdevelopment.com$
+RewriteCond %{HTTP_HOST} ^(www.)?vectorwebdevelopment.com$
 # Change 'subfolder' to be the folder you will use for your primary domain.
 RewriteCond %{REQUEST_URI} !^/landing/
 # Don't change this line.
@@ -17,5 +17,5 @@ RewriteRule ^(.*)$ /landing/$1
 # Change yourdomain.com to be your primary domain again.
 # Change 'subfolder' to be the folder you will use for your primary domain
 # followed by / then the main file for your site, index.php, index.html, etc.
-RewriteCond %{HTTP_HOST} ^(www.)?tcc.vectorwebdevelopment.com$
+RewriteCond %{HTTP_HOST} ^(www.)?vectorwebdevelopment.com$
 RewriteRule ^(/)?$ landing/index.html [L]
