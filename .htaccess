@@ -1,7 +1,7 @@
 RewriteEngine on
 # RewriteCond %{HTTP_HOST} ^tcc.vectorwebdevelopment.com$
 RewriteCond %{REQUEST_URI} !^/landing/
-RewriteCond %{REQUEST_URI} !^/app/.*
+RewriteCond %{REQUEST_URI} !^/app.*
 # Don't change this line.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
