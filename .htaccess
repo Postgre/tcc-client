@@ -4,6 +4,7 @@
 # in the public_html folder of your hosting account
 # make the changes to the file according to the instructions.
 # Do not change this line.
+break;
 RewriteEngine on
 # Change yourdomain.com to be your primary domain.
 RewriteCond %{HTTP_HOST} ^(www.)?vectorwebdevelopment.com$
