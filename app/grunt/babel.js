@@ -8,7 +8,6 @@ module.exports = function () {
       sourceRoot: '<%= config.source.es %>',
       moduleRoot: '',
       moduleIds: true,
-      presets: ["es2015"],
       plugins: [["transform-es2015-modules-umd", {
         "globals": {
           "jquery": "jQuery",

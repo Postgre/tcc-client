@@ -11,15 +11,45 @@ body_class: page-aside-left
             <h1 class="page-title">Caroler Configurations</h1>
         </div>
         <div class="page-content">
+            <!-- Panel Checkbox & Radio -->
             <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Caroler Configurations</h3>
+                </div>
                 <div class="panel-body container-fluid">
                     <div class="row row-lg">
-                        <div class="col-md-12">
-                            <!-- Content Here -->
+                        <div class="col-md-6 col-xl-4">
+                            <!-- Example Checkboxes -->
+                            <div class="example-wrap">
+                                <h4 class="example-title">Please indicate below the caroler group configurations you offer</h4>
+                                <p>*Required</p>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="trioSAB" />
+                                    <label for="trioSAB">Trio ( S, A, B )</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="trioSTB" />
+                                    <label for="trioSTB">Trio ( S, T, B )</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="quartets" disabled checked />
+                                    <label for="quartets">*Quartets ( S, A, T, B )</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="sixtets" />
+                                    <label for="sixtets">Sixtets ( S, S, A, T, T, B )</label>
+                                </div>
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="octets" />
+                                    <label for="octets">Octets ( S, S, A, A, T, T, B, B )</label>
+                                </div>
+                            </div>
+                            <!-- End Example Checkboxes -->
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- End Panel Checkbox & Radio -->
         </div>
     {{/content}}
 {{/extend}}

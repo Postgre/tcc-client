@@ -5,17 +5,101 @@ body_class: page-aside-left
 
 ---
 
+{{#content "css" mode="prepend"}}
+<link rel="stylesheet" href="{{assets}}/examples/css/forms/layouts.css">
+{{/content}}
+
+{{#content "js_vendor" mode="append"}}
+<script src="{{assets}}/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+{{/content}}
+
+{{#content "js" mode="append"}}
+<script src="{{assets}}/js/Plugin/jquery-placeholder.js"></script>
+{{/content}}
+
 {{#extend "director-market"}}
     {{#content "page-main"}}
         <div class="page-header">
             <h1 class="page-title">Market Profile</h1>
         </div>
         <div class="page-content">
-            <div class="panel">
-                <div class="panel-body container-fluid">
-                    <div class="row row-lg">
-                        <div class="col-md-12">
-                            <!-- Content Here -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel">
+                        <div class="panel-body container-fluid">
+                            <div class="row row-lg">
+                                <div class="col">
+                                    <!-- Example Horizontal Form -->
+                                    <div class="example-wrap">
+                                        <h4 class="example-title">Location Information</h4>
+                                        <p>
+                                            Affects pricing information and search results
+                                        </p>
+                                        <div class="example">
+                                            <form name="location" class="form-horizontal">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label">City: </label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="name" placeholder="City" autocomplete="off"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label">State: </label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="name" placeholder="State" autocomplete="off"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label">Zip: </label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="name" placeholder="Zip" autocomplete="off"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label">Street Address: </label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="name" placeholder="Address" autocomplete="off"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="example-wrap">
+                                        <h4 class="example-title">Contact Information</h4>
+                                        <p>
+                                            This is how customers will know to contact you
+                                        </p>
+                                        <div class="example">
+                                            <form name="contact" class="form-horizontal">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label">Public Phone: </label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="name" placeholder="Phone Number" autocomplete="off"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 form-control-label">Your Email: </label>
+                                                    <div class="col-md-9">
+                                                        <input type="email" class="form-control" name="email" placeholder="@email.com"
+                                                               autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-3 offset-md-9">
+                                            <button type="button" class="btn btn-primary btn-lg float-right">Save Changes </button>
+                                        </div>
+                                    </div>
+                                    <!-- End Example Horizontal Form -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

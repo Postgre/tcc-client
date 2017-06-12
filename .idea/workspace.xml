@@ -2,21 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c2677e-bbfb-4c1b-99fb-236b9319b3de" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/js/URLs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/js/URLs.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/es/URLs.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/assignments/assignments.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/assignments/assignments.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/codebook/codebook.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/codebook/codebook.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/conflict-resolution/conflict-resolution.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/conflict-resolution/conflict-resolution.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/conflict-resolution/encoding.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/conflict-resolution/recordKeeper.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/conflict-resolution/transaction.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/branch/branch.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/branch/branch.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/domain/domain.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/domain/domain.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/editor/editor.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/editor/editor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/editor/editor.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/field/field.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/field/field.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/inputs/input.boolean.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/inputs/input.number.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/inputs/input.range.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/inputs/input.select.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/inputs/input.text.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/paper-coder.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/paper-coder.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/paper-coder.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/paper-coder/results-bigdata2.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/project-builder/project-builder.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/project-builder/project-builder.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/assignments.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/codebook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/conflict-resolution.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/conflicts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/define-study.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/encoder-dashboard.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/forgot-password.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/manage-project.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/paper-coder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/examples/js/project-center.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/css/pages/register-v3.css" afterPath="$PROJECT_DIR$/app/assets/examples/css/pages/register-v3.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/css/pages/register-v3.min.css" afterPath="$PROJECT_DIR$/app/assets/examples/css/pages/register-v3.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/js/login.js" afterPath="$PROJECT_DIR$/app/assets/examples/js/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/js/login.min.js" afterPath="$PROJECT_DIR$/app/assets/examples/js/login.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/ApplicationService.js" afterPath="$PROJECT_DIR$/app/assets/js/ApplicationService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/ApplicationService.min.js" afterPath="$PROJECT_DIR$/app/assets/js/ApplicationService.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/AuthService.js" afterPath="$PROJECT_DIR$/app/assets/js/AuthService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/AuthService.min.js" afterPath="$PROJECT_DIR$/app/assets/js/AuthService.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/DataService.js" afterPath="$PROJECT_DIR$/app/assets/js/DataService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/js/DataService.min.js" afterPath="$PROJECT_DIR$/app/assets/js/DataService.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/js/forms/editor-summernote.js" afterPath="$PROJECT_DIR$/app/assets/examples/js/forms/editor-summernote.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/js/forms/editor-summernote.min.js" afterPath="$PROJECT_DIR$/app/assets/examples/js/forms/editor-summernote.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/js/tables/datatable.js" afterPath="$PROJECT_DIR$/app/assets/examples/js/tables/datatable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/examples/js/tables/datatable.min.js" afterPath="$PROJECT_DIR$/app/assets/examples/js/tables/datatable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/grunt/babel.js" afterPath="$PROJECT_DIR$/app/grunt/babel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/caroler/account/agreement.html" afterPath="$PROJECT_DIR$/app/html/caroler/account/agreement.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/caroler/account/calendar.html" afterPath="$PROJECT_DIR$/app/html/caroler/account/calendar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/caroler/account/cash.html" afterPath="$PROJECT_DIR$/app/html/caroler/account/cash.html" />
@@ -46,21 +76,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/director/markets/profile.html" afterPath="$PROJECT_DIR$/app/html/director/markets/profile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/director/markets/travel.html" afterPath="$PROJECT_DIR$/app/html/director/markets/travel.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/index.html" afterPath="$PROJECT_DIR$/app/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/login.html" afterPath="$PROJECT_DIR$/app/html/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/register.html" afterPath="$PROJECT_DIR$/app/html/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/html/site-map.html" afterPath="$PROJECT_DIR$/app/html/site-map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/es/ApplicationService.js" afterPath="$PROJECT_DIR$/app/src/es/ApplicationService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/es/AuthService.js" afterPath="$PROJECT_DIR$/app/src/es/AuthService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/es/DataService.js" afterPath="$PROJECT_DIR$/app/src/es/DataService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/examples/js/login.js" afterPath="$PROJECT_DIR$/app/src/examples/js/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/examples/scss/pages/login-v3.scss" afterPath="$PROJECT_DIR$/app/src/examples/scss/pages/login-v3.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/examples/scss/pages/register-v3.scss" afterPath="$PROJECT_DIR$/app/src/examples/scss/pages/register-v3.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/pages/register.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/customer-events.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/customer-events.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/javascripts.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/javascripts.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/site_footer.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/site_footer.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/site_menu.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/site_menu.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/site_menubar_header.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/site_menubar_header.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/es/Plugin/datatables.js" afterPath="$PROJECT_DIR$/app/src/es/Plugin/datatables.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/examples/js/forms/editor-summernote.js" afterPath="$PROJECT_DIR$/app/src/examples/js/forms/editor-summernote.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/examples/js/tables/datatable.js" afterPath="$PROJECT_DIR$/app/src/examples/js/tables/datatable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/pages/director/markets/carolers.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/carolers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/pages/director/markets/location.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/location.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/pages/director/markets/pricing.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/pricing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/pages/director/markets/profile.html" afterPath="$PROJECT_DIR$/app/src/templates/pages/director/markets/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/director-market.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/director-market.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs" afterPath="$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,44 +96,70 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="javascripts.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/templates/partials/javascripts.hbs">
+    <leaf>
+      <file leaf-file-name="carolers.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/carolers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="16" column="60" lean-forward="false" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RenderSession.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/es/RenderSession.js">
+      <file leaf-file-name="pricing.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/pricing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+            <state relative-caret-position="546">
+              <caret line="145" column="22" lean-forward="false" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
               <folding>
-                <element signature="e#0#57#0" expanded="true" />
+                <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/es/AuthService.js">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="425">
+              <caret line="94" column="36" lean-forward="false" selection-start-line="94" selection-start-column="36" selection-end-line="98" selection-end-column="42" />
+              <folding>
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site_menu.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/templates/partials/site_menu.hbs">
+      <file leaf-file-name="location.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/location.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            <state relative-caret-position="476">
+              <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -119,17 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>type</find>
-      <find>form</find>
-      <find>Buy</find>
-      <find>&lt;form</find>
-      <find>bt-switch</find>
-      <find>about</find>
-      <find>powerfule</find>
-      <find>services</find>
-      <find>footer</find>
-      <find>header</find>
-      <find>large</find>
       <find>data-target</find>
       <find>cart totals</find>
       <find>modal</find>
@@ -143,9 +182,30 @@
       <find>color-primary-60</find>
       <find>color-primary-600</find>
       <find>3</find>
+      <find>e</find>
+      <find>examp</find>
+      <find>examples/</find>
+      <find>examples&quot;</find>
+      <find>examples</find>
+      <find>as</find>
+      <find>asse</find>
+      <find>assets</find>
+      <find>assets/e</find>
+      <find>assets/ex</find>
+      <find>assets/examp</find>
+      <find>assets/examples</find>
+      <find>basic</find>
+      <find>checkboxes</find>
+      <find>checked</find>
+      <find>icon add</find>
+      <find>horizon</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
     <dirStrings>
       <dir>C:\Users\chris\Desktop\tcc-client\app\src\scss</dir>
+      <dir>C:\Users\chris\Desktop\tcc-client</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -172,7 +232,6 @@
         <option value="$PROJECT_DIR$/app/src/examples/scss/pages/register-v3.scss" />
         <option value="$PROJECT_DIR$/app/src/templates/pages/register.html" />
         <option value="$PROJECT_DIR$/app/src/templates/partials/site_footer.hbs" />
-        <option value="$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs" />
         <option value="$PROJECT_DIR$/app/src/templates/partials/customer-events.hbs" />
         <option value="$PROJECT_DIR$/app/src/es/DataService.js" />
         <option value="$PROJECT_DIR$/app/src/es/ApplicationService.js" />
@@ -182,6 +241,19 @@
         <option value="$PROJECT_DIR$/app/src/templates/partials/site_menu.hbs" />
         <option value="$PROJECT_DIR$/app/src/es/RenderSession.js" />
         <option value="$PROJECT_DIR$/app/src/es/AuthService.js" />
+        <option value="$PROJECT_DIR$/app/grunt/babel.js" />
+        <option value="$PROJECT_DIR$/app/src/es/Plugin/datatables.js" />
+        <option value="$PROJECT_DIR$/app/src/examples/js/tables/datatable.js" />
+        <option value="$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs" />
+        <option value="$PROJECT_DIR$/app/src/examples/js/director/markets/markets.js" />
+        <option value="$PROJECT_DIR$/app/src/templates/pages/director/markets/index.html" />
+        <option value="$PROJECT_DIR$/app/src/examples/js/forms/editor-summernote.js" />
+        <option value="$PROJECT_DIR$/app/src/examples/js/director/markets/profile.js" />
+        <option value="$PROJECT_DIR$/app/src/templates/pages/director/markets/profile.html" />
+        <option value="$PROJECT_DIR$/app/src/templates/partials/director-market.hbs" />
+        <option value="$PROJECT_DIR$/app/src/templates/pages/director/markets/carolers.html" />
+        <option value="$PROJECT_DIR$/app/src/templates/pages/director/markets/pricing.html" />
+        <option value="$PROJECT_DIR$/app/src/templates/pages/director/markets/location.html" />
       </list>
     </option>
   </component>
@@ -219,6 +291,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -241,20 +315,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="landing" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tcc-client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tcc-client" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -280,8 +340,30 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,6 +388,18 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="director" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -322,13 +416,93 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tcc-client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="director" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="markets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,21 +512,22 @@
     <property name="add_unversioned_files" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="SearchEverywhereHistoryKey" value="Auth&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/es/AuthService.js" />
+    <property name="SearchEverywhereHistoryKey" value="markets.js&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/examples/js/director/markets/markets.js&#10;nav&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/templates/partials/site_navbar.hbs&#10;menu&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/templates/partials/site_menu.hbs&#10;datatable.js&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/examples/js/tables/datatable.js&#10;datatables&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/es/Plugin/datatables.js&#10;controller&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/app/assignments/assignments.controller.js&#10;application&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/es/ApplicationService.js&#10;Auth&#9;FILE&#9;file://C:/Users/chris/Desktop/tcc-client/app/src/es/AuthService.js" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\director\markets" />
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\examples\js\director\markets" />
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\examples\js" />
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\assets\vendor" />
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\es" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\examples\js" />
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\scss" />
+      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\examples\director\markets" />
       <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\director\markets" />
       <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\director" />
-      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\customer\events" />
-      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\customer\account" />
-      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages\caroler\account" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\es" />
-      <recent name="C:\Users\chris\Desktop\tcc-client\app\src\templates\pages" />
-      <recent name="C:\Users\chris\Desktop\tcc-app\landing" />
-      <recent name="C:\Users\chris\Desktop\tcc-app\landing\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -457,26 +632,26 @@
       <workItem from="1497054623090" duration="1386000" />
       <workItem from="1497116452099" duration="861000" />
       <workItem from="1497117414256" duration="1497000" />
-      <workItem from="1497127963499" duration="6362000" />
+      <workItem from="1497127963499" duration="6996000" />
+      <workItem from="1497144722750" duration="1233000" />
+      <workItem from="1497219902016" duration="6809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26620000" />
+    <option name="totallyTimeSpent" value="35296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18976545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24918744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23943663" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -484,6 +659,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -500,170 +676,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Web Templates/canvas-html/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/css/dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/css/colors.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/demos/real-estate/real-estate.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/css/header-smooth.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/css/colors.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3298">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/css/sweetalert.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/demos/real-estate/css/fonts.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="21" column="3" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Web Templates/canvas-html/services.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Web Templates/canvas-html/modal-popovers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13039">
-          <caret line="767" column="24" lean-forward="false" selection-start-line="767" selection-start-column="24" selection-end-line="788" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Web Templates/canvas-html/checkout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="932" column="87" lean-forward="false" selection-start-line="886" selection-start-column="28" selection-end-line="932" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/caroler/account/agreement.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/helpers/assets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/helpers/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/grunt/babel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1496756263539" expanded="true" signature="72:550" ph="{&quot;sourceRoot&quot;: '&lt;%= config.source.es %&gt;'...}" />
-            <marker date="1496756263539" expanded="true" signature="257:544" ph="[...]" />
-            <marker date="1496756263539" expanded="true" signature="258:523" ph="[...]" />
-            <marker date="1496756263539" expanded="true" signature="291:522" ph="{...}" />
-            <marker date="1496756263539" expanded="true" signature="312:514" ph="{&quot;jquery&quot;: &quot;jQuery&quot;...}" />
-            <marker date="1496756263539" expanded="true" signature="575:719" ph="[...]" />
-            <marker date="1496756263539" expanded="true" signature="576:718" ph="{&quot;cwd&quot;: '&lt;%= config.source.es %&gt;'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/helpers/dest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/landing/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12206">
-          <caret line="917" column="53" lean-forward="false" selection-start-line="917" selection-start-column="53" selection-end-line="917" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/examples/scss/pages/login-v2.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -671,7 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,7 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,7 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,7 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,7 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -711,7 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="57" column="18" lean-forward="true" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,7 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -735,7 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,7 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,7 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="35" column="71" lean-forward="false" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,28 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="75" lean-forward="false" selection-start-line="1" selection-start-column="75" selection-end-line="1" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="72" column="17" lean-forward="false" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
-          <folding>
-            <element signature="n#li#0;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#li#1;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#li#3;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#li#4;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#li#5;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#li#5;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#li#6;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#li#6;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#li#7;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#li#7;n#ul#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -788,9 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
           <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding>
-            <element signature="e#147#172#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,7 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,19 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#23#0" expanded="false" />
-            <marker date="1496756264571" expanded="true" signature="441:704" ph="..." />
-            <marker date="1496756264571" expanded="true" signature="508:611" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/templates/partials/director-market.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,52 +806,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/es/URLs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/es/ApplicationService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#renderSession#0" expanded="false" />
-            <element signature="e#147#276#0" expanded="false" />
-            <element signature="e#330#396#0" expanded="false" />
-            <element signature="n#!!block;n#registerIf#0" expanded="false" />
-            <element signature="e#461#527#0" expanded="false" />
-            <element signature="n#!!block;n#registerBind#0" expanded="false" />
-            <element signature="e#596#657#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/es/URLs.js" />
     <entry file="file://$PROJECT_DIR$/app/src/es/ApplicationSettings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#282#519#0" expanded="false" />
-            <element signature="n#!!block;n#getUrl#0" expanded="false" />
-            <element signature="e#571#588#0" expanded="false" />
-            <element signature="n#!!block;n#localhost#0" expanded="false" />
-            <element signature="n#!!block;n#defaulthost#0" expanded="false" />
-            <element signature="e#823#840#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/templates/partials/javascripts.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
+        <state relative-caret-position="731">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
@@ -897,9 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="e#537#543#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -907,16 +836,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/es/AuthService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/es/RenderSession.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="43" lean-forward="true" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/es/App/Forum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app/assignments/assignments.controller.js" />
+    <entry file="file://$PROJECT_DIR$/app/src/es/ApplicationService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/grunt/uglify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/grunt/babel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/es/Plugin/datatables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding>
-            <element signature="e#0#66#0" expanded="false" />
-            <element signature="n#!!block;n#http#0" expanded="false" />
-            <element signature="e#268#349#0" expanded="false" />
-            <element signature="e#378#410#0" expanded="false" />
-            <element signature="n#!!block;n#reportError#0" expanded="false" />
-            <element signature="e#751#913#0" expanded="false" />
-            <element signature="e#834#907#0" expanded="false" />
-            <element signature="e#940#995#0" expanded="false" />
+            <element signature="e#1#24#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/examples/js/tables/datatable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/partials/site_navbar.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="68" column="54" lean-forward="false" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -928,21 +923,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/es/AuthService.js">
+    <entry file="file://$PROJECT_DIR$/app/src/examples/js/director/markets/markets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="153">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/es/RenderSession.js">
+    <entry file="file://$USER_HOME$/vector-web-development/templates/remark/generated/src/templates/pages/tables/datatable.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        <state relative-caret-position="171">
+          <caret line="1335" column="18" lean-forward="false" selection-start-line="1335" selection-start-column="18" selection-end-line="1335" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/tables.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="169" column="16" lean-forward="false" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/vector-web-development/templates/remark/generated/src/templates/pages/forms/layouts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="17" selection-end-column="14" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/examples/js/forms/editor-summernote.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/examples/js/director/markets/location.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/examples/js/director/markets/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/partials/director-market.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="67" lean-forward="false" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/vector-web-development/templates/remark/generated/src/templates/pages/forms/editor-summernote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="151" column="44" lean-forward="false" selection-start-line="136" selection-start-column="12" selection-end-line="151" selection-end-column="44" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/carolers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="60" lean-forward="false" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1088">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/vector-web-development/templates/remark/generated/src/templates/pages/forms/general.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="311" column="69" lean-forward="false" selection-start-line="311" selection-start-column="67" selection-end-line="311" selection-end-column="69" />
+          <folding>
+            <element signature="n#div#2;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#2;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/pricing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="145" column="22" lean-forward="false" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
+          <folding>
+            <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="94" column="36" lean-forward="false" selection-start-line="94" selection-start-column="36" selection-end-line="98" selection-end-column="42" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/templates/pages/director/markets/location.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -5,21 +5,149 @@ body_class: page-aside-left
 
 ---
 
+{{#content "css_vendor" mode="append"}}
+<link rel="stylesheet" href="{{assets}}/fonts/font-awesome/font-awesome.css">
+{{/content}}
+
 {{#extend "director-market"}}
-    {{#content "page-main"}}
-        <div class="page-header">
-            <h1 class="page-title">Market Pricing</h1>
+{{#content "page-main"}}
+<div class="page-header">
+    <h1 class="page-title">Pricing</h1>
+</div>
+<div class="page-content">
+    <!-- Panel Checkbox & Radio -->
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Please provide the following pricing for the season</h3>
         </div>
-        <div class="page-content">
-            <div class="panel">
-                <div class="panel-body container-fluid">
-                    <div class="row row-lg">
-                        <div class="col-md-12">
-                            <!-- Content Here -->
+        <div class="panel-body container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="example-title">Per Event Pricing</h4>
+                    <p>We will use the higher rate to calculate increments between hourly rates</p>
+                    <div class="example-wrap">
+                        <form name="configurations" class="form-horizontal">
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">One Hour Per Caroler: </label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Hourly rate at one hour">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">Two Hours Per Caroler: </label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Hourly rate at two hours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">Three Hours Per Caroler: </label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Hourly rate at three hours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">Four Hours Per Caroler: </label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Hourly rate at four hours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">Five or More Hours Per Caroler: </label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Hourly rate at five or more hours">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="example-title">Season Discounts</h4>
+                    <p></p>
+                    <div class="example-wrap">
+                        <form name="discounts" class="form-horizontal">
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">10 - 20 Hours</label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Discount rate at 10 - 20 season hours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">21 - 30 Hours</label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Discount rate at 21 - 30 season hours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">31 - 40 Hours</label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Discount rate at 31 - 40 season hours">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label">40+ Hours </label>
+                                <div class="col-md-9">
+                                    <div class="input-group input-group-icon">
+                                  <span class="input-group-addon">
+                                    <span class="icon fa-usd" aria-hidden="true"></span>
+                                  </span>
+                                        <input type="text" class="form-control" placeholder="Discount rate at 40+ season hours">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <div class="col-md-3 offset-md-9">
+                            <button type="button" class="btn btn-primary btn-lg float-right">Save Changes </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    {{/content}}
+    </div>
+    <!-- End Panel Checkbox & Radio -->
+</div>
+{{/content}}
 {{/extend}}

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Research Study Encoding System">
   <meta name="author" content="Chris Rocco">
-  <title>Location Page | Big Data UAB</title>
+  <title>Market Profile | Big Data UAB</title>
   <link rel="apple-touch-icon" href="..\..\..\assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="..\..\..\assets/images/favicon.ico?v=2">
   <!-- Stylesheets -->
@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="..\..\..\assets/vendor/slidepanel/slidePanel.css">
   <link rel="stylesheet" href="..\..\..\assets/vendor/flag-icon-css/flag-icon.css">
   <link rel="stylesheet" href="..\..\..\assets/vendor/bootstrap-sweetalert/sweetalert.css">
+  <link rel="stylesheet" href="..\..\..\assets/examples/css/forms/layouts.css">
+  <link rel="stylesheet" href="..\..\..\assets/vendor/summernote/summernote.css">
   <!-- Fonts -->
   <link rel="stylesheet" href="..\..\..\assets/fonts/web-icons/web-icons.min.css">
   <link rel="stylesheet" href="..\..\..\assets/fonts/brand-icons/brand-icons.min.css">
@@ -108,7 +110,7 @@
                         </a>
           </li>
           <li class="nav-item dropdown dropdown-fw dropdown-mega cc-if-director">
-            <a class="nav-link" href="..\..\director\markets\profile.html" role="button">
+            <a class="nav-link" href="..\..\director\markets\" role="button">
                             Market
                         </a>
           </li>
@@ -259,7 +261,7 @@
     </div>
   </div>
   <!-- Page -->
-  <div class="page">
+  <div style="max-width: 9999px" class="page">
     <div class="page-aside">
       <!---page-aside-inner-->
       <div class="page-aside-switch">
@@ -294,16 +296,27 @@
     </div>
     <div class="page-main">
       <div class="page-header">
-        <h1 class="page-title">Location Page</h1>
+        <h1 class="page-title">Market Profile</h1>
       </div>
       <div class="page-content">
-        <div class="panel">
-          <div class="panel-body container-fluid">
-            <div class="row row-lg">
-              <div class="col-md-12">
-                <!-- Content Here -->
+        <div class="row">
+          <div class="col">
+            <!-- Panel Click To Edit -->
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Market Landing Page</h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  <button type="button" class="btn btn-outline btn-primary" onclick="edit()">Edit</button>
+                  <button type="button" class="btn btn-outline btn-primary" onclick="save()">Save</button>
+                </p>
+                <hr/>
+                <div class="landingPageHTML">
+                </div>
               </div>
             </div>
+            <!-- End Panel Click To Edit -->
           </div>
         </div>
       </div>
@@ -332,6 +345,8 @@
   <script src="..\..\..\assets/vendor/screenfull/screenfull.js"></script>
   <script src="..\..\..\assets/vendor/slidepanel/jquery-slidePanel.js"></script>
   <script src="..\..\..\assets/vendor/bootstrap-sweetalert/sweetalert.js"></script>
+  <script src="..\..\..\assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+  <script src="..\..\..\assets/vendor/summernote/summernote.min.js"></script>
   <!-- Scripts -->
   <script src="..\..\..\assets/js/State.js"></script>
   <script src="..\..\..\assets/js/Component.js"></script>
@@ -359,15 +374,9 @@
   <script src="..\..\..\assets/js/Plugin/asscrollable.js"></script>
   <script src="..\..\..\assets/js/Plugin/slidepanel.js"></script>
   <script src="..\..\..\assets/js/Plugin/switchery.js"></script>
-  <script>
-  (function(document, window, $) {
-    'use strict';
-    var Site = window.Site;
-    $(document).ready(function() {
-      Site.run();
-    });
-  })(document, window, jQuery);
-  </script>
+  <script src="..\..\..\assets/js/Plugin/jquery-placeholder.js"></script>
+  <script src="..\..\..\assets/js/Plugin/summernote.js"></script>
+  <script src="..\..\..\assets/examples/js/director/markets/location.js"></script>
   <script>
   (function(document, window, $) {
     $(document).ready(function() {
