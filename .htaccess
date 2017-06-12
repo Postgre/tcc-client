@@ -4,7 +4,7 @@ RewriteCond %{HTTP_HOST} ^(tcc.)?vectorwebdevelopment.com$
 # Don't change this line.
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /landing/index.html
+RewriteRule ^/(.*)$ /landing/index.html
 # Change yourdomain.com to be your primary domain again.
 # Change 'subfolder' to be the folder you will use for your primary domain
 # followed by / then the main file for your site, index.php, index.html, etc.
