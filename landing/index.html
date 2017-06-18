@@ -919,7 +919,8 @@
                                         </td>
 
                                         <td class="notopborder cart-product-name">
-                                            <span class="amount">$400.94</span>
+                                            <span class="amount">$<span id="quote-carolers">400.94</span>
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr class="cart_item">
@@ -928,7 +929,7 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount">$45.37</span>
+                                            <span class="amount"><span id="quote-travel">$45.37</span></span>
                                         </td>
                                     </tr>
                                     <tr class="cart_item">
@@ -937,7 +938,7 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount">$120.77</span>
+                                            <span class="amount">$<span id="quote-dates">120.20</span>
                                         </td>
                                     </tr>
                                     <tr class="cart_item">
@@ -946,7 +947,7 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount"> - $50.00</span>
+                                            <span class="amount"> - $<span id="quote-promos">50</span>
                                         </td>
                                     </tr>
                                     <tr class="cart_item">
@@ -955,7 +956,7 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount color lead"><strong>$106.94</strong></span>
+                                            <span class="amount color lead"><strong>$<span id="quote-total">120</span></strong></span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -963,17 +964,18 @@
 
                             </div>
                             <div class="accordion clearfix">
-                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Direct Bank Transfer</div>
-                                <div class="acc_content clearfix">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</div>
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>What Now?</div>
+                                <div class="acc_content clearfix">To book this event, you'll just need to make an account, and confirm it in your dashboard!
+                                    Already have an account? <a href="../app/html/login.html">Login here!</a></div>
 
-                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Cheque Payment</div>
-                                <div class="acc_content clearfix">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</div>
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i> Payment Options</div>
+                                <div class="acc_content clearfix">We accept several different payment options, including: credit card, by phone, and SquareCash! </div>
 
-                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Paypal</div>
-                                <div class="acc_content clearfix">Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.</div>
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Other Information</div>
+                                <div class="acc_content clearfix">**Disclaimers</div>
                             </div>
-                            <a href="#" class="button button-3d fright">Book Now</a>
-                            <a href="#" class="button button-3d fright">Save Quote</a>
+                            <a href="javascript:handleBookNow()" class="button button-3d fright">Book Now</a>
+                            <a href="javascript:handleSaveQuote()" class="button button-3d fright">Save Quote</a>
                         </div>
                     </div>
                 </div>
@@ -1201,6 +1203,11 @@
     });	/*ready*/
 </script>
 
+<!-- Borrowing DataService from admin area -->
+<script type="text/javascript" src="../app/assets/js/DataService.js"></script>
+<script type="text/javascript" src="../app/assets/js/AuthService.js"></script>
+<script type="text/javascript" src="../app/assets/js/RenderSession.js"></script>
+
 <!-- Logic Scripts
 ============================================= -->
 <script type="text/javascript">
@@ -1217,6 +1224,14 @@
     function parseContactForm(){
         alert("Handled Contact Form");
         return false;
+    }
+
+    function handleBookNow(){
+        alert("handled 'Book Now'");
+    }
+
+    function handleSaveQuote(){
+        alert("handled 'Save Quote'");
     }
 </script>
 
