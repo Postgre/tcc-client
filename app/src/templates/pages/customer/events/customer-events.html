@@ -5,6 +5,14 @@ body_class: page-aside-left
 
 {{#extend "layout-default"}}
 
+{{#content "js_vendor" mode="append"}}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+{{/content}}
+
+{{#content "scripts" mode="replace"}}
+<script src="{{assets}}/examples/js/paper-coder.js"></script>
+{{/content}}
+
   {{#content "body"}}
 
     <!-- Page -->
@@ -36,9 +44,7 @@ body_class: page-aside-left
         <!---page-aside-inner-->
       </div>
       <div class="page-main">
-          {{#block "page-main"}}
-              <h2>Hello World</h2>
-          {{/block}}
+          <ng-view></ng-view>
       </div>
     </div>
     <!-- End Page -->
