@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Research Study Encoding System">
   <meta name="author" content="Chris Rocco">
-  <title>Event&#x27;s Calendar | Big Data UAB</title>
+  <title>Form Wizard | Big Data UAB</title>
   <link rel="apple-touch-icon" href="..\..\..\assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="..\..\..\assets/images/favicon.ico?v=2">
   <!-- Stylesheets -->
@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="..\..\..\assets/vendor/slidepanel/slidePanel.css">
   <link rel="stylesheet" href="..\..\..\assets/vendor/flag-icon-css/flag-icon.css">
   <link rel="stylesheet" href="..\..\..\assets/vendor/bootstrap-sweetalert/sweetalert.css">
+  <link rel="stylesheet" href="..\..\..\assets/vendor/jquery-wizard/jquery-wizard.css">
+  <link rel="stylesheet" href="..\..\..\assets/vendor/formvalidation/formValidation.css">
   <!-- Fonts -->
   <link rel="stylesheet" href="..\..\..\assets/fonts/web-icons/web-icons.min.css">
   <link rel="stylesheet" href="..\..\..\assets/fonts/brand-icons/brand-icons.min.css">
@@ -39,7 +41,7 @@
   Breakpoints();
   </script>
 </head>
-<body class="animsition page-aside-left">
+<body class="animsition">
   <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -260,46 +262,127 @@
     </div>
   </div>
   <!-- Page -->
-  <div class="page" style="max-width: 9000px">
-    <div class="page-aside">
-      <!---page-aside-inner-->
-      <div class="page-aside-switch">
-        <i class="icon md-chevron-left" aria-hidden="true"></i>
-        <i class="icon md-chevron-right" aria-hidden="true"></i>
-      </div>
-      <div class="page-aside-inner page-aside-scroll">
-        <div data-role="container">
-          <div data-role="content">
-            <section class="page-aside-section">
-              <h5 class="page-aside-title">EVENTS</h5>
-              <div class="list-group">
-                <a class="list-group-item " href="..\..\customer\events\calendar.html"><i class="icon md-account" aria-hidden="true"></i>       Event Calendar</a>
-                <a class="list-group-item " href="..\..\customer\events\info.html"><i class="icon md-accounts-add" aria-hidden="true"></i>      Your Information</a>
-                <a class="list-group-item " href="..\..\customer\events\details.html"><i class="icon md-money-box" aria-hidden="true"></i>      Event Details</a>
-                <a class="list-group-item " href="..\..\customer\events\fees.html"><i class="icon md-account-calendar" aria-hidden="true"></i>  Travel Fees</a>
-                <a class="list-group-item " href="..\..\customer\events\payments.html"><i class="icon md-folder" aria-hidden="true"></i>        Event Payments</a>
-                <a class="list-group-item " href="..\..\customer\events\caroler.html"><i class="icon md-assignment-check" aria-hidden="true"></i>  Lead Caroler</a>
-                <a class="list-group-item " href="..\..\customer\events\requests.html"><i class="icon md-folder" aria-hidden="true"></i>        Special Request</a>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      <!---page-aside-inner-->
+  <div class="page">
+    <div class="page-header">
+      <h1 class="page-title">Book an Event</h1>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="..\..\index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)">Events</a></li>
+        <li class="breadcrumb-item active">Book Event</li>
+      </ol>
     </div>
-    <div class="page-main">
-      <div class="page-header">
-        <h1 class="page-title">Event Details</h1>
-      </div>
-      <div class="page-content">
-        <div class="panel">
-          <div class="panel-body container-fluid">
-            <div class="row row-lg">
-              <div class="col-md-12">
-                <!-- Content Here -->
+    <div class="page-content container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Panel Wizard Form -->
+          <div class="panel" id="bookingForm">
+            <div class="panel-heading">
+              <h3 class="panel-title">Book the Carolers</h3>
+            </div>
+            <div class="panel-body">
+              <!-- Steps -->
+              <div class="steps steps-sm row" data-plugin="matchHeight" data-by-row="true" role="tablist">
+                <div class="step col-lg-3 current" data-target="#accountProfile" role="tab">
+                  <span class="step-number">1</span>
+                  <div class="step-desc">
+                    <span class="step-title">Account</span>
+                    <p>Login for identification</p>
+                  </div>
+                </div>
+                <div class="step col-lg-3" data-target="#eventDetails" role="tab">
+                  <span class="step-number">2</span>
+                  <div class="step-desc">
+                    <span class="step-title">Event Details</span>
+                    <p>About your event</p>
+                  </div>
+                </div>
+                <div class="step col-lg-3" data-target="#billingInfo" role="tab">
+                  <span class="step-number">3</span>
+                  <div class="step-desc">
+                    <span class="step-title">Billing</span>
+                    <p>Pay for the bill</p>
+                  </div>
+                </div>
+                <div class="step col-lg-3" data-target="#done" role="tab">
+                  <span class="step-number">4</span>
+                  <div class="step-desc">
+                    <span class="step-title">Getting</span>
+                    <p>Waiting for the goods</p>
+                  </div>
+                </div>
+                <div class="step col-lg-4" data-target="#eventDetails" role="tab">
+                  <span class="step-number">5</span>
+                  <div class="step-desc">
+                    <span class="step-title">Travel Fees</span>
+                    <p>About your event</p>
+                  </div>
+                </div>
+                <div class="step col-lg-4" data-target="#billingInfo" role="tab">
+                  <span class="step-number">6</span>
+                  <div class="step-desc">
+                    <span class="step-title">Lead Caroler</span>
+                    <p>Pay for the bill</p>
+                  </div>
+                </div>
+                <div class="step col-lg-4" data-target="#done" role="tab">
+                  <span class="step-number">7</span>
+                  <div class="step-desc">
+                    <span class="step-title">Agreements</span>
+                    <p>Waiting for the goods</p>
+                  </div>
+                </div>
               </div>
+              <!-- End Steps -->
+              <!-- Wizard Content -->
+              <div class="wizard-content">
+                <div class="wizard-pane active" id="accountProfile" role="tabpanel">
+                  <form id="exampleAccountForm">
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputUserName">Username</label>
+                      <input type="text" class="form-control" id="inputUserName" name="username" required="required">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputPassword">Password</label>
+                      <input type="password" class="form-control" id="inputPassword" name="password"
+                      required="required">
+                    </div>
+                  </form>
+                </div>
+                <div class="wizard-pane" id="eventDetails" role="tabpanel">
+                  <form id="eventDetailsForm">
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputCardNumber">Card Number</label>
+                      <input type="text" class="form-control" id="inputCardNumber" name="number" placeholder="Card number">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputCVV">CVV</label>
+                      <input type="text" class="form-control" id="inputCVV" name="cvv" placeholder="CVV">
+                    </div>
+                  </form>
+                </div>
+                <div class="wizard-pane" id="billingInfo" role="tabpanel">
+                  <form id="exampleBillingForm">
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputCardNumber">Card Number</label>
+                      <input type="text" class="form-control" id="inputCardNumber" name="number" placeholder="Card number">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputCVV">CVV</label>
+                      <input type="text" class="form-control" id="inputCVV" name="cvv" placeholder="CVV">
+                    </div>
+                  </form>
+                </div>
+                <div class="wizard-pane" id="done" role="tabpanel">
+                  <div class="text-center my-20">
+                    <i class="icon wb-check font-size-40" aria-hidden="true"></i>
+                    <h4>We got your order. Your product will be shipping soon.</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End Wizard Content -->
             </div>
           </div>
+          <!-- End Panel Wizard One Form -->
         </div>
       </div>
     </div>
@@ -327,6 +410,10 @@
   <script src="..\..\..\assets/vendor/screenfull/screenfull.js"></script>
   <script src="..\..\..\assets/vendor/slidepanel/jquery-slidePanel.js"></script>
   <script src="..\..\..\assets/vendor/bootstrap-sweetalert/sweetalert.js"></script>
+  <script src="..\..\..\assets/vendor/formvalidation/formValidation.js"></script>
+  <script src="..\..\..\assets/vendor/formvalidation/framework/bootstrap.js"></script>
+  <script src="..\..\..\assets/vendor/matchheight/jquery.matchHeight-min.js"></script>
+  <script src="..\..\..\assets/vendor/jquery-wizard/jquery-wizard.js"></script>
   <!-- Scripts -->
   <script src="..\..\..\assets/js/State.js"></script>
   <script src="..\..\..\assets/js/Component.js"></script>
@@ -354,15 +441,9 @@
   <script src="..\..\..\assets/js/Plugin/asscrollable.js"></script>
   <script src="..\..\..\assets/js/Plugin/slidepanel.js"></script>
   <script src="..\..\..\assets/js/Plugin/switchery.js"></script>
-  <script>
-  (function(document, window, $) {
-    'use strict';
-    var Site = window.Site;
-    $(document).ready(function() {
-      Site.run();
-    });
-  })(document, window, jQuery);
-  </script>
+  <script src="..\..\..\assets/js/Plugin/jquery-wizard.js"></script>
+  <script src="..\..\..\assets/js/Plugin/matchheight.js"></script>
+  <script src="..\..\..\assets/examples/js/customer/events/book.js"></script>
   <script>
   (function(document, window, $) {
     $(document).ready(function() {
