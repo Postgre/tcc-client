@@ -93,27 +93,27 @@
 
         // setup validator
         // http://formvalidation.io/api/#is-valid
-        wizard.get("#accountProfile").setValidator(function() {
-            var fv = $("#exampleAccountForm").data('formValidation');
-            fv.validate();
-
-            if (!fv.isValid()) {
-                return false;
-            }
-
-            return true;
-        });
-
-        wizard.get("#billingInfo").setValidator(function() {
-            var fv = $("#exampleBillingForm").data('formValidation');
-            fv.validate();
-
-            if (!fv.isValid()) {
-                return false;
-            }
-
-            return true;
-        });
+        // wizard.get("#accountProfile").setValidator(function() {
+        //     var fv = $("#exampleAccountForm").data('formValidation');
+        //     fv.validate();
+        //
+        //     if (!fv.isValid()) {
+        //         return false;
+        //     }
+        //
+        //     return true;
+        // });
+        //
+        // wizard.get("#billingInfo").setValidator(function() {
+        //     var fv = $("#exampleBillingForm").data('formValidation');
+        //     fv.validate();
+        //
+        //     if (!fv.isValid()) {
+        //         return false;
+        //     }
+        //
+        //     return true;
+        // });
     })();
 
 })(document, window, jQuery);

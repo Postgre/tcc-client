@@ -16,7 +16,6 @@ window.marketLandingPageHTML = "Click edit to start building your public market 
 
     $(document).ready(function ($) {
         Site.run();
-
     });
 
     // Example Click to edit
