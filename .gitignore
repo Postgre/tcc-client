@@ -1,4 +1,8 @@
+# IDEA IDE
+.idea
 
-/app/node_modules/
-/app/.idea/
-/.idea/
+# NPM Files
+node_modules
+
+# Mac Files
+.DS_Store

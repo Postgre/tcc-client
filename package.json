@@ -1,25 +1,16 @@
 {
-  "name": "bigdata",
-  "title": "Big Data",
-  "description": "The best way to encode scientific papers.",
-  "version": "2.0.0",
-  "homepage": "https://uab-energetics.github.io/bigdata-app/html/",
+  "name": "tcc-app",
+  "title": "The Christmas Carolers Admin App",
+  "description": "",
+  "version": "0.1.0",
+  "homepage": "https://github.com/vector-web-development/tcc-client",
   "private": false,
-  "keywords": [
-    "css",
-    "js",
-    "sass",
-    "mobile-first",
-    "responsive",
-    "framework",
-    "web"
-  ],
   "author": {
     "name": "chrisrocco",
     "url": "http://chrisroc.co"
   },
   "bugs": {
-    "url": "https://github.com/uab-energetics/bigdata-app/issues"
+    "url": "https://github.com/vector-web-development/tcc-client/issues"
   },
   "license": "Themeforest Standard Licenses",
   "licenses": [
@@ -28,6 +19,21 @@
       "url": "http://themeforest.net/licenses/standard"
     }
   ],
+  "eslintConfig": {
+    "env": {
+      "browser":true,
+      "commonjs": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "linebreak-style": ["error","unix"],
+      "quotes": ["error","single"],
+      "semi": ["error","always"],
+      "no-console": ["error",{"allow": ["info","warn","error"]}]
+    }
+  },
   "devDependencies": {
     "babel-cli": "*",
     "babel-plugin-add-module-exports": "*",
@@ -61,9 +67,6 @@
     "karma-jasmine": "^1.1.0",
     "load-grunt-config": "*",
     "load-grunt-tasks": "*"
-  },
-  "engines": {
-    "node": ">=0.10.1"
   },
   "files": [
     "assets/js/**/*.js",
