@@ -1204,13 +1204,19 @@
 </script>
 
 <!-- Borrowing DataService from admin area -->
-<script type="text/javascript" src="../app/assets/js/DataService.js"></script>
+<script type="text/javascript" src="../app/assets/js/ApplicationSettings.js"></script>
+<script type="text/javascript" src="../app/assets/js/ApplicationService.js"></script>
 <script type="text/javascript" src="../app/assets/js/AuthService.js"></script>
+<script type="text/javascript" src="../app/assets/js/DataService.js"></script>
 <script type="text/javascript" src="../app/assets/js/RenderSession.js"></script>
 
-<!-- Logic Scripts
+<!-- Custom Scripts
 ============================================= -->
 <script type="text/javascript">
+    $(document).ready(function(){
+        ApplicationService.renderSession();
+    });
+
     function parseRatesFrom(){
         var modal = "#quoteModal";
         $( modal ).modal("show");
