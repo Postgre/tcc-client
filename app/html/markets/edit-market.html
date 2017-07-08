@@ -590,21 +590,35 @@
                 <p>Select some dates that you are not available</p>
                 <div class="row">
                   <div ng-repeat="date in market.specialDates" ng-click="log(date)" class="col-md-6 mb-15">
-                    <div class="input-daterange" data-plugin="datepicker">
-                      <div class="input-group">
-                        <span class="input-group-addon">
-                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                        </span>
-                        <input ng-model="date.start" type="text" class="form-control" name="start" />
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-addon">to</span>
-                        <input ng-model="date.end" type="text" class="form-control" name="end" />
-                      </div>
-                    </div>
+                    <table>
+                      <tr>
+                        <td ng-if="specialDatesMode==='delete'">
+                          <button type="button" class="btn btn-danger">x</button>
+                        </td>
+                        <td>
+                          <div class="input-daterange" data-plugin="datepicker">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="icon wb-calendar" aria-hidden="true"></i>
+                              </span>
+                              <input ng-model="date.start" type="text" class="form-control" name="start" />
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon">to</span>
+                              <input ng-model="date.end" type="text" class="form-control" name="end" />
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
                   </div>
                   <div class="col-sm-12 ">
-                    <button ng-click="addSpecialDate()" type="button" class="btn btn-primary">Add New</button>
+                    <button ng-click="addSpecialDate()" type="button" class="btn btn-success">Add New</button>
+                    &nbsp; &nbsp; &nbsp;
+                    <button ng-click="specialDatesMode='delete'" ng-show="specialDatesMode!='delete'"
+                    type="button" class="btn btn-danger">Edit</button>
+                    <button ng-click="specialDatesMode='create'" ng-show="specialDatesMode==='delete'"
+                    type="button" class="btn btn-success">Stop Editing</button>
                   </div>
                 </div>
               </div>
