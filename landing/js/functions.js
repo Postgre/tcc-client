@@ -2529,9 +2529,10 @@ var SEMICOLON = SEMICOLON || {};
 							element.find('.acctitle').removeClass('acctitlec').next().slideUp("normal");
 							var clickTarget = $(this);
 							$(this).toggleClass('acctitlec').next().slideDown("normal", function(){
-								$('html,body').stop(true).animate({
-									'scrollTop': clickTarget.offset().top - ( SEMICOLON.initialize.topScrollOffset() - 40 )
-								}, 800, 'easeOutQuad' );
+								// WTF was up with the sliding animation?
+								// $('html,body').stop(true).animate({
+								// 	'scrollTop': clickTarget.offset().top - ( SEMICOLON.initialize.topScrollOffset() - 40 )
+								// }, 800, 'easeOutQuad' );
 							});
 						}
 						return false;
