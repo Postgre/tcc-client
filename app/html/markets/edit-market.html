@@ -318,6 +318,14 @@
         <h1 class="page-title">Editing:
           <span ng-bind="market.name"></span>
         </h1>
+        <div class="page-header-actions">
+          <button ng-show="!market.published" ng-click="market.published=true" class="btn btn-outline btn-success">
+            <i class="fa fa-arrow-up"></i> Publish Market
+          </button>
+          <button ng-show="market.published" ng-click="market.published=false" class="btn btn-outline btn-danger">
+            <i class="fa fa-arrow-down"></i> Un-publish Market
+          </button>
+        </div>
       </div>
       <div class="page-content container-fluid">
         <div class="row row-lg">
@@ -593,7 +601,7 @@
                     <table>
                       <tr>
                         <td ng-if="specialDatesMode==='delete'">
-                          <button type="button" class="btn btn-danger">x</button>
+                          <button ng-click="deleteDate(date)" type="button" class="btn btn-danger">x</button>
                         </td>
                         <td>
                           <div class="input-daterange" data-plugin="datepicker">
