@@ -17,11 +17,9 @@ function EditMarketController( $scope ) {
      */
     $scope.selectPanel = selectPanel;
     $scope.addSpecialDate = addSpecialDate;
+    $scope.deleteDate = deleteDate;
     window.edit = editLandingHtml;
     window.save = saveLandingHtml;
-    $scope.log = function( obj ){
-        console.log( obj );
-    };
 
     function selectPanel( id ){
         $scope.selectedPanel = id;
@@ -33,10 +31,13 @@ function EditMarketController( $scope ) {
         timeout = true;
         setTimeout(function(){
             var inputs = $(".input-daterange");
-            console.log( inputs );
             $(inputs[inputs.length-1]).datepicker();
             timeout = false;
         },300);
+    }
+    function deleteDate( date ){
+        var ind = $scope.market.specialDates.indexOf( date );
+        $scope.market.specialDates.splice( ind, 1 );
     }
     function editLandingHtml() {
         summerNoteEditor.summernote({
@@ -86,7 +87,8 @@ const DEFAULT_MODEL = {
             satb:       true,
             ssattb:     false,
             ssattbb:    false
-        }
+        },
+        squareCash: "$JohnDoe"
     },
     selectedPanel: "profile-panel"
 };
