@@ -264,7 +264,7 @@
     </div>
   </div>
   <!-- Page -->
-  <div style="max-width: 9999px" class="page">
+  <div style="max-width: 9999px" class="page" ng-app="edit-market" ng-controller="EditMarketController">
     <div class="page-aside">
       <div class="page-aside-switch">
         <i class="icon md-chevron-left" aria-hidden="true"></i>
@@ -276,19 +276,37 @@
             <section class="page-aside-section">
               <h5 class="page-aside-title">MARKET</h5>
               <div class="list-group">
-                <a class="list-group-item " href="#profile-panel"> <i class="icon md-account" aria-hidden="true"></i> Profile </a>
-                <a class="list-group-item " href="#pricing-panel"> <i class="icon md-account-calendar" aria-hidden="true"></i> Pricing
-                  </a>
-                <a class="list-group-item " href="#caroler-panel"> <i class="icon md-money-box" aria-hidden="true"></i> Caroler Configurations
-                  </a>
-                <a class="list-group-item " href="#landing-panel"> <i class="icon md-accounts-add" aria-hidden="true"></i> Location
-                  Page </a>
-                <a class="list-group-item " href="#availability-panel"> <i class="icon md-folder" aria-hidden="true"></i> Availability
-                  </a>
-                <a class="list-group-item " href="#"> <i class="icon md-assignment-check" aria-hidden="true"></i> Travel
-                  Expenses </a>
-                <a class="list-group-item " href="#"> <i class="icon md-folder" aria-hidden="true"></i> Payment Information
-                  </a>
+                <a ng-click="selectPanel('profile-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='profile-panel'}"
+                href="">
+                  <i class="icon md-account" aria-hidden="true"></i> Profile
+                </a>
+                <a ng-click="selectPanel('pricing-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='pricing-panel'}"
+                href="">
+                  <i class="icon md-account-calendar" aria-hidden="true"></i> Pricing
+                </a>
+                <a ng-click="selectPanel('caroler-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='caroler-panel'}"
+                href="">
+                  <i class="icon md-money-box" aria-hidden="true"></i> Caroler
+                  Configurations
+                </a>
+                <a ng-click="selectPanel('landing-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='landing-panel'}"
+                href="">
+                  <i class="icon md-accounts-add" aria-hidden="true"></i> Location
+                  Page
+                </a>
+                <a ng-click="selectPanel('availability-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='availability-panel'}"
+                href="">
+                  <i class="icon md-folder" aria-hidden="true"></i> Availability
+                </a>
+                <a ng-click="selectPanel('travel-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='travel-panel'}"
+                href="">
+                  <i class="icon md-assignment-check" aria-hidden="true"></i> Travel
+                  Expenses
+                </a>
+                <a ng-click="selectPanel('payment-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='payment-panel'}"
+                href="">
+                  <i class="icon md-folder" aria-hidden="true"></i> Payment Information
+                </a>
               </div>
             </section>
           </div>
@@ -297,12 +315,14 @@
     </div>
     <div class="page-main">
       <div class="page-header">
-        <h1 class="page-title">Editing: [Market Name]</h1>
+        <h1 class="page-title">Editing:
+          <span ng-bind="market.name"></span>
+        </h1>
       </div>
       <div class="page-content container-fluid">
         <div class="row row-lg">
           <div class="col-md-12">
-            <div id="profile-panel" class="panel panel-bordered">
+            <div ng-show="selectedPanel==='profile-panel'" class="panel panel-bordered">
               <div class="panel-heading">
                 <h3 class="panel-title">Location Details</h3>
               </div>
@@ -320,29 +340,29 @@
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">City: </label>
                             <div class="col-md-9">
-                              <input type="text" class="form-control" name="name" placeholder="City" autocomplete="off"
-                              />
+                              <input ng-model="market.city" type="text" class="form-control" name="name" placeholder="City"
+                              autocomplete="off" />
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">State: </label>
                             <div class="col-md-9">
-                              <input type="text" class="form-control" name="name" placeholder="State" autocomplete="off"
-                              />
+                              <input ng-model="market.state" type="text" class="form-control" placeholder="State"
+                              autocomplete="off" />
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">Zip: </label>
                             <div class="col-md-9">
-                              <input type="text" class="form-control" name="name" placeholder="Zip" autocomplete="off"
-                              />
+                              <input ng-model="market.zip" type="text" class="form-control" placeholder="Zip"
+                              autocomplete="off" />
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">Street Address: </label>
                             <div class="col-md-9">
-                              <input type="text" class="form-control" name="name" placeholder="Address" autocomplete="off"
-                              />
+                              <input ng-model="market.address" type="text" class="form-control" placeholder="Address"
+                              autocomplete="off" />
                             </div>
                           </div>
                         </form>
@@ -361,14 +381,14 @@
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">Public Phone: </label>
                             <div class="col-md-9">
-                              <input type="text" class="form-control" name="name" placeholder="Phone Number"
+                              <input ng-model="market.phone" type="text" class="form-control" placeholder="Phone Number"
                               autocomplete="off" />
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-md-3 form-control-label">Your Email: </label>
                             <div class="col-md-9">
-                              <input type="email" class="form-control" name="email" placeholder="@email.com"
+                              <input ng-model="market.email" type="email" class="form-control" placeholder="@email.com"
                               autocomplete="off" />
                             </div>
                           </div>
@@ -379,7 +399,7 @@
                 </div>
               </div>
             </div>
-            <div id="pricing-panel" class="panel panel-bordered">
+            <div ng-show="selectedPanel==='pricing-panel'" class="panel panel-bordered">
               <div class="panel-heading">
                 <h3 class="panel-title">Please provide the following pricing for the season</h3>
               </div>
@@ -398,7 +418,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Hourly rate at one hour">
+                              <input ng-model="market.hourlyRates['1']" type="text" class="form-control" placeholder="Hourly rate at one hour">
                             </div>
                           </div>
                         </div>
@@ -409,7 +429,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Hourly rate at two hours">
+                              <input ng-model="market.hourlyRates['2']" type="text" class="form-control" placeholder="Hourly rate at two hours">
                             </div>
                           </div>
                         </div>
@@ -420,7 +440,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Hourly rate at three hours">
+                              <input ng-model="market.hourlyRates['3']" type="text" class="form-control" placeholder="Hourly rate at three hours">
                             </div>
                           </div>
                         </div>
@@ -431,7 +451,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Hourly rate at four hours">
+                              <input ng-model="market.hourlyRates['4']" type="text" class="form-control" placeholder="Hourly rate at four hours">
                             </div>
                           </div>
                         </div>
@@ -442,7 +462,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Hourly rate at five or more hours">
+                              <input ng-model="market.hourlyRates['5']" type="text" class="form-control" placeholder="Hourly rate at five or more hours">
                             </div>
                           </div>
                         </div>
@@ -461,7 +481,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Discount rate at 10 - 20 season hours">
+                              <input ng-model="market.discounts['10-20']" type="text" class="form-control" placeholder="Discount rate at 10 - 20 season hours">
                             </div>
                           </div>
                         </div>
@@ -472,7 +492,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Discount rate at 21 - 30 season hours">
+                              <input ng-model="market.discounts['21-30']" type="text" class="form-control" placeholder="Discount rate at 21 - 30 season hours">
                             </div>
                           </div>
                         </div>
@@ -483,7 +503,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Discount rate at 31 - 40 season hours">
+                              <input ng-model="market.discounts['31-40']" type="text" class="form-control" placeholder="Discount rate at 31 - 40 season hours">
                             </div>
                           </div>
                         </div>
@@ -494,7 +514,7 @@
                               <span class="input-group-addon">
                                 <span class="icon fa-usd" aria-hidden="true"></span>
                               </span>
-                              <input type="text" class="form-control" placeholder="Discount rate at 40+ season hours">
+                              <input ng-model="market.discounts['41+']" type="text" class="form-control" placeholder="Discount rate at 40+ season hours">
                             </div>
                           </div>
                         </div>
@@ -504,7 +524,7 @@
                 </div>
               </div>
             </div>
-            <div id="caroler-panel" class="panel panel-bordered">
+            <div ng-show="selectedPanel==='caroler-panel'" class="panel panel-bordered">
               <div class="panel-heading">
                 <h3 class="panel-title">Caroler Configurations</h3>
               </div>
@@ -517,23 +537,28 @@
                         offer</h4>
                       <p>*Required</p>
                       <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="trioSAB" />
+                        <input ng-model="market.carolerConfigurations.sab" type="checkbox" id="trioSAB"
+                        />
                         <label for="trioSAB">Trio ( S, A, B )</label>
                       </div>
                       <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="trioSTB" />
+                        <input ng-model="market.carolerConfigurations.stb" type="checkbox" id="trioSTB"
+                        />
                         <label for="trioSTB">Trio ( S, T, B )</label>
                       </div>
                       <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="quartets" disabled checked/>
+                        <input ng-model="market.carolerConfigurations.satb" type="checkbox" id="quartets"
+                        disabled/>
                         <label for="quartets">*Quartets ( S, A, T, B )</label>
                       </div>
                       <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="sixtets" />
+                        <input ng-model="market.carolerConfigurations.ssattb" type="checkbox" id="sixtets"
+                        />
                         <label for="sixtets">Sixtets ( S, S, A, T, T, B )</label>
                       </div>
                       <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="octets" />
+                        <input ng-model="market.carolerConfigurations.ssattbb" type="checkbox" id="octets"
+                        />
                         <label for="octets">Octets ( S, S, A, A, T, T, B, B )</label>
                       </div>
                     </div>
@@ -542,7 +567,7 @@
                 </div>
               </div>
             </div>
-            <div id="landing-panel" class="panel panel-bordered">
+            <div ng-show="selectedPanel==='landing-panel'" class="panel panel-bordered">
               <div class="panel-heading">
                 <h3 class="panel-title">Market Landing Page</h3>
               </div>
@@ -556,35 +581,30 @@
                 </div>
               </div>
             </div>
-            <div id="availability-panel" class="panel panel-bordered">
+            <div ng-show="selectedPanel==='availability-panel'" class="panel panel-bordered">
               <div class="panel-heading">
                 <h3 class="panel-title">Availability</h3>
               </div>
               <div class="panel-body">
                 <h4 class="example-title">Availability Dates</h4>
-                <p>Select some dates that you are no available</p>
+                <p>Select some dates that you are not available</p>
                 <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group col-md-6">
-                      <div class="input-daterange" data-plugin="datepicker">
-                        <div class="input-group">
-                          <span class="input-group-addon">
-                            <i class="icon wb-calendar" aria-hidden="true"></i>
-                          </span>
-                          <input type="text" class="form-control" name="start" />
-                        </div>
-                        <div class="input-group">
-                          <span class="input-group-addon">to</span>
-                          <input type="text" class="form-control" name="end" />
-                        </div>
+                  <div ng-repeat="date in market.specialDates" ng-click="log(date)" class="col-md-6 mb-15">
+                    <div class="input-daterange" data-plugin="datepicker">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="icon wb-calendar" aria-hidden="true"></i>
+                        </span>
+                        <input ng-model="date.start" type="text" class="form-control" name="start" />
                       </div>
-                      <button type="button" class="btn btn-danger">x</button>
-                    </div>
-                    <div class="form-group col-md-3">
+                      <div class="input-group">
+                        <span class="input-group-addon">to</span>
+                        <input ng-model="date.end" type="text" class="form-control" name="end" />
+                      </div>
                     </div>
                   </div>
                   <div class="col-sm-12 ">
-                    <button type="button" class="btn btn-primary">Add New</button>
+                    <button ng-click="addSpecialDate()" type="button" class="btn btn-primary">Add New</button>
                   </div>
                 </div>
               </div>
@@ -651,7 +671,18 @@
   <script src="..\..\assets/js/Plugin/panel.js"></script>
   <script src="..\..\assets/js/Plugin/jquery-placeholder.js"></script>
   <script src="..\..\assets/js/Plugin/summernote.js"></script>
-  <script src="..\..\assets/examples/js/markets/update-market.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="../../../shared/angular/market/market.module.js"></script>
+  <script src="../../../shared/angular/market/market.controller.js"></script>
+  <script>
+  (function(document, window, $) {
+    'use strict';
+    var Site = window.Site;
+    $(document).ready(function() {
+      Site.run();
+    });
+  })(document, window, jQuery);
+  </script>
   <script>
   (function(document, window, $) {
     $(document).ready(function() {
