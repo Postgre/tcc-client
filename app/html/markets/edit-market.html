@@ -298,11 +298,6 @@
                 href="">
                   <i class="icon md-folder" aria-hidden="true"></i> Availability
                 </a>
-                <a ng-click="selectPanel('travel-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='travel-panel'}"
-                href="">
-                  <i class="icon md-assignment-check" aria-hidden="true"></i> Travel
-                  Expenses
-                </a>
                 <a ng-click="selectPanel('payment-panel')" class="list-group-item" ng-class="{'active':selectedPanel==='payment-panel'}"
                 href="">
                   <i class="icon md-folder" aria-hidden="true"></i> Payment Information
@@ -403,6 +398,23 @@
                         </form>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div class="row row-lg">
+                  <div class="col-lg-12">
+                    <h4 class="example-title">Travel Expenses</h4>
+                    <p>The Christmas Carolers will pay $1 per mile over 30 miles of
+                      travel ( to the driver ) from the address you provide. We
+                      will also pay carolers for any event taking longer than 30
+                      minutes to get to. We will pay carolers $10 per hour for
+                      travel time + any approved expensess prior to the date of
+                      the event.</p>
+                    <p>The lead caroler on each event will be asked to provide an
+                      estimate of travel time and any other cost associated with
+                      travel ( parking, toll-roads, etc. ). Please decide for your
+                      group the address for which the 30 miles should be centered
+                      upon.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -595,7 +607,7 @@
               </div>
               <div class="panel-body">
                 <h4 class="example-title">Availability Dates</h4>
-                <p>Select some dates that you are not available</p>
+                <p>Specify any dates that you are not available here.</p>
                 <div class="row">
                   <div ng-repeat="date in market.specialDates" ng-click="log(date)" class="col-md-6 mb-15">
                     <table>
@@ -627,6 +639,33 @@
                     type="button" class="btn btn-danger">Edit</button>
                     <button ng-click="specialDatesMode='create'" ng-show="specialDatesMode==='delete'"
                     type="button" class="btn btn-success">Stop Editing</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div ng-show="selectedPanel==='payment-panel'" class="panel panel-bordered">
+              <div class="panel-heading">
+                <h3 class="panel-title">Payment Information</h3>
+              </div>
+              <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                  <div class="col-lg-12">
+                    <div class="example-wrap">
+                      <p>The Christmas Carolers uses SquareCash to send payments to
+                        caroling groups. Please visit <a href="https://cash.me">cash.me</a>                        and setup an account. Once you've created your account,
+                        please enter your SquareCash ID below.</p>
+                      <div class="example">
+                        <form name="location" class="form-horizontal">
+                          <div class="form-group row">
+                            <label class="col-md-3 form-control-label">SquareCash ID: </label>
+                            <div class="col-md-9">
+                              <input ng-model="market.squareCash" type="text" class="form-control" placeholder="Example: $JohnDoe"
+                              autocomplete="off" />
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
