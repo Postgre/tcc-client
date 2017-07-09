@@ -14,17 +14,24 @@
 	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
 	<link rel="stylesheet" href="css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="css/calendar.css" type="text/css" />
 
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+	<!-- Angular
+	============================================= -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="../shared/angular/customer-events/customer-events.module.js"></script>
+	<script src="../shared/angular/customer-events/customer-events.controller.js"></script>
+
 	<!-- Document Title
 	============================================= -->
-	<title>About | The Christmas Carolers</title>
+	<title>My Events</title>
 
 </head>
 
-<body class="stretched">
+<body class="stretched" ng-app="customer-events" ng-controller="CustomerEventsController">
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -41,7 +48,7 @@
 					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
 					<!-- Logo
-					============================================= -->
+                    ============================================= -->
 					<div id="logo">
 						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
 								src="images/tcc-logo.png" alt="TCC Logo"></a>
@@ -61,7 +68,7 @@
 					</div>
 
 					<!-- Primary Navigation
-					============================================= -->
+                    ============================================= -->
 					<nav id="primary-menu">
 
 						<ul>
@@ -87,83 +94,81 @@
 
 		</header><!-- #header end -->
 
-		<!-- Content
+		<!-- Page Title
 		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix">
+				<h1>My Events</h1>
+				<span>My Upcoming Caroling Events</span>
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li class="active">Events</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+
 		<section id="content">
 
 			<div class="content-wrap">
 
 				<div class="container clearfix">
 
-					<div class="col_two_fifth nobottommargin" style="min-height: 350px;">
-						<img src="images/carolers/knockout.png">
-					</div>
+					<div class="postcontent nobottommargin">
 
-					<div class="col_three_fifth nobottommargin col_last">
+						<div id="posts" class="events small-thumbs">
 
-						<div class="heading-block">
-							<h3>THE CHRISTMAS CAROLERS</h3>
-							<span>Did you know that most offices in the US will have a corporate Christmas party?</span>
+							<div ng-repeat="event in upcoming_events" class="entry clearfix">
+								<div class="entry-image">
+									<a href="#">
+										<img ng-src="{{event.image}}" alt="{{event.name}}">
+										<div class="entry-date">10<span>Apr</span></div>
+									</a>
+								</div>
+								<div class="entry-c">
+									<div class="entry-title">
+										<h2><a ng-bind="event.name" href="#"></a></h2>
+									</div>
+									<ul class="entry-meta clearfix">
+										<li><span class="label label-warning" ng-bind="event.status"></span></li>
+										<li>
+											<a href="#">
+												<i class="icon-time"></i>
+												<span ng-bind="event.start_time"></span>
+											</a>
+										</li>
+										<li><a href="#"><i class="icon-map-marker2"></i>
+											<span ng-bind="event.city + ', ' + event.state"></span>
+										</a></li>
+									</ul>
+									<div class="entry-content">
+										<p ng-bind="event.description"></p>
+										<a href="#" class="btn btn-danger"><i class="icon-edit"></i> &nbsp;Edit Event</a>
+										<a href="#" class="btn btn-success"><i class="icon-money"></i> &nbsp; Pay Now</a>
+									</div>
+								</div>
+							</div>
+
 						</div>
 
-						<p>Challenger, Gray & Christmas, Inc., a global outplacement consultancy firm, found that this year alone, more than 80 percent of companies will partake in yuletide festivities.</p>
-
-						<p>Planning these parties can be a hassle. They quickly become expensive, as bands and other entertainers demand huge paydays.</p>
-						<p></p>
-						<p></p>
-
-						<a href="#">Learn more &rarr;</a>
+						<!-- Pagination
+						============================================= -->
+						<ul class="pager nomargin">
+							<li class="previous"><a href="#">&larr; Older</a></li>
+							<li class="next"><a href="#">Newer &rarr;</a></li>
+						</ul><!-- .pager end -->
 
 					</div>
 
-					<div class="clear"></div><div class="line"></div>
+					<div class="sidebar nobottommargin col_last clearfix">
+						<div class="sidebar-widgets-wrap">
 
-					<div class="col_three_fifth">
-
-						<div class="heading-block">
-							<h3>we believe in doing things differently</h3>
-							<span>Founded in 1996, we offer affordable holiday entertainment at real-time rates for your corporate Christmas party or event. </span>
 						</div>
-
-						<p>You can expect superior quality when you hire the Christmas Carolers. We cherry-pick our talented singers from music schools across the country. All our carolers are dressed in professionally-designed and award-winning Victorian-styled costumes that invoke the spirit of the season. Our carolers certainly know how to stand out in a crowd!</p>
-
-						<p>Per hour, we charge $100 to $200 for each caroler. We find that most of our customers order quartets for their corporate Christmas parties, which include a four-piece soprano, alto, tenor, and bass (SATB).</p>
-
-						<p>The Christmas Carolers won’t just stay in one spot all night (unless you want them to!), but rather move naturally through the room to entertain all guests and get them in the Christmas spirit.
-							​
-							Our carolers sing a cappella, which means without music. They’ll perform your favorite holiday tunes, including the classics that bring back memories of Christmases of yore. At the Christmas Carolers, all our performers are part of the National Carolers Association so you know you’re getting the best entertainment for your money. </p>
-
-						<a href="#">Learn more &rarr;</a>
-
-					</div>
-
-					<div class="col_two_fifth topmargin col_last" style="min-height: 350px">
-						<img src="images/carolers/that_face.png" width="100%">
-					</div>
-
-					<div class="clear"></div>
-					<div class="line"></div>
-
-					<div class="col_two_fifth topmargin nobottommargin" style="min-height: 350px;">
-
-					</div>
-
-					<div class="col_three_fifth nobottommargin col_last">
-
-						<div class="heading-block">
-							<h3>FEATURED LOCATIONS</h3>
-							<span>The Christmas Carolers work nationwide, so no matter where your company is based, you can find quality entertainment for your holiday party. It’s through our national branding that we’re able to offer better availability and more affordable rates compared to our competitors.</span>
-						</div>
-
 					</div>
 
 				</div>
-
-				<a class="button button-full center tright topmargin footer-stick">
-					<div class="container clearfix">
-						We are Available! <strong>Book Carolers Today</strong> <i class="icon-caret-right" style="top:4px;"></i>
-					</div>
-				</a>
 
 			</div>
 
@@ -296,124 +301,45 @@
 	============================================= -->
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/plugins.js"></script>
+	<script type="text/javascript" src="js/jquery.calendario.js"></script>
+	<script type="text/javascript" src="js/events-data.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
 	<script type="text/javascript" src="js/functions.js"></script>
 
-	<!-- Charts JS
-	============================================= -->
-	<script type="text/javascript" src="js/chart.js"></script>
-	<script type="text/javascript" src="js/chart-utils.js"></script>
-
 	<script type="text/javascript">
 
-		var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
+		canvasEvents = {
+		    '07-22-2017': "Rocco's Christmas Partyf"
 		};
 
-		var config = {
-			type: 'doughnut',
-			data: {
-				datasets: [{
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-					],
-					backgroundColor: [
-						window.chartColors.red,
-						window.chartColors.orange,
-						window.chartColors.yellow,
-						window.chartColors.green,
-						window.chartColors.blue,
-					],
-					label: 'Dataset 1'
-				}],
-				labels: [
-					"Red",
-					"Orange",
-					"Yellow",
-					"Green",
-					"Blue"
-				]
-			},
-			options: {
-				responsive: true,
-				legend: {
-					display: false,
-					position: 'top',
-				},
-				title: {
-					display: false,
-					text: 'Doughnut Chart'
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				}
-			}
-		};
+		var cal = $( '#calendar' ).calendario( {
+				onDayClick : function( $el, $contentEl, dateProperties ) {
 
+					for( var key in dateProperties ) {
+						console.log( key + ' = ' + dateProperties[ key ] );
+					}
 
-		// Radar Chart
-
-		var color = Chart.helpers.color;
-		var configRadar = {
-			type: 'radar',
-			data: {
-				labels: [["Eating", "Dinner"], ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"],
-				datasets: [{
-					label: "My First dataset",
-					backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
-					borderColor: window.chartColors.red,
-					pointBackgroundColor: window.chartColors.red,
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor()
-					]
-				}, {
-					label: "My Second dataset",
-					backgroundColor: color(window.chartColors.blue).alpha(0.2).rgbString(),
-					borderColor: window.chartColors.blue,
-					pointBackgroundColor: window.chartColors.blue,
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor()
-					]
-				},]
-			},
-			options: {
-				legend: {
-					display: false
 				},
-				title: {
-					display: false
-				},
-				scale: {
-				  ticks: {
-					beginAtZero: true
-				  }
-				}
-			}
-		};
+				caldata : canvasEvents
+			} ),
+			$month = $( '#calendar-month' ).html( cal.getMonthName() ),
+			$year = $( '#calendar-year' ).html( cal.getYear() );
 
-		window.onload = function() {
-			var ctx = document.getElementById("chart-doughnut").getContext("2d");
-			window.myDoughnut = new Chart(ctx, config);
-			window.myRadar = new Chart(document.getElementById("chart-radar"), configRadar);
+		$( '#calendar-next' ).on( 'click', function() {
+			cal.gotoNextMonth( updateMonthYear );
+		} );
+		$( '#calendar-prev' ).on( 'click', function() {
+			cal.gotoPreviousMonth( updateMonthYear );
+		} );
+		$( '#calendar-current' ).on( 'click', function() {
+			cal.gotoNow( updateMonthYear );
+		} );
+
+		function updateMonthYear() {
+			$month.html( cal.getMonthName() );
+			$year.html( cal.getYear() );
 		};
 
 	</script>

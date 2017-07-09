@@ -1,73 +1,54 @@
-angular.module('edit-market')
-.controller('EditMarketController', EditMarketController);
+angular.module('market')
+.controller('MarketController', MarketController);
 
-function EditMarketController( $scope ) {
-    init();
-    /**
-     * Models
-     * ===============
-     */
+function MarketController( $scope ) {
     $scope.market = DEFAULT_MODEL.market;
-    $scope.selectedPanel = DEFAULT_MODEL.selectedPanel;
-    var summerNoteEditor;
+    $scope.gallery = DEFAULT_MODEL.gallery;
+    init();
 
     /**
      * Functions
      * ===============
      */
-    $scope.selectPanel = selectPanel;
-    $scope.addSpecialDate = addSpecialDate;
-    $scope.deleteDate = deleteDate;
-    window.edit = editLandingHtml;
-    window.save = saveLandingHtml;
-
-    function selectPanel( id ){
-        $scope.selectedPanel = id;
-    }
-    // TODO: create datepicker directive
-    var timeout = false;
-    function addSpecialDate(){
-        if( timeout === false ) $scope.market.specialDates.push({});
-        timeout = true;
-        setTimeout(function(){
-            var inputs = $(".input-daterange");
-            $(inputs[inputs.length-1]).datepicker();
-            timeout = false;
-        },300);
-    }
-    function deleteDate( date ){
-        var ind = $scope.market.specialDates.indexOf( date );
-        $scope.market.specialDates.splice( ind, 1 );
-    }
-    function editLandingHtml() {
-        summerNoteEditor.summernote({
-            focus: true
-        });
-    }
-    function saveLandingHtml() {
-        $scope.market.html = summerNoteEditor.summernote('code');
-        summerNoteEditor.summernote('destroy');
-    }
 
     function init(){
-        summerNoteEditor = $('.landingPageHTML');
-        summerNoteEditor.summernote('code', DEFAULT_MODEL.market.html);
-        summerNoteEditor.summernote('destroy');
+        var loc = $scope.market.address + " " + $scope.market.city + ", " + $scope.market.state
+        jQuery('#event-location').gMap({
+            address: loc,
+            maptype: 'ROADMAP',
+            zoom: 15,
+            markers: [
+                {
+                    address: loc
+                }
+            ],
+            doubleclickzoom: false,
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            }
+        });
     }
 }
 
 const DEFAULT_MODEL = {
     market: {
-        name: "Default Market",
-        description: "This is a default model",
-        html: "Click edit to start building your public market landing page!",
+        name: "The Birmingham Carolers",
+        description: "Birmingham's best holiday entertainment",
+        html: 'Beautiful Birmingham is known for its impressive skyline. That skyline lights up even brighter at Christmas, when holiday lights adorn every corner. From the Zoolight Safari at Birmingham Zoo to the city tree lighting ceremony, there’s a lot to love.',
         city: "Birmingham",
         state: "AL",
         zip: 35205,
         address: "1617 13th Avenue South",
         email: "chris.rocco7@gmail.com",
         phone: 2056396666,
+        video: "https://www.youtube.com/watch?v=DA2QpqgIq6g",
         specialDates: [ {} ],
+        image: "http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg",
         hourlyRates: {
             "1": 100,
             "2": 100,
@@ -90,5 +71,18 @@ const DEFAULT_MODEL = {
         },
         squareCash: "$JohnDoe"
     },
-    selectedPanel: "profile-panel"
+    gallery: [
+        {
+            name: "Rocco's Christmas Party",
+            where: "Sammy's, Valley Ave",
+            thumb: "https://pbs.twimg.com/media/CRnzjIVVAAALvN3.jpg",
+            overlay: "https://pbs.twimg.com/media/CRnzjIVVAAALvN3.jpg"
+        },
+        {
+            name: "Christmas Work Party",
+            where: "The M-Lounge",
+            thumb: "https://blog.samuel-windsor.co.uk/wp-content/uploads/2015/12/office-party-group.jpg",
+            overlay: "https://blog.samuel-windsor.co.uk/wp-content/uploads/2015/12/office-party-group.jpg"
+        }
+    ]
 };

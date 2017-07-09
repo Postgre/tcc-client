@@ -13,16 +13,9 @@
     <link rel="stylesheet" href="style.css" type="text/css"/>
     <link rel="stylesheet" href="css/dark.css" type="text/css"/>
 
-    <!-- Real Estate Demo Specific Stylesheet -->
-    <link rel="stylesheet" href="demos/real-estate/real-estate.css" type="text/css"/>
-    <link rel="stylesheet" href="demos/real-estate/css/font-icons.css" type="text/css"/>
-    <!-- / -->
-
     <link rel="stylesheet" href="css/font-icons.css" type="text/css"/>
     <link rel="stylesheet" href="css/animate.css" type="text/css"/>
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/>
-
-    <link rel="stylesheet" href="demos/real-estate/fonts.css" type="text/css"/>
 
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css"/>
@@ -54,6 +47,7 @@
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/layers.css">
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
 
+    <!-- Revolution slider -->
     <style>
 
         .demos-filter {
@@ -122,6 +116,97 @@
         .hesperiden.tparrows { z-index: 999; }
 
     </style>
+    <!-- Advanced rates and availability search -->
+    <style>
+        .tabs.advanced-real-estate-tabs { margin: 0; }
+
+        .advanced-real-estate-tabs ul.tab-nav { border-bottom: none; }
+
+        .advanced-real-estate-tabs ul.tab-nav li {
+            margin-left: 2px;
+            border: 0;
+            height: 42px;
+            border-left: 0 !important;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li:first-child { margin-left: 0; }
+
+        .advanced-real-estate-tabs ul.tab-nav li a {
+            padding: 0 20px;
+            color: #FFF;
+            height: 42px;
+            line-height: 42px;
+            background-color: #800020;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Rubik', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li.ui-tabs-active a {
+            top: 0;
+            background-color: #800020;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li.ui-tabs-active a .label-warning { background-color: #800020; }
+
+        .advanced-real-estate-tabs ul.tab-nav li .label { margin-left: 5px; }
+
+        .advanced-real-estate-tabs .tab-container {
+            padding: 30px;
+            background-color: rgba(255,255,255,0.95);
+            border-top: 3px solid #ea0029;
+        }
+
+        #slider + .advanced-real-estate-tabs {
+            top: -42px;
+            margin-bottom: -42px;
+            z-index: 1;
+        }
+
+        #slider + .advanced-real-estate-tabs .tab-container {
+            background-color: #EEE;
+            padding: 50px;
+        }
+
+
+        #slider .real-estate-tabs-slider {
+            position: relative;
+            margin: 60px 0;
+            z-index: 2;
+        }
+
+        #slider .real-estate-tabs-slider + .video-wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        @media (min-width: 768px) {
+
+            #slider .real-estate-tabs-slider {
+                position: absolute;
+                margin: 0;
+                top: auto;
+                bottom: 40px;
+                width: 100%;
+            }
+
+        }
+
+
+        .promo.promo-flat a.button:not(:hover) {
+            color: #FFF;
+            background-color: #800020;
+            border-color: #800020;
+        }
+
+        .promo.promo-flat a.button:hover { color: #800020; }
+    </style>
 
     <!-- Document Title
     ============================================= -->
@@ -135,42 +220,9 @@
 ============================================= -->
 <div id="wrapper" class="clearfix">
 
-    <!-- Top Bar
-    ============================================= -->
-    <div id="top-bar" class="transparent-topbar hidden-xs">
-
-        <div class="container clearfix">
-
-            <div class="col_half nobottommargin">
-
-                <p class="nobottommargin" style="color: white"><strong>Call:</strong> 1800-547-2145 | <strong>Email:</strong> info@canvas.com</p>
-
-            </div>
-
-            <div class="col_half col_last fright nobottommargin">
-
-                <!-- Top Links
-                ============================================= -->
-                <div class="top-links">
-                    <ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">
-                        <li>
-                            <a href="../app/html/login.html" class="sf-with-ul">Login</a>
-                        </li>
-                        <li>
-                            <a href="../app/html/login.html" class="sf-with-ul">Logout</a>
-                        </li>
-                    </ul>
-                </div><!-- .top-links end -->
-
-            </div>
-
-        </div>
-
-    </div>
-
     <!-- Header
     ============================================= -->
-    <header id="header" class="static-sticky transparent-header dark">
+    <header id="header" class="full-header transparent-header dark">
 
         <div id="header-wrap">
 
@@ -187,30 +239,37 @@
                             src="images/tcc-logo.png" alt="TCC Logo"></a>
                 </div><!-- #logo end -->
 
+                <div id="top-account" class="dropdown">
+                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="my-events.html">My Events</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Logout <i class="icon-signout"></i></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="markets.html">Manage Markets</a></li>
+                    </ul>
+                </div>
+
                 <!-- Primary Navigation
                 ============================================= -->
-                <nav id="primary-menu" class="with-arrows">
-                    <ul>
-                        <li class="current"><a href="book_event.html">
-                            <div>Book Event</div>
-                        </a></li>
-                        <li class="current"><a href="about.html">
-                            <div>About</div>
-                        </a></li>
-                        <li><a href="#quick-contact-form">
-                            <div>Contact</div>
-                        </a></li>
-                        <li><a href="#"><div>My Account</div></a>
-                            <ul>
-                                <li><a href="#"><div><i class="icon-dashboard"></i>Customer Center</div></a></li>
-                                <li><a href="#"><div><i class="icon-dashboard"></i>Admin Center</div></a></li>
-                                <li><a href="#"><div><i class="icon-dashboard"></i>Director Center</div></a></li>
-                                <li><a href="#"><div><i class="icon-dashboard"></i>Caroler Center</div></a></li>
-                                <li><a href="#"><div><i class="icon-settings"></i>Account Settings</div></a></li>
-                            </ul>
-                        </li>
+                <nav id="primary-menu">
 
+                    <ul>
+                        <li>
+                            <a href="index.html"><div>Home</div></a>
+                        </li>
+                        <li>
+                            <a href="book_event.html"><div>Book Event</div></a>
+                        </li>
+                        <li>
+                            <a href="about.html"><div>About</div></a>
+                        </li>
+                        <li>
+                            <a href="contact.html"><div>Contact</div></a>
+                        </li>
                     </ul>
+
                 </nav><!-- #primary-menu end -->
 
             </div>
@@ -221,7 +280,7 @@
 
     <!-- Slider
 		============================================= -->
-    <section id="slider" style="max-height: 660px" class="revslider-wrap full-screen clearfix">
+    <section id="slider" class="revslider-wrap full-screen clearfix">
 
         <div id="rev_slider_431_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="christmas-snow" style="background-color:transparent;padding:0px;">
             <!-- START REVOLUTION SLIDER 5.2.0 fullscreen mode -->

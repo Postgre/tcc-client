@@ -1,1 +1,1 @@
-angular.module("edit-market", []);
+angular.module("market", ['ngSanitize']);
