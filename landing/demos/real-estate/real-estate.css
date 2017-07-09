@@ -106,7 +106,7 @@
 	.dark #primary-menu:not(.not-dark) ul ul li:hover > a,
 	#primary-menu.dark ul ul li:hover > a {
 		background-color: rgba(255,255,255,0.025);
-		color: #800020 !important;
+		color: #ff6f70 !important;
 		border-radius: 3px;
 	}
 

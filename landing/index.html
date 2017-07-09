@@ -129,55 +129,7 @@
 
 </head>
 
-<body class="stretched side-push-panel">
-
-<div id="side-panel">
-
-    <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon-line-cross"></i></a></div>
-
-    <div class="side-panel-wrap">
-
-        <div class="widget clearfix">
-
-            <h4 class="t400">Login with Social Profiles</h4>
-
-            <a href="#"
-               class="button button-rounded t400 btn-block center si-colored noleftmargin si-facebook">Facebook</a>
-            <a href="#" class="button button-rounded t400 btn-block center si-colored noleftmargin si-gplus">Google</a>
-
-            <div class="line"></div>
-
-            <h4 class="t400">Existing Account?</h4>
-
-            <form id="login-form" onsubmit="return parseLoginForm()" name="login-form" class="nobottommargin" action="#" method="post">
-
-                <div class="col_full">
-                    <label for="login-form-username" class="t400">Username:</label>
-                    <input type="text" id="login-form-username" name="login-form-username" value=""
-                           class="form-control"/>
-                </div>
-
-                <div class="col_full">
-                    <label for="login-form-password" class="t400">Password:</label>
-                    <input type="password" id="login-form-password" name="login-form-password" value=""
-                           class="form-control"/>
-                </div>
-
-                <div class="col_full nobottommargin">
-                    <button class="button button-rounded t400 nomargin" id="login-form-submit" name="login-form-submit"
-                            value="login">Login
-                    </button>
-                    <a href="#" class="fright">Forgot Password?</a>
-                </div>
-
-            </form>
-
-
-        </div>
-
-    </div>
-
-</div>
+<body class="stretched">
 
 <!-- Document Wrapper
 ============================================= -->
@@ -201,23 +153,11 @@
                 ============================================= -->
                 <div class="top-links">
                     <ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">
-                        <li class=""><a href="#" class="sf-with-ul">Login</a>
-                            <div class="top-link-section" style="display: none;">
-                                <form id="top-login" role="form">
-                                    <div class="input-group" id="top-login-username">
-                                        <span class="input-group-addon"><i class="icon-user"></i></span>
-                                        <input type="email" class="form-control" placeholder="Email address" required="">
-                                    </div>
-                                    <div class="input-group" id="top-login-password">
-                                        <span class="input-group-addon"><i class="icon-key"></i></span>
-                                        <input type="password" class="form-control" placeholder="Password" required="">
-                                    </div>
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="remember-me"> Remember me
-                                    </label>
-                                    <button class="btn btn-danger btn-block" type="submit">Sign in</button>
-                                </form>
-                            </div>
+                        <li>
+                            <a href="../app/html/login.html" class="sf-with-ul">Login</a>
+                        </li>
+                        <li>
+                            <a href="../app/html/login.html" class="sf-with-ul">Logout</a>
                         </li>
                     </ul>
                 </div><!-- .top-links end -->
@@ -257,15 +197,19 @@
                         <li class="current"><a href="about.html">
                             <div>About</div>
                         </a></li>
-                        <li><a href="#gallery">
-                            <div>Photo / Video</div>
-                        </a></li>
-                        <li><a href="#songs">
-                            <div>Music</div>
-                        </a></li>
                         <li><a href="#quick-contact-form">
                             <div>Contact</div>
                         </a></li>
+                        <li><a href="#"><div>My Account</div></a>
+                            <ul>
+                                <li><a href="#"><div><i class="icon-dashboard"></i>Customer Center</div></a></li>
+                                <li><a href="#"><div><i class="icon-dashboard"></i>Admin Center</div></a></li>
+                                <li><a href="#"><div><i class="icon-dashboard"></i>Director Center</div></a></li>
+                                <li><a href="#"><div><i class="icon-dashboard"></i>Caroler Center</div></a></li>
+                                <li><a href="#"><div><i class="icon-settings"></i>Account Settings</div></a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </nav><!-- #primary-menu end -->
 
@@ -277,7 +221,7 @@
 
     <!-- Slider
 		============================================= -->
-    <section id="slider" class="revslider-wrap full-screen clearfix">
+    <section id="slider" style="max-height: 660px" class="revslider-wrap full-screen clearfix">
 
         <div id="rev_slider_431_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="christmas-snow" style="background-color:transparent;padding:0px;">
             <!-- START REVOLUTION SLIDER 5.2.0 fullscreen mode -->
