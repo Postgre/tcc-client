@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Radio Checkbox Plugin -->
+	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
+
+	<!-- Angular
+	============================================= -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="../shared/angular/profile/profile.module.js"></script>
+	<script src="../shared/angular/profile/profile.controller.js"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>The Christmas Carolers</title>
+
+</head>
+
+<body class="stretched" ng-app="profile" ng-controller="ProfileController">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header dark">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
+								src="images/tcc-logo.png" alt="TCC Logo"></a>
+						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
+								src="images/tcc-logo.png" alt="TCC Logo"></a>
+					</div><!-- #logo end -->
+
+					<div id="top-account" class="dropdown">
+						<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Messages <span class="badge">5</span></a></li>
+							<li><a href="#">Settings</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Logout <i class="icon-signout"></i></a></li>
+						</ul>
+					</div>
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu">
+
+						<ul>
+							<li>
+								<a href="index.html"><div>Home</div></a>
+							</li>
+							<li>
+								<a href="book_event.html"><div>Book Event</div></a>
+							</li>
+							<li>
+								<a href="about.html"><div>About</div></a>
+							</li>
+							<li>
+								<a href="contact.html"><div>Contact</div></a>
+							</li>
+						</ul>
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<div class="row clearfix">
+
+						<div class="col-sm-9">
+
+							<img ng-src="{{profile.pic}}" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
+
+							<div class="heading-block noborder">
+								<h3 ng-bind="profile.first_name + ' ' + profile.last_name"></h3>
+								<span ng-bind="profile.bio"></span>
+							</div>
+
+							<div class="clear"></div>
+
+							<div class="row clearfix">
+
+								<div class="col-md-12">
+
+									<div class="tabs tabs-alt clearfix" id="tabs-profile">
+
+										<ul class="tab-nav clearfix">
+											<li><a href="#tab-profile"><i class="icon-pencil2"></i> Profile</a></li>
+											<li><a href="#tab-billing"><i class="icon-credit"></i> Billing </a></li>
+										</ul>
+
+										<div class="tab-container">
+
+											<div class="tab-content clearfix" id="tab-profile">
+												<div>
+													<form class="nobottommargin">
+
+														<div class="col_half">
+															<label>Name:</label>
+															<input ng-model="profile.first_name" type="text" class="sm-form-control" />
+														</div>
+
+														<div class="col_half col_last">
+															<label>Last Name:</label>
+															<input ng-model="profile.last_name" type="text" class="sm-form-control" />
+														</div>
+
+														<div class="col_half">
+															<label for="form-email">Email Address:</label>
+															<input ng-model="profile.email" type="email" id="form-email" name="form-email" value="" class="sm-form-control" />
+														</div>
+
+														<div class="col_half col_last">
+															<label for="form-phone">Phone:</label>
+															<input ng-model="profile.phone" type="text" id="form-phone" name="form-phone" value="" class="sm-form-control" />
+														</div>
+
+														<div class="clear"></div>
+
+														<div class="col_half">
+															<label>State:</label>
+															<input ng-model="profile.state" type="text" class="sm-form-control" />
+														</div>
+
+														<div class="col_half col_last">
+															<label>City / Town:</label>
+															<input ng-model="profile.city" type="text" class="sm-form-control" />
+														</div>
+
+														<div class="col_full">
+															<label>Address:</label>
+															<input ng-model="profile.address" type="email" class="sm-form-control" />
+														</div>
+
+														<div class="col_full">
+															<label>Bio: </label>
+															<textarea ng-model="profile.bio" class="sm-form-control" rows="6" cols="30"></textarea>
+														</div>
+
+													</form>
+												</div>
+											</div>
+											<div class="tab-content clearfix" id="tab-billing">
+												<div>
+													<form class="nobottommargin">
+
+														<div class="col_half">
+															<label>Card Number:</label>
+															<input ng-model="billing.number" type="text" class="sm-form-control" />
+														</div>
+
+														<div class="col_half col_last">
+															<label>Expiration Date:</label>
+															<input ng-model="billing.expiration" type="text" class="sm-form-control" />
+														</div>
+
+														<div class="col_full">
+															<label>Security Code:</label>
+															<input ng-model="billing.cvs" type="email" class="sm-form-control" />
+														</div>
+
+														<div class="col_full">
+															<input ng-model="billing_same_as_personal" id="radio-10" class="radio-style" name="radio-group-3" type="checkbox" checked="">
+															<label for="radio-10" class="radio-style-3-label">Billing address is the same as personal address</label>
+														</div>
+
+														<div ng-if="!billing_same_as_personal">
+															<div class="col_half">
+																<label>State:</label>
+																<input ng-model="billing.state" type="text" class="sm-form-control" />
+															</div>
+
+															<div class="col_half col_last">
+																<label>City / Town:</label>
+																<input ng-model="billing.city" type="text" class="sm-form-control" />
+															</div>
+
+															<div class="col_full">
+																<label>Address:</label>
+																<input ng-model="billing.address" type="email" class="sm-form-control" />
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="line visible-xs-block"></div>
+
+						<div class="col-sm-3 clearfix">
+							<!-- IDK what to put here -->
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
+
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap clearfix">
+
+					<div class="col_two_third">
+
+						<div class="col_one_third">
+
+							<div class="widget clearfix">
+
+								<img src="images/footer-widget-logo.png" alt="" class="footer-logo">
+
+								<p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards.</p>
+
+								<div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
+									<address>
+										<strong>Headquarters:</strong><br>
+										795 Folsom Ave, Suite 600<br>
+										San Francisco, CA 94107<br>
+									</address>
+									<abbr title="Phone Number"><strong>Phone:</strong></abbr> (91) 8547 632521<br>
+									<abbr title="Fax"><strong>Fax:</strong></abbr> (91) 11 4752 1433<br>
+									<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col_one_third">
+
+							<div class="widget widget_links clearfix">
+
+								<h4>Blogroll</h4>
+
+								<ul>
+									<li><a href="http://codex.wordpress.org/">Documentation</a></li>
+									<li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
+									<li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
+									<li><a href="http://wordpress.org/support/">Support Forums</a></li>
+									<li><a href="http://wordpress.org/extend/themes/">Themes</a></li>
+									<li><a href="http://wordpress.org/news/">WordPress Blog</a></li>
+									<li><a href="http://planet.wordpress.org/">WordPress Planet</a></li>
+								</ul>
+
+							</div>
+
+						</div>
+
+						<div class="col_one_third col_last">
+
+							<div class="widget clearfix">
+								<h4>Recent Posts</h4>
+
+								<div id="post-list-footer">
+									<div class="spost clearfix">
+										<div class="entry-c">
+											<div class="entry-title">
+												<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+											</div>
+											<ul class="entry-meta">
+												<li>10th July 2014</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="spost clearfix">
+										<div class="entry-c">
+											<div class="entry-title">
+												<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
+											</div>
+											<ul class="entry-meta">
+												<li>10th July 2014</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="spost clearfix">
+										<div class="entry-c">
+											<div class="entry-title">
+												<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
+											</div>
+											<ul class="entry-meta">
+												<li>10th July 2014</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="col_one_third col_last">
+
+						<div class="widget clearfix" style="margin-bottom: -20px;">
+
+							<div class="row">
+
+								<div class="col-md-6 bottommargin-sm">
+									<div class="counter counter-small"><span data-from="50" data-to="15065421" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
+									<h5 class="nobottommargin">Total Downloads</h5>
+								</div>
+
+								<div class="col-md-6 bottommargin-sm">
+									<div class="counter counter-small"><span data-from="100" data-to="18465" data-refresh-interval="50" data-speed="2000" data-comma="true"></span></div>
+									<h5 class="nobottommargin">Clients</h5>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="widget subscribe-widget customjs subscribe-form clearfix">
+							<h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
+							<div class="widget-subscribe-form-result"></div>
+							<form action="http://audio-equipmentrental.com/include/subscribe.php" role="form" method="post" class="nobottommargin">
+								<div class="input-group divcenter">
+									<span class="input-group-addon"><i class="icon-email2"></i></span>
+									<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form>
+						</div>
+
+						<div class="widget clearfix" style="margin-bottom: -20px;">
+
+							<div class="row">
+
+								<div class="col-md-6 clearfix bottommargin-sm">
+									<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
+										<i class="icon-facebook"></i>
+										<i class="icon-facebook"></i>
+									</a>
+									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
+								</div>
+								<div class="col-md-6 clearfix">
+									<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
+										<i class="icon-rss"></i>
+										<i class="icon-rss"></i>
+									</a>
+									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.<br>
+						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+					</div>
+
+					<div class="col_half col_last tright">
+						<div class="fright clearfix">
+							<a href="#" class="social-icon si-small si-borderless si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-gplus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-pinterest">
+								<i class="icon-pinterest"></i>
+								<i class="icon-pinterest"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-vimeo">
+								<i class="icon-vimeo"></i>
+								<i class="icon-vimeo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-github">
+								<i class="icon-github"></i>
+								<i class="icon-github"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-yahoo">
+								<i class="icon-yahoo"></i>
+								<i class="icon-yahoo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-linkedin">
+								<i class="icon-linkedin"></i>
+								<i class="icon-linkedin"></i>
+							</a>
+						</div>
+
+						<div class="clear"></div>
+
+						<i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
+
+	<script>
+		jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
+			jQuery( '.flexslider .slide' ).resize();
+		});
+	</script>
+
+</body>
+</html>

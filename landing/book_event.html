@@ -44,39 +44,9 @@
 	============================================= -->
 	<div id="wrapper" class="clearfix">
 
-		<!-- Top Bar
-    ============================================= -->
-		<div id="top-bar" class="hidden-xs dark">
-
-			<div class="container clearfix">
-
-				<div class="col_half nobottommargin">
-
-					<p class="nobottommargin" style="color: white"><strong>Call:</strong> 1800-547-2145 | <strong>Email:</strong> info@canvas.com</p>
-
-				</div>
-
-				<div class="col_half col_last fright nobottommargin">
-
-					<!-- Top Links
-                    ============================================= -->
-					<div class="top-links">
-						<ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">
-							<li class="">
-								<a href="../app/html/login.html" class="sf-with-ul">Login</a>
-							</li>
-						</ul>
-					</div><!-- .top-links end -->
-
-				</div>
-
-			</div>
-
-		</div>
-
 		<!-- Header
-        ============================================= -->
-		<header id="header" class="static-sticky dark">
+		================================= -->
+		<header id="header" class="full-header dark">
 
 			<div id="header-wrap">
 
@@ -85,7 +55,7 @@
 					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
 					<!-- Logo
-                    ============================================= -->
+					============================================= -->
 					<div id="logo">
 						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
 								src="images/tcc-logo.png" alt="TCC Logo"></a>
@@ -93,33 +63,43 @@
 								src="images/tcc-logo.png" alt="TCC Logo"></a>
 					</div><!-- #logo end -->
 
-					<!-- Primary Navigation
-                    ============================================= -->
-					<nav id="primary-menu" class="with-arrows">
-						<ul>
-							<li class="current"><a href="book_event.html">
-								<div>Book Event</div>
-							</a></li>
-							<li class="current"><a href="about.html">
-								<div>About</div>
-							</a></li>
-							<li><a href="#gallery">
-								<div>Photo / Video</div>
-							</a></li>
-							<li><a href="#songs">
-								<div>Music</div>
-							</a></li>
-							<li><a href="#quick-contact-form">
-								<div>Contact</div>
-							</a></li>
+					<div id="top-account" class="dropdown">
+						<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="#">Messages <span class="badge">5</span></a></li>
+							<li><a href="#">Settings</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Logout <i class="icon-signout"></i></a></li>
 						</ul>
+					</div>
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu">
+
+						<ul>
+							<li>
+								<a href="index.html"><div>Home</div></a>
+							</li>
+							<li>
+								<a href="book_event.html"><div>Book Event</div></a>
+							</li>
+							<li>
+								<a href="about.html"><div>About</div></a>
+							</li>
+							<li>
+								<a href="contact.html"><div>Contact</div></a>
+							</li>
+						</ul>
+
 					</nav><!-- #primary-menu end -->
 
 				</div>
 
 			</div>
 
-		</header><!-- #header end -->
+		</header>
 
 		<!-- Page Title
 		============================================= -->
