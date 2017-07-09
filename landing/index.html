@@ -926,7 +926,7 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount"><span id="quote-travel">$45.37</span></span>
+                                            <span class="amount">$<span id="quote-travel">45.37</span></span>
                                         </td>
                                     </tr>
                                     <tr class="cart_item">
@@ -1215,9 +1215,8 @@
     });
 
     function parseRatesFrom(){
-        var modal = "#quoteModal";
-        $( modal ).modal("show");
-
+        renderQuote( MOCK_QUOTE );
+        $( quotemodal ).modal("show");
         return false;
     }
     function parseLoginForm(){
@@ -1230,12 +1229,36 @@
     }
 
     function handleBookNow(){
-        alert("handled 'Book Now'");
+        window.location = "book_event.html";
     }
 
     function handleSaveQuote(){
         alert("handled 'Save Quote'");
     }
+
+    function renderQuote( quote ){
+        $(quotecarolers).html(quote.carolers);
+        $(quotetravel).html(quote.travel);
+        $(quotedates).html(quote.dates);
+        $(quotepromos).html(quote.promos);
+        $(quotetotal).html(quote.total);
+    }
+</script>
+<script>
+    const quotemodal = "#quoteModal";
+    const quotecarolers = "#quote-carolers";
+    const quotetravel   =   "#quote-travel";
+    const quotedates    =   "#quote-dates";
+    const quotepromos   =   "#quote-promos";
+    const quotetotal    =   "#quote-total";
+
+    const MOCK_QUOTE = {
+        carolers: 400,
+        travel: 63,
+        dates: 0,
+        promos: 20,
+        total: 483
+    };
 </script>
 
 </body>

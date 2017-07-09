@@ -36,44 +36,6 @@
 	============================================= -->
 	<title>Book Event</title>
 
-	<style type="text/css">
-
-		span.twitter-typeahead { display: block !important; }
-
-		.tt-menu {
-			width: 100%;
-			margin: 4px 0;
-			padding: 8px 0;
-			background-color: #FFF;
-			border: 1px solid rgba(0, 0, 0, 0.2);
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-			border-radius: 4px;
-			-webkit-box-shadow: 0 1px 10px rgba(0,0,0,.1);
-			-moz-box-shadow: 0 1px 10px rgba(0,0,0,.1);
-			box-shadow: 0 1px 10px rgba(0,0,0,.1);
-
-		}
-
-		.tt-suggestion {
-			padding: 3px 20px;
-			font-size: 15px;
-			line-height: 24px;
-		}
-
-		.tt-suggestion:hover {
-			cursor: pointer;
-			color: #FFF;
-			background-color: #0097cf;
-		}
-
-		.tt-suggestion.tt-cursor {
-			color: #fff;
-			background-color: #0097cf;
-
-		}
-
-	</style>
 </head>
 
 <body class="stretched" ng-app="booking" ng-controller="BookingController">
@@ -220,11 +182,6 @@
 												<div class="clear"></div>
 
 												<div class="col_full">
-													<label for="details-form-venue">Venue Address: </label>
-													<input ng-model="event.venue" type="text" id="details-form-venue" value="" class="sm-form-control" />
-												</div>
-
-												<div class="col_full">
 													<label>Date:</label>
 													<input type="text" class="sm-form-control daterange" value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
 												</div>
@@ -276,21 +233,18 @@
 											<h3 class="">Market Information</h3>
 											<form class="nobottommargin">
 
-												<!--<div class="col_full">
-													<label>Find Your Nearest Market: </label>
-													<input id="marketSearchInput" class="typeahead sm-form-control" type="text" placeholder="Nearest Markets">
-												</div>
-
-												<hr/>-->
-
 												<div class="panel panel-default">
 													<div class="panel-heading">
 														<h3 class="panel-title">
 															<div ng-bind="selectedMarket.name"></div>
+															<i class="icon-map-marker"></i> <em ng-bind="selectedMarket.address"></em>
 														</h3>
 													</div>
 													<div class="panel-body">
-														[ market details, images, etc. ]
+														<img width="100%" ng-src="{{selectedMarket.banner}}" />
+														<br/>
+														<br/>
+														<p ng-bind="selectedMarket.description"></p>
 													</div>
 												</div>
 
@@ -323,7 +277,7 @@
 												</div>
 
 												<div class="col_full">
-													<label for="details-form-venue">Venue Address: </label>
+													<label for="address">Venue Address: </label>
 													<input ng-model="event.venue" id="address" type="text" class="sm-form-control" />
 												</div>
 												<p id="location-coordinates" style="display: none; margin-top: 10px;">
@@ -341,11 +295,11 @@
 										</div>
 										<div class="col-md-6">
 											<h3>Mileage and Time</h3>
-											<p>Your event location is <b>32 miles</b> from where our carolers are located and the estimated travel time is <b>44 minutes</b></p>
-											<p>The Christmas Carolers charges $2 for every mile over 30 miles from the starting point. <b>$8</b> will be added to your invoice for
-												mileage. The Christmas Carolers also charges $60 per hour of travel over 30 minutes. <b>$28</b> will be added to your invoice for extra travel time.</p>
+											<p>Your event location is <b ng-bind="travel_costs.miles"></b> miles from where our carolers are located and the estimated travel time is <b ng-bind="travel_costs.time"></b> minutes</p>
+											<p>The Christmas Carolers charges $2 for every mile over 30 miles from the starting point. $<b ng-bind="travel_costs.miles_fee"></b> will be added to your invoice for
+												mileage. The Christmas Carolers also charges $60 per hour of travel over 30 minutes. $<b ng-bind="travel_costs.time_fee"></b> will be added to your invoice for extra travel time.</p>
 											<h3>Toll Roads</h3>
-											<p>The lead caroler will estimate the amount for toll roads as they travel to this event. <b>$6</b> will be added to your invoice for toll roads.</p>
+											<p>The lead caroler will estimate the amount for toll roads as they travel to this event. $<b ng-bind="travel_costs.tolls"></b> will be added to your invoice for toll roads.</p>
 											<h3>Parking</h3>
 											<p>Please provide us with an overview of where the carolers will be able to park.</p>
 											<h3>Other Expenses</h3>
@@ -417,7 +371,8 @@
 													</td>
 
 													<td class="cart-product-name">
-														<span class="amount">$384</span>
+														$<span ng-bind="invoice.carolers" class="amount">
+														</span>
 													</td>
 												</tr>
 												<tr class="cart_item">
@@ -426,7 +381,8 @@
 													</td>
 
 													<td class="cart-product-name">
-														<span class="amount">$47</span>
+														$<span ng-bind="invoice.travel" class="amount">
+														</span>
 													</td>
 												</tr>
 												<tr class="cart_item">
@@ -435,16 +391,28 @@
 													</td>
 
 													<td class="cart-product-name">
-														<span class="amount">$0</span>
+														$<span ng-bind="invoice.parking" class="amount">
+														</span>
 													</td>
 												</tr>
 												<tr class="cart_item">
 													<td class="cart-product-name">
-														<strong>Toll Roads</strong>
+														<strong>Special Dates</strong>
 													</td>
 
 													<td class="cart-product-name">
-														<span class="amount">$0</span>
+														$<span ng-bind="invoice.special_dates" class="amount">
+														</span>
+													</td>
+												</tr>
+												<tr class="cart_item">
+													<td class="cart-product-name">
+														$<strong>Promos</strong>
+													</td>
+
+													<td class="cart-product-name">
+														$<span ng-bind="invoice.promos" class="amount">
+														</span>
 													</td>
 												</tr>
 												<tr class="cart_item">
@@ -453,7 +421,10 @@
 													</td>
 
 													<td class="cart-product-name">
-														<span class="amount color lead"><strong>$999</strong></span>
+														<span class="amount color lead">
+															$<strong ng-bind="invoice.total">
+															</strong>
+														</span>
 													</td>
 												</tr>
 												</tbody>
@@ -461,25 +432,47 @@
 
 										</div>
 										<div class="accordion clearfix">
-											<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Direct Bank Transfer</div>
-											<div class="acc_content clearfix">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</div>
+											<div class="acctitle">
+												<i class="acc-closed icon-ok-circle"></i>
+												<i class="acc-open icon-remove-circle"></i>
+												Payment Policy
+											</div>
+											<div class="acc_content clearfix">
+												We ask that you please make your payment 30 days prior to your event, as it takes time to put together the right caroling team.
+											</div>
 
-											<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Cheque Payment</div>
-											<div class="acc_content clearfix">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</div>
+											<div class="acctitle">
+												<i class="acc-closed icon-ok-circle"></i>
+												<i class="acc-open icon-remove-circle"></i>
+												Payment Methods
+											</div>
+											<div class="acc_content clearfix">
+												To setup a new payment method, visit your account settings and add a credit card.
+											</div>
 
-											<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Paypal</div>
-											<div class="acc_content clearfix">Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.</div>
+											<div class="acctitle">
+												<i class="acc-closed icon-ok-circle"></i>
+												<i class="acc-open icon-remove-circle"></i>
+												Security
+											</div>
+											<div class="acc_content clearfix">
+												Your security is important to us. All transactions are handled by reputable third-party service providers
+												over an encrypted connection, and a payment details are never saved.
+											</div>
 										</div>
 									</div>
 								</div>
 								<div class="line"></div>
 								<a href="#" class="button button-3d nomargin tab-linker" rel="2">Previous</a>
-								<a href="#" class="button button-3d nomargin fright tab-linker" rel="4">Complete Order</a>
+								<a href="#" class="button button-3d nomargin fright tab-linker" rel="4">Complete Booking</a>
 							</div>
 							<div id="ptab4">
 								<div class="alert alert-success">
-									<strong>Thank You.</strong> Your order will be processed once we verify the Payment.
+									<strong>Thank You.</strong> Your event is booked! Please submit payment within 30 days prior to the event.
 								</div>
+								<h3>What Now?</h3>
+								<button type="button" class="btn btn-outline btn-info"> Pay Now </button>
+								<button type="button" class="btn btn-outline btn-info"> Go to My Events </button>
 							</div>
 						</div>
 					</div>
@@ -634,9 +627,6 @@
         });
 	</script>
 
-	<!-- Bootstrap Typeaheadjs Plugin -->
-	<script type="text/javascript" src="js/components/typehead.js"></script>
-
 	<!-- Date & Time Picker JS -->
 	<script type="text/javascript" src="js/components/moment.js"></script>
 	<script type="text/javascript" src="demos/travel/js/datepicker.js"></script>
@@ -654,12 +644,30 @@
             jQuery(selector).gMap('clearMarkers').gMap('addMarker', {
                 latitude: getLatitude,
                 longitude: getLongitude,
-                content: 'You have selected this Location.',
+                content: 'Your Event.',
                 popup: true
             }).gMap('centerAt', {
                 latitude: getLatitude,
                 longitude: getLongitude,
                 zoom: 12
+            });
+            jQuery.ajax({
+                url: 'http://maps.google.com/maps/api/geocode/json?address=' + encodeURI( window.market.address ),		// request to google api
+                //force to handle it as text
+                dataType: "text",
+                success: function(data) {
+                    var json = jQuery.parseJSON(data);
+                    jQuery('#google-map-custom').gMap('addMarker', {
+                        latitude: json.results[0].geometry.location.lat,
+                        longitude: json.results[0].geometry.location.lng,
+                        content: 'Market Location',
+                        popup: true
+                    }).gMap('centerAt', {
+                        latitude: json.results[0].geometry.location.lat,
+                        longitude: json.results[0].geometry.location.lng,
+                        zoom: 12
+                    });
+                }
             });
         }
 
@@ -689,17 +697,20 @@
         });
 
         jQuery('#location-submit').click( function(e){
+            var p1 = document.getElementById('state').value;
+            var p2 = document.getElementById('city').value;
+            var p3 = document.getElementById('address').value;
 
-            var locationFinder = document.getElementById('address').value;
+            var address = p3 + p2 + ", " + p1;
             var locationFinderIcon = jQuery(this).find('i');	// get the icon to animate
 
             jQuery('#location-coordinates').fadeOut();			// coordinate display
 
-            if( locationFinder != '' ){							// make sure an address is set
+            if( address != '' ){							// make sure an address is set
                 locationFinderIcon.removeClass('icon-map-marker').addClass('icon-line-loader icon-spin');	// animate the icon
 
                 jQuery.ajax({
-                    url: 'http://maps.google.com/maps/api/geocode/json?address=' + encodeURI(locationFinder),		// request to google api
+                    url: 'http://maps.google.com/maps/api/geocode/json?address=' + encodeURI(address),		// request to google api
                     //force to handle it as text
                     dataType: "text",
                     success: function(data) {
