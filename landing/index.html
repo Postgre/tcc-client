@@ -40,8 +40,6 @@
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="css/colors.php?color=2C3E50" type="text/css"/>
-
     <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/settings.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/layers.css">
@@ -243,11 +241,11 @@
                     <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                         <li><a href="profile.html">Profile</a></li>
-                        <li><a href="my-events.html">My Events</a></li>
+                        <li><a href="events-personal.html">My Events</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Logout <i class="icon-signout"></i></a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="markets.html">Manage Markets</a></li>
+                        <li><a href="markets-manage.html">Manage Markets</a></li>
                     </ul>
                 </div>
 
@@ -260,7 +258,7 @@
                             <a href="index.html"><div>Home</div></a>
                         </li>
                         <li>
-                            <a href="book_event.html"><div>Book Event</div></a>
+                            <a href="event-book.html"><div>Book Event</div></a>
                         </li>
                         <li>
                             <a href="about.html"><div>About</div></a>
@@ -473,12 +471,12 @@
                     <form action="#" onsubmit="return parseRatesFrom()" class="nobottommargin">
                         <div class="row">
                             <div class="col-md-3 col-sm-12 bottommargin-sm">
-                                <label for="" style="display:block;">Zip Code</label>
-                                <input type="text" class="form-control" placeholder="Zip Code">
+                                <label style="display:block;">City</label>
+                                <input type="text" class="form-control" placeholder="City">
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                <label for="">State</label>
-                                <select class="selectpicker form-control" multiple data-live-search="true"
+                                <label >State</label>
+                                <select class="selectpicker form-control" data-live-search="true"
                                         data-size="6" style="width:100%;">
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                         <option value="AK">Alaska</option>
@@ -542,15 +540,18 @@
                                     </optgroup>
                                 </select>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                <label for="">Event Date</label>
-                                <input id="datePicker" type="text" value=""
-                                       class="sm-form-control tleft default" placeholder="MM/DD/YYYY">
+                            <div class="col-md-6 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>Event Date and Time</label>
+                                <input type="text" class="sm-form-control daterange" value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
+                            </div>
+                            <div class="clear"></div>
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">Address</label>
+                                <input type="text" class="form-control" placeholder="Address">
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
-                                <label for="">Number of Singers</label>
-                                <select class="selectpicker form-control" multiple data-size="6"
-                                        data-placeholder="Any" style="width:100%; line-height: 30px;">
+                                <label>Number of Singers</label>
+                                <select class="selectpicker form-control">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -558,43 +559,12 @@
                                     <option value="5+">5+</option>
                                 </select>
                             </div>
-                            <div class="clear"></div>
-                            <div class="clear visible-xs bottommargin-sm"></div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                <label for="arrivalTime">Arrival Time</label>
-                                <div class="input-group date">
-                                    <input id="arrivalTime" type="text" class="tleft sm-form-control"
-                                           placeholder="00:00 AM/PM"/>
-                                    <span class="input-group-addon">
-											        <span class="icon-clock"></span>
-										        </span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                <label for="departureTime">Departure Time</label>
-                                <div class="input-group date">
-                                    <input id="departureTime" type="text" class="tleft sm-form-control"
-                                           placeholder="00:00 AM/PM"/>
-                                    <span class="input-group-addon">
-											        <span class="icon-clock"></span>
-										        </span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-12 clearfix">
-                                <label for="" style="display:block;">Multiple Events at Same Location?</label>
-                                <input class="bt-switch" type="checkbox" checked data-on-text="Yes" data-off-text="No" data-on-color="themecolor" data-off-color="themecolor">
-                            </div>
-                            <div class="col-md-3 col-sm-12 clearfix">
-                                <label for="" style="display:block;">Multiple Events at Same Location?</label>
-                                <input class="bt-switch" type="checkbox" checked data-on-text="Yes" data-off-text="No" data-on-color="themecolor" data-off-color="themecolor">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-8 float-right">
+                            <div class="col-md-4 col-md-offset-2 float-right">
                                 <button class="button button-3d button-rounded btn-block nomargin"
                                         style="margin-top: 35px !important;">Check Rates and Availability!
                                 </button>
                             </div>
+                            <div class="clear visible-xs bottommargin-sm"></div>
                         </div>
                     </form>
                     <!-- End Rates & Availability Form-->
@@ -906,6 +876,37 @@
                     <h4 class="modal-title" id="myModalLabel">EVENT ESTIMATE</h4>
                 </div>
                 <div class="modal-body">
+                    <h4>Nearest Market: </h4>
+                    <div class="nobottommargin">
+                        <div id="posts" class="events small-thumbs">
+                            <div class="entry clearfix">
+                                <div class="entry-image">
+                                    <a href="market-page.html">
+                                        <img src="http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg" >
+                                    </a>
+                                </div>
+                                <div class="entry-c">
+                                    <div class="entry-title">
+                                        <h2><a href="market-page.html">
+                                            The Birmingham Carolers
+                                        </a></h2>
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><span class="label label-success">LLC</span></li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-map-marker2"></i>
+                                                Birmingham, AL
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="entry-content">
+                                        <p>Birmingham's best holiday entertainment</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">
@@ -974,8 +975,8 @@
                                 <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Other Information</div>
                                 <div class="acc_content clearfix">**Disclaimers</div>
                             </div>
-                            <a href="javascript:handleBookNow()" class="button button-3d fright">Book Now</a>
-                            <a href="javascript:handleSaveQuote()" class="button button-3d fright">Save Quote</a>
+                            <a href="event-book.html" class="button button-3d fright">Book Now</a>
+                            <a href="#" class="button button-3d fright">Save Quote</a>
                         </div>
                     </div>
                 </div>
@@ -1203,40 +1204,27 @@
     });	/*ready*/
 </script>
 
-<!-- Borrowing DataService from admin area -->
-<script type="text/javascript" src="../app/assets/js/ApplicationSettings.js"></script>
-<script type="text/javascript" src="../app/assets/js/ApplicationService.js"></script>
-<script type="text/javascript" src="../app/assets/js/AuthService.js"></script>
-<script type="text/javascript" src="../app/assets/js/DataService.js"></script>
-<script type="text/javascript" src="../app/assets/js/RenderSession.js"></script>
-
 <!-- Custom Scripts
 ============================================= -->
 <script type="text/javascript">
-    $(document).ready(function(){
-        ApplicationService.renderSession();
+    $(".daterange").daterangepicker({
+        "opens": "center",
+        timePicker: true,
+        timePickerIncrement: 30,
+        locale: {
+            format: 'MM/DD/YYYY h:mm A'
+        },
+        "buttonClasses": "button button-rounded button-mini nomargin",
+        "applyClass": "button-color",
+        "cancelClass": "button-light"
+    }).on('apply.daterangepicker', function(ev, picker) {
+        /*-------------*/
     });
 
     function parseRatesFrom(){
         renderQuote( MOCK_QUOTE );
         $( quotemodal ).modal("show");
         return false;
-    }
-    function parseLoginForm(){
-        alert("Handled Login Form");
-        return false;
-    }
-    function parseContactForm(){
-        alert("Handled Contact Form");
-        return false;
-    }
-
-    function handleBookNow(){
-        window.location = "book_event.html";
-    }
-
-    function handleSaveQuote(){
-        alert("handled 'Save Quote'");
     }
 
     function renderQuote( quote ){
@@ -1246,10 +1234,9 @@
         $(quotepromos).html(quote.promos);
         $(quotetotal).html(quote.total);
     }
-</script>
-<script>
-    const quotemodal = "#quoteModal";
-    const quotecarolers = "#quote-carolers";
+
+    const quotemodal    =   "#quoteModal";
+    const quotecarolers =   "#quote-carolers";
     const quotetravel   =   "#quote-travel";
     const quotedates    =   "#quote-dates";
     const quotepromos   =   "#quote-promos";

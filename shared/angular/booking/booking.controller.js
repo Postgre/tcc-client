@@ -61,7 +61,7 @@ const DEFAULT_MODEL = {
         name: "The Birmingham Carolers",
         description: "Beautiful Birmingham is known for its impressive skyline. That skyline lights up even brighter at Christmas, when holiday lights adorn every corner. From the Zoolight Safari at Birmingham Zoo to the city tree lighting ceremony, there’s a lot to love.",
         address: "Birmingham, AL",
-        banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BirminghamALskyline2.jpg/900px-BirminghamALskyline2.jpg"
+        banner: "http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg"
     },
     invoice: {
         carolers: 400,
