@@ -7,9 +7,6 @@ function BookingController( $scope ) {
     $scope.selectedMarket = DEFAULT_MODEL.market;
     $scope.invoice = DEFAULT_MODEL.invoice;
     $scope.travel_costs = DEFAULT_MODEL.travel_costs;
-    $scope.change = function(){
-        console.log( $scope.event );
-    };
 
     init();
     /**
