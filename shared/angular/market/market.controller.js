@@ -49,6 +49,7 @@ const DEFAULT_MODEL = {
         video: "https://www.youtube.com/watch?v=DA2QpqgIq6g",
         specialDates: [ {} ],
         image: "http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg",
+        baseRate: 99.99,
         hourlyRates: {
             "1": 100,
             "2": 100,
