@@ -1,14 +1,18 @@
 /* Libraries */
 const path    = require('path');
 const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 /* Webpack Config */
 module.exports = {
   /* Application Entry Point */
-  entry: path.normalize('./src/js/main.js'),
+  entry: path.resolve('./js/main.js'),
 
   /* Application output */
-  output: path.normalize('./src/dist/bundle.js'),
+  output:{
+    path: path.resolve('./js/gen'),
+    filename: 'bundle.js'
+  },
 
   /* Development Config */
   devtool: 'source-map',
@@ -23,7 +27,16 @@ module.exports = {
         query: {
           presets: ['es2015']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css'
       }
     ]
   },
+
+  /* Plugins */
+  plugins: [
+    new UglifyJSPlugin(),
+  ]
 };

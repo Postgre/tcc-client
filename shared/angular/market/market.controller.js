@@ -1,7 +1,4 @@
-angular.module('market')
-.controller('MarketController', MarketController);
-
-function MarketController( $scope ) {
+module.exports = function MarketController( $scope ) {
     $scope.market = DEFAULT_MODEL.market;
     $scope.gallery = DEFAULT_MODEL.gallery;
     init();

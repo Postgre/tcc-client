@@ -1,7 +1,4 @@
-angular.module('profile')
-.controller('ProfileController', ProfileController);
-
-function ProfileController( $scope ) {
+module.exports = function ProfileController( $scope ) {
     $scope.profile = DEFAULT_MODEL.profile;
     init();
     /**
@@ -35,8 +32,8 @@ const DEFAULT_MODEL = {
         bio: "Hello! I’m Chris Rocco. Software Engineer at UAB and CEO of Vector Web Development. Specialist in PHP web applications and a disciple of patterns and policies."
     },
     billing: {
-        number: 123456789101112,
-        expiration: 0709,
-        cvs: 123
+        number: "123456789101112",
+        expiration: "0709",
+        cvs: "123"
     }
 };

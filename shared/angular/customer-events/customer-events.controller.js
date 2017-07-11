@@ -1,7 +1,4 @@
-angular.module('customer-events')
-.controller('CustomerEventsController', CustomerEventsController);
-
-function CustomerEventsController( $scope ) {
+module.exports = function CustomerEventsController( $scope ) {
 
     $scope.upcoming_events = DEFAULT_MODEL.upcoming_events;
     init();

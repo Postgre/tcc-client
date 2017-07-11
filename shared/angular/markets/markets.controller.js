@@ -1,7 +1,4 @@
-angular.module('markets')
-.controller('MarketsController', MarketsController);
-
-function MarketsController( $scope ) {
+module.exports = function MarketsController( $scope ) {
     $scope.markets = DEFAULT_MODEL.markets;
     $scope.upcoming_events = DEFAULT_MODEL.upcoming_events;
     init();

@@ -1,7 +1,4 @@
-angular.module('booking')
-.controller('BookingController', BookingController);
-
-function BookingController( $scope ) {
+module.exports = function BookingController( $scope ) {
 
     $scope.event = DEFAULT_MODEL.event;
     $scope.selectedMarket = DEFAULT_MODEL.market;
