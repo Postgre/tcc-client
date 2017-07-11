@@ -18,6 +18,11 @@
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+	<!-- Date & Time Picker CSS -->
+	<link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css" />
+	<link rel="stylesheet" href="css/components/timepicker.css" type="text/css" />
+	<link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css" />
+
 	<!-- Bootstrap File Upload CSS -->
 	<link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css" />
 	<!-- Radio Checkbox Plugin -->
@@ -25,7 +30,10 @@
 
 	<!-- Angular
 	============================================= -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="../node_modules/angular/angular.min.js"></script>
+	<script src="../shared/angular/market-edit/market-edit.module.js"></script>
+	<script src="../shared/angular/market-edit/market-edit.controller.js"></script>
+	<script src="../shared/angular/market-edit/daterange/daterange.directive.js"></script>
 
 	<!-- Document Title
 	============================================= -->
@@ -33,7 +41,7 @@
 
 </head>
 
-<body class="stretched" >
+<body class="stretched" ng-app="market-edit" ng-controller="MarketEditController">
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -78,7 +86,7 @@
 								<a href="index.html"><div>Home</div></a>
 							</li>
 							<li>
-								<a href="book_event.html"><div>Book Event</div></a>
+								<a href="event-book.html"><div>Book Event</div></a>
 							</li>
 							<li>
 								<a href="about.html"><div>About</div></a>
@@ -128,7 +136,6 @@
 							<li><a href="#tab-caroler"><i class="icon-list"></i> Caroler Configurations</a></li>
 							<li><a href="#tab-pricing"><i class="icon-money"></i> Pricing</a></li>
 							<li><a href="#tab-availability"><i class="icon-calendar"></i> Availability</a></li>
-							<li><a href="#tab-travel"><i class="icon-road"></i> Travel Expenses</a></li>
 							<li><a href="#tab-payment"><i class="icon-line2-credit-card"></i> Payment Information</a></li>
 						</ul>
 
@@ -253,10 +260,42 @@
 								</div>
 							</div>
 							<div id="tab-availability" class="tab-content clearfix">
-							</div>
-							<div id="tab-travel" class="tab-content clearfix">
+								<h2>Special Dates</h2>
+								<div ng-repeat="date in market.specialDates" class="col_full row">
+									<div ng-show="editing_sd" class="col-sm-1">
+										<label>Delete</label>
+										<button ng-click="deleteSpecialDate(date)" class="btn btn-danger">x</button>
+									</div>
+									<div ng-class="editClassMap">
+										<label>Date Range</label>
+										<tcc-date-range to="date.to" from="date.from"></tcc-date-range>
+									</div>
+									<div class="col-sm-3">
+										<label>Available?</label>
+										<select ng-model="date.isAvailable" name="template-contactform-service" class="sm-form-control">
+											<option value="">-- Select One --</option>
+											<option value="no">No</option>
+											<option value="yes">Yes</option>
+										</select>
+									</div>
+									<div ng-hide="date.isAvailable === 'no'" class="col-sm-3">
+										<label>Price Scale:</label>
+										<input ng-model="date.priceScale" type="number" class="sm-form-control" placeholder="0.5 = half price"/>
+									</div>
+								</div>
+								<br/>
+								<button ng-click="market.specialDates.push({})" class="btn btn-success"> + Add Date</button>
+								<button ng-show="editing_sd == false" ng-click="editSpecialDates()" class="btn btn-danger"> Edit </button>
+								<button ng-show="editing_sd == true" ng-click="stopEditingSpecialDates()" class="btn btn-success"> Stop Editing </button>
 							</div>
 							<div id="tab-payment" class="tab-content clearfix">
+								<h2>Payment Information</h2>
+								<p>The Christmas Carolers uses SquareCash to send payments to caroling groups. Please visit squarecash.com and setup an account.
+								Once you've created an account, please enter your square cash ID below. </p>
+								<div class="col_full">
+									<label>Square Cash ID:</label>
+									<input ng-model="market.squareCashID" placeholder="Example: $JohnDoe" type="text" class="sm-form-control" />
+								</div>
 							</div>
 						</div>
 
@@ -398,6 +437,12 @@
 
 	<!-- Bootstrap File Upload Plugin -->
 	<script type="text/javascript" src="js/components/bs-filestyle.js"></script>
+	<!-- Date & Time Picker JS -->
+	<script type="text/javascript" src="js/components/moment.js"></script>
+	<script type="text/javascript" src="demos/travel/js/datepicker.js"></script>
+	<script type="text/javascript" src="js/components/timepicker.js"></script>
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript" src="js/components/daterangepicker.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
@@ -408,6 +453,9 @@
             maxFileCount: 10,
             allowedFileTypes: ["image", "video"]
         });
+        $(".input-daterange").datepicker({
+			autoclose: true
+		});
 	</script>
 
 </body>
