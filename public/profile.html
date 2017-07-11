@@ -20,6 +20,8 @@
 
 	<!-- Radio Checkbox Plugin -->
 	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
+	<!-- Bootstrap File Upload CSS -->
+	<link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css" />
 
 	<!-- Angular
 	============================================= -->
@@ -78,7 +80,7 @@
 								<a href="index.html"><div>Home</div></a>
 							</li>
 							<li>
-								<a href="book_event.html"><div>Book Event</div></a>
+								<a href="event-book.html"><div>Book Event</div></a>
 							</li>
 							<li>
 								<a href="about.html"><div>About</div></a>
@@ -126,6 +128,7 @@
 										<ul class="tab-nav clearfix">
 											<li><a href="#tab-profile"><i class="icon-pencil2"></i> Profile</a></li>
 											<li><a href="#tab-billing"><i class="icon-credit"></i> Billing </a></li>
+											<li><a href="#tab-taxforms"><i class="icon-line-paper"></i> Tax Forms </a></li>
 										</ul>
 
 										<div class="tab-container">
@@ -221,6 +224,18 @@
 														</div>
 													</form>
 												</div>
+											</div>
+											<div class="tab-content clearfix" id="tab-taxforms">
+												<div class="style-msg successmsg">
+													<div class="sb-msg">
+														<i class="icon-thumbs-up"></i>
+														<strong>All good here!</strong>
+														We have your W9 on file.
+													</div>
+												</div>
+												<iframe src="https://www.irs.gov/pub/irs-pdf/fw9.pdf" width="100%" height="700px"></iframe>
+												<br/>
+												<button class="btn btn-lg btn-success">Save!</button>
 											</div>
 
 										</div>
@@ -374,6 +389,8 @@
 	============================================= -->
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/plugins.js"></script>
+	<!-- Bootstrap File Upload Plugin -->
+	<script type="text/javascript" src="js/components/bs-filestyle.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
@@ -383,6 +400,7 @@
 		jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
 			jQuery( '.flexslider .slide' ).resize();
 		});
+        $("#input-2").fileinput();
 	</script>
 
 </body>
