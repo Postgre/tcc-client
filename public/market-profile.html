@@ -27,6 +27,8 @@
 	<link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css" />
 	<!-- Radio Checkbox Plugin -->
 	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css" type="text/css" />
 
 	<!-- Angular
 	============================================= -->
@@ -109,8 +111,11 @@
 		<section id="page-title" class="page-title-pattern">
 
 			<div class="container clearfix">
-				<h1>[ Market Name Here ]</h1>
-				<span><i class="icon-map-marker"></i> [ Market Location ]</span>
+				<h1 ng-bind="market.name"></h1>
+				<span>
+					<i class="icon-map-marker"></i>
+					<b ng-bind="market.city + ', ' + market.state"></b>
+				</span>
 				<ol class="breadcrumb">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">Shortcodes</a></li>
@@ -143,7 +148,14 @@
 
 							<div id="tab-details" class="tab-content clearfix">
 								<form class="nobottommargin">
-
+									<div class="col_full">
+										<a ng-show="market.published" ng-click="unpublishMarket()"
+										   class="button button-border button-rounded button-green">
+											<i class="icon-check"></i>Published</a>
+										<a ng-show="!market.published" ng-click="publishMarket()"
+										   class="button button-border button-rounded button-red">
+											<i class="icon-arrow-down"></i>Not Published</a>
+									</div>
 									<div class="col_half">
 										<label>Name:</label>
 										<input ng-model="profile.first_name" type="text" class="sm-form-control" />
@@ -443,6 +455,8 @@
 	<script type="text/javascript" src="js/components/timepicker.js"></script>
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="js/components/daterangepicker.js"></script>
+	<!-- Sweet Alert -->
+	<script type="text/javascript" src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
