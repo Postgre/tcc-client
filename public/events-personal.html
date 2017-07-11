@@ -118,6 +118,41 @@
 
 					<div class="postcontent nobottommargin">
 
+						<div class="modal fade" id="deleteMarketModal" tabindex="-1" role="dialog" aria-hidden="true">
+							<div class="modal-dialog modal-md">
+								<div class="modal-body">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">Cancel This Event</h4>
+										</div>
+										<div class="modal-body">
+											<h5>Are you sure you want to cancel this event? This cannot be undone!</h5>
+											<div class="contact-widget">
+
+												<div class="contact-form-result"></div>
+
+												<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+
+													<div class="col_full">
+														<h5>Enter the name of the event exactly as it appears to cancel this event:</h5>
+														<label>Event Name: </label>
+														<input type="text" class="sm-form-control" />
+													</div>
+													<div class="clear"></div>
+
+													<div class="col_full">
+														<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="btn btn-danger">Cancel Event</button>
+													</div>
+
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<div id="posts" class="events small-thumbs">
 
 							<div ng-repeat="event in upcoming_events" class="entry clearfix">
@@ -145,7 +180,7 @@
 									</ul>
 									<div class="entry-content">
 										<p ng-bind="event.description"></p>
-										<a href="#" class="btn btn-danger"><i class="icon-edit"></i> &nbsp;Edit Event</a>
+										<a data-target="#deleteMarketModal" data-toggle="modal" href="#deleteMarketModal" class="btn btn-danger"><i class="icon-trash"></i> &nbsp;Cancel Event</a>
 										<a href="#" class="btn btn-success"><i class="icon-money"></i> &nbsp; Pay Now</a>
 									</div>
 								</div>
@@ -156,8 +191,7 @@
 						<!-- Pagination
 						============================================= -->
 						<ul class="pager nomargin">
-							<li class="previous"><a href="#">&larr; Older</a></li>
-							<li class="next"><a href="#">Newer &rarr;</a></li>
+							<li class="previous"><a href="#">&larr; See Past Events</a></li>
 						</ul><!-- .pager end -->
 
 					</div>
