@@ -36,7 +36,7 @@ const DEFAULT_MODEL = {
     },
     billing: {
         number: 123456789101112,
-        expiration: 0709,
+        expiration: 709,
         cvs: 123
     }
 };
