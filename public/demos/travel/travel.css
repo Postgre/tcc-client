@@ -27,39 +27,6 @@ h4 { font-family: 'Arca Majora', sans-serif; }
 
 
 
-@media (min-width: 992px) {
-
-	#top-bar {
-		z-index: 299;
-		border-bottom-color: rgba(0, 0, 0, 0.05);
-	}
-
-	.top-links ul li,
-	#top-social li {
-		border-left-color: rgba(0, 0, 0, 0.05);
-	}
-
-	#top-bar.transparent-topbar { background: transparent !important; }
-
-	#top-bar.transparent-topbar + #header.transparent-header + #slider,
-	#top-bar.transparent-topbar + #header.transparent-header + .page-title-parallax {
-		margin-bottom: -145px;
-		top: -145px;
-	}
-
-}
-
-.dark .top-links li > a { color: #EEE; }
-
-.dark .top-links li:hover { background-color: rgba(255,255,255,0.15); }
-
-.dark #top-social li { border-left: 0; }
-
-.dark #top-social li a { color: #EEE; }
-
-.dark #header-wrap:not(.not-dark) #primary-menu.style-4 > ul > li:hover > a,
-.dark #header-wrap:not(.not-dark) #primary-menu.style-4 > ul > li.current > a { border-color: rgba(255,255,255,0.5); }
-
 .tabs.travel-organiser-tabs { width: 60% !important; }
 
 .tabs.travel-organiser-tabs { margin: 0; }

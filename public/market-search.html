@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+
+	<!-- Travel Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="demos/travel/travel.css" type="text/css" />
+
+	<link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css" />
+	<!-- Radio Ckeckbox Plugin -->
+	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
+	<!-- Star Rating Plugin -->
+	<link rel="stylesheet" href="css/components/bs-rating.css" type="text/css" />
+	<!-- Bootstrap Select CSS -->
+	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css"/>
+
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Angular
+	============================================= -->
+	<script src="../node_modules/angular/angular.min.js"></script>
+	<script src="../shared/angular/market-search/market-search.module.js"></script>
+	<script src="../shared/angular/market-search/market-search.controller.js"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Find a Market</title>
+
+</head>
+
+<body class="stretched" ng-app="market-search" ng-controller="MarketSearchController">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header dark">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+                    ============================================= -->
+					<div id="logo">
+						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
+								src="images/tcc-logo.png" alt="TCC Logo"></a>
+						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
+								src="images/tcc-logo.png" alt="TCC Logo"></a>
+					</div><!-- #logo end -->
+
+					<div id="top-account" class="dropdown">
+						<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+						   aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="events-personal.html">My Events</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Logout <i class="icon-signout"></i></a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="markets-manage.html">Manage Markets</a></li>
+						</ul>
+					</div>
+
+					<!-- Primary Navigation
+                    ============================================= -->
+					<nav id="primary-menu">
+
+						<ul>
+							<li>
+								<a href="index.html">
+									<div>Home</div>
+								</a>
+							</li>
+							<li>
+								<a href="event-book.html">
+									<div>Book Event</div>
+								</a>
+							</li>
+							<li>
+								<a href="about.html">
+									<div>About</div>
+								</a>
+							</li>
+							<li>
+								<a href="contact.html">
+									<div>Contact</div>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title" class="page-title-pattern">
+
+			<div class="container clearfix">
+				<h1>Find a Market Near You</h1>
+				<span>The Christmas Carolers are nation-wide!</span>
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li class="active">Find a Market</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<!-- Sidebar
+					============================================= -->
+					<div class="sidebar nobottommargin clearfix">
+						<div class="sidebar-widgets-wrap">
+
+							<div class="widget clearfix">
+								<div class="nobottommargin clearfix">
+									<div class="noleftpadding mt-15">
+
+										<form class="nobottommargin">
+
+											<div class="form-process"></div>
+
+											<div class="col_full">
+												<label>State <small>*</small></label>
+												<select ng-model="search.state" class="selectpicker form-control" data-live-search="true"
+														data-size="6" style="width:100%;">
+													<optgroup label="Alaskan/Hawaiian Time Zone">
+														<option value="AK">Alaska</option>
+														<option value="HI">Hawaii</option>
+													</optgroup>
+													<optgroup label="Pacific Time Zone">
+														<option value="CA">California</option>
+														<option value="NV">Nevada</option>
+														<option value="OR">Oregon</option>
+														<option value="WA">Washington</option>
+													</optgroup>
+													<optgroup label="Mountain Time Zone">
+														<option value="AZ">Arizona</option>
+														<option value="CO">Colorado</option>
+														<option value="ID">Idaho</option>
+														<option value="MT">Montana</option>
+														<option value="NE">Nebraska</option>
+														<option value="NM">New Mexico</option>
+														<option value="ND">North Dakota</option>
+														<option value="UT">Utah</option>
+														<option value="WY">Wyoming</option>
+													</optgroup>
+													<optgroup label="Central Time Zone">
+														<option value="AL">Alabama</option>
+														<option value="AR">Arkansas</option>
+														<option value="IL">Illinois</option>
+														<option value="IA">Iowa</option>
+														<option value="KS">Kansas</option>
+														<option value="KY">Kentucky</option>
+														<option value="LA">Louisiana</option>
+														<option value="MN">Minnesota</option>
+														<option value="MS">Mississippi</option>
+														<option value="MO">Missouri</option>
+														<option value="OK">Oklahoma</option>
+														<option value="SD">South Dakota</option>
+														<option value="TX">Texas</option>
+														<option value="TN">Tennessee</option>
+														<option value="WI">Wisconsin</option>
+													</optgroup>
+													<optgroup label="Eastern Time Zone">
+														<option value="CT">Connecticut</option>
+														<option value="DE">Delaware</option>
+														<option value="FL">Florida</option>
+														<option value="GA">Georgia</option>
+														<option value="IN">Indiana</option>
+														<option value="ME">Maine</option>
+														<option value="MD">Maryland</option>
+														<option value="MA">Massachusetts</option>
+														<option value="MI">Michigan</option>
+														<option value="NH">New Hampshire</option>
+														<option value="NJ">New Jersey</option>
+														<option value="NY">New York</option>
+														<option value="NC">North Carolina</option>
+														<option value="OH">Ohio</option>
+														<option value="PA">Pennsylvania</option>
+														<option value="RI">Rhode Island</option>
+														<option value="SC">South Carolina</option>
+														<option value="VT">Vermont</option>
+														<option value="VA">Virginia</option>
+														<option value="WV">West Virginia</option>
+													</optgroup>
+												</select>
+											</div>
+
+											<div class="col_full">
+												<label for="template-contactform-location">City <small>*</small></label>
+												<input ng-model="search.city" type="text" id="template-contactform-location" name="template-contactform-location" value="" class="sm-form-control required" placeholder="Spain" />
+											</div>
+
+											<div class="input-daterange travel-date-group">
+
+												<div class="col_full">
+													<label for="">Event Date</label>
+													<input type="text" value="" class="sm-form-control tleft" name="start" placeholder="mm/dd/yyyy">
+												</div>
+
+											</div>
+
+											<div class="clear"></div>
+
+											<div class="col_full nobottommargin">
+												<a href="#" class="button button-3d nomargin">Search</a>
+											</div>
+
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div class="widget clearfix">
+
+								<h4>Search Radius</h4>
+
+								<div>
+									<input ng-model="search.radius.a" data-ng-value="true" id="checkbox-1" class="checkbox-style" name="checkbox" type="radio">
+									<label for="checkbox-1" class="checkbox-style-2-label checkbox-small">0 - 30 miles</label>
+								</div>
+								<div>
+									<input ng-model="search.radius.b" data-ng-value="true" id="checkbox-2" class="checkbox-style" name="checkbox" type="radio">
+									<label for="checkbox-2" class="checkbox-style-2-label checkbox-small">31 - 60 miles</label>
+								</div>
+								<div>
+									<input ng-model="search.radius.c" data-ng-value="true" id="checkbox-3" class="checkbox-style" name="checkbox" type="radio">
+									<label for="checkbox-3" class="checkbox-style-2-label checkbox-small">61 - 100 miles</label>
+								</div>
+								<div>
+									<input ng-model="search.radius.d" data-ng-value="true" id="checkbox-4" class="checkbox-style" name="checkbox" type="radio">
+									<label for="checkbox-4" class="checkbox-style-2-label checkbox-small">Any Distance</label>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- Post Content
+					============================================= -->
+					<div class="postcontent nobottommargin col_last clearfix">
+
+						<!-- Posts
+						============================================= -->
+						<div id="posts" class="small-thumbs">
+
+							<div ng-repeat="market in markets" class="entry clearfix">
+								<div class="row clearfix">
+									<div class="col-md-4">
+										<a href="{{market.image}}" data-lightbox="image">
+											<img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
+										</a>
+									</div>
+									<div class="bottommargin-sm visible-sm visible-xs"></div>
+									<div class="col-md-6 col-sm-8">
+										<div class="entry-c">
+											<div class="entry-title">
+												<h2>
+													<a ng-bind="market.name" href="market-page.html">
+														<!-- Market Name -->
+													</a>
+												</h2>
+											</div>
+											<ul class="entry-meta clearfix">
+												<li>
+													<i class="icon-map-marker2"></i>
+													<a ng-bind="market.location" href="#"></a>
+												</li>
+												<li>
+													<i class="icon-line-map"></i>
+													<a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" data-lightbox="iframe">
+														View map
+													</a>
+												</li>
+												<li>
+													<i class="icon-comments"></i>
+													<a href="#">
+														24 Reviews
+													</a>
+												</li>
+											</ul>
+											<br/>
+											<div class="entry-content">
+												<div class="clearfix" style="margin-bottom: 10px;">
+													<hr/>
+												</div>
+												<p ng-bind-html="market.html" class="nobottommargin">
+													<!-- Market Description -->
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-2 col-sm-4 center">
+										<div class="hotel-price">
+											<i class="icon-dollar"></i>
+											<span ng-bind="market.baseRate">
+										<!-- Market Base Rate -->
+									</span>
+										</div>
+										<small><em>Base hourly rate*</em></small><br>
+										<a href="#"class="button button-rounded topmargin-sm">Book Now</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<ul class="pagination notopmargin nobottommargin">
+							<li class="disabled"><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark" style="background-color: #222;">
+
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap clearfix">
+
+					<div class="col_one_third">
+
+						<div class="widget clear-bottommargin-sm clearfix">
+
+							<div class="row">
+
+								<div class="col-md-12 bottommargin-sm">
+									<div class="footer-big-contacts">
+										<span>Call Us:</span>
+										(91) 22 84551445
+									</div>
+								</div>
+
+								<div class="col-md-12 bottommargin-sm">
+									<div class="footer-big-contacts">
+										<span>Send an Enquiry:</span>
+										travel@canvas.com
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="widget subscribe-widget clearfix">
+							<div class="row">
+
+								<div class="col-md-6 clearfix bottommargin-sm">
+									<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
+										<i class="icon-facebook"></i>
+										<i class="icon-facebook"></i>
+									</a>
+									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
+								</div>
+								<div class="col-md-6 clearfix">
+									<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
+										<i class="icon-rss"></i>
+										<i class="icon-rss"></i>
+									</a>
+									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col_one_third">
+
+						<div class="widget clearfix">
+							<h4>Featured Packages</h4>
+
+							<div id="post-list-footer">
+								<div class="spost clearfix">
+									<div class="entry-image">
+										<a href="#"><img src="images/magazine/small/1.jpg" alt="Package"></a>
+									</div>
+									<div class="entry-c">
+										<div class="entry-title">
+											<h4><a href="#">7 Nights/8 Days Europe</a></h4>
+										</div>
+										<ul class="entry-meta">
+											<li><strong>$599</strong> onwards</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="spost clearfix">
+									<div class="entry-image">
+										<a href="#"><img src="images/magazine/small/2.jpg" alt="Package"></a>
+									</div>
+									<div class="entry-c">
+										<div class="entry-title">
+											<h4><a href="#">4 Nights/5 Days Thailand</a></h4>
+										</div>
+										<ul class="entry-meta">
+											<li><strong>$399</strong> onwards</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="spost clearfix">
+									<div class="entry-image">
+										<a href="#"><img src="images/magazine/small/3.jpg" alt="Package"></a>
+									</div>
+									<div class="entry-c">
+										<div class="entry-title">
+											<h4><a href="#">11 Nights/12 Days America</a></h4>
+										</div>
+										<ul class="entry-meta">
+											<li><strong>$1299</strong> onwards</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col_one_third col_last">
+
+						<div class="widget widget_links clearfix">
+
+							<h4>Popular Destinations</h4>
+
+							<div class="row clearfix">
+								<div class="col-xs-6">
+									<ul>
+										<li><a href="#">Thailand</a></li>
+										<li><a href="#">Indonesia</a></li>
+										<li><a href="#">Italy</a></li>
+										<li><a href="#">Spain</a></li>
+									</ul>
+								</div>
+								<div class="col-xs-6">
+									<ul>
+										<li><a href="#">India</a></li>
+										<li><a href="#">France</a></li>
+										<li><a href="#">Philippines</a></li>
+										<li><a href="#">New Zealand</a></li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="widget subscribe-widget clearfix">
+							<h5>Get Latest <strong>Offers</strong> &amp; <strong>Coupons</strong> by Email:</h5>
+							<div class="widget-subscribe-form-result"></div>
+							<form id="widget-subscribe-form" action="../include/subscribe.php" role="form" method="post" class="nobottommargin">
+								<div class="input-group divcenter">
+									<span class="input-group-addon"><i class="icon-email2"></i></span>
+									<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-danger bgcolor" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form>
+						</div>
+
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.<br>
+						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+					</div>
+
+					<div class="col_half col_last tright">
+						<div class="fright clearfix">
+							<a href="#" class="social-icon si-small si-borderless si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-gplus">
+								<i class="icon-gplus"></i>
+								<i class="icon-gplus"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-pinterest">
+								<i class="icon-pinterest"></i>
+								<i class="icon-pinterest"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-vimeo">
+								<i class="icon-vimeo"></i>
+								<i class="icon-vimeo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-github">
+								<i class="icon-github"></i>
+								<i class="icon-github"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-yahoo">
+								<i class="icon-yahoo"></i>
+								<i class="icon-yahoo"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-borderless si-linkedin">
+								<i class="icon-linkedin"></i>
+								<i class="icon-linkedin"></i>
+							</a>
+						</div>
+
+						<div class="clear"></div>
+
+						<i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+
+	<!-- Travel Demo Specific Script -->
+	<script type="text/javascript" src="demos/travel/js/datepicker.js"></script>
+
+	<!-- Star Rating Plugin -->
+	<script type="text/javascript" src="js/components/star-rating.js"></script>
+	<!-- Bootstrap Select Plugin -->
+	<script type="text/javascript" src="js/components/bs-select.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$('.travel-date-group').datepicker({
+				autoclose: true,
+				startDate: "today"
+			});
+		});
+	</script>
+
+</body>
+</html>

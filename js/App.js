@@ -4,7 +4,7 @@ module.exports = class App{
     console.info('App Loading...');
 
     /* Loading Angularjs */
-    this.angular = require('angular');
+    this.angular = require('angular');    
 
     /* Creating angular modules */
     this.angular.module("booking", []);

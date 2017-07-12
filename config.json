@@ -1,0 +1,9 @@
+{
+  "debug": true,
+  "authService":{
+    "serverURL": "http://tcc.vectorwebdevelopment.com/api/"
+  },
+  "dataService":{
+
+  }
+}

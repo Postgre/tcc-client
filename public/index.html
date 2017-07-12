@@ -261,15 +261,16 @@
                 </div><!-- #logo end -->
 
                 <div id="top-account" class="dropdown">
-                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+                    <a href="javascript:$('#my-account').show();$('#login-register').hide()" id="login-register" class="btn btn-default">Login / Register</a>
+                    <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                         <li><a href="profile.html">Profile</a></li>
                         <li><a href="events-personal.html">My Events</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Logout <i class="icon-signout"></i></a></li>
-                        <li role="separator" class="divider"></li>
                         <li><a href="markets-manage.html">Manage Markets</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="login-register.html">Logout <i class="icon-signout"></i></a></li>
                     </ul>
                 </div>
 
@@ -286,6 +287,11 @@
                         <li>
                             <a href="event-book.html">
                                 <div>Book Event</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="market-search.html">
+                                <div>Find a Market</div>
                             </a>
                         </li>
                         <li>
@@ -1062,7 +1068,7 @@
                                 </div>
                                 <div class="acc_content clearfix">To book this event, you'll just need to make an
                                     account, and confirm it in your dashboard!
-                                    Already have an account? <a href="../app/html/login.html">Login here!</a></div>
+                                    Already have an account? <a href="login-register.html">Login here!</a></div>
 
                                 <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i
                                         class="acc-open icon-remove-circle"></i> Payment Options
