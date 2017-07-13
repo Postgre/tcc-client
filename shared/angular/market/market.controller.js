@@ -74,12 +74,6 @@ const DEFAULT_MODEL = {
     },
     gallery: [
         {
-            name: "Rocco's Christmas Party",
-            where: "Sammy's, Valley Ave",
-            thumb: "https://pbs.twimg.com/media/CRnzjIVVAAALvN3.jpg",
-            overlay: "https://pbs.twimg.com/media/CRnzjIVVAAALvN3.jpg"
-        },
-        {
             name: "Christmas Work Party",
             where: "The M-Lounge",
             thumb: "https://blog.samuel-windsor.co.uk/wp-content/uploads/2015/12/office-party-group.jpg",
