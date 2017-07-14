@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="css/responsive.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css"/>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="es/dist/bundle.js"></script>
+
     <!-- Document Title
     ============================================= -->
     <title>Login | The Christmas Carolers</title>
@@ -91,7 +95,7 @@
                         </li>
                         <li>
                             <a href="contact.html">
-                                <div>Contact</div>
+                                <div class="tccExample">Contact</div>
                             </a>
                         </li>
                     </ul>
@@ -129,19 +133,19 @@
                 <div class="col_one_third nobottommargin">
 
                     <div class="well well-lg nobottommargin">
-                        <form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
+                        <form id="login-form" name="login-form" class="nobottommargin" action="#" method="post" onsubmit="return login()">
 
                             <h3>Login to your Account</h3>
 
                             <div class="col_full">
                                 <label for="login-form-username">Username:</label>
-                                <input type="text" id="login-form-username" name="login-form-username" value=""
+                                <input type="email" required id="login-form-username" name="login-form-username" value=""
                                        class="form-control"/>
                             </div>
 
                             <div class="col_full">
                                 <label for="login-form-password">Password:</label>
-                                <input type="password" id="login-form-password" name="login-form-password" value=""
+                                <input type="password" required id="login-form-password" name="login-form-password" value=""
                                        class="form-control"/>
                             </div>
 
@@ -166,7 +170,7 @@
                         ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus
                         ratione.</p>
 
-                    <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+                    <form id="register-form" onsubmit="return register()" name="register-form" class="nobottommargin" action="#" method="post">
 
                         <div class="col_half">
                             <label for="register-form-name">Name:</label>
@@ -177,20 +181,6 @@
                         <div class="col_half col_last">
                             <label for="register-form-email">Email Address:</label>
                             <input type="text" id="register-form-email" name="register-form-email" value=""
-                                   class="form-control"/>
-                        </div>
-
-                        <div class="clear"></div>
-
-                        <div class="col_half">
-                            <label for="register-form-username">Choose a Username:</label>
-                            <input type="text" id="register-form-username" name="register-form-username" value=""
-                                   class="form-control"/>
-                        </div>
-
-                        <div class="col_half col_last">
-                            <label for="register-form-phone">Phone:</label>
-                            <input type="text" id="register-form-phone" name="register-form-phone" value=""
                                    class="form-control"/>
                         </div>
 
@@ -368,6 +358,58 @@
 <!-- Footer Scripts
 ============================================= -->
 <script type="text/javascript" src="js/functions.js"></script>
+<script>
+    function login(){
+        var email = $("#login-form-username").val();
+        var password = $("#login-form-password").val();
+        var p = authService.login(email, password);
+        p.then(function(res){
+            console.log("win", res);
+            alert("login successful!");
+        });
+        p.catch(function(err){
+            console.log("fail",err);
+            swal({
+                title: "Invalid Login",
+                text: "Try Again",
+                type: "error",
+                showCancelButton: false,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: 'OK',
+                closeOnConfirm: false
+            });
+        });
+        return false;
+    }
+    function register() {
+        var name = $("#register-form-name").val();
+        var email = $("#register-form-email").val();
+        var password = $("#register-form-password").val();
+        var repassword = $("#register-form-repassword").val();
 
+        if( password !== repassword ){
+            swal({
+                title: "Oops!",
+                text: "Those passwords don't match!",
+                type: "error",
+                showCancelButton: false,
+                confirmButtonClass: "btn-warning",
+                confirmButtonText: 'OK',
+                closeOnConfirm: false
+            });
+            return false;
+        }
+
+        var p = authService.register( name, email, password );
+        p.then(function(res){
+            console.log("win", res );
+        });
+        p.catch(function(err){
+            console.log("fail", err);
+        });
+
+        return false;
+    }
+</script>
 </body>
 </html>
