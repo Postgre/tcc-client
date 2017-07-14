@@ -14,28 +14,24 @@
 	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
 	<link rel="stylesheet" href="css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="css/calendar.css" type="text/css" />
 
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<!-- Radio Checkbox Plugin -->
-	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
-	<!-- Bootstrap File Upload CSS -->
-	<link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css" />
-
 	<!-- Angular
 	============================================= -->
-	<script src="../node_modules/angular/angular.min.js"></script>
-	<script src="../shared/angular/profile/profile.module.js"></script>
-	<script src="../shared/angular/profile/profile.controller.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="angular/customer-events/customer-events.module.js"></script>
+	<script src="angular/customer-events/customer-events.controller.js"></script>
 
 	<!-- Document Title
 	============================================= -->
-	<title>My Profile</title>
+	<title>My Events</title>
 
 </head>
 
-<body class="stretched" ng-app="profile" ng-controller="ProfileController">
+<body class="stretched" ng-app="customer-events" ng-controller="CustomerEventsController">
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -52,7 +48,7 @@
 					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
 					<!-- Logo
-					============================================= -->
+                    ============================================= -->
 					<div id="logo">
 						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
 								src="images/tcc-logo.png" alt="TCC Logo"></a>
@@ -72,7 +68,7 @@
 					</div>
 
 					<!-- Primary Navigation
-					============================================= -->
+                    ============================================= -->
 					<nav id="primary-menu">
 
 						<ul>
@@ -80,7 +76,7 @@
 								<a href="index.html"><div>Home</div></a>
 							</li>
 							<li>
-								<a href="event-book.html"><div>Book Event</div></a>
+								<a href="book_event.html"><div>Book Event</div></a>
 							</li>
 							<li>
 								<a href="about.html"><div>About</div></a>
@@ -98,162 +94,112 @@
 
 		</header><!-- #header end -->
 
-		<!-- Content
+		<!-- Page Title
 		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix">
+				<h1>My Events</h1>
+				<span>My Upcoming Caroling Events</span>
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li class="active">Events</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+
 		<section id="content">
 
 			<div class="content-wrap">
 
 				<div class="container clearfix">
 
-					<div class="row clearfix">
+					<div class="postcontent nobottommargin">
 
-						<div class="col-sm-9">
-
-							<img ng-src="{{profile.pic}}" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
-
-							<div class="heading-block noborder">
-								<h3 ng-bind="profile.first_name + ' ' + profile.last_name"></h3>
-								<span ng-bind="profile.bio"></span>
-							</div>
-
-							<div class="clear"></div>
-
-							<div class="row clearfix">
-
-								<div class="col-md-12">
-
-									<div class="tabs tabs-alt clearfix" id="tabs-profile">
-
-										<ul class="tab-nav clearfix">
-											<li><a href="#tab-profile"><i class="icon-pencil2"></i> Profile</a></li>
-											<li><a href="#tab-billing"><i class="icon-credit"></i> Billing </a></li>
-											<li><a href="#tab-taxforms"><i class="icon-line-paper"></i> Tax Forms </a></li>
-										</ul>
-
-										<div class="tab-container">
-
-											<div class="tab-content clearfix" id="tab-profile">
-												<div>
-													<form class="nobottommargin">
-
-														<div class="col_half">
-															<label>Name:</label>
-															<input ng-model="profile.first_name" type="text" class="sm-form-control" />
-														</div>
-
-														<div class="col_half col_last">
-															<label>Last Name:</label>
-															<input ng-model="profile.last_name" type="text" class="sm-form-control" />
-														</div>
-
-														<div class="col_half">
-															<label for="form-email">Email Address:</label>
-															<input ng-model="profile.email" type="email" id="form-email" name="form-email" value="" class="sm-form-control" />
-														</div>
-
-														<div class="col_half col_last">
-															<label for="form-phone">Phone:</label>
-															<input ng-model="profile.phone" type="text" id="form-phone" name="form-phone" value="" class="sm-form-control" />
-														</div>
-
-														<div class="clear"></div>
-
-														<div class="col_half">
-															<label>State:</label>
-															<input ng-model="profile.state" type="text" class="sm-form-control" />
-														</div>
-
-														<div class="col_half col_last">
-															<label>City / Town:</label>
-															<input ng-model="profile.city" type="text" class="sm-form-control" />
-														</div>
-
-														<div class="col_full">
-															<label>Address:</label>
-															<input ng-model="profile.address" type="email" class="sm-form-control" />
-														</div>
-
-														<div class="col_full">
-															<label>Bio: </label>
-															<textarea ng-model="profile.bio" class="sm-form-control" rows="6" cols="30"></textarea>
-														</div>
-
-													</form>
-												</div>
-											</div>
-											<div class="tab-content clearfix" id="tab-billing">
-												<div>
-													<form class="nobottommargin">
-
-														<div class="col_half">
-															<label>Card Number:</label>
-															<input ng-model="billing.number" type="text" class="sm-form-control" />
-														</div>
-
-														<div class="col_half col_last">
-															<label>Expiration Date:</label>
-															<input ng-model="billing.expiration" type="text" class="sm-form-control" />
-														</div>
-
-														<div class="col_full">
-															<label>Security Code:</label>
-															<input ng-model="billing.cvs" type="email" class="sm-form-control" />
-														</div>
-
-														<div class="col_full">
-															<input ng-model="billing_same_as_personal" id="radio-10" class="radio-style" name="radio-group-3" type="checkbox" checked="">
-															<label for="radio-10" class="radio-style-3-label">Billing address is the same as personal address</label>
-														</div>
-
-														<div ng-if="!billing_same_as_personal">
-															<div class="col_half">
-																<label>State:</label>
-																<input ng-model="billing.state" type="text" class="sm-form-control" />
-															</div>
-
-															<div class="col_half col_last">
-																<label>City / Town:</label>
-																<input ng-model="billing.city" type="text" class="sm-form-control" />
-															</div>
-
-															<div class="col_full">
-																<label>Address:</label>
-																<input ng-model="billing.address" type="email" class="sm-form-control" />
-															</div>
-														</div>
-													</form>
-												</div>
-											</div>
-											<div class="tab-content clearfix" id="tab-taxforms">
-												<div class="style-msg successmsg">
-													<div class="sb-msg">
-														<i class="icon-thumbs-up"></i>
-														<strong>All good here!</strong>
-														We have your W9 on file.
-													</div>
-												</div>
-												<iframe src="https://www.irs.gov/pub/irs-pdf/fw9.pdf" width="100%" height="700px"></iframe>
-												<br/>
-												<button class="btn btn-lg btn-success">Save!</button>
-											</div>
-
+						<div class="modal fade" id="deleteMarketModal" tabindex="-1" role="dialog" aria-hidden="true">
+							<div class="modal-dialog modal-md">
+								<div class="modal-body">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">Cancel This Event</h4>
 										</div>
+										<div class="modal-body">
+											<h5>Are you sure you want to cancel this event? This cannot be undone!</h5>
+											<div class="contact-widget">
 
+												<div class="contact-form-result"></div>
+
+												<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+
+													<div class="col_full">
+														<h5>Enter the name of the event exactly as it appears to cancel this event:</h5>
+														<label>Event Name: </label>
+														<input type="text" class="sm-form-control" />
+													</div>
+													<div class="clear"></div>
+
+													<div class="col_full">
+														<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="btn btn-danger">Cancel Event</button>
+													</div>
+
+												</form>
+											</div>
+										</div>
 									</div>
-
 								</div>
+							</div>
+						</div>
 
+						<div id="posts" class="events small-thumbs">
+
+							<div ng-repeat="event in upcoming_events" class="entry clearfix">
+								<div class="entry-image">
+									<a href="#">
+										<img ng-src="{{event.image}}" alt="{{event.name}}">
+										<div class="entry-date">10<span>Apr</span></div>
+									</a>
+								</div>
+								<div class="entry-c">
+									<div class="entry-title">
+										<h2><a ng-bind="event.name" href="#"></a></h2>
+									</div>
+									<ul class="entry-meta clearfix">
+										<li><span class="label label-warning" ng-bind="event.status"></span></li>
+										<li>
+											<a href="#">
+												<i class="icon-time"></i>
+												<span ng-bind="event.start_time"></span>
+											</a>
+										</li>
+										<li><a href="#"><i class="icon-map-marker2"></i>
+											<span ng-bind="event.city + ', ' + event.state"></span>
+										</a></li>
+									</ul>
+									<div class="entry-content">
+										<p ng-bind="event.description"></p>
+										<a data-target="#deleteMarketModal" data-toggle="modal" href="#deleteMarketModal" class="btn btn-danger"><i class="icon-trash"></i> &nbsp;Cancel Event</a>
+										<a href="#" class="btn btn-success"><i class="icon-money"></i> &nbsp; Pay Now</a>
+									</div>
+								</div>
 							</div>
 
 						</div>
 
-						<div class="line visible-xs-block"></div>
+						<!-- Pagination
+						============================================= -->
+						<ul class="pager nomargin">
+							<li class="previous"><a href="#">&larr; See Past Events</a></li>
+						</ul><!-- .pager end -->
 
-						<div class="col-sm-3 clearfix">
-							<!-- IDK what to put here -->
+					</div>
+
+					<div class="sidebar nobottommargin col_last clearfix">
+						<div class="sidebar-widgets-wrap">
+
 						</div>
-
 					</div>
 
 				</div>
@@ -389,18 +335,47 @@
 	============================================= -->
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/plugins.js"></script>
-	<!-- Bootstrap File Upload Plugin -->
-	<script type="text/javascript" src="js/components/bs-filestyle.js"></script>
+	<script type="text/javascript" src="js/jquery.calendario.js"></script>
+	<script type="text/javascript" src="js/events-data.js"></script>
 
 	<!-- Footer Scripts
 	============================================= -->
 	<script type="text/javascript" src="js/functions.js"></script>
 
-	<script>
-		jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
-			jQuery( '.flexslider .slide' ).resize();
-		});
-        $("#input-2").fileinput();
+	<script type="text/javascript">
+
+		canvasEvents = {
+		    '07-22-2017': "Rocco's Christmas Partyf"
+		};
+
+		var cal = $( '#calendar' ).calendario( {
+				onDayClick : function( $el, $contentEl, dateProperties ) {
+
+					for( var key in dateProperties ) {
+						console.log( key + ' = ' + dateProperties[ key ] );
+					}
+
+				},
+				caldata : canvasEvents
+			} ),
+			$month = $( '#calendar-month' ).html( cal.getMonthName() ),
+			$year = $( '#calendar-year' ).html( cal.getYear() );
+
+		$( '#calendar-next' ).on( 'click', function() {
+			cal.gotoNextMonth( updateMonthYear );
+		} );
+		$( '#calendar-prev' ).on( 'click', function() {
+			cal.gotoPreviousMonth( updateMonthYear );
+		} );
+		$( '#calendar-current' ).on( 'click', function() {
+			cal.gotoNow( updateMonthYear );
+		} );
+
+		function updateMonthYear() {
+			$month.html( cal.getMonthName() );
+			$year.html( cal.getYear() );
+		};
+
 	</script>
 
 </body>

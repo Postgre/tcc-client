@@ -8,7 +8,7 @@ function tccDateRange() {
             to: "=to",
             from: "=from"
         },
-        templateUrl: "../shared/angular/market-edit/daterange/daterange.html"
+        templateUrl: "angular/market-edit/daterange/daterange.html"
     };
     return directive;
 

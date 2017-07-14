@@ -1,8 +1,1509 @@
-<html>
-<body>
-This website is undergoing maintenance
-<script>
-    window.location = "public/index.html";
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="SemiColonWeb"/>
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto:300,400,500,700|Rubik:400,600"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/dark.css" type="text/css"/>
+
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css"/>
+    <link rel="stylesheet" href="css/animate.css" type="text/css"/>
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/>
+
+    <!-- Bootstrap Select CSS -->
+    <link rel="stylesheet" href="css/components/bs-select.css" type="text/css"/>
+
+    <!-- Vector Maps -->
+    <link rel="stylesheet" href="css/vmap.css" type="text/css"/>
+
+    <!-- Bootstrap Switch CSS -->
+    <link rel="stylesheet" href="css/components/bs-switches.css" type="text/css"/>
+
+    <!-- Range Slider CSS -->
+    <link rel="stylesheet" href="css/components/ion.rangeslider.css" type="text/css"/>
+
+    <!-- Date & Time Picker CSS -->
+    <link rel="stylesheet" href="css/components/datepicker.css" type="text/css"/>
+    <link rel="stylesheet" href="css/components/timepicker.css" type="text/css"/>
+    <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css"/>
+
+    <link rel="stylesheet" href="css/responsive.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/settings.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
+
+    <!-- Revolution slider -->
+    <style>
+
+        .demos-filter {
+            margin: 0;
+            text-align: right;
+        }
+
+        .demos-filter li {
+            list-style: none;
+            margin: 10px 0px;
+        }
+
+        .demos-filter li a {
+            display: block;
+            border: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #444;
+        }
+
+        .demos-filter li a:hover,
+        .demos-filter li.activeFilter a {
+            color: #1ABC9C;
+        }
+
+        @media (max-width: 991px) {
+            .demos-filter {
+                text-align: center;
+            }
+
+            .demos-filter li {
+                float: left;
+                width: 33.3%;
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .demos-filter li {
+                width: 50%;
+            }
+        }
+
+        .revo-slider-emphasis-text {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            font-family: 'Raleway', sans-serif;
+            padding: 15px 20px;
+            border-top: 2px solid #FFF;
+            border-bottom: 2px solid #FFF;
+        }
+
+        .revo-slider-desc-text {
+            font-size: 20px;
+            font-family: 'Lato', sans-serif;
+            width: 650px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .revo-slider-caps-text {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .tp-video-play-button {
+            display: none !important;
+        }
+
+        .tp-caption {
+            white-space: nowrap;
+        }
+
+        .hesperiden.tparrows {
+            z-index: 999;
+        }
+
+    </style>
+    <!-- Advanced rates and availability search -->
+    <style>
+        .tabs.advanced-real-estate-tabs {
+            margin: 0;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav {
+            border-bottom: none;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li {
+            margin-left: 2px;
+            border: 0;
+            height: 42px;
+            border-left: 0 !important;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li:first-child {
+            margin-left: 0;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li a {
+            padding: 0 20px;
+            color: #FFF;
+            height: 42px;
+            line-height: 42px;
+            background-color: #800020;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Rubik', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li.ui-tabs-active a {
+            top: 0;
+            background-color: #800020;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li.ui-tabs-active a .label-warning {
+            background-color: #800020;
+        }
+
+        .advanced-real-estate-tabs ul.tab-nav li .label {
+            margin-left: 5px;
+        }
+
+        .advanced-real-estate-tabs .tab-container {
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-top: 3px solid #ea0029;
+        }
+
+        #slider + .advanced-real-estate-tabs {
+            top: -42px;
+            margin-bottom: -42px;
+            z-index: 1;
+        }
+
+        #slider + .advanced-real-estate-tabs .tab-container {
+            background-color: #EEE;
+            padding: 50px;
+        }
+
+        #slider .real-estate-tabs-slider {
+            position: relative;
+            margin: 60px 0;
+            z-index: 2;
+        }
+
+        #slider .real-estate-tabs-slider + .video-wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        @media (min-width: 768px) {
+
+            #slider .real-estate-tabs-slider {
+                position: absolute;
+                margin: 0;
+                top: auto;
+                bottom: 40px;
+                width: 100%;
+            }
+
+        }
+
+        .promo.promo-flat a.button:not(:hover) {
+            color: #FFF;
+            background-color: #800020;
+            border-color: #800020;
+        }
+
+        .promo.promo-flat a.button:hover {
+            color: #800020;
+        }
+    </style>
+
+    <!-- Document Title
+    ============================================= -->
+    <title>Welcome to The Christmas Carolers</title>
+
+</head>
+
+<body class="stretched">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="full-header transparent-header dark">
+
+        <div id="header-wrap">
+
+            <div class="container clearfix">
+
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                <!-- Logo
+                ============================================= -->
+                <div id="logo">
+                    <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
+                            src="images/tcc-logo.png" alt="TCC Logo"></a>
+                    <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
+                            src="images/tcc-logo.png" alt="TCC Logo"></a>
+                </div><!-- #logo end -->
+
+                <div id="top-account" class="dropdown">
+                    <a href="javascript:$('#my-account').show();$('#login-register').hide()" id="login-register" class="btn btn-default">Login / Register</a>
+                    <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="events-personal.html">My Events</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="markets-manage.html">Manage Markets</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="login-register.html">Logout <i class="icon-signout"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu">
+
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <div>Home</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="event-book.html">
+                                <div>Book Event</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="market-search.html">
+                                <div>Find a Market</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <div>About</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <div>Contact</div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav><!-- #primary-menu end -->
+
+            </div>
+
+        </div>
+
+    </header><!-- #header end -->
+
+    <!-- Slider
+		============================================= -->
+    <section id="slider" class="revslider-wrap full-screen clearfix">
+
+        <div id="rev_slider_431_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="christmas-snow"
+             style="background-color:transparent;padding:0px;">
+            <!-- START REVOLUTION SLIDER 5.2.0 fullscreen mode -->
+            <div id="rev_slider_431_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.2.0">
+                <ul>
+                    <!-- SLIDE  -->
+                    <li data-index="rs-1495" class="dark" data-transition="fade" data-slotamount="default"
+                        data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default"
+                        data-masterspeed="1000" data-thumb="include/rs-plugin/demos/assets/images/red_deer-100x50.jpg"
+                        data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2=""
+                        data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8=""
+                        data-param9="" data-param10="" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="include/rs-plugin/demos/assets/images/red_deer.jpg" alt=""
+                             data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                             data-bgparallax="3" class="rev-slidebg" data-no-retina>
+                        <!-- LAYERS -->
+
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-3"
+                             data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="-220"
+                             data-width="['none','none','none','none']"
+                             data-height="['none','none','none','none']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="1500"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 5;text-transform:left;"><img
+                                src="include/rs-plugin/demos/assets/images/deer.png" alt="" width="71" height="76"
+                                data-ww="71px" data-hh="76px" data-no-retina></div>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-4"
+                             data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="-153"
+                             data-width="['none','none','none','none']"
+                             data-height="['none','none','none','none']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="1650"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 6;text-transform:left;"><img
+                                src="include/rs-plugin/demos/assets/images/bow_tie.png" alt="" width="80" height="60"
+                                data-ww="80px" data-hh="60px" data-no-retina></div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-5"
+                             data-x="center" data-hoffset="-180"
+                             data-y="center" data-voffset="-160"
+                             data-width="['none','none','none','none']"
+                             data-height="['none','none','none','none']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="x:50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="1800"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 7;text-transform:left;"><img
+                                src="include/rs-plugin/demos/assets/images/ornament_left.png" alt="" width="209"
+                                height="83" data-ww="209px" data-hh="83px" data-no-retina></div>
+
+                        <!-- LAYER NR. 4 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-6"
+                             data-x="center" data-hoffset="180"
+                             data-y="center" data-voffset="-160"
+                             data-width="['none','none','none','none']"
+                             data-height="['none','none','none','none']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="x:-50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="1950"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 8;text-transform:left;"><img
+                                src="include/rs-plugin/demos/assets/images/ornament_right.png" alt="" width="209"
+                                height="83" data-ww="209px" data-hh="83px" data-no-retina></div>
+
+                        <!-- LAYER NR. 5 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-7"
+                             data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="-60"
+                             data-width="['auto']"
+                             data-height="['auto']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="z:0;rX:90deg;rY:0deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="2100"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 9; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Playfair Display;text-transform:left;font-style:italic;">
+                            Merry Christmas
+                        </div>
+
+                        <!-- LAYER NR. 6 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-8"
+                             data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="24"
+                             data-width="['auto']"
+                             data-height="['auto']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="z:0;rX:-90deg;rY:0deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="2250"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 10; white-space: nowrap; font-size: 40px; line-height: 40px; font-weight: 300; color: rgba(255, 255, 255, 1.00);font-family:Roboto Slab;text-transform:left;">
+                            & A Happy New Year
+                        </div>
+
+                        <!-- LAYER NR. 7 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-9"
+                             data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="110"
+                             data-width="['none','none','none','none']"
+                             data-height="['none','none','none','none']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="2350"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 11;text-transform:left;"><img
+                                src="include/rs-plugin/demos/assets/images/banner.png" alt="" width="375" height="58"
+                                data-ww="375px" data-hh="58px" data-no-retina></div>
+
+                        <!-- LAYER NR. 8 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-10"
+                             data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="109"
+                             data-width="['auto']"
+                             data-height="['auto']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="2500"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 12; white-space: nowrap; font-size: 40px; line-height: 40px; font-weight: 700; color: rgba(161, 23, 2, 1.00);font-family:Roboto Slab;text-transform:left;">
+                            2017
+                        </div>
+
+                        <!-- LAYER NR. 9 -->
+                        <div class="tp-caption   tp-resizeme"
+                             id="slide-1495-layer-11"
+                             data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="200"
+                             data-width="['none','none','none','none']"
+                             data-height="['none','none','none','none']"
+                             data-transform_idle="o:1;"
+
+                             data-transform_in="y:-50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;"
+                             data-start="2650"
+                             data-responsive_offset="on"
+
+
+                             style="z-index: 13;text-transform:left;"><img
+                                src="include/rs-plugin/demos/assets/images/ornament_wide.png" alt="" width="450"
+                                height="78" data-ww="450px" data-hh="78px" data-no-retina></div>
+                    </li>
+                </ul>
+                <div style="" class="tp-static-layers">
+                    <!-- Need this here for snow effect? -->
+                </div>
+            </div><!-- END REVOLUTION SLIDER -->
+    </section>
+
+    <div class="tabs advanced-real-estate-tabs clearfix" style="top: -62px">
+
+        <div class="container clearfix">
+            <ul class="tab-nav clearfix">
+                <li><a href="#tab-properties" data-scrollto="#tab-properties" data-offset="133">Check Rates and
+                    Availability</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-container">
+            <div class="container clearfix">
+                <div class="tab-content clearfix" id="tab-properties">
+                    <!-- Start Rates & Availability Form-->
+                    <form action="#" onsubmit="return parseRatesFrom()" class="nobottommargin">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">City</label>
+                                <input type="text" class="form-control" placeholder="City">
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>State</label>
+                                <select class="selectpicker form-control" data-live-search="true"
+                                        data-size="6" style="width:100%;">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                        <option value="AK">Alaska</option>
+                                        <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="WA">Washington</option>
+                                    </optgroup>
+                                    <optgroup label="Mountain Time Zone">
+                                        <option value="AZ">Arizona</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="WY">Wyoming</option>
+                                    </optgroup>
+                                    <optgroup label="Central Time Zone">
+                                        <option value="AL">Alabama</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="WI">Wisconsin</option>
+                                    </optgroup>
+                                    <optgroup label="Eastern Time Zone">
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WV">West Virginia</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>Event Date and Time</label>
+                                <input type="text" class="sm-form-control daterange"
+                                       value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
+                            </div>
+                            <div class="clear"></div>
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">Address</label>
+                                <input type="text" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
+                                <label>Number of Singers</label>
+                                <select class="selectpicker form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5+">5+</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2 float-right">
+                                <button class="button button-3d button-rounded btn-block nomargin"
+                                        style="margin-top: 35px !important;">Check Rates and Availability!
+                                </button>
+                            </div>
+                            <div class="clear visible-xs bottommargin-sm"></div>
+                        </div>
+                    </form>
+                    <!-- End Rates & Availability Form-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+
+        <div class="content-wrap">
+            <!-- About Section
+            ================================= -->
+            <div class="container">
+                <div id="about" class="row">
+                    <div class="col-md-4">
+                        <img src="images/carolers/knockout.png" width="100%">
+                    </div>
+
+                    <div class="col-md-8">
+                        <h2 class="t400">ABOUT OUR CAROLERS</h2>
+                        <p style="font-size: large">The Christmas Carolers recruitees highly skilled voice students from
+                            the finest music schools in your area.
+                            Carolers are dressed in finely appointed Vitorian-styled costumes and are trained to
+                            entertain your guest
+                            as they arrive and move through your party or event <br/><br/>
+                            The Christmas Carolers are required to be a member of the National Carolers Association;
+                            which ensures a level of quality assurance.
+                            The National Carolers Associations provides carolers with quality costumes, approved musical
+                            arrangements and liability insurance</p>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <!-- Featured Locations Section
+            ================================= -->
+            <div class="common-height clearfix">
+
+                <div id="popular-dest-map" class="col-md-8 col-padding gmap hidden-xs"></div>
+
+                <div class="col-md-4 col-padding" style="background-color: #F9F9F9;">
+                    <div class="max-height clearfix">
+                        <div class="heading-block nobottommargin">
+                            <h4>Featured Locations</h4>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div style="font-size: 15px; line-height: 1.7;">
+                            The Christmas Carolers is the only nationwide caroling company in the United States.
+                            Choose from one of our core locations or check rates and availability across the United
+                            States.
+                            <br><br>
+                            Whether your booking an event in one location and on a special date or booking multiple
+                            locations with mltiple dates,
+                            The Christmas Carolers in yiour one source for the highest quality of caroling
+                            entertainment.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Song List Section
+            ================================= -->
+            <div class="container">
+                <br/>
+                <br/>
+                <div id="songs" class="row">
+                    <h2 class="t400 ls1">CAROLING SONG LIST</h2>
+
+                    <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
+                        <ul>
+                            <li><a href="#">Angels We Have Heard On High</a></li>
+                            <li><a href="#">Away in the Manger</a></li>
+                            <li><a href="#">Blue Xmas</a></li>
+                            <li><a href="#">Bright, Bright the Holly Berries</a></li>
+                            <li><a href="#">Bring a Torch, Jeannette Isabella</a></li>
+                            <li><a href="#">Candlelight Carol</a></li>
+                            <li><a href="#">Caroling, Caroling</a></li>
+                            <li><a href="#">Carol of the Bells</a></li>
+                            <li><a href="#">Carol of the Drum</a></li>
+                            <li><a href="#">The Christmas Song</a></li>
+                            <li><a href="#">Christmas Time Is Here</a></li>
+                            <li><a href="#">Come Dear Children</a></li>
+                            <li><a href="#">Coventry Carol</a></li>
+                            <li><a href="#">Deck the Halls</a></li>
+                            <li><a href="#">Do you Hear What I Hear?</a></li>
+                            <li><a href="#">Feliz Navidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
+                        <ul>
+                            <li><a href="#">First Noel</a></li>
+                            <li><a href="#">Frosty the Snowperson</a></li>
+                            <li><a href="#">God Rest Ye Merry Gentlemen</a></li>
+                            <li><a href="#">Good Christian Men Rejoice</a></li>
+                            <li><a href="#">Good King Wenceslas</a></li>
+                            <li><a href="#">Grandma Got Run Over by a Reindeer</a></li>
+                            <li><a href="#">Grinch</a></li>
+                            <li><a href="#">Have Yourself A Merry Little Christmas</a></li>
+                            <li><a href="#">Here Comes Santa Claus!</a></li>
+                            <li><a href="#">Here We Come A-Caroling</a></li>
+                            <li><a href="#">Hi To You</a></li>
+                            <li><a href="#">The Holly and the Ivy</a></li>
+                            <li><a href="#">A Holly Jolly Christmas</a></li>
+                            <li><a href="#">I’ll Be Home For Christmas</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
+                        <ul>
+                            <li><a href="#">I Wanna Hippopotamus for Christmas</a></li>
+                            <li><a href="#">It Came Upon A Midnight Clear</a></li>
+                            <li><a href="#">It’s Beginning To Look Like Christmas</a></li>
+                            <li><a href="#">Jingle Bell Rock</a></li>
+                            <li><a href="#">Jingle Bells</a></li>
+                            <li><a href="#">Joy to the World</a></li>
+                            <li><a href="#">Let It Snow</a></li>
+                            <li><a href="#">Lo, How a Rose</a></li>
+                            <li><a href="#">Merry Christmas Darling</a></li>
+                            <li><a href="#">Merry Christmas Round</a></li>
+                            <li><a href="#">Most Wonderful Time of the Year</a></li>
+                            <li><a href="#">Nuttin’ For Christmas</a></li>
+                            <li><a href="#">Come, O Come, Emmanuel</a></li>
+                            <li><a href="#">Holy Night</a></li>
+                            <li><a href="#">Little Town of Bethlehem</a></li>
+                            <li><a href="#">Tannenbaum</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
+                        <ul>
+                            <li><a href="#">Oh Come All Ye Faithful</a></li>
+                            <li><a href="#">Oh, What A Merry Christmas Day</a></li>
+                            <li><a href="#">Rockin” Around the Christmas Tree</a></li>
+                            <li><a href="#">Rudolph the Red Nosed Reindeer</a></li>
+                            <li><a href="#">Santa Claus is Coming to Town</a></li>
+                            <li><a href="#">Santa Baby</a></li>
+                            <li><a href="#">Silent Night</a></li>
+                            <li><a href="#">Silver Bells</a></li>
+                            <li><a href="#">Sleigh Ride</a></li>
+                            <li><a href="#">Still, Still, Still</a></li>
+                            <li><a href="#">Toyland</a></li>
+                            <li><a href="#">Up on the Housetop/ Jolly Old Saint Nick (Medley)</a></li>
+                            <li><a href="#">We Three Kings of Orient Are</a></li>
+                            <li><a href="#">We Wish You a Merry Christmas</a></li>
+                            <li><a href="#">What Child Is This?</a></li>
+                            <li><a href="#">White Christmas</a></li>
+                            <li><a href="#">Winter Wonderland</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr/>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-box fbox-plain">
+                            <div class="fbox-icon">
+                                <a href="#"><i class="icon-briefcase"></i></a>
+                            </div>
+                            <h3 class="t400">Venues and Resellers</h3>
+                            <p>Interested in reselling the Christmas Carolers' services? If you represent a venue or an
+                                agency might be interested in reselling our services please submit the following contact
+                                form. One of our agents will be in touch very soon.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-box fbox-plain">
+                            <div class="fbox-icon">
+                                <a href="#"><i class="icon-calendar"></i></a>
+                            </div>
+                            <h3 class="t400">Have a Caroling Group?</h3>
+                            <p>The Christmas Carolers is the only nationwide Christmas Caroling company in the United
+                                States.
+                                <br> Submit your group's information for areas where we don't have existing carolers</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-box fbox-plain">
+                            <div class="fbox-icon">
+                                <a href="#"><i class="icon-line2-user-follow"></i></a>
+                            </div>
+                            <h3 class="t400">Become a Caroler</h3>
+                            <p>Want to become a caroler for The Christmas Carolers? The pay is great and the experience
+                                is even better. Apply to become a caroler in one of our core markets and a city director
+                                will be in touch with more information</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- #content end -->
+
+    <!-- Footer
+    ============================================= -->
+    <footer id="footer" class="dark">
+
+        <div class="container">
+
+            <!-- Footer Widgets
+            ============================================= -->
+            <div class="footer-widgets-wrap clearfix">
+
+                <div class="col_one_third">
+
+                    <div class="widget clearfix">
+
+                        <img src="images/tcc-logo.png" alt="" class="footer-logo">
+
+                    </div>
+
+                </div>
+
+                <div class="col_one_third">
+
+                    <div class="widget clearfix">
+                        <div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
+                            <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
+                            <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
+                            <br/><br/>
+                            <div class="bottommargin-sm widget_links">
+                                <ul>
+                                    <li><a href="#">Resellers</a></li>
+                                    <li><a href="#">Have a Caroling Group?</a></li>
+                                    <li><a href="#">Become a Caroler</a></li>
+                                    <li><a href="#">National Caroler Association</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget clearfix">
+
+                        <a href="#" class="social-icon si-small si-rounded si-facebook">
+                            <i class="icon-facebook"></i>
+                            <i class="icon-facebook"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-rounded si-twitter">
+                            <i class="icon-twitter"></i>
+                            <i class="icon-twitter"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-rounded si-github">
+                            <i class="icon-github"></i>
+                            <i class="icon-github"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col_one_third col_last">
+
+                    <div class="widget quick-contact-widget clearfix">
+
+                        <h4>Send Message</h4>
+
+                        <div class="quick-contact-form-result"></div>
+
+                        <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form"
+                              action="include/quickcontact.php" class="quick-contact-form nobottommargin">
+
+                            <div class="form-process"></div>
+
+                            <div class="input-group divcenter">
+                                <span class="input-group-addon"><i class="icon-user"></i></span>
+                                <input type="text" class="required form-control input-block-level"
+                                       id="quick-contact-form-name" name="quick-contact-form-name" value=""
+                                       placeholder="Full Name"/>
+                            </div>
+                            <div class="input-group divcenter">
+                                <span class="input-group-addon"><i class="icon-email2"></i></span>
+                                <input type="text" class="required form-control email input-block-level"
+                                       id="quick-contact-form-email" name="quick-contact-form-email" value=""
+                                       placeholder="Email Address"/>
+                            </div>
+                            <textarea class="required form-control input-block-level short-textarea"
+                                      id="quick-contact-form-message" name="quick-contact-form-message" rows="4"
+                                      cols="30" placeholder="Message"></textarea>
+                            <input type="text" class="hidden" id="quick-contact-form-botcheck"
+                                   name="quick-contact-form-botcheck" value=""/>
+                            <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit"
+                                    class="btn btn-danger nomargin" value="submit">Send Email
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div><!-- .footer-widgets-wrap end -->
+
+        </div>
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+            <div class="container clearfix">
+
+                <div class="col_half">
+                    Copyrights &copy; 2017 All Rights Reserved by Christmas
+                </div>
+
+                <div class="col_half col_last tright">
+                    <div class="fright clearfix">
+                        <div class="copyrights-menu copyright-links nobottommargin">
+                            <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
+                            Use</a>/<a href="#">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- #copyrights end -->
+
+    </footer><!-- #footer end -->
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- Modals
+============================================= -->
+<div id="quoteModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">EVENT ESTIMATE</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Nearest Market: <span>120</span> miles away</h4>
+                    <div class="nobottommargin">
+                        <div id="posts" class="events small-thumbs">
+                            <div class="entry clearfix">
+                                <div class="entry-image">
+                                    <a href="market-page.html">
+                                        <img src="http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg">
+                                    </a>
+                                </div>
+                                <div class="entry-c">
+                                    <div class="entry-title">
+                                        <h2><a href="market-page.html">
+                                            The Birmingham Carolers
+                                        </a></h2>
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><span class="label label-success">LLC</span></li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-map-marker2"></i>
+                                                Birmingham, AL
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="entry-content">
+                                        <p>Birmingham's best holiday entertainment</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <h4>Pricing Breakdown</h4>
+
+                                <table class="table cart">
+                                    <tbody>
+                                    <tr class="cart_item">
+                                        <td class="notopborder cart-product-name">
+                                            <strong>N Carolers</strong>
+                                        </td>
+
+                                        <td class="notopborder cart-product-name">
+                                            <span class="amount">$<span id="quote-carolers">400.94</span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Travel Fees</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount">$<span id="quote-travel">45.37</span></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Special Dates</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount">$<span id="quote-dates">120.20</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Discounts & Promos</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount"> - $<span id="quote-promos">50</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name">
+                                            <strong>Total</strong>
+                                        </td>
+
+                                        <td class="cart-product-name">
+                                            <span class="amount color lead"><strong>$<span
+                                                    id="quote-total">120</span></strong></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="accordion clearfix">
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i
+                                        class="acc-open icon-remove-circle"></i>What Now?
+                                </div>
+                                <div class="acc_content clearfix">To book this event, you'll just need to make an
+                                    account, and confirm it in your dashboard!
+                                    Already have an account? <a href="login-register.html">Login here!</a></div>
+
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i
+                                        class="acc-open icon-remove-circle"></i> Payment Options
+                                </div>
+                                <div class="acc_content clearfix">We accept several different payment options,
+                                    including: credit card, by phone, and SquareCash!
+                                </div>
+
+                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i
+                                        class="acc-open icon-remove-circle"></i>Other Information
+                                </div>
+                                <div class="acc_content clearfix">**Disclaimers</div>
+                            </div>
+                            <a href="event-book.html" class="button button-3d fright">Book Now</a>
+                            <a href="#" class="button button-3d fright">Save Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- External JavaScripts
+============================================= -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+
+<!-- Bootstrap Select Plugin -->
+<script type="text/javascript" src="js/components/bs-select.js"></script>
+
+<!-- Bootstrap Switch Plugin -->
+<script type="text/javascript" src="js/components/bs-switches.js"></script>
+
+<!-- Range Slider Plugin -->
+<script type="text/javascript" src="js/components/rangeslider.min.js"></script>
+
+<!-- Date & Time Picker JS -->
+<script type="text/javascript" src="js/components/moment.js"></script>
+<script type="text/javascript" src="js/components/datepicker.js"></script>
+<script type="text/javascript" src="js/components/timepicker.js"></script>
+
+<!-- Google Map -->
+<script type="text/javascript"
+        src="https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI"></script>
+<script type="text/javascript" src="js/jquery.gmap.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="js/components/daterangepicker.js"></script>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="js/functions.js"></script>
+
+<!-- Initialization Scripts
+============================================= -->
+<script type="text/javascript">
+    jQuery(".bt-switch").bootstrapSwitch();
+
+    /**
+     * Featured Locations Map
+     * ===============================
+     * */
+    jQuery(window).load(function () {
+
+        jQuery('#popular-dest-map').gMap({
+            address: 'United States',
+            maptype: 'ROADMAP',
+            zoom: 4,
+            markers: [
+                {
+                    address: "New York",
+                    icon: {
+                        image: "images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [16, 36]
+                    }
+                },
+                {
+                    address: "Birmingham, AL",
+                    icon: {
+                        image: "images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [16, 36]
+                    }
+                },
+                {
+                    address: "Georgia",
+                    icon: {
+                        image: "images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [16, 36]
+                    }
+                },
+                {
+                    address: "Texas",
+                    icon: {
+                        image: "images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [16, 36]
+                    }
+                },
+                {
+                    address: "Indiana",
+                    icon: {
+                        image: "images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [16, 36]
+                    }
+                },
+            ],
+            doubleclickzoom: false,
+            controls: {
+                panControl: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            },
+            styles: [{
+                "featureType": "landscape.natural",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+            }, {
+                "featureType": "road",
+                "elementType": "labels",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{"visibility": "on"}, {"lightness": 700}]
+            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+        });
+    });
 </script>
+
+<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+<script type="text/javascript" src="include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="include/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript"
+        src="include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+
+<script type="text/javascript">
+    var tpj = jQuery;
+
+    var revapi431;
+    tpj(document).ready(function () {
+        if (tpj("#rev_slider_431_1").revolution == undefined) {
+            revslider_showDoubleJqueryError("#rev_slider_431_1");
+        } else {
+            revapi431 = tpj("#rev_slider_431_1").show().revolution({
+                sliderType: "standard",
+                jsFileLocation: "include/rs-plugin/js/",
+                sliderLayout: "fullscreen",
+                dottedOverlay: "none",
+                delay: 9000,
+                navigation: {
+                    keyboardNavigation: "off",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation: "off",
+                    mouseScrollReverse: "default",
+                    onHoverStop: "off",
+                    arrows: {
+                        style: "hesperiden",
+                        enable: true,
+                        hide_onmobile: false,
+                        hide_onleave: false,
+                        tmp: '',
+                        left: {
+                            h_align: "left",
+                            v_align: "center",
+                            h_offset: 20,
+                            v_offset: 0
+                        },
+                        right: {
+                            h_align: "right",
+                            v_align: "center",
+                            h_offset: 20,
+                            v_offset: 0
+                        }
+                    }
+                },
+                visibilityLevels: [1240, 1024, 778, 480],
+                gridwidth: 1240,
+                gridheight: 868,
+                lazyType: "none",
+                parallax: {
+                    type: "mouse",
+                    origo: "enterpoint",
+                    speed: 400,
+                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
+                    type: "mouse",
+                },
+                shadow: 0,
+                spinner: "off",
+                stopLoop: "on",
+                stopAfterLoops: 0,
+                stopAtSlide: 1,
+                shuffle: "off",
+                autoHeight: "off",
+                fullScreenAutoWidth: "off",
+                fullScreenAlignForce: "off",
+                fullScreenOffsetContainer: "",
+                disableProgressBar: "on",
+                hideThumbsOnMobile: "off",
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                debugMode: false,
+                fallbacks: {
+                    simplifyAll: "off",
+                    nextSlideOnWindowFocus: "off",
+                    disableFocusListener: false,
+                }
+            });
+            /* STATIC SNOW FLAKE CONTAINER SETTINGS */
+            /* PLEASE NOTE! YOU WILL NEED TO ADD AT LEAST 1 STATIC LAYER (EVEN A TRANSPARENT IF YOU WISH) TO USE THE SCRIPT BELOW ON STATIC LAYERS*/
+
+
+            var snowsettings = {
+                selector: '.tp-static-layers', /* THE INNER CONTAINER WHERE FLAKES SHOULD BE DRAWN (OPTIONAL)*/
+                dimension: 'self', /* THE RUNTIME DIMENSIONS OF THE CONTAINER */
+                particleMaxPer: 400, /* MAX PARTICLE PER 1.5M PIXEL */
+                particlaSize: [0.2, 6], /* MIN, MAX SIZE OF PARTICLE */
+                particleOpacity: [0.3, 1], /* MIN, MAX OPACITY OF PARTICLE */
+                particleSpeed: [30, 100], /* MIN, MAX SPEED OF PARTICLES */
+                particleSinus: [1, 100] /* MIN, MAX AMPLITUDE OF PARTICLE ANIM*/
+            };
+
+
+            revapi431.bind("revolution.slide.onloaded", function (e) {
+                revapi431.letItSnow(snowsettings);
+            });
+
+
+            /* THEMEPUNCH CANVAS SNOW PLUGIN
+             ALL RIGHTS RESERVED,
+             SNOW PLUGIN CAN ONLY BE USED WITHIN SLIDER REVOLUTION AND THEMEPUNCH PLUGINS
+             THEMEPUNCH SNOW FLAKE MINI PLUGIN
+
+             USAGE:
+             To Build Snow: container.letItSnow(settings);
+             To stop Snow: container.letItSnow("stop");
+             To start play Snow again: container.letItSnow("play");
+             To destroy Snow : container.letItSnow("destroy");
+             To make Summer: container.letItSnow("summer");
+             To make Winter Again: container.letItSnow("winter");
+
+             Settings:
+
+             selector:'.tp-static-layers' ON WHICH CONTAINER WITHIN THE CONTAINER CANVAS SHOULD BE DRAWN
+             dimension:'self'             THE RUNTIME DIMENSIONS OF THE CONTAINER
+             particleMaxPer:400           MAX PARTICLE PER 1.5M PIXEL
+             particlaSize:[0.2,6]         MIN, MAX SIZE OF PARTICLE
+             particleOpacity:[0.3,1]      MIN, MAX OPACITY OF PARTICLE
+             particleSpeed:[30,100]       MIN, MAX SPEED OF PARTICLES
+             particleSinus:[1,100]        MIN, MAX AMPLITUDE OF PARTICLE (SINUS DIRECTION FOR BETTER EFFECT
+
+             */
+
+
+            var snowsettings = {
+                selector: ".tp-static-layers",
+                dimension: "self",
+                particleMaxPer: 400,
+                particlaSize: [.2, 6],
+                particleOpacity: [.3, 1],
+                particleSpeed: [30, 100],
+                particleSinus: [1, 100]
+            };
+            revapi431.bind("revolution.slide.onloaded", function (e) {
+                revapi431.letItSnow(snowsettings)
+            }), function (e, s) {
+                "use strict";
+                function a(e) {
+                    e.pause = !0, e.sc.find(".snowflakes_wrapper").remove(), e.c.removeData("snowflakes"), e = {}
+                }
+
+                function n(e) {
+                    e.snowflakes = [];
+                    for (var s = e.w * e.h / 15e5; e.snowflakes.length < e.particleMaxPer * s;)e.snowflakes.push(i(e))
+                }
+
+                function t(e) {
+                    window.requestAnimationFrame(function () {
+                        r(e)
+                    })
+                }
+
+                function r(e) {
+                    if (e == s || e.ctx == s || 1 == e.destroyed || 1 == e.pause)return !1;
+                    e.ctx.clearRect(0, 0, 2700, 2500);
+                    var a = e.h / 3, n = e.h / 3 * 2;
+                    for (var r in e.snowflakes)if (e.snowflakes[r].y + .1 * e.snowflakes[r].r < 0 && 1 == e.summer || e.snowflakes[r].y > e.h + e.snowflakes[r].r && 1 == e.summer); else {
+                        e.snowflakes[r].delta += e.snowflakes[r].delta == Math.PI / 2 ? -e.snowflakes[r].delta : Math.random() / 500 - .01, e.summer ? e.snowflakes[r].y += e.snowflakes[r].speed / 50 + .1 * e.snowflakes[r].r : e.snowflakes[r].y += e.snowflakes[r].speed / 100 + .1 * e.snowflakes[r].r, e.snowflakes[r].x += Math.sin(e.snowflakes[r].delta) * (.1 * e.snowflakes[r].r), e.snowflakes[r].y > e.h + e.snowflakes[r].r && 1 != e.summer && (e.snowflakes[r] = i(e), e.snowflakes[r].y = 0 - e.snowflakes[r].r);
+                        var l = e.snowflakes[r].y - a, o = e.snowflakes[r].r, c = e.snowflakes[r].alpha;
+                        if (l > 0 || 1 == e.summer) {
+                            var w = 1 - l / n;
+                            o = e.snowflakes[r].r * w, c = e.snowflakes[r].alpha * w
+                        }
+                        o = .1 > o ? .1 : o, c = .1 > c ? .1 : c, e.snowflakes[r].x = e.snowflakes[r].x > e.w + e.snowflakes[r].r ? 0 : e.snowflakes[r].x < -o ? e.w : e.snowflakes[r].x, e.ctx.beginPath(), e.ctx.arc(e.snowflakes[r].x, e.snowflakes[r].y, o, 2 * Math.PI, !1), e.ctx.fillStyle = "rgba(255,255,255," + c + ")", e.ctx.fill()
+                    }
+                    t(e)
+                }
+
+                function i(e) {
+                    var s = new Object;
+                    return s.delta = (e.particleSinus[0] + Math.random() * (e.particleSinus[1] - e.particleSinus[0])) * Math.round(2 * Math.random() - 1), s.r = e.particlaSize[0] + Math.random() * (e.particlaSize[1] - e.particlaSize[0]), s.alpha = e.particleOpacity[0] + Math.random() * (e.particleOpacity[1] - e.particleOpacity[0]), s.speed = (e.particleSpeed[0] + Math.random() * (e.particleSpeed[1] - e.particleSpeed[0])) * s.r / 3, s.x = Math.random() * e.w, s.y = Math.random() * -e.h, s
+                }
+
+                e.fn.extend({
+                    letItSnow: function (r) {
+                        var i = {
+                            particleMaxPer: 400,
+                            particlaSize: [.2, 6],
+                            particleOpacity: [.3, 1],
+                            particleSpeed: [30, 100],
+                            particleSinus: [1, 100]
+                        };
+                        return "destroy" != r && "stop" != r && "play" != r && "summer" != r && "winter" != r && (r = e.extend(!0, {}, i, r)), this.each(function () {
+                            if (-1 != e.inArray(r, ["destroy", "stop", "play", "winter", "summer"])) {
+                                switch (r) {
+                                    case"destroy":
+                                        r = e(this).data("snowflakes"), r != s && a(r);
+                                        break;
+                                    case"stop":
+                                        r = e(this).data("snowflakes"), r != s && (r.pause = !0);
+                                        break;
+                                    case"play":
+                                        r = e(this).data("snowflakes"), r != s && (r.pause = !1, t(r));
+                                        break;
+                                    case"summer":
+                                        r = e(this).data("snowflakes"), r != s && (r.summer = !0);
+                                        break;
+                                    case"winter":
+                                        r = e(this).data("snowflakes"), r != s && (r.summer = !1)
+                                }
+                                return !1
+                            }
+                            return r.c = e(this), r.sc = r.selector != s ? e(this).find(r.selector) : r.c, 0 == r.sc.length ? !1 : r.c.data("snowflakes") != s ? !1 : (r.sc.find(".snowflakes_wrapper").remove(), r.sc.append('<div class="snowflakes_wrapper" style="position:relative;z-index:0"><div class="snowflakes_wrapper_inner" style="overflow:hidden;position:relative"><canvas width="2700" height="2500" style="position:relative; max-width:2700px" class="snowflake_canvas"></canvas></div></div>'), r.sw = r.sc.find(".snowflakes_wrapper_inner"), r.sw.data("caller_container", r.c), r.canvas = r.sc.find(".snowflake_canvas"), r.dimension != self ? r.sizer = r.c : r.sizer = r.sc, r.w = r.sizer.width(), r.h = r.sizer.height(), r.sc.find(".snowflakes_wrapper_inner").css({
+                                        width: r.w,
+                                        height: r.h
+                                    }), r.canvas = r.canvas[0], r.snowflakes = [], r.ctx = r.canvas.getContext("2d"), n(r), t(r), r.c.data("snowflakes", r), void e(window).resize(function () {
+                                        clearTimeout(r.timer), r.timer = setTimeout(function () {
+                                            r.w = r.sizer.width(), r.h = r.sizer.height(), r.sc.find(".snowflakes_wrapper_inner").css({
+                                                width: r.w,
+                                                height: r.h
+                                            }), n(r)
+                                        }, 50)
+                                    }))
+                        })
+                    }
+                })
+            }(jQuery);
+        }
+
+        revapi431.bind("revolution.slide.onloaded", function (e) {
+            setTimeout(function () {
+                SEMICOLON.slider.sliderParallaxDimensions();
+            }, 200);
+        });
+
+        revapi431.bind("revolution.slide.onchange", function (e, data) {
+            SEMICOLON.slider.revolutionSliderMenu();
+        });
+    });
+    /*ready*/
+</script>
+
+<!-- Custom Scripts
+============================================= -->
+<script type="text/javascript">
+    /**
+     * Form Element Plugins
+     * =============================
+     */
+    $(".daterange").daterangepicker({
+        "opens": "center",
+        timePicker: true,
+        timePickerIncrement: 30,
+        locale: {
+            format: 'MM/DD/YYYY h:mm A'
+        },
+        "buttonClasses": "button button-rounded button-mini nomargin",
+        "applyClass": "button-color",
+        "cancelClass": "button-light"
+    }).on('apply.daterangepicker', function (ev, picker) {
+        /*-------------*/
+    });
+
+    function parseRatesFrom() {
+        renderQuote(MOCK_QUOTE);
+        $(quotemodal).modal("show");
+        return false;
+    }
+
+    function renderQuote(quote) {
+        $(quotecarolers).html(quote.carolers);
+        $(quotetravel).html(quote.travel);
+        $(quotedates).html(quote.dates);
+        $(quotepromos).html(quote.promos);
+        $(quotetotal).html(quote.total);
+    }
+
+    const quotemodal = "#quoteModal";
+    const quotecarolers = "#quote-carolers";
+    const quotetravel = "#quote-travel";
+    const quotedates = "#quote-dates";
+    const quotepromos = "#quote-promos";
+    const quotetotal = "#quote-total";
+
+    const MOCK_QUOTE = {
+        carolers: 400,
+        travel: 63,
+        dates: 0,
+        promos: 20,
+        total: 483
+    };
+</script>
+
 </body>
 </html>

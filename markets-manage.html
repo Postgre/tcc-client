@@ -21,17 +21,17 @@
 
 	<!-- Angular
 	============================================= -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="../shared/angular/customer-events/customer-events.module.js"></script>
-	<script src="../shared/angular/customer-events/customer-events.controller.js"></script>
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="angular/markets/markets.module.js"></script>
+	<script src="angular/markets/markets.controller.js"></script>
 
 	<!-- Document Title
 	============================================= -->
-	<title>My Events</title>
+	<title>Markets</title>
 
 </head>
 
-<body class="stretched" ng-app="customer-events" ng-controller="CustomerEventsController">
+<body class="stretched" ng-app="markets" ng-controller="MarketsController">
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -96,14 +96,14 @@
 
 		<!-- Page Title
 		============================================= -->
-		<section id="page-title">
+		<section id="page-title" class="page-title-mini">
 
 			<div class="container clearfix">
-				<h1>My Events</h1>
-				<span>My Upcoming Caroling Events</span>
+				<h1>Manage Caroling Groups</h1>
+				<span>Markets you have access to display here</span>
 				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li class="active">Events</li>
+					<li><a href="index.html">Home</a></li>
+					<li class="active">Markets</li>
 				</ol>
 			</div>
 
@@ -117,91 +117,135 @@
 				<div class="container clearfix">
 
 					<div class="postcontent nobottommargin">
-
-						<div class="modal fade" id="deleteMarketModal" tabindex="-1" role="dialog" aria-hidden="true">
-							<div class="modal-dialog modal-md">
-								<div class="modal-body">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-											<h4 class="modal-title" id="myModalLabel">Cancel This Event</h4>
-										</div>
-										<div class="modal-body">
-											<h5>Are you sure you want to cancel this event? This cannot be undone!</h5>
-											<div class="contact-widget">
-
-												<div class="contact-form-result"></div>
-
-												<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
-
-													<div class="col_full">
-														<h5>Enter the name of the event exactly as it appears to cancel this event:</h5>
-														<label>Event Name: </label>
-														<input type="text" class="sm-form-control" />
-													</div>
-													<div class="clear"></div>
-
-													<div class="col_full">
-														<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="btn btn-danger">Cancel Event</button>
-													</div>
-
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<div class="col_full">
+							<label> Search: </label>
+							<input ng-model="search" type="text" class="form-control" placeholder="Search by: location, name, description, or type!"/>
 						</div>
-
 						<div id="posts" class="events small-thumbs">
 
-							<div ng-repeat="event in upcoming_events" class="entry clearfix">
+							<div ng-repeat="market in markets | filter : search" class="entry clearfix">
 								<div class="entry-image">
-									<a href="#">
-										<img ng-src="{{event.image}}" alt="{{event.name}}">
-										<div class="entry-date">10<span>Apr</span></div>
+									<a href="market-page.html">
+										<img ng-src="{{market.image}}" alt="{{market.name}}">
 									</a>
 								</div>
 								<div class="entry-c">
 									<div class="entry-title">
-										<h2><a ng-bind="event.name" href="#"></a></h2>
+										<h2><a ng-bind="market.name" href="market-page.html">
+                                            <!-- Market Name -->
+                                        </a></h2>
 									</div>
 									<ul class="entry-meta clearfix">
-										<li><span class="label label-warning" ng-bind="event.status"></span></li>
-										<li>
-											<a href="#">
-												<i class="icon-time"></i>
-												<span ng-bind="event.start_time"></span>
-											</a>
-										</li>
+										<li><span class="label label-success" ng-bind="market.badge"></span></li>
 										<li><a href="#"><i class="icon-map-marker2"></i>
-											<span ng-bind="event.city + ', ' + event.state"></span>
+											<span ng-bind="market.location"></span>
 										</a></li>
 									</ul>
 									<div class="entry-content">
-										<p ng-bind="event.description"></p>
-										<a data-target="#deleteMarketModal" data-toggle="modal" href="#deleteMarketModal" class="btn btn-danger"><i class="icon-trash"></i> &nbsp;Cancel Event</a>
-										<a href="#" class="btn btn-success"><i class="icon-money"></i> &nbsp; Pay Now</a>
+										<p ng-bind="market.description"></p>
+										<a href="market-profile.html" class="btn btn-warning"><i class="icon-edit"></i> &nbsp;Edit Profile</a>
+										<a href="#" class="btn btn-info"><i class="icon-share"></i> &nbsp; Delegate Access</a>
+										<a href="#" class="btn btn-primary"><i class="icon-user"></i> &nbsp; Invite Carolers</a>
 									</div>
 								</div>
 							</div>
 
 						</div>
-
-						<!-- Pagination
-						============================================= -->
-						<ul class="pager nomargin">
-							<li class="previous"><a href="#">&larr; See Past Events</a></li>
-						</ul><!-- .pager end -->
 
 					</div>
 
 					<div class="sidebar nobottommargin col_last clearfix">
 						<div class="sidebar-widgets-wrap">
+							<div class="widget clearfix">
+								<button data-target="#newMarketModal" data-toggle="modal" class="btn btn-success float-right"> <i class="icon-line-plus"></i> Create a New Market </button>
+							</div>
+							<div class="widget clearfix">
+								<h4>Upcoming Events</h4>
+								<div id="post-list-footer">
 
+									<div ng-repeat="event in upcoming_events" class="spost clearfix">
+										<div class="entry-image">
+											<a href="my-events.html" class="nobg">
+												<img ng-src="{{event.image}}" alt="">
+												<!-- Event Image -->
+											</a>
+										</div>
+										<div class="entry-c">
+											<div class="entry-title">
+												<h4>
+													<a ng-bind="event.name" href="my-events.html">
+														<!-- Event Name -->
+													</a>
+												</h4>
+											</div>
+											<ul class="entry-meta">
+												<li ng-bind="event.start_time"></li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+							</div>
 						</div>
 					</div>
 
+					<div class="modal fade" id="newMarketModal" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog modal-md">
+							<div class="modal-body">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">Create New Market</h4>
+									</div>
+									<div class="modal-body">
+
+										<div class="contact-widget">
+
+											<div class="contact-form-result"></div>
+
+											<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+
+												<div class="form-process"></div>
+
+												<div class="col_full">
+													<label>Market Name: </label>
+													<input type="text" class="sm-form-control" />
+												</div>
+
+												<div class="clear"></div>
+
+												<div class="col_one_third">
+													<label for="template-contactform-name">State <small>*</small></label>
+													<input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+												</div>
+
+												<div class="col_one_third">
+													<label for="template-contactform-email">City <small>*</small></label>
+													<input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+												</div>
+
+												<div class="col_one_third col_last">
+													<label for="template-contactform-service">Type</label>
+													<select id="template-contactform-service" name="template-contactform-service" class="sm-form-control">
+														<option value="">-- Select One --</option>
+														<option value="Wordpress">TCC</option>
+														<option value="PHP / MySQL">Non TCC</option>
+													</select>
+												</div>
+
+												<div class="clear"></div>
+
+												<div class="col_full">
+													<button name="submit" type="submit" id="submit-button" tabindex="5" value="Submit" class="button button-3d nomargin">Submit</button>
+												</div>
+
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 			</div>
@@ -341,42 +385,6 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script type="text/javascript" src="js/functions.js"></script>
-
-	<script type="text/javascript">
-
-		canvasEvents = {
-		    '07-22-2017': "Rocco's Christmas Partyf"
-		};
-
-		var cal = $( '#calendar' ).calendario( {
-				onDayClick : function( $el, $contentEl, dateProperties ) {
-
-					for( var key in dateProperties ) {
-						console.log( key + ' = ' + dateProperties[ key ] );
-					}
-
-				},
-				caldata : canvasEvents
-			} ),
-			$month = $( '#calendar-month' ).html( cal.getMonthName() ),
-			$year = $( '#calendar-year' ).html( cal.getYear() );
-
-		$( '#calendar-next' ).on( 'click', function() {
-			cal.gotoNextMonth( updateMonthYear );
-		} );
-		$( '#calendar-prev' ).on( 'click', function() {
-			cal.gotoPreviousMonth( updateMonthYear );
-		} );
-		$( '#calendar-current' ).on( 'click', function() {
-			cal.gotoNow( updateMonthYear );
-		} );
-
-		function updateMonthYear() {
-			$month.html( cal.getMonthName() );
-			$year.html( cal.getYear() );
-		};
-
-	</script>
 
 </body>
 </html>
