@@ -2,7 +2,6 @@
 .idea
 
 # NPM Files
-node_modules
 
 # Mac Files
 .DS_Store
