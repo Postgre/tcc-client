@@ -3,8 +3,11 @@ const qs = require('qs');
 
 /* Data Service */
 module.exports = class DataService {
+
     constructor(config, authService) {
         console.info('DataService Loading...');
+
+        this.callback_save_quote = config.callback_save_quote;
 
         /* Connection to server */
         this.connection = axios.create({
@@ -36,6 +39,16 @@ module.exports = class DataService {
                 caroler_count: caroler_count
             })
         });
+    }
+    postSaveQuote( quote_id, email ){
+        return this.connection({
+            url: "quotes/"+quote_id+"/save",
+            method: "POST",
+            data: qs.stringify({
+                email: email,
+                callback: this.callback_save_quote
+            })
+        })
     }
 
     postMarket( name, bio, location ){
