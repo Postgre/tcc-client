@@ -368,7 +368,7 @@
             <div class="container clearfix">
                 <div class="tab-content clearfix" id="tab-properties">
                     <!-- Start Rates & Availability Form-->
-                    <form name="quoteForm" action="#" onsubmit="return parseRatesFrom()" class="nobottommargin">
+                    <form name="quoteForm" action="#" onsubmit="return handleQuoteForm()" class="nobottommargin">
                         <div class="row">
                             <div class="col-md-3 col-sm-12 bottommargin-sm">
                                 <label style="display:block;">City</label>
@@ -792,13 +792,13 @@
                     <h4 class="modal-title" id="myModalLabel">EVENT ESTIMATE</h4>
                 </div>
                 <div class="modal-body">
-                    <h4>Nearest Market: <span>120</span> miles away</h4>
+                    <h4>Nearest Market: <span id="quote_distance">120</span> miles away</h4>
                     <div class="nobottommargin">
                         <div id="posts" class="events small-thumbs">
                             <div class="entry clearfix">
                                 <div class="entry-image">
                                     <a href="market-page.html">
-                                        <img src="http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg">
+                                        <img id="quote_image" src="http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg">
                                     </a>
                                 </div>
                                 <div class="entry-c">
@@ -1321,7 +1321,22 @@
         console.log(start, end);
     });
 
-    function parseRatesFrom() {
+    /**
+     * Selectors
+     */
+    const quotemodal = "#quoteModal";
+    const quotecarolers = "#quote-carolers";
+    const quotetravel = "#quote-travel";
+    const quotedates = "#quote-dates";
+    const quotepromos = "#quote-promos";
+    const quotetotal = "#quote-total";
+    const quoteImage = "#quote_image";
+    const quoteDistance = "#quote_distance";
+    const marketName = ".tcc_market_name";
+    const marketLocation = ".tcc_market_location";
+    const marketBio = ".tcc_market_bio";
+
+    function handleQuoteForm() {
         var city = document.forms.quoteForm.city.value;
         var state = document.forms.quoteForm.state.value;
         var address = document.forms.quoteForm.address.value;
@@ -1333,16 +1348,13 @@
             console.log(res);
             var quote = res.data.quote;
             var market = res.data.market;
-            $(".tcc_market_name").html(market.name);
-            $(".tcc_market_location").html(market.city + ", " + market.state);
-            $(".tcc_market_bio").html(market.bio);
             renderQuote({
                 carolers: quote.cost_carolers,
                 travel: quote.cost_travel,
                 promos: 0,
                 dates: 0,
                 total: quote.cost_total
-            });
+            }, market);
         });
         p.catch((err) => {
             console.error(err);
@@ -1350,7 +1362,12 @@
         return false;
     }
 
-    function renderQuote(quote) {
+    function renderQuote(quote, market) {
+        $(quoteDistance).html(market.distance);
+        $(quoteImage).attr("src", market.image);
+        $(marketName).html(market.name);
+        $(marketLocation).html(market.city + ", " + market.state);
+        $(marketBio).html(market.bio);
         $(quotecarolers).html(quote.carolers);
         $(quotetravel).html(quote.travel);
         $(quotedates).html(quote.dates);
@@ -1358,23 +1375,6 @@
         $(quotetotal).html(quote.total);
         $(quotemodal).modal("show");
     }
-
-    const quotemodal = "#quoteModal";
-    const quotecarolers = "#quote-carolers";
-    const quotetravel = "#quote-travel";
-    const quotedates = "#quote-dates";
-    const quotepromos = "#quote-promos";
-    const quotetotal = "#quote-total";
-
-    const MOCK_QUOTE = {
-        carolers: 400,
-        travel: 63,
-        dates: 0,
-        promos: 20,
-        total: 483
-    };
 </script>
-
-
 
 </body></html>
