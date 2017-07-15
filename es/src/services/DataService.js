@@ -49,4 +49,15 @@ module.exports = class DataService {
             })
         })
     }
+    searchMarkets( search, limit, offset ){
+        var params = {};
+        if( search ) params.search = search;
+        if( limit ) params.limit = limit;
+        if( offset ) params.offset = offset;
+        return this.connection({
+            url: "markets",
+            method: "GET",
+            params: params
+        })
+    }
 };

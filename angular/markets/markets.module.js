@@ -1,1 +1,1 @@
-angular.module("markets", []);
+angular.module("markets-manage", []);

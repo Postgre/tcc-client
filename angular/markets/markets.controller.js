@@ -1,7 +1,7 @@
-angular.module('markets')
-.controller('MarketsController', MarketsController);
+angular.module('markets-manage')
+.controller('MarketsManageController', MarketsManageController);
 
-function MarketsController( $scope ) {
+function MarketsManageController( $scope ) {
     $scope.markets = DEFAULT_MODEL.markets;
     $scope.upcoming_events = DEFAULT_MODEL.upcoming_events;
     init();
@@ -16,31 +16,41 @@ function MarketsController( $scope ) {
      */
 
     function init(){
+        var p = window.dataService.searchMarkets();
+        p.then(function(res){
+            console.info("res", res);
+            $scope.$apply(function(){
+                $scope.markets = res.data;
+            });
+        });
+        p.catch(function(err){
+            console.error("err", err);
+            alert( "Something went wrong" );
+        });
     }
 }
 
 const DEFAULT_MODEL = {
     markets: [
         {
-            name: "The Birmingham Carolers",
-            description: "Birmingham's best holiday entertainment",
-            location: "Birmingham, AL",
-            image: "http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg",
-            badge: "LLC"
-        },
-        {
-            name: "The New York Carolers",
-            description: "New York's best holiday entertainment",
-            location: "New York, NY",
-            image: "http://www.nationalgeographic.com/new-york-city-skyline-tallest-midtown-manhattan/assets/img/articleImg/01nyskyline640.jpg",
-            badge: "LLC"
-        },
-        {
-            name: "The Miami Carolers",
-            description: "Miami's best holiday entertainment",
-            location: "Miami, FL",
-            image: "https://media-cdn.tripadvisor.com/media/photo-s/05/a4/fb/7e/miami-beach.jpg",
-            badge: "LLC"
+            "id": 1,
+            "created_at": "2017-07-13 02:23:11",
+            "updated_at": "2017-07-13 02:23:11",
+            "name": "Birmingham",
+            "bio": "Your source for quality caroling entertainment in the Birmingham area",
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    -86.8125728,
+                    33.5118393
+                ]
+            },
+            "rate_travel_distance": 2,
+            "rate_caroler": 100,
+            "rate_travel_duration": 60,
+            "city": "Birmingham",
+            "state": "AL",
+            "image": "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
         }
     ],
     upcoming_events: [

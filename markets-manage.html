@@ -31,7 +31,7 @@
 
 </head>
 
-<body class="stretched" ng-app="markets" ng-controller="MarketsController">
+<body class="stretched" ng-app="markets-manage" ng-controller="MarketsManageController">
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -136,13 +136,13 @@
                                         </a></h2>
 									</div>
 									<ul class="entry-meta clearfix">
-										<li><span class="label label-success" ng-bind="market.badge"></span></li>
+										<li><span class="label label-success" ng-bind="'ID: '+market.id"></span></li>
 										<li><a href="#"><i class="icon-map-marker2"></i>
-											<span ng-bind="market.location"></span>
+											<span ng-bind="market.city+', '+market.state"></span>
 										</a></li>
 									</ul>
 									<div class="entry-content">
-										<p ng-bind="market.description"></p>
+										<p ng-bind="market.bio"></p>
 										<a href="market-profile.html" class="btn btn-warning"><i class="icon-edit"></i> &nbsp;Edit</a>
 										<div class="btn-group dropup">
 											<button type="button" class="btn btn-primary">Actions</button>
