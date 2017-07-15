@@ -1,34 +1,32 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en-US">
-<head>
+<!DOCTYPE html><html dir="ltr" lang="en-US"><head>
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="SemiColonWeb" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="author" content="SemiColonWeb">
 
 	<!-- Stylesheets
 	============================================= -->
-	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="style.css" type="text/css" />
-	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link rel="stylesheet" href="css/dark.css" type="text/css">
 
 	<!-- Travel Demo Specific Stylesheet -->
-	<link rel="stylesheet" href="demos/travel/travel.css" type="text/css" />
+	<link rel="stylesheet" href="demos/travel/travel.css" type="text/css">
 
-	<link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css" />
+	<link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css">
 	<!-- Radio Ckeckbox Plugin -->
-	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
+	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
 	<!-- Star Rating Plugin -->
-	<link rel="stylesheet" href="css/components/bs-rating.css" type="text/css" />
+	<link rel="stylesheet" href="css/components/bs-rating.css" type="text/css">
 	<!-- Bootstrap Select CSS -->
-	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css"/>
+	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
 
-	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-	<link rel="stylesheet" href="css/animate.css" type="text/css" />
-	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css">
+	<link rel="stylesheet" href="css/animate.css" type="text/css">
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
 
-	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="css/responsive.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Angular
 	============================================= -->
@@ -50,70 +48,63 @@
 
 		<!-- Header
 		============================================= -->
-		<header id="header" class="full-header dark">
+		<header id="header" class="full-header dark"><div id="header-wrap">
+    <div class="container clearfix">
+        <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+        <!-- Logo
+        ============================================= -->
+        <div id="logo">
+            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+        </div><!-- #logo end -->
+        <!-- Account
+        ============================================= -->
+        <div id="top-account" class="dropdown">
+            <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
+            <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="events-personal.html">My Events</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="markets-manage.html">Manage Markets</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
+            </ul>
+        </div>
 
-			<div id="header-wrap">
-
-				<div class="container clearfix">
-
-					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-					<!-- Logo
-                    ============================================= -->
-					<div id="logo">
-						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
-								src="images/tcc-logo.png" alt="TCC Logo"></a>
-						<a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
-								src="images/tcc-logo.png" alt="TCC Logo"></a>
-					</div><!-- #logo end -->
-
-					<div id="top-account" class="dropdown">
-						<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-						   aria-expanded="true"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-							<li><a href="profile.html">Profile</a></li>
-							<li><a href="events-personal.html">My Events</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Logout <i class="icon-signout"></i></a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="markets-manage.html">Manage Markets</a></li>
-						</ul>
-					</div>
-
-					<!-- Primary Navigation
-                    ============================================= -->
-					<nav id="primary-menu">
-
-						<ul>
-							<li>
-								<a href="index.html">
-									<div>Home</div>
-								</a>
-							</li>
-							<li>
-								<a href="event-book.html">
-									<div>Book Event</div>
-								</a>
-							</li>
-							<li>
-								<a href="about.html">
-									<div>About</div>
-								</a>
-							</li>
-							<li>
-								<a href="contact.html">
-									<div>Contact</div>
-								</a>
-							</li>
-						</ul>
-
-					</nav><!-- #primary-menu end -->
-
-				</div>
-
-			</div>
-
-		</header><!-- #header end -->
+        <!-- Primary Navigation
+        ============================================= -->
+        <nav id="primary-menu">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <div>Home</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="event-book.html">
+                        <div>Book Event</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="market-search.html">
+                        <div>Find a Market</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <div>About</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <div>Contact</div>
+                    </a>
+                </li>
+            </ul>
+        </nav><!-- #primary-menu end -->
+    </div>
+</div></header><!-- #header end -->
 
 		<!-- Page Title
 		============================================= -->
@@ -153,8 +144,7 @@
 
 											<div class="col_full">
 												<label>State <small>*</small></label>
-												<select ng-model="search.state" class="selectpicker form-control" data-live-search="true"
-														data-size="6" style="width:100%;">
+												<select ng-model="search.state" class="selectpicker form-control" data-live-search="true" data-size="6" style="width:100%;">
 													<optgroup label="Alaskan/Hawaiian Time Zone">
 														<option value="AK">Alaska</option>
 														<option value="HI">Hawaii</option>
@@ -220,7 +210,7 @@
 
 											<div class="col_full">
 												<label for="template-contactform-location">City <small>*</small></label>
-												<input ng-model="search.city" type="text" id="template-contactform-location" name="template-contactform-location" value="" class="sm-form-control required" placeholder="Spain" />
+												<input ng-model="search.city" type="text" id="template-contactform-location" name="template-contactform-location" value="" class="sm-form-control required" placeholder="Spain">
 											</div>
 
 											<div class="input-daterange travel-date-group">
@@ -302,7 +292,7 @@
 												</li>
 												<li>
 													<i class="icon-line-map"></i>
-													<a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" data-lightbox="iframe">
+													<a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" data-lightbox="iframe">
 														View map
 													</a>
 												</li>
@@ -313,10 +303,10 @@
 													</a>
 												</li>
 											</ul>
-											<br/>
+											<br>
 											<div class="entry-content">
 												<div class="clearfix" style="margin-bottom: 10px;">
-													<hr/>
+													<hr>
 												</div>
 												<p ng-bind-html="market.html" class="nobottommargin">
 													<!-- Market Description -->
@@ -332,7 +322,7 @@
 									</span>
 										</div>
 										<small><em>Base hourly rate*</em></small><br>
-										<a href="#"class="button button-rounded topmargin-sm">Book Now</a>
+										<a href="#" class="button button-rounded topmargin-sm">Book Now</a>
 									</div>
 								</div>
 							</div>
@@ -340,12 +330,12 @@
 						</div>
 
 						<ul class="pagination notopmargin nobottommargin">
-							<li class="disabled"><a href="#">&laquo;</a></li>
+							<li class="disabled"><a href="#">&#xAB;</a></li>
 							<li class="active"><a href="#">1</a></li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#">4</a></li>
-							<li><a href="#">&raquo;</a></li>
+							<li><a href="#">&#xBB;</a></li>
 						</ul>
 
 					</div>
@@ -358,224 +348,117 @@
 
 		<!-- Footer
 		============================================= -->
-		<footer id="footer" class="dark" style="background-color: #222;">
+		<footer id="footer" class="dark">
 
-			<div class="container">
+    <div class="container">
 
-				<!-- Footer Widgets
-				============================================= -->
-				<div class="footer-widgets-wrap clearfix">
+        <!-- Footer Widgets
+        ============================================= -->
+        <div class="footer-widgets-wrap clearfix">
 
-					<div class="col_one_third">
+            <div class="col_one_third">
 
-						<div class="widget clear-bottommargin-sm clearfix">
+                <div class="widget clearfix">
 
-							<div class="row">
+                    <img src="images/tcc-logo.png" alt="" class="footer-logo">
 
-								<div class="col-md-12 bottommargin-sm">
-									<div class="footer-big-contacts">
-										<span>Call Us:</span>
-										(91) 22 84551445
-									</div>
-								</div>
+                </div>
 
-								<div class="col-md-12 bottommargin-sm">
-									<div class="footer-big-contacts">
-										<span>Send an Enquiry:</span>
-										travel@canvas.com
-									</div>
-								</div>
+            </div>
 
-							</div>
+            <div class="col_one_third">
 
-						</div>
+                <div class="widget clearfix">
+                    <div style="background: url(&apos;images/world-map.png&apos;) no-repeat center center; background-size: 100%;">
+                        <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
+                        <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
+                        <br><br>
+                        <div class="bottommargin-sm widget_links">
+                            <ul>
+                                <li><a href="#">Resellers</a></li>
+                                <li><a href="#">Have a Caroling Group?</a></li>
+                                <li><a href="#">Become a Caroler</a></li>
+                                <li><a href="#">National Caroler Association</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-						<div class="widget subscribe-widget clearfix">
-							<div class="row">
+                <div class="widget clearfix">
 
-								<div class="col-md-6 clearfix bottommargin-sm">
-									<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
-								</div>
-								<div class="col-md-6 clearfix">
-									<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
-										<i class="icon-rss"></i>
-										<i class="icon-rss"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
-								</div>
+                    <a href="#" class="social-icon si-small si-rounded si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
 
-							</div>
-						</div>
+                    <a href="#" class="social-icon si-small si-rounded si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
 
-					</div>
+                </div>
 
-					<div class="col_one_third">
+            </div>
 
-						<div class="widget clearfix">
-							<h4>Featured Packages</h4>
+            <div class="col_one_third col_last">
 
-							<div id="post-list-footer">
-								<div class="spost clearfix">
-									<div class="entry-image">
-										<a href="#"><img src="images/magazine/small/1.jpg" alt="Package"></a>
-									</div>
-									<div class="entry-c">
-										<div class="entry-title">
-											<h4><a href="#">7 Nights/8 Days Europe</a></h4>
-										</div>
-										<ul class="entry-meta">
-											<li><strong>$599</strong> onwards</li>
-										</ul>
-									</div>
-								</div>
+                <div class="widget quick-contact-widget clearfix">
 
-								<div class="spost clearfix">
-									<div class="entry-image">
-										<a href="#"><img src="images/magazine/small/2.jpg" alt="Package"></a>
-									</div>
-									<div class="entry-c">
-										<div class="entry-title">
-											<h4><a href="#">4 Nights/5 Days Thailand</a></h4>
-										</div>
-										<ul class="entry-meta">
-											<li><strong>$399</strong> onwards</li>
-										</ul>
-									</div>
-								</div>
+                    <h4>Send Message</h4>
 
-								<div class="spost clearfix">
-									<div class="entry-image">
-										<a href="#"><img src="images/magazine/small/3.jpg" alt="Package"></a>
-									</div>
-									<div class="entry-c">
-										<div class="entry-title">
-											<h4><a href="#">11 Nights/12 Days America</a></h4>
-										</div>
-										<ul class="entry-meta">
-											<li><strong>$1299</strong> onwards</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+                    <div class="quick-contact-form-result"></div>
 
-					</div>
+                    <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form" action="include/quickcontact.php" class="quick-contact-form nobottommargin">
 
-					<div class="col_one_third col_last">
+                        <div class="form-process"></div>
 
-						<div class="widget widget_links clearfix">
+                        <div class="input-group divcenter">
+                            <span class="input-group-addon"><i class="icon-user"></i></span>
+                            <input type="text" class="required form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name">
+                        </div>
+                        <div class="input-group divcenter">
+                            <span class="input-group-addon"><i class="icon-email2"></i></span>
+                            <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address">
+                        </div>
+                        <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+                        <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="">
+                        <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email
+                        </button>
 
-							<h4>Popular Destinations</h4>
+                    </form>
 
-							<div class="row clearfix">
-								<div class="col-xs-6">
-									<ul>
-										<li><a href="#">Thailand</a></li>
-										<li><a href="#">Indonesia</a></li>
-										<li><a href="#">Italy</a></li>
-										<li><a href="#">Spain</a></li>
-									</ul>
-								</div>
-								<div class="col-xs-6">
-									<ul>
-										<li><a href="#">India</a></li>
-										<li><a href="#">France</a></li>
-										<li><a href="#">Philippines</a></li>
-										<li><a href="#">New Zealand</a></li>
-									</ul>
-								</div>
-							</div>
+                </div>
 
-						</div>
+            </div>
 
-						<div class="widget subscribe-widget clearfix">
-							<h5>Get Latest <strong>Offers</strong> &amp; <strong>Coupons</strong> by Email:</h5>
-							<div class="widget-subscribe-form-result"></div>
-							<form id="widget-subscribe-form" action="../include/subscribe.php" role="form" method="post" class="nobottommargin">
-								<div class="input-group divcenter">
-									<span class="input-group-addon"><i class="icon-email2"></i></span>
-									<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-									<span class="input-group-btn">
-										<button class="btn btn-danger bgcolor" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-						</div>
+        </div><!-- .footer-widgets-wrap end -->
 
-					</div>
+    </div>
 
-				</div><!-- .footer-widgets-wrap end -->
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
 
-			</div>
+        <div class="container clearfix">
 
-			<!-- Copyrights
-			============================================= -->
-			<div id="copyrights">
+            <div class="col_half">
+                Copyrights &#xA9; 2017 All Rights Reserved by Christmas
+            </div>
 
-				<div class="container clearfix">
+            <div class="col_half col_last tright">
+                <div class="fright clearfix">
+                    <div class="copyrights-menu copyright-links nobottommargin">
+                        <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
+                        Use</a>/<a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
 
-					<div class="col_half">
-						Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.<br>
-						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
-					</div>
+        </div>
 
-					<div class="col_half col_last tright">
-						<div class="fright clearfix">
-							<a href="#" class="social-icon si-small si-borderless si-facebook">
-								<i class="icon-facebook"></i>
-								<i class="icon-facebook"></i>
-							</a>
+    </div><!-- #copyrights end -->
 
-							<a href="#" class="social-icon si-small si-borderless si-twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless si-gplus">
-								<i class="icon-gplus"></i>
-								<i class="icon-gplus"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless si-pinterest">
-								<i class="icon-pinterest"></i>
-								<i class="icon-pinterest"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless si-vimeo">
-								<i class="icon-vimeo"></i>
-								<i class="icon-vimeo"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless si-github">
-								<i class="icon-github"></i>
-								<i class="icon-github"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless si-yahoo">
-								<i class="icon-yahoo"></i>
-								<i class="icon-yahoo"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless si-linkedin">
-								<i class="icon-linkedin"></i>
-								<i class="icon-linkedin"></i>
-							</a>
-						</div>
-
-						<div class="clear"></div>
-
-						<i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
-					</div>
-
-				</div>
-
-			</div><!-- #copyrights end -->
-
-		</footer><!-- #footer end -->
+</footer><!-- #footer end -->
 
 	</div><!-- #wrapper end -->
 
@@ -609,5 +492,5 @@
 		});
 	</script>
 
-</body>
-</html>
+
+</body></html>
