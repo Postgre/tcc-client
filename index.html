@@ -535,15 +535,15 @@
             <div class="container clearfix">
                 <div class="tab-content clearfix" id="tab-properties">
                     <!-- Start Rates & Availability Form-->
-                    <form action="#" onsubmit="return parseRatesFrom()" class="nobottommargin">
+                    <form name="quoteForm" action="#" onsubmit="return parseRatesFrom()" class="nobottommargin">
                         <div class="row">
                             <div class="col-md-3 col-sm-12 bottommargin-sm">
                                 <label style="display:block;">City</label>
-                                <input type="text" class="form-control" placeholder="City">
+                                <input name="city" type="text" class="form-control" placeholder="City">
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
                                 <label>State</label>
-                                <select class="selectpicker form-control" data-live-search="true"
+                                <select name="state" class="selectpicker form-control" data-live-search="true"
                                         data-size="6" style="width:100%;">
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                         <option value="AK">Alaska</option>
@@ -615,11 +615,11 @@
                             <div class="clear"></div>
                             <div class="col-md-3 col-sm-12 bottommargin-sm">
                                 <label style="display:block;">Address</label>
-                                <input type="text" class="form-control" placeholder="Address">
+                                <input name="address" type="text" class="form-control" placeholder="Address">
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
                                 <label>Number of Singers</label>
-                                <select class="selectpicker form-control">
+                                <select name="caroler_count" class="selectpicker form-control">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -1489,23 +1489,47 @@
      * Form Element Plugins
      * =============================
      */
-    $(".daterange").daterangepicker({
+    var start = null;
+    var end = null;
+    var daterange = $(".daterange").daterangepicker({
         "opens": "center",
         timePicker: true,
         timePickerIncrement: 30,
         locale: {
-            format: 'MM/DD/YYYY h:mm A'
+            format: 'MM-DD hh:mm'
         },
         "buttonClasses": "button button-rounded button-mini nomargin",
         "applyClass": "button-color",
         "cancelClass": "button-light"
     }).on('apply.daterangepicker', function (ev, picker) {
         /*-------------*/
+        start = picker.startDate.format("YYYY-MM-DD hh:mm");
+        end = picker.endDate.format("YYYY-MM-DD hh:mm");
+        console.log( start, end );
     });
 
     function parseRatesFrom() {
-        renderQuote(MOCK_QUOTE);
-        $(quotemodal).modal("show");
+        var city = document.forms.quoteForm.city.value;
+        var state  = document.forms.quoteForm.state.value;
+        var address = document.forms.quoteForm.address.value;
+        var caroler_count = document.forms.quoteForm.caroler_count.value;
+
+        var formatted_address = address + ", " + city + ", " + state;
+        var p = window.dataService.postQuote( formatted_address, start, end, caroler_count);
+        p.then((res)=>{
+            var quote = res.data.quote;
+            console.log( quote );
+            renderQuote({
+                carolers: quote.cost_carolers,
+                travel: quote.cost_travel,
+                promos: 0,
+                dates: 0,
+                total: quote.cost_total
+            });
+        });
+        p.catch((err)=>{
+            console.error(err);
+        });
         return false;
     }
 
@@ -1515,6 +1539,7 @@
         $(quotedates).html(quote.dates);
         $(quotepromos).html(quote.promos);
         $(quotetotal).html(quote.total);
+        $(quotemodal).modal("show");
     }
 
     const quotemodal = "#quoteModal";

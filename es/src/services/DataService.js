@@ -26,7 +26,7 @@ module.exports = class DataService {
     }
 
     postQuote( address, start_time, end_time, caroler_count ){
-        var p = this.connection({
+        return this.connection({
             url: "quotes",
             method: "POST",
             data: qs.stringify({
@@ -35,12 +35,6 @@ module.exports = class DataService {
                 end_time: end_time,
                 caroler_count: caroler_count
             })
-        });
-        p.then((res)=>{
-            console.info("postQuote: ", res);
-        });
-        p.catch((err)=>{
-            console.error("fail", err);
         });
     }
 };
