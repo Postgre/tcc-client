@@ -963,14 +963,6 @@
 ============================================= -->
 <div id="gotoTop" class="icon-angle-up"></div>
 
-<div id="welcome"
-     data-notify-position="bottom-right"
-     data-notify-type="info"
-     data-notify-msg="<i class=icon-info-sign></i> Welcome Back!"
-     style="display: none"
-     class="btn btn-default">
-</div>
-
 <!-- Modals
 ============================================= -->
 <div id="quoteModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
@@ -1472,7 +1464,26 @@
      * Welcome
      * ==================
      */
-    SEMICOLON.widget.notifications($("#welcome"));
+    if( window.authService.isLoggedIn() ){
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        toastr["info"]("Welcome back "+authService.user.name+"!");
+    }
 
     /**
      * Form Element Plugins

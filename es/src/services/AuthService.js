@@ -13,11 +13,13 @@ module.exports = class AuthService {
 
         /* Local variables */
         this.jwt = localStorage.getItem('jwt');
+        this.user = null;
         this.jwtExpire = null;
 
         /* Setting up refresh */
         if (this.jwt != null) {
             let decoded = jwtDecode(this.jwt);
+            this.user = decoded.user;
 
             /* Checking if already expired */
             if (decoded.exp < (new Date().getTime() / 1000)) {
@@ -58,7 +60,7 @@ module.exports = class AuthService {
 
                     /* Decoding jwt */
                     let decoded = jwtDecode(res.data.token);
-                    console.log("JWT", decoded);
+                    this.user = decoded.user;
                     this.jwtExpire = decoded.exp;
 
                     /* Sending back authenicated */
