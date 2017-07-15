@@ -14,6 +14,27 @@ function MarketsManageController( $scope ) {
      * Functions
      * ===============
      */
+    $scope.createMarket = createMarket;
+    function createMarket(){
+        var form = document.forms.newMarketForm;
+        var name = form.name.value;
+        var address = form.city.value+', '+form.state.value;
+        var bio = "";
+        var postData = {
+            name: name,
+            address: address,
+            bio: bio
+        };
+        var p = window.dataService.postMarket( name, bio, address );
+        p.then(function(res){
+            console.info("res", res);
+            sweetAlert("Success!", "Market has been created!", "success");
+        });
+        p.catch(function(err){
+            console.error("err", err);
+            sweetAlert("Oops...", "Something went wrong!", "error");
+        });
+    }
 
     function init(){
         var p = window.dataService.searchMarkets();

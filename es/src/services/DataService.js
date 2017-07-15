@@ -49,6 +49,12 @@ module.exports = class DataService {
             })
         })
     }
+    deleteMarket( id ){
+        return this.connection({
+            url: "markets/"+id,
+            method: "delete"
+        })
+    }
     searchMarkets( search, limit, offset ){
         var params = {};
         if( search ) params.search = search;
