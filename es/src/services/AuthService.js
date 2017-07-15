@@ -109,4 +109,10 @@ module.exports = class AuthService {
     isLoggedIn(){
         return this.jwt != null;
     }
+
+    hasRole( role ){
+        if( this.user ){
+            return ( this.user.roles.indexOf(role) !== -1 );
+        }
+    }
 };

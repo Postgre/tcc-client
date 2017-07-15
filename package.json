@@ -21,7 +21,8 @@
   ],
   "scripts": {
     "serve": "webpack-dev-server",
-    "build": "webpack"
+    "build:es": "webpack",
+    "build:html": "node scripts/build.js"
   },
   "dependencies": {
     "angular": "^1.6.5",
