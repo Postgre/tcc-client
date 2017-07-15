@@ -143,9 +143,20 @@
 									</ul>
 									<div class="entry-content">
 										<p ng-bind="market.description"></p>
-										<a href="market-profile.html" class="btn btn-warning"><i class="icon-edit"></i> &nbsp;Edit Profile</a>
-										<a href="#" class="btn btn-info"><i class="icon-share"></i> &nbsp; Delegate Access</a>
-										<a href="#" class="btn btn-primary"><i class="icon-user"></i> &nbsp; Invite Carolers</a>
+										<a href="market-profile.html" class="btn btn-warning"><i class="icon-edit"></i> &nbsp;Edit</a>
+										<div class="btn-group dropup">
+											<button type="button" class="btn btn-primary">Actions</button>
+											<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+												<span class="caret"></span>
+												<span class="sr-only">Toggle Dropdown</span>
+											</button>
+											<ul class="dropdown-menu pull-right" role="menu">
+												<li><a href="#"><i class="icon-trash"></i> Delete Market</a></li>
+												<li class="divider"></li>
+												<li><a href="#"><i class="icon-email"></i> Invite Carolers</a></li>
+												<li><a href="#"><i class="icon-share"></i> Invite Director</a></li>
+											</ul>
+										</div><!-- /btn-group -->
 									</div>
 								</div>
 							</div>
