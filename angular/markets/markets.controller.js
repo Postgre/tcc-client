@@ -15,6 +15,7 @@ function MarketsManageController( $scope ) {
      * ===============
      */
     $scope.createMarket = createMarket;
+    $scope.deleteMarket = deleteMarket;
     function createMarket(){
         var form = document.forms.newMarketForm;
         var name = form.name.value;
@@ -29,6 +30,19 @@ function MarketsManageController( $scope ) {
         p.then(function(res){
             console.info("res", res);
             sweetAlert("Success!", "Market has been created!", "success");
+            window.location.reload();
+        });
+        p.catch(function(err){
+            console.error("err", err);
+            sweetAlert("Oops...", "Something went wrong!", "error");
+        });
+    }
+    function deleteMarket( market ){
+        var p = window.dataService.deleteMarket(market.id);
+        p.then(function(res){
+            console.info("res", res);
+            sweetAlert("Success!", "Market has been deleted.", "success");
+            window.location.reload();
         });
         p.catch(function(err){
             console.error("err", err);

@@ -155,7 +155,7 @@
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>
 											<ul class="dropdown-menu pull-right" role="menu">
-												<li><a href="#"><i class="icon-trash"></i> Delete Market</a></li>
+												<li><a ng-click="deleteMarket(market)" href=""><i class="icon-trash"></i> Delete Market</a></li>
 												<li class="divider"></li>
 												<li><a href="#"><i class="icon-email"></i> Invite Carolers</a></li>
 												<li><a href="#"><i class="icon-share"></i> Invite Director</a></li>
@@ -180,7 +180,7 @@
 
 									<div ng-repeat="event in upcoming_events" class="spost clearfix">
 										<div class="entry-image">
-											<a href="my-events.html" class="nobg">
+											<a href="events-personal.html" class="nobg">
 												<img ng-src="{{event.image}}" alt="">
 												<!-- Event Image -->
 											</a>
@@ -188,7 +188,7 @@
 										<div class="entry-c">
 											<div class="entry-title">
 												<h4>
-													<a ng-bind="event.name" href="my-events.html">
+													<a ng-bind="event.name" href="events-personal.html">
 														<!-- Event Name -->
 													</a>
 												</h4>
