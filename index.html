@@ -949,83 +949,64 @@
      * ===============================
      * */
     jQuery(window).load(function () {
+        
+        var p = window.dataService.searchMarkets();
+        p.then(function(res){
+            console.info("res", res);
 
-        jQuery('#popular-dest-map').gMap({
-            address: 'United States',
-            maptype: 'ROADMAP',
-            zoom: 4,
-            markers: [
-                {
-                    address: "New York",
+            var markets = [];
+            for (var i = 0; i < res.data.length; i++) {
+                var mkt = res.data[i];
+                markets.push({
+                    address: mkt.city+', '+mkt.state,
                     icon: {
                         image: "images/icons/map-icon-red.png",
                         iconsize: [32, 39],
                         iconanchor: [16, 36]
                     }
+                })
+            }
+
+            jQuery('#popular-dest-map').gMap({
+                address: 'United States',
+                maptype: 'ROADMAP',
+                zoom: 4,
+                markers: markets,
+                doubleclickzoom: false,
+                controls: {
+                    panControl: false,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    streetViewControl: false,
+                    overviewMapControl: false
                 },
-                {
-                    address: "Birmingham, AL",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-                {
-                    address: "Georgia",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-                {
-                    address: "Texas",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-                {
-                    address: "Indiana",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-            ],
-            doubleclickzoom: false,
-            controls: {
-                panControl: false,
-                zoomControl: true,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false
-            },
-            styles: [{
-                "featureType": "landscape.natural",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-            }, {
-                "featureType": "poi",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-            }, {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-            }, {
-                "featureType": "road",
-                "elementType": "labels",
-                "stylers": [{"visibility": "off"}]
-            }, {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [{"visibility": "on"}, {"lightness": 700}]
-            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+                styles: [{
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [{"visibility": "on"}, {"lightness": 700}]
+                }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+            });;
+        });
+        p.catch(function(err){
+            console.error("err", err);
+            ;
         });
     });
 </script>
