@@ -1,4 +1,5 @@
 const axios = require('axios');
+const qs = require('qs');
 
 /* Data Service */
 module.exports = class DataService {
@@ -21,6 +22,25 @@ module.exports = class DataService {
         });
         p.then( (res)=>{
             console.log( "response", res );
+        });
+    }
+
+    postQuote( address, start_time, end_time, caroler_count ){
+        var p = this.connection({
+            url: "quotes",
+            method: "POST",
+            data: qs.stringify({
+                address: address,
+                start_time: start_time,
+                end_time: end_time,
+                caroler_count: caroler_count
+            })
+        });
+        p.then((res)=>{
+            console.info("postQuote: ", res);
+        });
+        p.catch((err)=>{
+            console.error("fail", err);
         });
     }
 };
