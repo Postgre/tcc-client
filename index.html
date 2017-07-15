@@ -986,21 +986,23 @@
                                 </div>
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h2><a href="market-page.html">
-                                            The Birmingham Carolers
-                                        </a></h2>
+                                        <h2>
+                                            <a href="market-page.html" class="tcc_market_name">
+
+                                            </a>
+                                        </h2>
                                     </div>
                                     <ul class="entry-meta clearfix">
                                         <li><span class="label label-success">LLC</span></li>
                                         <li>
                                             <a href="#">
                                                 <i class="icon-map-marker2"></i>
-                                                Birmingham, AL
+                                                <span class="tcc_market_location"></span>
                                             </a>
                                         </li>
                                     </ul>
                                     <div class="entry-content">
-                                        <p>Birmingham's best holiday entertainment</p>
+                                        <p class="tcc_market_bio">Birmingham's best holiday entertainment</p>
                                     </div>
                                 </div>
                             </div>
@@ -1517,8 +1519,12 @@
         var formatted_address = address + ", " + city + ", " + state;
         var p = window.dataService.postQuote( formatted_address, start, end, caroler_count);
         p.then((res)=>{
+            console.log( res );
             var quote = res.data.quote;
-            console.log( quote );
+            var market = res.data.market;
+            $(".tcc_market_name").html(market.name);
+            $(".tcc_market_location").html(market.city + ", " + market.state);
+            $(".tcc_market_bio").html(market.bio);
             renderQuote({
                 carolers: quote.cost_carolers,
                 travel: quote.cost_travel,

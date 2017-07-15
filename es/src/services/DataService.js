@@ -37,4 +37,16 @@ module.exports = class DataService {
             })
         });
     }
+
+    postMarket( name, bio, location ){
+        return this.connection({
+            url: "markets",
+            method: "POST",
+            data: qs.stringify({
+                name: name,
+                bio: bio,
+                address: location
+            })
+        })
+    }
 };
