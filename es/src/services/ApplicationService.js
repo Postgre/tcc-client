@@ -15,6 +15,7 @@ module.exports = class ApplicationService {
             $(operation.selector).html( operation.content() );
         })
     }
+
     registerIf( selector, func ){
         this.ifOperations.push({
             "selector": selector,

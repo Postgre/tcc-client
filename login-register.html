@@ -365,7 +365,7 @@
         var p = authService.login(email, password);
         p.then(function(res){
             console.log("win", res);
-            alert("login successful!");
+            window.location = "index.html";
         });
         p.catch(function(err){
             console.log("fail",err);
@@ -403,9 +403,28 @@
         var p = authService.register( name, email, password );
         p.then(function(res){
             console.log("win", res );
+            swal({
+                title: "Success!",
+                text: "You have been registered. Please check your email to validate your account. Welcome to The Christmas Carolers!",
+                type: "success",
+                showCancelButton: false,
+                confirmButtonClass: "btn-success",
+                confirmButtonText: 'OK',
+                closeOnConfirm: false
+            }, function(){
+                window.location = "index.html";
+            });
         });
         p.catch(function(err){
-            console.log("fail", err);
+            swal({
+                title: "Oops!",
+                text: "Something went wrong!",
+                type: "error",
+                showCancelButton: false,
+                confirmButtonClass: "btn-warning",
+                confirmButtonText: 'Damnit, Rocco',
+                closeOnConfirm: false
+            });
         });
 
         return false;

@@ -90,7 +90,6 @@ module.exports = class AuthService {
                     resolve("registered!");
                 },
                 (error) => {
-                    alert("err");
                     reject(error);
                 }
             );
@@ -102,5 +101,9 @@ module.exports = class AuthService {
         localStorage.removeItem('jwt');
         this.jwt = null;
         this.jwtExpire = null;
+    }
+
+    isLoggedIn(){
+        return this.jwt != null;
     }
 };
