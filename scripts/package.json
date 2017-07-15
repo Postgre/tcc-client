@@ -1,11 +1,11 @@
 {
-  "name": "scripts",
+  "name": "vectorBuild",
   "version": "1.0.0",
-  "description": "",
+  "description": "Multi-page html application build tool. Manipulate your HTML files rather than keeping a /src and /dist folder like most templating systems.",
   "main": "build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Chris Rocco",
   "license": "ISC"
 }
