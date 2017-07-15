@@ -963,6 +963,14 @@
 ============================================= -->
 <div id="gotoTop" class="icon-angle-up"></div>
 
+<div id="welcome"
+     data-notify-position="bottom-right"
+     data-notify-type="info"
+     data-notify-msg="<i class=icon-info-sign></i> Welcome Back!"
+     style="display: none"
+     class="btn btn-default">
+</div>
+
 <!-- Modals
 ============================================= -->
 <div id="quoteModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
@@ -1093,6 +1101,7 @@
         </div>
     </div>
 </div>
+<!--/end modal-->
 
 <!-- External JavaScripts
 ============================================= -->
@@ -1459,6 +1468,12 @@
 <!-- Custom Scripts
 ============================================= -->
 <script type="text/javascript">
+    /**
+     * Welcome
+     * ==================
+     */
+    SEMICOLON.widget.notifications($("#welcome"));
+
     /**
      * Form Element Plugins
      * =============================

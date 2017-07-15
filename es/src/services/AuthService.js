@@ -58,6 +58,7 @@ module.exports = class AuthService {
 
                     /* Decoding jwt */
                     let decoded = jwtDecode(res.data.token);
+                    console.log("JWT", decoded);
                     this.jwtExpire = decoded.exp;
 
                     /* Sending back authenicated */
