@@ -16,20 +16,19 @@
 
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
-
     <!-- Vector Maps -->
     <link rel="stylesheet" href="css/vmap.css" type="text/css">
-
     <!-- Bootstrap Switch CSS -->
     <link rel="stylesheet" href="css/components/bs-switches.css" type="text/css">
-
     <!-- Range Slider CSS -->
     <link rel="stylesheet" href="css/components/ion.rangeslider.css" type="text/css">
-
     <!-- Date & Time Picker CSS -->
     <link rel="stylesheet" href="css/components/datepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/timepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
     <link rel="stylesheet" href="css/responsive.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -900,7 +899,7 @@
                                 <div class="acc_content clearfix">**Disclaimers</div>
                             </div>
                             <a href="event-book.html" class="button button-3d fright">Book Now</a>
-                            <a href="#" class="button button-3d fright">Save Quote</a>
+                            <a href="javascript:handleSaveQuote()" class="button button-3d fright">Save Quote</a>
                         </div>
                     </div>
                 </div>
@@ -950,83 +949,64 @@
      * ===============================
      * */
     jQuery(window).load(function () {
+        
+        var p = window.dataService.searchMarkets();
+        p.then(function(res){
+            console.info("res", res);
 
-        jQuery('#popular-dest-map').gMap({
-            address: 'United States',
-            maptype: 'ROADMAP',
-            zoom: 4,
-            markers: [
-                {
-                    address: "New York",
+            var markets = [];
+            for (var i = 0; i < res.data.length; i++) {
+                var mkt = res.data[i];
+                markets.push({
+                    address: mkt.city+', '+mkt.state,
                     icon: {
                         image: "images/icons/map-icon-red.png",
                         iconsize: [32, 39],
                         iconanchor: [16, 36]
                     }
+                })
+            }
+
+            jQuery('#popular-dest-map').gMap({
+                address: 'United States',
+                maptype: 'ROADMAP',
+                zoom: 4,
+                markers: markets,
+                doubleclickzoom: false,
+                controls: {
+                    panControl: false,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    streetViewControl: false,
+                    overviewMapControl: false
                 },
-                {
-                    address: "Birmingham, AL",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-                {
-                    address: "Georgia",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-                {
-                    address: "Texas",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-                {
-                    address: "Indiana",
-                    icon: {
-                        image: "images/icons/map-icon-red.png",
-                        iconsize: [32, 39],
-                        iconanchor: [16, 36]
-                    }
-                },
-            ],
-            doubleclickzoom: false,
-            controls: {
-                panControl: false,
-                zoomControl: true,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false
-            },
-            styles: [{
-                "featureType": "landscape.natural",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-            }, {
-                "featureType": "poi",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-            }, {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-            }, {
-                "featureType": "road",
-                "elementType": "labels",
-                "stylers": [{"visibility": "off"}]
-            }, {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [{"visibility": "on"}, {"lightness": 700}]
-            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+                styles: [{
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [{"visibility": "on"}, {"lightness": 700}]
+                }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+            });;
+        });
+        p.catch(function(err){
+            console.error("err", err);
+            ;
         });
     });
 </script>
@@ -1336,6 +1316,21 @@
     const marketLocation = ".tcc_market_location";
     const marketBio = ".tcc_market_bio";
 
+    function renderQuote(quote, market) {
+        $(quoteDistance).html(market.distance);
+        $(quoteImage).attr("src", market.image);
+        $(marketName).html(market.name);
+        $(marketLocation).html(market.city + ", " + market.state);
+        $(marketBio).html(market.bio);
+        $(quotecarolers).html(quote.carolers);
+        $(quotetravel).html(quote.travel);
+        $(quotedates).html(quote.dates);
+        $(quotepromos).html(quote.promos);
+        $(quotetotal).html(quote.total);
+        $(quotemodal).modal("show");
+    }
+
+    var quote_id = null;
     function handleQuoteForm() {
         var city = document.forms.quoteForm.city.value;
         var state = document.forms.quoteForm.state.value;
@@ -1348,6 +1343,7 @@
             console.log(res);
             var quote = res.data.quote;
             var market = res.data.market;
+            quote_id = quote.id;
             renderQuote({
                 carolers: quote.cost_carolers,
                 travel: quote.cost_travel,
@@ -1361,19 +1357,34 @@
         });
         return false;
     }
-
-    function renderQuote(quote, market) {
-        $(quoteDistance).html(market.distance);
-        $(quoteImage).attr("src", market.image);
-        $(marketName).html(market.name);
-        $(marketLocation).html(market.city + ", " + market.state);
-        $(marketBio).html(market.bio);
-        $(quotecarolers).html(quote.carolers);
-        $(quotetravel).html(quote.travel);
-        $(quotedates).html(quote.dates);
-        $(quotepromos).html(quote.promos);
-        $(quotetotal).html(quote.total);
-        $(quotemodal).modal("show");
+    function handleSaveQuote() {
+        $(quotemodal).modal("hide");
+        swal({
+                title: "Save this Quote to Book it Later!",
+                text: "We'll send it to your email: ",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "sandor_clegane@kingslanding.com"
+            },
+            function(inputValue){
+                if (inputValue === false) return false;
+                if (inputValue === "") {
+                    swal.showInputError("You need to write something!");
+                    return false
+                }
+                window.dataService.postSaveQuote( quote_id, inputValue );
+                var p = window.dataService.postSaveQuote( quote_id, inputValue );
+                p.then(function(res){
+                    console.info("res", res);
+                    swal("Sent!", "You should receive an email shortly", "success");
+                });
+                p.catch(function(err){
+                    console.error("err", err);
+                    swal("Oops..", "Something went wrong", "error")
+                });
+            });
     }
 </script>
 

@@ -1,3 +1,4 @@
 {
-  "serverURL": "http://api.tcc.vectorwebdevelopment.com"
+  "serverURL": "http://api.tcc.vectorwebdevelopment.com",
+  "callback_save_quote": "http://tcc.vectorwebdevelopment.com/event-book.html"
 }
