@@ -17,6 +17,11 @@ function BookingController( $scope ) {
      * Functions
      * ===============
      */
+    $scope.previewTravelCosts = previewTravelCosts;
+    function previewTravelCosts(){
+        // do stuff
+        // api call => update travel_costs
+    }
 
     /**
      * Init
