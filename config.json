@@ -3,8 +3,13 @@
   "callback_save_quote": "http://tcc.vectorwebdevelopment.com/event-book.html",
   "activity_map": {
     "find_market": {
-      "path": "market-search.html",
-      "auth": []
+      "path": "market-search.html"
+    },
+    "book_event": {
+      "path": "event-book.html"
+    },
+    "contact": {
+      "path": "contact.html"
     }
   }
 }
