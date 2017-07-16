@@ -5,11 +5,31 @@ function MarketSearchController( $scope ) {
     $scope.markets = DEFAULT_MODEL.markets;
     $scope.search = DEFAULT_MODEL.search;
 
-    init();
-
-    function init(){
-
+    $scope.search = search;
+    $scope.openMap = openMap;
+    function search(){
+        var address = $scope.search.city+", "+$scope.search.state;
+        var radius = null;
+        var limit = null;
+        var offset = null;
+        var p = window.dataService.searchMarketsGeo( address, radius, limit, offset );
+        p.then(function(res){
+            console.info("res", res);
+            $scope.$apply(function(){
+                $scope.markets = res.data.markets;
+            });
+        });
+        p.catch(function(err){
+            console.error("err", err);
+        });
     }
+    function openMap( market ){
+        window.open("https://maps.google.com/maps?q="+market.city+',+'+market.state);
+    }
+
+    (function init(){
+
+    })();
 }
 
 const DEFAULT_MODEL = {

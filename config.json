@@ -10,6 +10,12 @@
     },
     "contact": {
       "path": "contact.html"
+    },
+    "home": {
+      "path": "index.html"
+    },
+    "auth": {
+      "path": "login-register.html"
     }
   }
 }

@@ -41,6 +41,7 @@
 </head>
 
 <body class="stretched" ng-app="market-search" ng-controller="MarketSearchController">
+<script src="es/dist/bundle.js"></script>
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -225,7 +226,7 @@
 											<div class="clear"></div>
 
 											<div class="col_full nobottommargin">
-												<a href="#" class="button button-3d nomargin">Search</a>
+												<a ng-click="search()" href="" class="button button-3d nomargin">Search</a>
 											</div>
 
 										</form>
@@ -288,11 +289,11 @@
 											<ul class="entry-meta clearfix">
 												<li>
 													<i class="icon-map-marker2"></i>
-													<a ng-bind="market.location" href="#"></a>
+													<a ng-bind="market.city+', '+market.state" href="#"></a>
 												</li>
 												<li>
 													<i class="icon-line-map"></i>
-													<a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" data-lightbox="iframe">
+													<a ng-click="openMap(market)">
 														View map
 													</a>
 												</li>
@@ -369,7 +370,7 @@
             <div class="col_one_third">
 
                 <div class="widget clearfix">
-                    <div style="background: url(&apos;images/world-map.png&apos;) no-repeat center center; background-size: 100%;">
+                    <div>
                         <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
                         <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
                         <br><br>

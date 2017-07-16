@@ -18,13 +18,14 @@
 
     <link rel="stylesheet" href="css/responsive.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Date & Time Picker CSS -->
     <link rel="stylesheet" href="css/components/timepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
-
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Angular
     ============================================= -->
@@ -40,6 +41,21 @@
 
 <body class="stretched" ng-app="booking" ng-controller="BookingController">
 <script src="es/dist/bundle.js"></script>
+<script>
+    if(!window.authService.isLoggedIn()){
+        swal({
+            title: "Not so Fast!",
+            text: "You'll need an account before booking your event. Please login or register.",
+            type: "error",
+            showCancelButton: false,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: 'OK',
+            closeOnConfirm: false
+        }, function(){
+            navService.goto("auth")
+        });
+    }
+</script>
 
 <!-- Document Wrapper
 ============================================= -->

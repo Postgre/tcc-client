@@ -898,7 +898,7 @@
                                 </div>
                                 <div class="acc_content clearfix">**Disclaimers</div>
                             </div>
-                            <a href="event-book.html" class="button button-3d fright">Book Now</a>
+                            <a href="javascript:handleBookNow()" class="button button-3d fright">Book Now</a>
                             <a href="javascript:handleSaveQuote()" class="button button-3d fright">Save Quote</a>
                         </div>
                     </div>
@@ -1013,7 +1013,6 @@
 <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
 <script type="text/javascript" src="include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
@@ -1021,7 +1020,6 @@
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
-
 <script type="text/javascript">
     var tpj = jQuery;
 
@@ -1247,7 +1245,7 @@
         });
     });
     /*ready*/
-</script>
+</script><!--/ end revolution slider scripts -->
 
 <!-- Custom Scripts
 ============================================= -->
@@ -1330,6 +1328,7 @@
     }
 
     var quote_id = null;
+    var market_id = null;
     function handleQuoteForm() {
         var city = document.forms.quoteForm.city.value;
         var state = document.forms.quoteForm.state.value;
@@ -1343,6 +1342,7 @@
             var quote = res.data.quote;
             var market = res.data.market;
             quote_id = quote.id;
+            market_id = market.id;
             renderQuote({
                 carolers: quote.cost_carolers,
                 travel: quote.cost_travel,
@@ -1384,6 +1384,11 @@
                     swal("Oops..", "Something went wrong", "error")
                 });
             });
+    }
+    function handleBookNow(){
+        window.navService.goto("book_event", {
+            market_id: market_id
+        });
     }
 </script>
 

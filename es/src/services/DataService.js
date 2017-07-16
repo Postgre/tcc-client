@@ -79,6 +79,18 @@ module.exports = class DataService {
             params: params
         })
     }
+    searchMarketsGeo( address, radius, limit, offset ){
+        return this.connection({
+            url: "markets/geo",
+            method: "GET",
+            params: {
+                address: address,
+                radius: radius,
+                limit: limit,
+                offset: offset
+            }
+        })
+    }
     getMarket( id ){
         return this.connection({
             url: "markets/"+id
