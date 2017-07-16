@@ -2,17 +2,16 @@ angular.module('booking')
 .controller('BookingController', BookingController);
 
 function BookingController( $scope ) {
-
-    $scope.event = DEFAULT_MODEL.event;
-    $scope.market = DEFAULT_MODEL.market;
-    $scope.invoice = DEFAULT_MODEL.invoice;
-    $scope.travel_costs = DEFAULT_MODEL.travel_costs;
-
-    init();
     /**
      * Models
      * ===============
      */
+    $scope.event = {};
+    $scope.market = {};
+    $scope.invoice = {};
+    $scope.travel_costs = {};
+
+    init();
 
     /**
      * Functions
@@ -24,21 +23,26 @@ function BookingController( $scope ) {
      * ===============
      */
     function init(){
-        var market_id = window.getQueryVariable("market_id");
-        console.info( "market_id", market_id );
-        if( !market_id ){
-            window.location = "index.html";
+        /* Check for a quote */
+        var quote_id = window.getQueryVariable("quote_id");
+        if( quote_id ){
+            // load the data from the quote
         }
 
-        var p = window.dataService.getMarket( market_id );
+        /* get the market object from the server */
+        var nav_params = navService.getNavParams();
+        if( !nav_params.market_id ) alert("No market_id set!");
+        var p = window.dataService.getMarket( nav_params.market_id );
         p.then(function(res){
             console.log("res", res);
             $scope.$apply(function(){
                 $scope.market = res.data.market;
+                window.market = $scope.market;
             });
         });
 
-        $(".daterange").daterangepicker({
+        /* Setup directive for the daterangepicker plugin */
+        $(selector_daterange).daterangepicker({
             "opens": "center",
             timePicker: true,
             timePickerIncrement: 30,
@@ -54,22 +58,23 @@ function BookingController( $scope ) {
                 $scope.event.end_time = picker.endDate.format("MM/DD/YYYY h:mm A");
             });
         });
-        window.market = $scope.selectedMarket;
     }
 }
 
+const selector_daterange = ".daterange";
+
 const DEFAULT_MODEL = {
     event: {
-        name: "Rocco's Christmas Party",
-        state: "AL",
-        city: "Birmingham",
-        venue: "1617 13th Avenue South",
-        type: "company",
-        company_name: "Vector Web Development",
-        start_time: "07/19/2017 10:00 AM",
-        end_time: "07/19/2017 12:00 AM",
+        name: "",
+        state: "",
+        city: "",
+        venue: "",
+        type: "",
+        company_name: "",
+        start_time: "",
+        end_time: "",
         details: [],
-        special_requests: "Send midgets if you have any. Please, thanks."
+        special_requests: ""
     },
     market: {
         name: "The Birmingham Carolers",
