@@ -752,14 +752,15 @@
         // 2.) clear map markers
         // 3.) place market map marker
         // 4.) call geocoding api => place event map marker
-        var lat = window.market.location.coordinates[0];
-        var lng = window.market.location.coordinates[1];
-        map.gMap('clearMarkers').gMap('addMarker', {
-            latitude: lat,
-            longitude: lng,
+        var market_lat = window.market.location.coordinates[0];
+        var market_lng = window.market.location.coordinates[1];
+        map.gMap('addMarker', {
+            latitude: market_lat,
+            longitude: market_lng,
             content: "Market Location",
             zoom: 12
         });
+        map.gMap('clearMarkers');
         jQuery.ajax({
             url: 'http://maps.google.com/maps/api/geocode/json?address=' + encodeURI(address),		// request to google api
             //force to handle it as text
