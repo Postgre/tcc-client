@@ -18,8 +18,9 @@ roccoBuild.registerOperation( function($){
     $('footer').replaceWith(footer);
 });
 roccoBuild.registerOperation( function($){
-    $('angular').replaceWith('<script src="node_modules/angular/angular.min.js"></script>');
+    $('angular').replaceWith(`<!-- Angular
+    ============================================= -->
+    <script src="node_modules/angular/angular.min.js"></script>`)
 });
-
 // Execute them on the project root
 roccoBuild.executeOperations('./');

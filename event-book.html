@@ -19,7 +19,7 @@
 	<!-- Date & Time Picker CSS -->
 	<link rel="stylesheet" href="css/components/timepicker.css" type="text/css">
 	<link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
-	
+
 	<!-- Bootstrap Select CSS -->
 	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
 
@@ -36,6 +36,7 @@
 </head>
 
 <body class="stretched" ng-app="booking" ng-controller="BookingController">
+<script src="es/dist/bundle.js"></script>
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -199,17 +200,17 @@
 												<div class="panel panel-default">
 													<div class="panel-heading">
 														<h3 class="panel-title">
-															<strong ng-bind="selectedMarket.name"></strong>
+															<strong ng-bind="market.name"></strong>
 															&#xA0;
 															&#xA0;
-															<i class="icon-map-marker"></i> <em ng-bind="selectedMarket.address"></em>
+															<i class="icon-map-marker"></i> <em ng-bind="market.city+', '+market.state"></em>
 														</h3>
 													</div>
 													<div class="panel-body">
-														<img width="100%" ng-src="{{selectedMarket.banner}}">
+														<img width="100%" ng-src="{{market.image}}">
 														<br>
 														<br>
-														<p ng-bind="selectedMarket.description"></p>
+														<p ng-bind="market.bio"></p>
 													</div>
 												</div>
 
@@ -306,7 +307,7 @@
 														</li>
 														<li>
 															<i class="icon-globe"></i>
-															<span ng-bind="selectedMarket.name"></span>
+															<span ng-bind="market.name"></span>
 														</li>
 														<li>
 															<hr>

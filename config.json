@@ -1,4 +1,10 @@
 {
   "serverURL": "http://api.tcc.vectorwebdevelopment.com",
-  "callback_save_quote": "http://tcc.vectorwebdevelopment.com/event-book.html"
+  "callback_save_quote": "http://tcc.vectorwebdevelopment.com/event-book.html",
+  "activity_map": {
+    "find_market": {
+      "path": "market-search.html",
+      "auth": []
+    }
+  }
 }

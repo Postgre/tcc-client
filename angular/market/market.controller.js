@@ -12,7 +12,7 @@ function MarketController( $scope ) {
      */
 
     function init(){
-        var loc = $scope.market.address + " " + $scope.market.city + ", " + $scope.market.state
+        var loc = $scope.market.address + " " + $scope.market.city + ", " + $scope.market.state;
         jQuery('#event-location').gMap({
             address: loc,
             maptype: 'ROADMAP',

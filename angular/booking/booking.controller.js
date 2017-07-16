@@ -4,7 +4,7 @@ angular.module('booking')
 function BookingController( $scope ) {
 
     $scope.event = DEFAULT_MODEL.event;
-    $scope.selectedMarket = DEFAULT_MODEL.market;
+    $scope.market = DEFAULT_MODEL.market;
     $scope.invoice = DEFAULT_MODEL.invoice;
     $scope.travel_costs = DEFAULT_MODEL.travel_costs;
 
@@ -24,6 +24,20 @@ function BookingController( $scope ) {
      * ===============
      */
     function init(){
+        var market_id = window.getQueryVariable("market_id");
+        console.info( "market_id", market_id );
+        if( !market_id ){
+            window.location = "index.html";
+        }
+
+        var p = window.dataService.getMarket( market_id );
+        p.then(function(res){
+            console.log("res", res);
+            $scope.$apply(function(){
+                $scope.market = res.data.market;
+            });
+        });
+
         $(".daterange").daterangepicker({
             "opens": "center",
             timePicker: true,

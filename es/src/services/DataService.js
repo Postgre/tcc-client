@@ -79,4 +79,9 @@ module.exports = class DataService {
             params: params
         })
     }
+    getMarket( id ){
+        return this.connection({
+            url: "markets/"+id
+        })
+    }
 };
