@@ -20,17 +20,18 @@ function MarketsManageController( $scope ) {
         var form = document.forms.newMarketForm;
         var name = form.name.value;
         var address = form.city.value+', '+form.state.value;
-        var bio = "";
-        var postData = {
-            name: name,
-            address: address,
-            bio: bio
-        };
+        var bio = "Edit this market to write a BIO and upload a banner!";
+
         var p = window.dataService.postMarket( name, bio, address );
         p.then(function(res){
             console.info("res", res);
-            sweetAlert("Success!", "Market has been created!", "success");
-            window.location.reload();
+            swal({
+                title: "Success!",
+                text: "'"+name+"' has been created!",
+                type: "success",
+            }, function(){
+                window.location.reload();
+            });
         });
         p.catch(function(err){
             console.error("err", err);
@@ -38,16 +39,32 @@ function MarketsManageController( $scope ) {
         });
     }
     function deleteMarket( market ){
-        var p = window.dataService.deleteMarket(market.id);
-        p.then(function(res){
-            console.info("res", res);
-            sweetAlert("Success!", "Market has been deleted.", "success");
-            window.location.reload();
+        swal({
+            title: "Delete Market?",
+            text: "Are you sure? This can't be undone.",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false
+        }, function(){
+            var p = window.dataService.deleteMarket(market.id);
+            p.then(function(res){
+                console.info("res", res);
+                swal({
+                    title: "Success!",
+                    text: "'"+market.name+"' has been deleted.",
+                    type: "success",
+                }, function(){
+                    window.location.reload();
+                });
+            });
+            p.catch(function(err){
+                console.error("err", err);
+                sweetAlert("Oops...", "Something went wrong!", "error");
+            });
         });
-        p.catch(function(err){
-            console.error("err", err);
-            sweetAlert("Oops...", "Something went wrong!", "error");
-        });
+
     }
 
     function init(){

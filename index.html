@@ -953,7 +953,6 @@
         var p = window.dataService.searchMarkets();
         p.then(function(res){
             console.info("res", res);
-
             var markets = [];
             for (var i = 0; i < res.data.length; i++) {
                 var mkt = res.data[i];
