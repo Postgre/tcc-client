@@ -36,7 +36,11 @@ function BookingController( $scope ) {
 
         /* get the market object from the server */
         var nav_params = navService.getNavParams();
-        if( !nav_params.market_id ) alert("No market_id set!");
+        console.log(nav_params);
+        if( typeof nav_params === "undefined" ){
+            navService.goto("find_market");
+            return;
+        }
         var p = window.dataService.getMarket( nav_params.market_id );
         p.then(function(res){
             console.log("res", res);

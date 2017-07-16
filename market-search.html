@@ -1,495 +1,530 @@
-<!DOCTYPE html><html dir="ltr" lang="en-US"><head>
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="author" content="SemiColonWeb">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="SemiColonWeb">
 
-	<!-- Stylesheets
-	============================================= -->
-	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="style.css" type="text/css">
-	<link rel="stylesheet" href="css/dark.css" type="text/css">
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="css/dark.css" type="text/css">
 
-	<!-- Travel Demo Specific Stylesheet -->
-	<link rel="stylesheet" href="demos/travel/travel.css" type="text/css">
+    <!-- Travel Demo Specific Stylesheet -->
+    <link rel="stylesheet" href="demos/travel/travel.css" type="text/css">
 
-	<link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css">
-	<!-- Radio Ckeckbox Plugin -->
-	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
-	<!-- Star Rating Plugin -->
-	<link rel="stylesheet" href="css/components/bs-rating.css" type="text/css">
-	<!-- Bootstrap Select CSS -->
-	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
+    <link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css">
+    <!-- Radio Ckeckbox Plugin -->
+    <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
+    <!-- Star Rating Plugin -->
+    <link rel="stylesheet" href="css/components/bs-rating.css" type="text/css">
+    <!-- Bootstrap Select CSS -->
+    <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
 
-	<link rel="stylesheet" href="css/font-icons.css" type="text/css">
-	<link rel="stylesheet" href="css/animate.css" type="text/css">
-	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
 
-	<link rel="stylesheet" href="css/responsive.css" type="text/css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/responsive.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Angular
-	============================================= -->
-	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="angular/market-search/market-search.module.js"></script>
-	<script src="angular/market-search/market-search.controller.js"></script>
+    <!-- Angular
+    ============================================= -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="angular/market-search/market-search.module.js"></script>
+    <script src="angular/market-search/market-search.controller.js"></script>
 
-	<!-- Document Title
-	============================================= -->
-	<title>Find a Market</title>
+    <!-- Document Title
+    ============================================= -->
+    <title>Find a Market</title>
 
 </head>
 
 <body class="stretched" ng-app="market-search" ng-controller="MarketSearchController">
 <script src="es/dist/bundle.js"></script>
 
-	<!-- Document Wrapper
-	============================================= -->
-	<div id="wrapper" class="clearfix">
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
 
-		<!-- Header
-		============================================= -->
-		<header id="header" class="full-header dark"><div id="header-wrap">
-    <div class="container clearfix">
-        <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-        <!-- Logo
-        ============================================= -->
-        <div id="logo">
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-        </div><!-- #logo end -->
-        <!-- Account
-        ============================================= -->
-        <div id="top-account" class="dropdown">
-            <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
-            <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="events-personal.html">My Events</a></li>
-                <li class="tcc_if_admin divider" role="separator"></li>
-                <li class="tcc_if_admin"><a href="markets-manage.html">Manage Markets</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
-            </ul>
-        </div>
-
-        <!-- Primary Navigation
-        ============================================= -->
-        <nav id="primary-menu">
-            <ul>
-                <li>
-                    <a href="index.html">
-                        <div>Home</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="event-book.html">
-                        <div>Book Event</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="market-search.html">
-                        <div>Find a Market</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html">
-                        <div>About</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.html">
-                        <div>Contact</div>
-                    </a>
-                </li>
-            </ul>
-        </nav><!-- #primary-menu end -->
-    </div>
-</div></header><!-- #header end -->
-
-		<!-- Page Title
-		============================================= -->
-		<section id="page-title" class="page-title-pattern">
-
-			<div class="container clearfix">
-				<h1>Find a Market Near You</h1>
-				<span>The Christmas Carolers are nation-wide!</span>
-				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li class="active">Find a Market</li>
-				</ol>
-			</div>
-
-		</section><!-- #page-title end -->
-
-		<!-- Content
-		============================================= -->
-		<section id="content">
-
-			<div class="content-wrap">
-
-				<div class="container clearfix">
-
-					<!-- Sidebar
-					============================================= -->
-					<div class="sidebar nobottommargin clearfix">
-						<div class="sidebar-widgets-wrap">
-
-							<div class="widget clearfix">
-								<div class="nobottommargin clearfix">
-									<div class="noleftpadding mt-15">
-
-										<form class="nobottommargin">
-
-											<div class="form-process"></div>
-
-											<div class="col_full">
-												<label>State <small>*</small></label>
-												<select id="search_state" class="selectpicker form-control" data-live-search="true" data-size="6" style="width:100%;">
-													<optgroup label="Alaskan/Hawaiian Time Zone">
-														<option value="AK">Alaska</option>
-														<option value="HI">Hawaii</option>
-													</optgroup>
-													<optgroup label="Pacific Time Zone">
-														<option value="CA">California</option>
-														<option value="NV">Nevada</option>
-														<option value="OR">Oregon</option>
-														<option value="WA">Washington</option>
-													</optgroup>
-													<optgroup label="Mountain Time Zone">
-														<option value="AZ">Arizona</option>
-														<option value="CO">Colorado</option>
-														<option value="ID">Idaho</option>
-														<option value="MT">Montana</option>
-														<option value="NE">Nebraska</option>
-														<option value="NM">New Mexico</option>
-														<option value="ND">North Dakota</option>
-														<option value="UT">Utah</option>
-														<option value="WY">Wyoming</option>
-													</optgroup>
-													<optgroup label="Central Time Zone">
-														<option value="AL">Alabama</option>
-														<option value="AR">Arkansas</option>
-														<option value="IL">Illinois</option>
-														<option value="IA">Iowa</option>
-														<option value="KS">Kansas</option>
-														<option value="KY">Kentucky</option>
-														<option value="LA">Louisiana</option>
-														<option value="MN">Minnesota</option>
-														<option value="MS">Mississippi</option>
-														<option value="MO">Missouri</option>
-														<option value="OK">Oklahoma</option>
-														<option value="SD">South Dakota</option>
-														<option value="TX">Texas</option>
-														<option value="TN">Tennessee</option>
-														<option value="WI">Wisconsin</option>
-													</optgroup>
-													<optgroup label="Eastern Time Zone">
-														<option value="CT">Connecticut</option>
-														<option value="DE">Delaware</option>
-														<option value="FL">Florida</option>
-														<option value="GA">Georgia</option>
-														<option value="IN">Indiana</option>
-														<option value="ME">Maine</option>
-														<option value="MD">Maryland</option>
-														<option value="MA">Massachusetts</option>
-														<option value="MI">Michigan</option>
-														<option value="NH">New Hampshire</option>
-														<option value="NJ">New Jersey</option>
-														<option value="NY">New York</option>
-														<option value="NC">North Carolina</option>
-														<option value="OH">Ohio</option>
-														<option value="PA">Pennsylvania</option>
-														<option value="RI">Rhode Island</option>
-														<option value="SC">South Carolina</option>
-														<option value="VT">Vermont</option>
-														<option value="VA">Virginia</option>
-														<option value="WV">West Virginia</option>
-													</optgroup>
-												</select>
-											</div>
-
-											<div class="col_full">
-												<label for="template-contactform-location">City <small>*</small></label>
-												<input ng-model="search.city" type="text" id="template-contactform-location" class="sm-form-control required"
-													   placeholder="King's Landing">
-											</div>
-
-											<div class="input-daterange travel-date-group">
-
-												<div class="col_full">
-													<label for="">Event Date</label>
-													<input type="text" value="" class="sm-form-control tleft" name="start" placeholder="mm/dd/yyyy">
-												</div>
-
-											</div>
-
-											<div class="clear"></div>
-
-											<div class="col_full nobottommargin">
-												<a ng-click="search()" href="" class="button button-3d nomargin">Search</a>
-											</div>
-
-										</form>
-									</div>
-								</div>
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Search Radius</h4>
-
-								<div>
-									<input ng-click="search.radius = 30" data-ng-value="true" id="checkbox-1" class="checkbox-style" name="checkbox" type="radio">
-									<label for="checkbox-1" class="checkbox-style-2-label checkbox-small">0 - 30 miles</label>
-								</div>
-								<div>
-									<input ng-click="search.radius = 60" data-ng-value="true" id="checkbox-2" class="checkbox-style" name="checkbox" type="radio">
-									<label for="checkbox-2" class="checkbox-style-2-label checkbox-small">31 - 60 miles</label>
-								</div>
-								<div>
-									<input ng-click="search.radius = 100" data-ng-value="true" id="checkbox-3" class="checkbox-style" name="checkbox" type="radio">
-									<label for="checkbox-3" class="checkbox-style-2-label checkbox-small">61 - 100 miles</label>
-								</div>
-								<div>
-									<input ng-click="search.radius = false" data-ng-value="true" id="checkbox-4" class="checkbox-style" name="checkbox" type="radio" checked>
-									<label for="checkbox-4" class="checkbox-style-2-label checkbox-small">Any Distance</label>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- Post Content
-					============================================= -->
-					<div class="postcontent nobottommargin col_last clearfix">
-
-						<!-- Posts
-						============================================= -->
-						<div id="posts" class="small-thumbs">
-
-							<div ng-repeat="market in markets" class="entry clearfix">
-								<div class="row clearfix">
-									<div class="col-md-4">
-										<a href="{{market.image}}" data-lightbox="image">
-											<img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
-										</a>
-									</div>
-									<div class="bottommargin-sm visible-sm visible-xs"></div>
-									<div class="col-md-6 col-sm-8">
-										<div class="entry-c">
-											<div class="entry-title">
-												<h2>
-													<a ng-bind="market.name" href="market-page.html">
-														<!-- Market Name -->
-													</a>
-												</h2>
-											</div>
-											<ul class="entry-meta clearfix">
-												<li>
-													<i class="icon-map-marker2"></i>
-													<a ng-bind="market.city+', '+market.state" href="#"></a>
-												</li>
-												<li>
-													<i class="icon-line-map"></i>
-													<a ng-click="openMap(market)">
-														View map
-													</a>
-												</li>
-												<!--<li>-->
-													<!--<i class="icon-comments"></i>-->
-													<!--<a href="#">-->
-														<!--24 Reviews-->
-													<!--</a>-->
-												<!--</li>-->
-											</ul>
-											<br>
-											<div class="entry-content">
-												<p ng-bind="market.bio" class="nobottommargin">
-													<!-- Market Description -->
-												</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-2 col-sm-4 center">
-										<div class="hotel-price">
-											<i class="icon-dollar"></i>
-											<span ng-bind="market.rate_caroler">
-										<!-- Market Base Rate -->
-									</span>
-										</div>
-										<small><em>Base hourly rate*</em></small><br>
-										<a ng-click="handleBookNow(market)" class="button button-rounded topmargin-sm">Book Now</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						<!--<ul class="pagination notopmargin nobottommargin">-->
-							<!--<li class="disabled"><a href="#">&#xAB;</a></li>-->
-							<!--<li class="active"><a href="#">1</a></li>-->
-							<!--<li><a href="#">2</a></li>-->
-							<!--<li><a href="#">3</a></li>-->
-							<!--<li><a href="#">4</a></li>-->
-							<!--<li><a href="#">&#xBB;</a></li>-->
-						<!--</ul>-->
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</section><!-- #content end -->
-
-		<!-- Footer
-		============================================= -->
-		<footer id="footer" class="dark">
-
-    <div class="container">
-
-        <!-- Footer Widgets
-        ============================================= -->
-        <div class="footer-widgets-wrap clearfix">
-
-            <div class="col_one_third">
-
-                <div class="widget clearfix">
-
-                    <img src="images/tcc-logo.png" alt="" class="footer-logo">
-
-                </div>
-
-            </div>
-
-            <div class="col_one_third">
-
-                <div class="widget clearfix">
-                    <div>
-                        <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
-                        <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
-                        <br><br>
-                        <div class="bottommargin-sm widget_links">
-                            <ul>
-                                <li><a href="#">Resellers</a></li>
-                                <li><a href="#">Have a Caroling Group?</a></li>
-                                <li><a href="#">Become a Caroler</a></li>
-                                <li><a href="#">National Caroler Association</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="widget clearfix">
-
-                    <a href="#" class="social-icon si-small si-rounded si-facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-rounded si-twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="col_one_third col_last">
-
-                <div class="widget quick-contact-widget clearfix">
-
-                    <h4>Send Message</h4>
-
-                    <div class="quick-contact-form-result"></div>
-
-                    <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form" action="include/quickcontact.php" class="quick-contact-form nobottommargin">
-
-                        <div class="form-process"></div>
-
-                        <div class="input-group divcenter">
-                            <span class="input-group-addon"><i class="icon-user"></i></span>
-                            <input type="text" class="required form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name">
-                        </div>
-                        <div class="input-group divcenter">
-                            <span class="input-group-addon"><i class="icon-email2"></i></span>
-                            <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address">
-                        </div>
-                        <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-                        <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="">
-                        <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email
-                        </button>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </div><!-- .footer-widgets-wrap end -->
-
-    </div>
-
-    <!-- Copyrights
+    <!-- Header
     ============================================= -->
-    <div id="copyrights">
+    <header id="header" class="full-header dark">
+        <div id="header-wrap">
+            <div class="container clearfix">
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+                <!-- Logo
+                ============================================= -->
+                <div id="logo">
+                    <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
+                            src="images/tcc-logo.png" alt="TCC Logo"></a>
+                    <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
+                            src="images/tcc-logo.png" alt="TCC Logo"></a>
+                </div><!-- #logo end -->
+                <!-- Account
+                ============================================= -->
+                <div id="top-account" class="dropdown">
+                    <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
+                    <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i
+                            class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="events-personal.html">My Events</a></li>
+                        <li class="tcc_if_admin divider" role="separator"></li>
+                        <li class="tcc_if_admin"><a href="markets-manage.html">Manage Markets</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <div>Home</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="event-book.html">
+                                <div>Book Event</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="market-search.html">
+                                <div>Find a Market</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <div>About</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <div>Contact</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav><!-- #primary-menu end -->
+            </div>
+        </div>
+    </header><!-- #header end -->
+
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title" class="page-title-pattern">
 
         <div class="container clearfix">
+            <h1>Find a Market Near You</h1>
+            <span>The Christmas Carolers are nation-wide!</span>
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Find a Market</li>
+            </ol>
+        </div>
 
-            <div class="col_half">
-                Copyrights &#xA9; 2017 All Rights Reserved by Christmas
-            </div>
+    </section><!-- #page-title end -->
 
-            <div class="col_half col_last tright">
-                <div class="fright clearfix">
-                    <div class="copyrights-menu copyright-links nobottommargin">
-                        <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
-                        Use</a>/<a href="#">Privacy Policy</a>
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <!-- Sidebar
+                ============================================= -->
+                <div class="sidebar nobottommargin clearfix">
+                    <div class="sidebar-widgets-wrap">
+
+                        <div class="widget clearfix">
+                            <div class="nobottommargin clearfix">
+                                <div class="noleftpadding mt-15">
+
+                                    <form class="nobottommargin">
+
+                                        <div class="form-process"></div>
+
+                                        <div class="col_full">
+                                            <label>State
+                                                <small>*</small>
+                                            </label>
+                                            <select id="search_state" class="selectpicker form-control"
+                                                    data-live-search="true" data-size="6" style="width:100%;">
+                                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                                    <option value="AK">Alaska</option>
+                                                    <option value="HI">Hawaii</option>
+                                                </optgroup>
+                                                <optgroup label="Pacific Time Zone">
+                                                    <option value="CA">California</option>
+                                                    <option value="NV">Nevada</option>
+                                                    <option value="OR">Oregon</option>
+                                                    <option value="WA">Washington</option>
+                                                </optgroup>
+                                                <optgroup label="Mountain Time Zone">
+                                                    <option value="AZ">Arizona</option>
+                                                    <option value="CO">Colorado</option>
+                                                    <option value="ID">Idaho</option>
+                                                    <option value="MT">Montana</option>
+                                                    <option value="NE">Nebraska</option>
+                                                    <option value="NM">New Mexico</option>
+                                                    <option value="ND">North Dakota</option>
+                                                    <option value="UT">Utah</option>
+                                                    <option value="WY">Wyoming</option>
+                                                </optgroup>
+                                                <optgroup label="Central Time Zone">
+                                                    <option value="AL">Alabama</option>
+                                                    <option value="AR">Arkansas</option>
+                                                    <option value="IL">Illinois</option>
+                                                    <option value="IA">Iowa</option>
+                                                    <option value="KS">Kansas</option>
+                                                    <option value="KY">Kentucky</option>
+                                                    <option value="LA">Louisiana</option>
+                                                    <option value="MN">Minnesota</option>
+                                                    <option value="MS">Mississippi</option>
+                                                    <option value="MO">Missouri</option>
+                                                    <option value="OK">Oklahoma</option>
+                                                    <option value="SD">South Dakota</option>
+                                                    <option value="TX">Texas</option>
+                                                    <option value="TN">Tennessee</option>
+                                                    <option value="WI">Wisconsin</option>
+                                                </optgroup>
+                                                <optgroup label="Eastern Time Zone">
+                                                    <option value="CT">Connecticut</option>
+                                                    <option value="DE">Delaware</option>
+                                                    <option value="FL">Florida</option>
+                                                    <option value="GA">Georgia</option>
+                                                    <option value="IN">Indiana</option>
+                                                    <option value="ME">Maine</option>
+                                                    <option value="MD">Maryland</option>
+                                                    <option value="MA">Massachusetts</option>
+                                                    <option value="MI">Michigan</option>
+                                                    <option value="NH">New Hampshire</option>
+                                                    <option value="NJ">New Jersey</option>
+                                                    <option value="NY">New York</option>
+                                                    <option value="NC">North Carolina</option>
+                                                    <option value="OH">Ohio</option>
+                                                    <option value="PA">Pennsylvania</option>
+                                                    <option value="RI">Rhode Island</option>
+                                                    <option value="SC">South Carolina</option>
+                                                    <option value="VT">Vermont</option>
+                                                    <option value="VA">Virginia</option>
+                                                    <option value="WV">West Virginia</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+
+                                        <div class="col_full">
+                                            <label for="template-contactform-location">City
+                                                <small>*</small>
+                                            </label>
+                                            <input ng-model="search.city" type="text" id="template-contactform-location"
+                                                   class="sm-form-control required" placeholder="King&apos;s Landing">
+                                        </div>
+
+                                        <div class="input-daterange travel-date-group">
+
+                                            <div class="col_full">
+                                                <label for="">Event Date</label>
+                                                <input type="text" value="" class="sm-form-control tleft" name="start"
+                                                       placeholder="mm/dd/yyyy">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                        <div class="col_full nobottommargin">
+                                            <a ng-click="search()" href="" class="button button-3d nomargin">Search</a>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="widget clearfix">
+
+                            <h4>Search Radius</h4>
+
+                            <div>
+                                <input ng-click="search.radius = 30" data-ng-value="true" id="checkbox-1"
+                                       class="checkbox-style" name="checkbox" type="radio">
+                                <label for="checkbox-1" class="checkbox-style-2-label checkbox-small">0 - 30
+                                    miles</label>
+                            </div>
+                            <div>
+                                <input ng-click="search.radius = 60" data-ng-value="true" id="checkbox-2"
+                                       class="checkbox-style" name="checkbox" type="radio">
+                                <label for="checkbox-2" class="checkbox-style-2-label checkbox-small">31 - 60
+                                    miles</label>
+                            </div>
+                            <div>
+                                <input ng-click="search.radius = 100" data-ng-value="true" id="checkbox-3"
+                                       class="checkbox-style" name="checkbox" type="radio">
+                                <label for="checkbox-3" class="checkbox-style-2-label checkbox-small">61 - 100
+                                    miles</label>
+                            </div>
+                            <div>
+                                <input ng-click="search.radius = false" data-ng-value="true" id="checkbox-4"
+                                       class="checkbox-style" name="checkbox" type="radio" checked>
+                                <label for="checkbox-4" class="checkbox-style-2-label checkbox-small">Any
+                                    Distance</label>
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
+
+                <!-- Post Content
+                ============================================= -->
+                <div class="postcontent nobottommargin col_last clearfix">
+
+                    <!-- Posts
+                    ============================================= -->
+                    <div id="posts" class="small-thumbs">
+
+                        <div ng-repeat="market in markets" class="entry clearfix">
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <a href="{{market.image}}" data-lightbox="image">
+                                        <img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
+                                    </a>
+                                </div>
+                                <div class="bottommargin-sm visible-sm visible-xs"></div>
+                                <div class="col-md-6 col-sm-8">
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <h2>
+                                                <a ng-bind="market.name" href="market-page.html">
+                                                    <!-- Market Name -->
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <ul class="entry-meta clearfix">
+                                            <li>
+                                                <i class="icon-map-marker2"></i>
+                                                <a ng-bind="market.city+&apos;, &apos;+market.state" href="#"></a>
+                                            </li>
+                                            <li>
+                                                <i class="icon-line-map"></i>
+                                                <a ng-click="openMap(market)">
+                                                    View map
+                                                </a>
+                                            </li>
+                                            <!--<li>-->
+                                            <!--<i class="icon-comments"></i>-->
+                                            <!--<a href="#">-->
+                                            <!--24 Reviews-->
+                                            <!--</a>-->
+                                            <!--</li>-->
+                                        </ul>
+                                        <br>
+                                        <div class="entry-content">
+                                            <p ng-bind="market.bio" class="nobottommargin">
+                                                <!-- Market Description -->
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-4 center">
+                                    <div class="hotel-price">
+                                        <i class="icon-dollar"></i>
+                                        <span ng-bind="market.rate_caroler">
+										<!-- Market Base Rate -->
+									</span>
+                                    </div>
+                                    <small><em>Base hourly rate*</em></small>
+                                    <br>
+                                    <a ng-click="handleBookNow(market)" class="button button-rounded topmargin-sm">Book
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--<ul class="pagination notopmargin nobottommargin">-->
+                    <!--<li class="disabled"><a href="#">&#xAB;</a></li>-->
+                    <!--<li class="active"><a href="#">1</a></li>-->
+                    <!--<li><a href="#">2</a></li>-->
+                    <!--<li><a href="#">3</a></li>-->
+                    <!--<li><a href="#">4</a></li>-->
+                    <!--<li><a href="#">&#xBB;</a></li>-->
+                    <!--</ul>-->
+
+                </div>
+
             </div>
 
         </div>
 
-    </div><!-- #copyrights end -->
+    </section><!-- #content end -->
 
-</footer><!-- #footer end -->
+    <!-- Footer
+    ============================================= -->
+    <footer id="footer" class="dark">
 
-	</div><!-- #wrapper end -->
+        <div class="container">
 
-	<!-- Go To Top
-	============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
+            <!-- Footer Widgets
+            ============================================= -->
+            <div class="footer-widgets-wrap clearfix">
 
-	<!-- External JavaScripts
-	============================================= -->
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/plugins.js"></script>
+                <div class="col_one_third">
 
-	<!-- Travel Demo Specific Script -->
-	<script type="text/javascript" src="demos/travel/js/datepicker.js"></script>
+                    <div class="widget clearfix">
 
-	<!-- Star Rating Plugin -->
-	<script type="text/javascript" src="js/components/star-rating.js"></script>
-	<!-- Bootstrap Select Plugin -->
-	<script type="text/javascript" src="js/components/bs-select.js"></script>
+                        <img src="images/tcc-logo.png" alt="" class="footer-logo">
 
-	<!-- Footer Scripts
-	============================================= -->
-	<script type="text/javascript" src="js/functions.js"></script>
+                    </div>
 
-	<script type="text/javascript">
-		$(function() {
-			$('.travel-date-group').datepicker({
-				autoclose: true,
-				startDate: "today"
-			});
-		});
-	</script>
+                </div>
+
+                <div class="col_one_third">
+
+                    <div class="widget clearfix">
+                        <div>
+                            <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
+                            <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
+                            <br><br>
+                            <div class="bottommargin-sm widget_links">
+                                <ul>
+                                    <li><a href="#">Resellers</a></li>
+                                    <li><a href="#">Have a Caroling Group?</a></li>
+                                    <li><a href="#">Become a Caroler</a></li>
+                                    <li><a href="#">National Caroler Association</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget clearfix">
+
+                        <a href="#" class="social-icon si-small si-rounded si-facebook">
+                            <i class="icon-facebook"></i>
+                            <i class="icon-facebook"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-rounded si-twitter">
+                            <i class="icon-twitter"></i>
+                            <i class="icon-twitter"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col_one_third col_last">
+
+                    <div class="widget quick-contact-widget clearfix">
+
+                        <h4>Send Message</h4>
+
+                        <div class="quick-contact-form-result"></div>
+
+                        <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form"
+                              action="include/quickcontact.php" class="quick-contact-form nobottommargin">
+
+                            <div class="form-process"></div>
+
+                            <div class="input-group divcenter">
+                                <span class="input-group-addon"><i class="icon-user"></i></span>
+                                <input type="text" class="required form-control input-block-level"
+                                       id="quick-contact-form-name" name="quick-contact-form-name" value=""
+                                       placeholder="Full Name">
+                            </div>
+                            <div class="input-group divcenter">
+                                <span class="input-group-addon"><i class="icon-email2"></i></span>
+                                <input type="text" class="required form-control email input-block-level"
+                                       id="quick-contact-form-email" name="quick-contact-form-email" value=""
+                                       placeholder="Email Address">
+                            </div>
+                            <textarea class="required form-control input-block-level short-textarea"
+                                      id="quick-contact-form-message" name="quick-contact-form-message" rows="4"
+                                      cols="30" placeholder="Message"></textarea>
+                            <input type="text" class="hidden" id="quick-contact-form-botcheck"
+                                   name="quick-contact-form-botcheck" value="">
+                            <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit"
+                                    class="btn btn-danger nomargin" value="submit">Send Email
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div><!-- .footer-widgets-wrap end -->
+
+        </div>
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+            <div class="container clearfix">
+
+                <div class="col_half">
+                    Copyrights &#xA9; 2017 All Rights Reserved by Christmas
+                </div>
+
+                <div class="col_half col_last tright">
+                    <div class="fright clearfix">
+                        <div class="copyrights-menu copyright-links nobottommargin">
+                            <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
+                            Use</a>/<a href="#">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- #copyrights end -->
+
+    </footer><!-- #footer end -->
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- External JavaScripts
+============================================= -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+
+<!-- Travel Demo Specific Script -->
+<script type="text/javascript" src="demos/travel/js/datepicker.js"></script>
+
+<!-- Star Rating Plugin -->
+<script type="text/javascript" src="js/components/star-rating.js"></script>
+<!-- Bootstrap Select Plugin -->
+<script type="text/javascript" src="js/components/bs-select.js"></script>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="js/functions.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.travel-date-group').datepicker({
+            autoclose: true,
+            startDate: "today"
+        });
+    });
+</script>
 
 
-</body></html>
+</body>
+</html>
