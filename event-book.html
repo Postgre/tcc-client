@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.js"></script>
     <!-- Angular
     ============================================= -->
     <script src="node_modules/angular/angular.min.js"></script>
@@ -34,6 +36,11 @@
     ============================================= -->
     <title>Book Event</title>
 
+    <style>
+        .travel_cost_breakdown b {
+            color: #1ABC9C;
+        }
+    </style>
 </head>
 
 <body class="stretched" ng-app="booking" ng-controller="BookingController">
@@ -168,6 +175,19 @@
                                                 <input type="text" class="sm-form-control daterange" required value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
                                             </div>
 
+                                            <div class="clear"></div>
+
+                                            <div class="col_full">
+                                                <label>Caroler Details</label>
+                                                <select ng-model="event.caroler_count" class="selectpicker form-control">
+                                                    <option value="">-- Select a Configuration --</option>
+                                                    <option value="1">Solo (1)</option>
+                                                    <option value="2">Duet (2)</option>
+                                                    <option value="3">Trio (3)</option>
+                                                    <option value="4">Quartet (4)</option>
+                                                </select>
+                                            </div>
+
                                             <div class="col_half col_last">
                                                 <label>Type of Event</label>
                                                 <select ng-model="event.type" class="selectpicker" required>
@@ -254,7 +274,7 @@
                             </div>
 
                             <div class="line"></div>
-                            <a href="javascript:stepToTravel()" class="button button-3d nomargin fright tab-linker">Next: Travel
+                            <a href="" ng-click="stepToTravel()" class="button button-3d nomargin fright tab-linker">Next: Travel
                                 Expenses</a>
                         </div>
                         <div id="ptab2">
@@ -264,7 +284,7 @@
                                         <form name="travel_form" id="travel_form" class="nobottommargin">
                                             <div class="col_full">
                                                 <label>State: </label>
-                                                <select ng-model="event.state" id="state" class="selectpicker form-control" data-live-search="true" data-size="6" style="width:100%;">
+                                                <select id="state" class="selectpicker form-control" data-live-search="true" data-size="6" style="width:100%;">
                                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                                         <option value="AK">Alaska</option>
                                                         <option value="HI">Hawaii</option>
@@ -335,13 +355,13 @@
 
                                             <div class="col_full">
                                                 <label for="address">Venue Address: </label>
-                                                <input ng-model="event.venue" required id="address" type="text" class="sm-form-control">
+                                                <input ng-model="event.address" required id="address" type="text" class="sm-form-control">
                                             </div>
                                             <p id="location-coordinates" style="display: none; margin-top: 10px;">
                                                 <small id="latitude-text"><em>Latitude:</em></small> &#xB7;
                                                 <small id="longitude-text"><em>Longitude:</em></small>
                                             </p>
-                                            <button onclick="updateAddress()" type="button" class="btn btn-info">
+                                            <button onclick="updateAddress()" ng-click="previewTravelCosts()" type="button" class="btn btn-info">
                                                 <i class="icon-map-marker"></i>
                                                 Update Address
                                             </button>
@@ -351,19 +371,19 @@
                                         <div id="google-map-custom" class="gmap" style="height: 300px;"></div>
 
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 travel_cost_breakdown">
                                         <h3>Mileage and Time</h3>
-                                        <p>Your event location is <b ng-bind="travel_costs.miles"></b> miles from where
-                                            our carolers are located and the estimated travel time is <b ng-bind="travel_costs.time"></b> minutes</p>
+                                        <p>Your event location is <b ng-bind="travel_costs.distance">___</b> miles from where
+                                            our carolers are located and the estimated travel time is <b ng-bind="travel_costs.duration">___</b> minutes</p>
                                         <p>The Christmas Carolers charges $2 for every mile over 30 miles from the
-                                            starting point. $<b ng-bind="travel_costs.miles_fee"></b> will be added to
+                                            starting point. $<b ng-bind="travel_costs.cost_travel_distance">___</b> will be added to
                                             your invoice for
                                             mileage. The Christmas Carolers also charges $60 per hour of travel over 30
-                                            minutes. $<b ng-bind="travel_costs.time_fee"></b> will be added to your
+                                            minutes. $<b ng-bind="travel_costs.cost_travel_duration">___</b> will be added to your
                                             invoice for extra travel time.</p>
                                         <h3>Toll Roads</h3>
                                         <p>The lead caroler will estimate the amount for toll roads as they travel to
-                                            this event. $<b ng-bind="travel_costs.tolls"></b> will be added to your
+                                            this event. $<b ng-bind="travel_costs.tolls">___</b> will be added to your
                                             invoice for toll roads.</p>
                                         <h3>Parking</h3>
                                         <p>Please provide us with an overview of where the carolers will be able to
@@ -375,8 +395,8 @@
                             </div>
 
                             <div class="line"></div>
-                            <a href="javascript:stepTo(0)" class="button button-3d nomargin tab-linker">Previous</a>
-                            <a href="javascript:stepToReview()" class="button button-3d nomargin fright tab-linker">Review Booking</a>
+                            <a ng-click="stepTo(0)" href="" class="button button-3d nomargin tab-linker">Previous</a>
+                            <a ng-click="stepToReview()" href="" class="button button-3d nomargin fright tab-linker">Review Booking</a>
                         </div>
                         <div id="ptab3">
                             <div class="row clearfix">
@@ -437,7 +457,7 @@
                                                 </td>
 
                                                 <td class="cart-product-name">
-                                                    $<span ng-bind="invoice.carolers" class="amount">
+                                                    $<span ng-bind="invoice.cost_carolers" class="amount">
 														</span>
                                                 </td>
                                             </tr>
@@ -447,17 +467,17 @@
                                                 </td>
 
                                                 <td class="cart-product-name">
-                                                    $<span ng-bind="invoice.travel" class="amount">
+                                                    $<span ng-bind="invoice.cost_travel" class="amount">
 														</span>
                                                 </td>
                                             </tr>
                                             <tr class="cart_item">
                                                 <td class="cart-product-name">
-                                                    <strong>Parking</strong>
+                                                    <strong>Tax</strong>
                                                 </td>
 
                                                 <td class="cart-product-name">
-                                                    $<span ng-bind="invoice.parking" class="amount">
+                                                    $<span ng-bind="invoice.tax" class="amount">
 														</span>
                                                 </td>
                                             </tr>
@@ -467,13 +487,13 @@
                                                 </td>
 
                                                 <td class="cart-product-name">
-                                                    $<span ng-bind="invoice.special_dates" class="amount">
+                                                    $<span ng-bind="invoice.cost_date" class="amount">
 														</span>
                                                 </td>
                                             </tr>
                                             <tr class="cart_item">
                                                 <td class="cart-product-name">
-                                                    $<strong>Promos</strong>
+                                                    <strong>Promos</strong>
                                                 </td>
 
                                                 <td class="cart-product-name">
@@ -488,7 +508,7 @@
 
                                                 <td class="cart-product-name">
 														<span class="amount color lead">
-															$<strong ng-bind="invoice.total">
+															$<strong ng-bind="invoice.cost_total">
 															</strong>
 														</span>
                                                 </td>
@@ -532,8 +552,8 @@
                                 </div>
                             </div>
                             <div class="line"></div>
-                            <a href="javascript:stepTo(1)" class="button button-3d nomargin">Previous</a>
-                            <a href="javascript:stepToConfirm()" class="button button-3d nomargin fright">Complete Booking</a>
+                            <a ng-click="stepTo(1)" href="" class="button button-3d nomargin">Previous</a>
+                            <a ng-click="stepToConfirm()" href="" class="button button-3d nomargin fright">Complete Booking</a>
                         </div>
                         <div id="ptab4">
                             <div class="alert alert-success">
@@ -678,40 +698,11 @@
 
 <!-- External JavaScripts
 ============================================= -->
-<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/plugins.js"></script>
 
 <!-- Footer Scripts
 ============================================= -->
 <script type="text/javascript" src="js/functions.js"></script>
-
-<script type="text/javascript">
-    const proccess_tabs = $("#processTabs").tabs({
-        show: {effect: "fade", duration: 400},
-        disabled: [1,2,3]
-    });
-    function stepToTravel(){
-        // validate 'Event Details'
-        if( !$("#details_form").valid() ) return;
-        proccess_tabs.tabs("enable", 1);
-        proccess_tabs.tabs("option", "active", 1);
-    }
-    function stepToReview(){
-        // validate 'Travel Details'
-        if( !$("#travel_form").valid() ) return;
-        proccess_tabs.tabs("enable", 2);
-        proccess_tabs.tabs("option", "active", 2);
-    }
-    function stepToConfirm(){
-        // generate quote
-        proccess_tabs.tabs("enable", 3);
-        proccess_tabs.tabs("option", "active", 3);
-    }
-    function stepTo(tab_number){
-        // submit booking
-        proccess_tabs.tabs("option", "active", tab_number);
-    }
-</script>
 
 <!-- Date & Time Picker JS -->
 <script type="text/javascript" src="js/components/moment.js"></script>

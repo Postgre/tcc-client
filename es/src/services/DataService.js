@@ -96,4 +96,16 @@ module.exports = class DataService {
             url: "markets/"+id
         })
     }
+    previewTravel( market_id, address, city, state ){
+        return this.connection({
+            url: "quotes/preview/travel",
+            method: "POST",
+            params: {
+                market_id: market_id,
+                address: address,
+                city: city,
+                state: state
+            }
+        })
+    }
 };
