@@ -7,11 +7,13 @@ function MarketSearchController( $scope ) {
 
     $scope.search = search;
     $scope.openMap = openMap;
-    function search(){
-        var address = $scope.search.city+", "+$scope.search.state;
-        var radius = null;
-        var limit = null;
-        var offset = null;
+    $scope.handleBookNow = handleBookNow;
+    function search( address, radius, limit, offset ){
+        var search_state = $("#search_state").val();
+        if( !address ) address = $scope.search.city+", "+search_state;
+        if( radius === 'undefined' ) radius = $scope.search.radius;
+        if( !limit ) limit = null;
+        if( !offset ) offset = null;
         var p = window.dataService.searchMarketsGeo( address, radius, limit, offset );
         p.then(function(res){
             console.info("res", res);
@@ -26,9 +28,14 @@ function MarketSearchController( $scope ) {
     function openMap( market ){
         window.open("https://maps.google.com/maps?q="+market.city+',+'+market.state);
     }
+    function handleBookNow( market ){
+        navService.goto("book_event", {
+            market_id: market.id
+        })
+    }
 
     (function init(){
-
+        search( "Birmingham, AL", false );
     })();
 }
 
@@ -60,13 +67,7 @@ const DEFAULT_MODEL = {
         }
     ],
     search: {
-        state: "AL",
         city: "Birmingham",
-        radius: {
-            "a": false,
-            "b": false,
-            "c": false,
-            "d": true,
-        }
+        radius: false
     }
 };

@@ -145,7 +145,7 @@
 
 											<div class="col_full">
 												<label>State <small>*</small></label>
-												<select ng-model="search.state" class="selectpicker form-control" data-live-search="true" data-size="6" style="width:100%;">
+												<select id="search_state" class="selectpicker form-control" data-live-search="true" data-size="6" style="width:100%;">
 													<optgroup label="Alaskan/Hawaiian Time Zone">
 														<option value="AK">Alaska</option>
 														<option value="HI">Hawaii</option>
@@ -211,7 +211,8 @@
 
 											<div class="col_full">
 												<label for="template-contactform-location">City <small>*</small></label>
-												<input ng-model="search.city" type="text" id="template-contactform-location" name="template-contactform-location" value="" class="sm-form-control required" placeholder="Spain">
+												<input ng-model="search.city" type="text" id="template-contactform-location" class="sm-form-control required"
+													   placeholder="King's Landing">
 											</div>
 
 											<div class="input-daterange travel-date-group">
@@ -239,19 +240,19 @@
 								<h4>Search Radius</h4>
 
 								<div>
-									<input ng-model="search.radius.a" data-ng-value="true" id="checkbox-1" class="checkbox-style" name="checkbox" type="radio">
+									<input ng-click="search.radius = 30" data-ng-value="true" id="checkbox-1" class="checkbox-style" name="checkbox" type="radio">
 									<label for="checkbox-1" class="checkbox-style-2-label checkbox-small">0 - 30 miles</label>
 								</div>
 								<div>
-									<input ng-model="search.radius.b" data-ng-value="true" id="checkbox-2" class="checkbox-style" name="checkbox" type="radio">
+									<input ng-click="search.radius = 60" data-ng-value="true" id="checkbox-2" class="checkbox-style" name="checkbox" type="radio">
 									<label for="checkbox-2" class="checkbox-style-2-label checkbox-small">31 - 60 miles</label>
 								</div>
 								<div>
-									<input ng-model="search.radius.c" data-ng-value="true" id="checkbox-3" class="checkbox-style" name="checkbox" type="radio">
+									<input ng-click="search.radius = 100" data-ng-value="true" id="checkbox-3" class="checkbox-style" name="checkbox" type="radio">
 									<label for="checkbox-3" class="checkbox-style-2-label checkbox-small">61 - 100 miles</label>
 								</div>
 								<div>
-									<input ng-model="search.radius.d" data-ng-value="true" id="checkbox-4" class="checkbox-style" name="checkbox" type="radio">
+									<input ng-click="search.radius = false" data-ng-value="true" id="checkbox-4" class="checkbox-style" name="checkbox" type="radio" checked>
 									<label for="checkbox-4" class="checkbox-style-2-label checkbox-small">Any Distance</label>
 								</div>
 
@@ -297,19 +298,16 @@
 														View map
 													</a>
 												</li>
-												<li>
-													<i class="icon-comments"></i>
-													<a href="#">
-														24 Reviews
-													</a>
-												</li>
+												<!--<li>-->
+													<!--<i class="icon-comments"></i>-->
+													<!--<a href="#">-->
+														<!--24 Reviews-->
+													<!--</a>-->
+												<!--</li>-->
 											</ul>
 											<br>
 											<div class="entry-content">
-												<div class="clearfix" style="margin-bottom: 10px;">
-													<hr>
-												</div>
-												<p ng-bind-html="market.html" class="nobottommargin">
+												<p ng-bind="market.bio" class="nobottommargin">
 													<!-- Market Description -->
 												</p>
 											</div>
@@ -318,26 +316,26 @@
 									<div class="col-md-2 col-sm-4 center">
 										<div class="hotel-price">
 											<i class="icon-dollar"></i>
-											<span ng-bind="market.baseRate">
+											<span ng-bind="market.rate_caroler">
 										<!-- Market Base Rate -->
 									</span>
 										</div>
 										<small><em>Base hourly rate*</em></small><br>
-										<a href="#" class="button button-rounded topmargin-sm">Book Now</a>
+										<a ng-click="handleBookNow(market)" class="button button-rounded topmargin-sm">Book Now</a>
 									</div>
 								</div>
 							</div>
 
 						</div>
 
-						<ul class="pagination notopmargin nobottommargin">
-							<li class="disabled"><a href="#">&#xAB;</a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">&#xBB;</a></li>
-						</ul>
+						<!--<ul class="pagination notopmargin nobottommargin">-->
+							<!--<li class="disabled"><a href="#">&#xAB;</a></li>-->
+							<!--<li class="active"><a href="#">1</a></li>-->
+							<!--<li><a href="#">2</a></li>-->
+							<!--<li><a href="#">3</a></li>-->
+							<!--<li><a href="#">4</a></li>-->
+							<!--<li><a href="#">&#xBB;</a></li>-->
+						<!--</ul>-->
 
 					</div>
 
