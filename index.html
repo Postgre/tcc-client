@@ -1346,8 +1346,8 @@
             renderQuote({
                 carolers: quote.cost_carolers,
                 travel: quote.cost_travel,
-                promos: 0,
-                dates: 0,
+                promos: quote.cost_discounts,
+                dates: quote.cost_date,
                 total: quote.cost_total
             }, market);
         });
