@@ -370,6 +370,10 @@
                     <form name="quoteForm" action="#" onsubmit="return handleQuoteForm()" class="nobottommargin">
                         <div class="row">
                             <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">Address</label>
+                                <input name="address" type="text" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
                                 <label style="display:block;">City</label>
                                 <input name="city" type="text" class="form-control" placeholder="City">
                             </div>
@@ -438,24 +442,18 @@
                                     </optgroup>
                                 </select>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 bottommargin-sm">
-                                <label>Event Date and Time</label>
-                                <input type="text" class="sm-form-control daterange" value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
-                            </div>
-                            <div class="clear"></div>
-                            <div class="col-md-3 col-sm-12 bottommargin-sm">
-                                <label style="display:block;">Address</label>
-                                <input name="address" type="text" class="form-control" placeholder="Address">
-                            </div>
                             <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
                                 <label>Number of Singers</label>
                                 <select name="caroler_count" class="selectpicker form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5+">5+</option>
+                                    <option value="4">Quartet (4)</option>
+                                    <option value="3">Trio (3)</option>
+                                    <option value="6">Sixtets (6)</option>
+                                    <option value="8">Octets (8)</option>
                                 </select>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>Event Date and Time</label>
+                                <input type="text" class="sm-form-control daterange" value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
                             </div>
                             <div class="col-md-4 col-md-offset-2 float-right">
                                 <button class="button button-3d button-rounded btn-block nomargin" style="margin-top: 35px !important;">Check Rates and Availability!
@@ -881,25 +879,8 @@
                                 </table>
 
                             </div>
-                            <div class="accordion clearfix">
-                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>What Now?
-                                </div>
-                                <div class="acc_content clearfix">To book this event, you&apos;ll just need to make an
-                                    account, and confirm it in your dashboard!
-                                    Already have an account? <a href="login-register.html">Login here!</a></div>
-
-                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i> Payment Options
-                                </div>
-                                <div class="acc_content clearfix">We accept several different payment options,
-                                    including: credit card, by phone, and SquareCash!
-                                </div>
-
-                                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Other Information
-                                </div>
-                                <div class="acc_content clearfix">**Disclaimers</div>
-                            </div>
                             <a href="javascript:handleBookNow()" class="button button-3d fright">Book Now</a>
-                            <a href="javascript:handleSaveQuote()" class="button button-3d fright">Save Quote</a>
+                            <a href="javascript:handleSaveQuote()" class="button button-3d fright">Email Quote (Book Later)</a>
                         </div>f
                     </div>
                 </div>
@@ -1279,9 +1260,7 @@
      * Form Element Plugins
      * =============================
      */
-    var start = null;
-    var end = null;
-    var daterange = $(".daterange").daterangepicker({
+    const daterange = $(".daterange").daterangepicker({
         "opens": "center",
         timePicker: true,
         timePickerIncrement: 30,
@@ -1291,11 +1270,6 @@
         "buttonClasses": "button button-rounded button-mini nomargin",
         "applyClass": "button-color",
         "cancelClass": "button-light"
-    }).on('apply.daterangepicker', function (ev, picker) {
-        /*-------------*/
-        start = picker.startDate.format("YYYY-MM-DD hh:mm");
-        end = picker.endDate.format("YYYY-MM-DD hh:mm");
-        console.log(start, end);
     });
 
     /**
@@ -1330,12 +1304,15 @@
     var quote_id = null;
     var market_id = null;
     function handleQuoteForm() {
+        var start = daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm");
+        var end = daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm");
         var city = document.forms.quoteForm.city.value;
         var state = document.forms.quoteForm.state.value;
         var address = document.forms.quoteForm.address.value;
         var caroler_count = document.forms.quoteForm.caroler_count.value;
 
         var formatted_address = address + ", " + city + ", " + state;
+        console.log("Sending...", formatted_address, start, end, caroler_count);
         var p = window.dataService.postQuote(formatted_address, start, end, caroler_count);
         p.then((res) => {
             console.log(res);
