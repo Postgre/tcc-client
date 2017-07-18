@@ -101,7 +101,9 @@ function MarketEditController( $scope ) {
             city: mkt.city,
             email: mkt.email,
             phone: mkt.phone,
-            published: mkt.published
+            published: mkt.published,
+            rate_caroler_base: mkt.rate_caroler_base,
+            rate_caroler_discount: mkt.rate_caroler_discount
         } );
         p.then(function(res){
             console.info("res", res);
@@ -114,8 +116,8 @@ function MarketEditController( $scope ) {
         });
     }
     function getPrice( nthHour ){
-        var rate = $scope.market.base_rate;
-        var discnt = $scope.market.hourly_discount;
+        var rate = $scope.market.rate_caroler_base;
+        var discnt = $scope.market.rate_caroler_discount;
         if( nthHour === 1 ) return rate;
         var price = getPrice( nthHour-1 ) * (1-discnt);
         return Math.round(price * 100) / 100;
@@ -131,6 +133,7 @@ function MarketEditController( $scope ) {
         p.then(function (res) {
             console.log("res", res);
             $scope.$apply(function () {
+                var mkt = res.data.market;
                 $scope.market = res.data.market;
                 window.market = $scope.market;
             });

@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "angular": "^1.6.5",
+    "angular-input-masks": "^2.6.0",
     "angular-sanitize": "^1.6.5",
     "axios": "^0.16.2",
     "jquery": "^3.2.1",

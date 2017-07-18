@@ -37,6 +37,9 @@
     <!-- Angular
     ============================================= -->
     <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-input-masks/releases/angular-input-masks-dependencies.min.js"></script>
+    <script src="node_modules/angular-input-masks/releases/angular-input-masks.min.js"></script>
+    <script src="node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
     <script src="angular/market-edit/market-edit.module.js"></script>
     <script src="angular/market-edit/market-edit.controller.js"></script>
     <script src="angular/market-edit/daterange/daterange.directive.js"></script>
@@ -280,10 +283,10 @@
                             <h5>Please provide the following pricing for the season</h5>
                             <div class="col_half">
                                 <label>Market Base Rate:</label>
-                                <input ng-model="market.base_rate" type="number" class="sm-form-control">
+                                <input ng-model="market.rate_caroler_base" ui-money-mask="0" type="text" class="sm-form-control">
                                 <br/>
                                 <label>Hourly Discount:</label>
-                                <input ng-model="market.hourly_discount" type="number" class="sm-form-control">
+                                <input ng-model="market.rate_caroler_discount" ui-percentage-mask="0" type="text" class="sm-form-control">
                             </div>
                             <div class="col_half col_last">
                                 <table class="table">
