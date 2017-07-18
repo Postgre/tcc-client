@@ -49,6 +49,7 @@
         .action-buttons-wrapper {
             text-align: right;
         }
+
         .action-buttons-wrapper button {
             margin-right: 20px;
         }
@@ -209,7 +210,8 @@
                                 </div>
                                 <div class="col_half col_last">
                                     <label>Market Bio:</label>
-                                    <textarea ng-model="market.bio" class="sm-form-control" rows="6" cols="30"></textarea>
+                                    <textarea ng-model="market.bio" class="sm-form-control" rows="6"
+                                              cols="30"></textarea>
                                 </div>
 
                                 <div class="clear"></div>
@@ -233,13 +235,18 @@
                                                 <input ng-model="img.image" type="text" class="sm-form-control"/>
                                             </td>
                                             <td ng-if="editing_gallery">
-                                                <button ng-click="deleteGalleryImage(img)" class="btn btn-danger">x</button>
+                                                <button ng-click="deleteGalleryImage(img)" class="btn btn-danger">x
+                                                </button>
                                             </td>
                                         </tr>
                                     </table>
                                     <button ng-click="addGalleryImage()" class="btn btn-primary">+ Add</button>
-                                    <button ng-click="editing_gallery=!editing_gallery" ng-hide="editing_gallery" class="btn btn-danger"> Edit</button>
-                                    <button ng-click="editing_gallery=!editing_gallery" ng-show="editing_gallery" class="btn btn-success"> Stop Editing</button>
+                                    <button ng-click="editing_gallery=!editing_gallery" ng-hide="editing_gallery"
+                                            class="btn btn-danger"> Edit
+                                    </button>
+                                    <button ng-click="editing_gallery=!editing_gallery" ng-show="editing_gallery"
+                                            class="btn btn-success"> Stop Editing
+                                    </button>
                                 </div>
 
                             </form>
@@ -272,27 +279,34 @@
                         <div id="tab-pricing" class="tab-content clearfix">
                             <h5>Please provide the following pricing for the season</h5>
                             <div class="col_half">
+                                <label>Market Base Rate:</label>
+                                <input ng-model="market.base_rate" type="number" class="sm-form-control">
+                                <br/>
+                                <label>Hourly Discount:</label>
+                                <input ng-model="market.hourly_discount" type="number" class="sm-form-control">
+                            </div>
+                            <div class="col_half col_last">
                                 <table class="table">
                                     <tbody>
                                     <tr>
                                         <td><label>First Hour: </label></td>
-                                        <td><input type="text" class="sm-form-control"></td>
+                                        <td>$<label ng-bind="getPrice(1)"></label></td>
                                     </tr>
                                     <tr>
                                         <td><label>Second Hour: </label></td>
-                                        <td><input type="number" class="sm-form-control"></td>
+                                        <td>$<label ng-bind="getPrice(2)"></label></td>
                                     </tr>
                                     <tr>
                                         <td><label>Third Hour: </label></td>
-                                        <td><input type="number" class="sm-form-control"></td>
+                                        <td>$<label ng-bind="getPrice(3)"></label></td>
                                     </tr>
                                     <tr>
                                         <td><label>Fourth Hour: </label></td>
-                                        <td><input type="number" class="sm-form-control"></td>
+                                        <td>$<label ng-bind="getPrice(4)"></label></td>
                                     </tr>
                                     <tr>
-                                        <td><label>Fifth + Hour: </label></td>
-                                        <td><input type="number" class="sm-form-control"></td>
+                                        <td><label>Fifth or Beyond Hours: </label></td>
+                                        <td>$<label ng-bind="getPrice(5)"></label></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -326,7 +340,8 @@
                             </div>
                             <br>
                             <button ng-click="createSpecialDate()" class="btn btn-primary"> + Add Date</button>
-                            <button ng-hide="editing_special_dates" ng-click="editSpecialDates()" class="btn btn-danger">
+                            <button ng-hide="editing_special_dates" ng-click="editSpecialDates()"
+                                    class="btn btn-danger">
                                 Edit
                             </button>
                             <button ng-show="editing_special_dates" ng-click="stopEditingSpecialDates()"
@@ -338,14 +353,16 @@
                 </div>
 
                 <div class="action-buttons-wrapper">
-                    <button ng-click="updateMarket()" class="btn btn-success mr15"> Save Changes </button>
+                    <button ng-click="updateMarket()" class="btn btn-success mr15"> Save Changes</button>
 
                     <button ng-show="!market.published" ng-click="publishMarket()"
                             class="btn btn-success btn-outline">
-                    <i class="icon-arrow-up"></i> &nbsp; Publish Market</button>
+                        <i class="icon-arrow-up"></i> &nbsp; Publish Market
+                    </button>
                     <button ng-show="market.published" ng-click="unpublishMarket()"
-                       class="btn btn-danger btn-outline">
-                        <i class="icon-arrow-down"></i>&nbsp; Un-publish Market</button>
+                            class="btn btn-danger btn-outline">
+                        <i class="icon-arrow-down"></i>&nbsp; Un-publish Market
+                    </button>
 
                 </div>
             </div>

@@ -25,6 +25,7 @@ function MarketEditController( $scope ) {
     $scope.deleteGalleryImage = deleteGalleryImage;
     $scope.addGalleryImage = addGalleryImage;
     $scope.updateMarket = updateMarket;
+    $scope.getPrice = getPrice;
 
     function deleteSpecialDate( date ){
         var ind = $scope.specialDates.indexOf( date );
@@ -111,6 +112,13 @@ function MarketEditController( $scope ) {
         p.catch(function(err){
             console.error("err", err);
         });
+    }
+    function getPrice( nthHour ){
+        var rate = $scope.market.base_rate;
+        var discnt = $scope.market.hourly_discount;
+        if( nthHour === 1 ) return rate;
+        var price = getPrice( nthHour-1 ) * (1-discnt);
+        return Math.round(price * 100) / 100;
     }
 
     (function init(){
