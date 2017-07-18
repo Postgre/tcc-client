@@ -3,10 +3,9 @@ angular.module('profile')
 
 function ProfileController( $scope ) {
     $scope.profile = {
-        user_profile: DEFAULT_MODEL.profile,
-        customer_profile: {},
-        caroler_profile: {},
-        director_profile: {}
+        user: {},
+        director: {},
+        customer: {}
     };
     init();
     /**
@@ -20,9 +19,12 @@ function ProfileController( $scope ) {
      */
     $scope.updateProfile = updateProfile;
     function updateProfile(){
-        var promise = window.dataService.putProfile($scope.profile);
+        var promise = window.dataService.putProfile({
+            user_profile: $scope.profile.user
+        });
         promise.then(function(res){
             console.log("res", res);
+            notifySuccess();
         });
         promise.catch(function(err){
             console.log("err", err);
@@ -38,7 +40,7 @@ function ProfileController( $scope ) {
         promise.then(function(res){
             console.log("res", res);
             $scope.$apply(function(){
-                $scope.profile.user_profile = res.data.user_profile;
+                $scope.profile.user = res.data.user_profile;
             });
         });
         promise.catch(function(err){
