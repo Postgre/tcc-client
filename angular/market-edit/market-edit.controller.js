@@ -54,9 +54,8 @@ function MarketEditController( $scope ) {
             html: false
         }, function(){
             $scope.$apply(function(){
-                $scope.market.published = true;
+                $scope.market.published = 1;
             });
-            $scope.market.published = true;
             swal("We're Live!",
                 $scope.market.name + " is live and discoverable!",
                 "success");
@@ -74,7 +73,7 @@ function MarketEditController( $scope ) {
             html: false
         }, function(){
             $scope.$apply(function(){
-                $scope.market.published = false;
+                $scope.market.published = 0;
             });
             swal("Done.",
                 $scope.market.name + " is no longer discoverable",
@@ -93,18 +92,21 @@ function MarketEditController( $scope ) {
     }
     function updateMarket() {
         var mkt = $scope.market;
-        var p = window.dataService.putMarket( $scope.market.id, {
+        var postData = {
             name: mkt.name,
             bio: mkt.bio,
             image: mkt.image,
             state: mkt.state,
             city: mkt.city,
+            address: mkt.address,
             email: mkt.email,
             phone: mkt.phone,
             published: mkt.published,
             rate_caroler_base: mkt.rate_caroler_base,
             rate_caroler_discount: mkt.rate_caroler_discount
-        } );
+        };
+        console.log(postData);
+        var p = window.dataService.putMarket( $scope.market.id, postData );
         p.then(function(res){
             console.info("res", res);
             swal("Success!",
