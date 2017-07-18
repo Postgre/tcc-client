@@ -1,405 +1,444 @@
-<!DOCTYPE html><html dir="ltr" lang="en-US"><head>
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="author" content="SemiColonWeb">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="SemiColonWeb">
 
-	<!-- Stylesheets
-	============================================= -->
-	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="style.css" type="text/css">
-	<link rel="stylesheet" href="css/dark.css" type="text/css">
-	<link rel="stylesheet" href="css/font-icons.css" type="text/css">
-	<link rel="stylesheet" href="css/animate.css" type="text/css">
-	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <!-- Stylesheets
+    ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="css/dark.css" type="text/css">
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
 
-	<link rel="stylesheet" href="css/responsive.css" type="text/css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/responsive.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Radio Checkbox Plugin -->
-	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
-	<!-- Bootstrap File Upload CSS -->
-	<link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css">
+    <!-- Radio Checkbox Plugin -->
+    <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
+    <!-- Bootstrap File Upload CSS -->
+    <link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css">
 
-	<!-- Angular
-	============================================= -->
-	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="angular/profile/profile.module.js"></script>
-	<script src="angular/profile/profile.controller.js"></script>
+    <!-- Angular
+    ============================================= -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="angular/profile/profile.module.js"></script>
+    <script src="angular/profile/profile.controller.js"></script>
 
-	<!-- Document Title
-	============================================= -->
-	<title>My Profile</title>
+    <!-- Document Title
+    ============================================= -->
+    <title>My Profile</title>
 
 </head>
 
 <body class="stretched" ng-app="profile" ng-controller="ProfileController">
 
-	<!-- Document Wrapper
-	============================================= -->
-	<div id="wrapper" class="clearfix">
-
-		<!-- Header
-		============================================= -->
-		<header id="header" class="full-header dark"><div id="header-wrap">
-    <div class="container clearfix">
-        <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-        <!-- Logo
-        ============================================= -->
-        <div id="logo">
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-        </div><!-- #logo end -->
-        <!-- Account
-        ============================================= -->
-        <div id="top-account" class="dropdown">
-            <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
-            <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="events-personal.html">My Events</a></li>
-                <li class="tcc_if_admin divider" role="separator"></li>
-                <li class="tcc_if_admin"><a href="markets-manage.html">Manage Markets</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
-            </ul>
-        </div>
-
-        <!-- Primary Navigation
-        ============================================= -->
-        <nav id="primary-menu">
-            <ul>
-                <li>
-                    <a href="index.html">
-                        <div>Home</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="event-book.html">
-                        <div>Book Event</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="market-search.html">
-                        <div>Find a Market</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html">
-                        <div>About</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.html">
-                        <div>Contact</div>
-                    </a>
-                </li>
-            </ul>
-        </nav><!-- #primary-menu end -->
-    </div>
-</div></header><!-- #header end -->
-
-		<!-- Content
-		============================================= -->
-		<section id="content">
-
-			<div class="content-wrap">
-
-				<div class="container clearfix">
-
-					<div class="row clearfix">
-
-						<div class="col-sm-9">
-
-							<img ng-src="{{profile.pic}}" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
-
-							<div class="heading-block noborder">
-								<h3 ng-bind="profile.first_name + &apos; &apos; + profile.last_name"></h3>
-								<span ng-bind="profile.bio"></span>
-							</div>
-
-							<div class="clear"></div>
-
-							<div class="row clearfix">
-
-								<div class="col-md-12">
-
-									<div class="tabs tabs-alt clearfix" id="tabs-profile">
-
-										<ul class="tab-nav clearfix">
-											<li><a href="#tab-profile"><i class="icon-pencil2"></i> Profile</a></li>
-											<li><a href="#tab-billing"><i class="icon-credit"></i> Billing </a></li>
-											<li><a href="#tab-taxforms"><i class="icon-line-paper"></i> Tax Forms </a></li>
-										</ul>
-
-										<div class="tab-container">
-
-											<div class="tab-content clearfix" id="tab-profile">
-												<div>
-													<form class="nobottommargin">
-
-														<div class="col_half">
-															<label>Name:</label>
-															<input ng-model="profile.first_name" type="text" class="sm-form-control">
-														</div>
-
-														<div class="col_half col_last">
-															<label>Last Name:</label>
-															<input ng-model="profile.last_name" type="text" class="sm-form-control">
-														</div>
-
-														<div class="col_half">
-															<label for="form-email">Email Address:</label>
-															<input ng-model="profile.email" type="email" id="form-email" name="form-email" value="" class="sm-form-control">
-														</div>
-
-														<div class="col_half col_last">
-															<label for="form-phone">Phone:</label>
-															<input ng-model="profile.phone" type="text" id="form-phone" name="form-phone" value="" class="sm-form-control">
-														</div>
-
-														<div class="clear"></div>
-
-														<div class="col_half">
-															<label>State:</label>
-															<input ng-model="profile.state" type="text" class="sm-form-control">
-														</div>
-
-														<div class="col_half col_last">
-															<label>City / Town:</label>
-															<input ng-model="profile.city" type="text" class="sm-form-control">
-														</div>
-
-														<div class="col_full">
-															<label>Address:</label>
-															<input ng-model="profile.address" type="email" class="sm-form-control">
-														</div>
-
-														<div class="col_full">
-															<label>Bio: </label>
-															<textarea ng-model="profile.bio" class="sm-form-control" rows="6" cols="30"></textarea>
-														</div>
-
-													</form>
-												</div>
-											</div>
-											<div class="tab-content clearfix" id="tab-billing">
-												<div>
-													<form class="nobottommargin">
-
-														<div class="col_half">
-															<label>Card Number:</label>
-															<input ng-model="billing.number" type="text" class="sm-form-control">
-														</div>
-
-														<div class="col_half col_last">
-															<label>Expiration Date:</label>
-															<input ng-model="billing.expiration" type="text" class="sm-form-control">
-														</div>
-
-														<div class="col_full">
-															<label>Security Code:</label>
-															<input ng-model="billing.cvs" type="email" class="sm-form-control">
-														</div>
-
-														<div class="col_full">
-															<input ng-model="billing_same_as_personal" id="radio-10" class="radio-style" name="radio-group-3" type="checkbox" checked>
-															<label for="radio-10" class="radio-style-3-label">Billing address is the same as personal address</label>
-														</div>
-
-														<div ng-if="!billing_same_as_personal">
-															<div class="col_half">
-																<label>State:</label>
-																<input ng-model="billing.state" type="text" class="sm-form-control">
-															</div>
-
-															<div class="col_half col_last">
-																<label>City / Town:</label>
-																<input ng-model="billing.city" type="text" class="sm-form-control">
-															</div>
-
-															<div class="col_full">
-																<label>Address:</label>
-																<input ng-model="billing.address" type="email" class="sm-form-control">
-															</div>
-														</div>
-													</form>
-												</div>
-											</div>
-											<div class="tab-content clearfix" id="tab-taxforms">
-												<div class="style-msg successmsg">
-													<div class="sb-msg">
-														<i class="icon-thumbs-up"></i>
-														<strong>All good here!</strong>
-														We have your W9 on file.
-													</div>
-												</div>
-												<iframe src="https://www.irs.gov/pub/irs-pdf/fw9.pdf" width="100%" height="700px"></iframe>
-												<br>
-												<button class="btn btn-lg btn-success">Save!</button>
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="line visible-xs-block"></div>
-
-						<div class="col-sm-3 clearfix">
-							<!-- IDK what to put here -->
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</section><!-- #content end -->
-
-		<!-- Footer
-		============================================= -->
-		<footer id="footer" class="dark">
-
-    <div class="container">
-
-        <!-- Footer Widgets
-        ============================================= -->
-        <div class="footer-widgets-wrap clearfix">
-
-            <div class="col_one_third">
-
-                <div class="widget clearfix">
-
-                    <img src="images/tcc-logo.png" alt="" class="footer-logo">
-
-                </div>
-
-            </div>
-
-            <div class="col_one_third">
-
-                <div class="widget clearfix">
-                    <div>
-                        <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
-                        <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
-                        <br><br>
-                        <div class="bottommargin-sm widget_links">
-                            <ul>
-                                <li><a href="#">Resellers</a></li>
-                                <li><a href="#">Have a Caroling Group?</a></li>
-                                <li><a href="#">Become a Caroler</a></li>
-                                <li><a href="#">National Caroler Association</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="widget clearfix">
-
-                    <a href="#" class="social-icon si-small si-rounded si-facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
-
-                    <a href="#" class="social-icon si-small si-rounded si-twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="col_one_third col_last">
-
-                <div class="widget quick-contact-widget clearfix">
-
-                    <h4>Send Message</h4>
-
-                    <div class="quick-contact-form-result"></div>
-
-                    <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form" action="include/quickcontact.php" class="quick-contact-form nobottommargin">
-
-                        <div class="form-process"></div>
-
-                        <div class="input-group divcenter">
-                            <span class="input-group-addon"><i class="icon-user"></i></span>
-                            <input type="text" class="required form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name">
-                        </div>
-                        <div class="input-group divcenter">
-                            <span class="input-group-addon"><i class="icon-email2"></i></span>
-                            <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address">
-                        </div>
-                        <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-                        <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="">
-                        <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email
-                        </button>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </div><!-- .footer-widgets-wrap end -->
-
-    </div>
-
-    <!-- Copyrights
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+    <!-- Header
     ============================================= -->
-    <div id="copyrights">
-
-        <div class="container clearfix">
-
-            <div class="col_half">
-                Copyrights &#xA9; 2017 All Rights Reserved by Christmas
-            </div>
-
-            <div class="col_half col_last tright">
-                <div class="fright clearfix">
-                    <div class="copyrights-menu copyright-links nobottommargin">
-                        <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
-                        Use</a>/<a href="#">Privacy Policy</a>
-                    </div>
+    <header id="header" class="full-header dark">
+        <div id="header-wrap">
+            <div class="container clearfix">
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+                <!-- Logo
+                ============================================= -->
+                <div id="logo">
+                    <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
+                            src="images/tcc-logo.png" alt="TCC Logo"></a>
+                    <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
+                            src="images/tcc-logo.png" alt="TCC Logo"></a>
+                </div><!-- #logo end -->
+                <!-- Account
+                ============================================= -->
+                <div id="top-account" class="dropdown">
+                    <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
+                    <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i
+                            class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="events-personal.html">My Events</a></li>
+                        <li class="tcc_if_admin divider" role="separator"></li>
+                        <li class="tcc_if_admin"><a href="markets-manage.html">Manage Markets</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
+                    </ul>
                 </div>
+
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <div>Home</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="event-book.html">
+                                <div>Book Event</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="market-search.html">
+                                <div>Find a Market</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <div>About</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <div>Contact</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav><!-- #primary-menu end -->
+            </div>
+        </div>
+    </header><!-- #header end -->
+
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <div class="row clearfix">
+
+                    <div class="col-sm-9">
+
+                        <img ng-src="{{profile.image}}"
+                             class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar"
+                             style="max-width: 84px;">
+
+                        <div class="heading-block noborder">
+                            <h3 ng-bind="profile.first_name + &apos; &apos; + profile.last_name"></h3>
+                            <span ng-bind="profile.bio"></span>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="row clearfix">
+
+                            <div class="col-md-12">
+
+                                <div class="tabs tabs-alt clearfix" id="tabs-profile">
+
+                                    <ul class="tab-nav clearfix">
+                                        <li><a href="#tab-profile"><i class="icon-pencil2"></i> Profile</a></li>
+                                        <li><a href="#tab-billing"><i class="icon-credit"></i> Billing </a></li>
+                                        <li><a href="#tab-taxforms"><i class="icon-line-paper"></i> Tax Forms </a></li>
+                                    </ul>
+
+                                    <div class="tab-container">
+
+                                        <div class="tab-content clearfix" id="tab-profile">
+                                            <div>
+                                                <form class="nobottommargin">
+
+                                                    <div class="col_half">
+                                                        <label>Name:</label>
+                                                        <input ng-model="profile.first_name" type="text"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_half col_last">
+                                                        <label>Last Name:</label>
+                                                        <input ng-model="profile.last_name" type="text"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_half">
+                                                        <label for="form-email">Email Address:</label>
+                                                        <input ng-model="profile.email" type="email" id="form-email"
+                                                               name="form-email" value="" class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_half col_last">
+                                                        <label for="form-phone">Phone:</label>
+                                                        <input ng-model="profile.phone" type="text" id="form-phone"
+                                                               name="form-phone" value="" class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="clear"></div>
+
+                                                    <div class="col_half">
+                                                        <label>State:</label>
+                                                        <input ng-model="profile.state" type="text"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_half col_last">
+                                                        <label>City / Town:</label>
+                                                        <input ng-model="profile.city" type="text"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_full">
+                                                        <label>Address:</label>
+                                                        <input ng-model="profile.address" type="email"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_full">
+                                                        <label>Bio: </label>
+                                                        <textarea ng-model="profile.bio" class="sm-form-control"
+                                                                  rows="6" cols="30"></textarea>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-billing">
+                                            <div>
+                                                <form class="nobottommargin">
+
+                                                    <div class="col_half">
+                                                        <label>Card Number:</label>
+                                                        <input ng-model="billing.number" type="text"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_half col_last">
+                                                        <label>Expiration Date:</label>
+                                                        <input ng-model="billing.expiration" type="text"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_full">
+                                                        <label>Security Code:</label>
+                                                        <input ng-model="billing.cvs" type="email"
+                                                               class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_full">
+                                                        <input ng-model="billing_same_as_personal" id="radio-10"
+                                                               class="radio-style" name="radio-group-3" type="checkbox"
+                                                               checked>
+                                                        <label for="radio-10" class="radio-style-3-label">Billing
+                                                            address is the same as personal address</label>
+                                                    </div>
+
+                                                    <div ng-if="!billing_same_as_personal">
+                                                        <div class="col_half">
+                                                            <label>State:</label>
+                                                            <input ng-model="billing.state" type="text"
+                                                                   class="sm-form-control">
+                                                        </div>
+
+                                                        <div class="col_half col_last">
+                                                            <label>City / Town:</label>
+                                                            <input ng-model="billing.city" type="text"
+                                                                   class="sm-form-control">
+                                                        </div>
+
+                                                        <div class="col_full">
+                                                            <label>Address:</label>
+                                                            <input ng-model="billing.address" type="email"
+                                                                   class="sm-form-control">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content clearfix" id="tab-taxforms">
+                                            <div class="style-msg successmsg">
+                                                <div class="sb-msg">
+                                                    <i class="icon-thumbs-up"></i>
+                                                    <strong>All good here!</strong>
+                                                    We have your W9 on file.
+                                                </div>
+                                            </div>
+                                            <iframe src="https://www.irs.gov/pub/irs-pdf/fw9.pdf" width="100%"
+                                                    height="700px"></iframe>
+                                            <br>
+                                            <button class="btn btn-lg btn-success">Save!</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="line visible-xs-block"></div>
+
+                    <div class="col-sm-3 clearfix">
+                        <!-- IDK what to put here -->
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
-    </div><!-- #copyrights end -->
+    </section><!-- #content end -->
 
-</footer><!-- #footer end -->
+    <!-- Footer
+    ============================================= -->
+    <footer id="footer" class="dark">
 
-	</div><!-- #wrapper end -->
+        <div class="container">
 
-	<!-- Go To Top
-	============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
+            <!-- Footer Widgets
+            ============================================= -->
+            <div class="footer-widgets-wrap clearfix">
 
-	<!-- External JavaScripts
-	============================================= -->
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/plugins.js"></script>
-	<!-- Bootstrap File Upload Plugin -->
-	<script type="text/javascript" src="js/components/bs-filestyle.js"></script>
+                <div class="col_one_third">
 
-	<!-- Footer Scripts
-	============================================= -->
-	<script type="text/javascript" src="js/functions.js"></script>
+                    <div class="widget clearfix">
 
-	<script>
-		jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
-			jQuery( '.flexslider .slide' ).resize();
-		});
-        $("#input-2").fileinput();
-	</script>
+                        <img src="images/tcc-logo.png" alt="" class="footer-logo">
+
+                    </div>
+
+                </div>
+
+                <div class="col_one_third">
+
+                    <div class="widget clearfix">
+                        <div>
+                            <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
+                            <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
+                            <br><br>
+                            <div class="bottommargin-sm widget_links">
+                                <ul>
+                                    <li><a href="#">Resellers</a></li>
+                                    <li><a href="#">Have a Caroling Group?</a></li>
+                                    <li><a href="#">Become a Caroler</a></li>
+                                    <li><a href="#">National Caroler Association</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget clearfix">
+
+                        <a href="#" class="social-icon si-small si-rounded si-facebook">
+                            <i class="icon-facebook"></i>
+                            <i class="icon-facebook"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-rounded si-twitter">
+                            <i class="icon-twitter"></i>
+                            <i class="icon-twitter"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col_one_third col_last">
+
+                    <div class="widget quick-contact-widget clearfix">
+
+                        <h4>Send Message</h4>
+
+                        <div class="quick-contact-form-result"></div>
+
+                        <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form"
+                              action="include/quickcontact.php" class="quick-contact-form nobottommargin">
+
+                            <div class="form-process"></div>
+
+                            <div class="input-group divcenter">
+                                <span class="input-group-addon"><i class="icon-user"></i></span>
+                                <input type="text" class="required form-control input-block-level"
+                                       id="quick-contact-form-name" name="quick-contact-form-name" value=""
+                                       placeholder="Full Name">
+                            </div>
+                            <div class="input-group divcenter">
+                                <span class="input-group-addon"><i class="icon-email2"></i></span>
+                                <input type="text" class="required form-control email input-block-level"
+                                       id="quick-contact-form-email" name="quick-contact-form-email" value=""
+                                       placeholder="Email Address">
+                            </div>
+                            <textarea class="required form-control input-block-level short-textarea"
+                                      id="quick-contact-form-message" name="quick-contact-form-message" rows="4"
+                                      cols="30" placeholder="Message"></textarea>
+                            <input type="text" class="hidden" id="quick-contact-form-botcheck"
+                                   name="quick-contact-form-botcheck" value="">
+                            <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit"
+                                    class="btn btn-danger nomargin" value="submit">Send Email
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div><!-- .footer-widgets-wrap end -->
+
+        </div>
+
+        <!-- Copyrights
+        ============================================= -->
+        <div id="copyrights">
+
+            <div class="container clearfix">
+
+                <div class="col_half">
+                    Copyrights &#xA9; 2017 All Rights Reserved by Christmas
+                </div>
+
+                <div class="col_half col_last tright">
+                    <div class="fright clearfix">
+                        <div class="copyrights-menu copyright-links nobottommargin">
+                            <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
+                            Use</a>/<a href="#">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- #copyrights end -->
+
+    </footer><!-- #footer end -->
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<!-- External JavaScripts
+============================================= -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<!-- Bootstrap File Upload Plugin -->
+<script type="text/javascript" src="js/components/bs-filestyle.js"></script>
+
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="js/functions.js"></script>
+
+<script>
+    jQuery("#tabs-profile").on("tabsactivate", function (event, ui) {
+        jQuery('.flexslider .slide').resize();
+    });
+    $("#input-2").fileinput();
+</script>
 
 
-</body></html>
+</body>
+</html>

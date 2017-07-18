@@ -8,6 +8,7 @@ module.exports = class DataService {
         console.info('DataService Loading...');
 
         this.callback_save_quote = config.callback_save_quote;
+        this.authService = authService;
 
         /* Connection to server */
         this.connection = axios.create({
@@ -19,15 +20,10 @@ module.exports = class DataService {
         })
     }
 
-    getProtected(){
-        var p = this.connection({
-            url: "/protected",
-        });
-        p.then( (res)=>{
-            console.log( "response", res );
-        });
-    }
-
+    /**
+     * QUOTES
+     * =============================
+     */
     postQuote( address, start_time, end_time, caroler_count ){
         return this.connection({
             url: "quotes",
@@ -51,6 +47,10 @@ module.exports = class DataService {
         })
     }
 
+    /**
+     * MARKETS
+     * =============================
+     */
     postMarket( name, bio, location ){
         return this.connection({
             url: "markets",
@@ -103,6 +103,11 @@ module.exports = class DataService {
             url: "markets/"+id
         })
     }
+
+    /**
+     * BOOKING
+     * ==============================
+     */
     previewTravel( market_id, address, city, state ){
         return this.connection({
             url: "quotes/preview/travel",
@@ -115,4 +120,23 @@ module.exports = class DataService {
             }
         })
     }
+
+    /**
+     * PROFILE
+     * ========================
+     */
+    getProfile( id ){
+        return this.connection({
+            url: "users/"+id+"/profile",
+            method: "GET"
+        })
+    }
+    putProfile( params ){
+        return this.connection({
+            url: "users/"+this.authService.id()+"/profile",
+            method: "PUT",
+            params: params
+        })
+    }
+
 };

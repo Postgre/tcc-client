@@ -115,4 +115,8 @@ module.exports = class AuthService {
             return ( this.user.roles.indexOf(role) !== -1 );
         }
     }
+
+    id(){
+        if( this.isLoggedIn() ) return this.user.id;
+    }
 };
