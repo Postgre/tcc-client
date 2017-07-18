@@ -24,8 +24,8 @@
 	<!-- Angular
 	============================================= -->
 	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="angular/markets/markets.module.js"></script>
-	<script src="angular/markets/markets.controller.js"></script>
+	<script src="angular/markets-manage/markets-manage.module.js"></script>
+	<script src="angular/markets-manage/markets-manage.controller.js"></script>
 
 	<!-- Document Title
 	============================================= -->
@@ -148,7 +148,7 @@
 									</ul>
 									<div class="entry-content">
 										<p ng-bind="market.bio"></p>
-										<a href="market-profile.html" class="btn btn-warning"><i class="icon-edit"></i> &#xA0;Edit</a>
+										<a ng-click="gotoEdit(market)" href="#" class="btn btn-warning"><i class="icon-edit"></i> &#xA0;Edit</a>
 										<div class="btn-group dropup">
 											<button type="button" class="btn btn-primary">Actions</button>
 											<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -173,7 +173,7 @@
 					<div class="sidebar nobottommargin col_last clearfix">
 						<div class="sidebar-widgets-wrap">
 							<div class="widget clearfix">
-								<button data-target="#newMarketModal" data-toggle="modal" class="btn btn-success float-right"> <i class="icon-line-plus"></i> Create a New Market </button>
+								<button data-target="#newMarketModal" data-toggle="modal" class="btn btn-success btn-block"> <i class="icon-line-plus"></i> Create a New Market </button>
 							</div>
 							<div class="widget clearfix">
 								<h4>Upcoming Events</h4>

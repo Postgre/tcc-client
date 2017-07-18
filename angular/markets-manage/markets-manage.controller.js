@@ -4,7 +4,6 @@ angular.module('markets-manage')
 function MarketsManageController( $scope ) {
     $scope.markets = DEFAULT_MODEL.markets;
     $scope.upcoming_events = DEFAULT_MODEL.upcoming_events;
-    init();
     /**
      * Models
      * ===============
@@ -67,7 +66,23 @@ function MarketsManageController( $scope ) {
 
     }
 
-    function init(){
+    $scope.gotoProfile = gotoProfile;
+    function gotoProfile(market){
+        window.navService.goto("market_profile", {
+            market_id: market.id,
+            market: market
+        })
+    }
+
+    $scope.gotoEdit = gotoEdit;
+    function gotoEdit(market){
+        window.navService.goto("edit_market", {
+            market_id: market.id,
+            market: market
+        })
+    }
+
+    (function init(){
         var p = window.dataService.searchMarkets();
         p.then(function(res){
             console.info("res", res);
@@ -79,7 +94,7 @@ function MarketsManageController( $scope ) {
             console.error("err", err);
             alert( "Something went wrong" );
         });
-    }
+    })();
 }
 
 const DEFAULT_MODEL = {

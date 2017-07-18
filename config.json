@@ -16,6 +16,15 @@
     },
     "auth": {
       "path": "login-register.html"
+    },
+    "edit_market": {
+      "path": "market-edit.html"
+    },
+    "market_profile": {
+      "path": "market-page.html"
+    },
+    "manage_markets": {
+      "path": "markets-manage.html"
     }
   }
 }

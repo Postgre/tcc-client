@@ -62,6 +62,13 @@ module.exports = class DataService {
             })
         })
     }
+    putMarket( id, params ){
+        return this.connection({
+            url: "markets/"+id,
+            method: "PUT",
+            data: qs.stringify(params)
+        });
+    }
     deleteMarket( id ){
         return this.connection({
             url: "markets/"+id,

@@ -3,10 +3,14 @@ angular.module('market-edit')
 
 function MarketEditController( $scope ) {
     $scope.market = DEFAULT_MODEL.market;
+    $scope.gallery = [{
+        image: "https://www.nycgo.com/images/uploads/homepage/Empire-State-Building-Observatory-Tom-Perry-2618.jpg"
+    }];
+    $scope.specialDates = [ {} ];
 
-    $scope.editing_sd = false;
+    $scope.editing_special_dates = false;
+    $scope.editing_gallery = false;
     $scope.editClassMap = "col-sm-6";
-    init();
 
     /**
      * Functions
@@ -14,21 +18,28 @@ function MarketEditController( $scope ) {
      */
     $scope.deleteSpecialDate = deleteSpecialDate;
     $scope.editSpecialDates = editSpecialDates;
+    $scope.createSpecialDate = createSpecialDate;
     $scope.stopEditingSpecialDates = stopEditingSpecialDates;
     $scope.publishMarket = publishMarket;
     $scope.unpublishMarket = unpublishMarket;
+    $scope.deleteGalleryImage = deleteGalleryImage;
+    $scope.addGalleryImage = addGalleryImage;
+    $scope.updateMarket = updateMarket;
 
     function deleteSpecialDate( date ){
-        var ind = $scope.market.specialDates.indexOf( date );
-        $scope.market.specialDates.splice( ind, 1 );
+        var ind = $scope.specialDates.indexOf( date );
+        $scope.specialDates.splice( ind, 1 );
+    }
+    function createSpecialDate(){
+        $scope.specialDates.push({});
     }
     function editSpecialDates(){
         $scope.editClassMap = "col-sm-5";
-        $scope.editing_sd = true;
+        $scope.editing_special_dates = true;
     }
     function stopEditingSpecialDates() {
         $scope.editClassMap = "col-sm-6";
-        $scope.editing_sd = false;
+        $scope.editing_special_dates = false;
     }
     function publishMarket() {
         swal({
@@ -69,10 +80,54 @@ function MarketEditController( $scope ) {
                 "success");
         });
     }
-
-    function init(){
-
+    function deleteGalleryImage(img){
+        // use ajax request for deletes
+        var ind = $scope.gallery.indexOf(img);
+        $scope.gallery.splice(ind,1);
     }
+    function addGalleryImage(){
+        $scope.gallery.push({
+            image: "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
+        });
+    }
+    function updateMarket() {
+        var mkt = $scope.market;
+        var p = window.dataService.putMarket( $scope.market.id, {
+            name: mkt.name,
+            bio: mkt.bio,
+            image: mkt.image,
+            state: mkt.state,
+            city: mkt.city,
+            email: mkt.email,
+            phone: mkt.phone,
+            published: mkt.published
+        } );
+        p.then(function(res){
+            console.info("res", res);
+            swal("Success!",
+                "Your changes have been saved",
+                "success");
+        });
+        p.catch(function(err){
+            console.error("err", err);
+        });
+    }
+
+    (function init(){
+        var nav_params = navService.getNavParams();
+        console.log("nav params:", nav_params);
+        if (typeof nav_params === "undefined") {
+            alert("no market selected!");
+        }
+        var p = window.dataService.getMarket(nav_params.market_id);
+        p.then(function (res) {
+            console.log("res", res);
+            $scope.$apply(function () {
+                $scope.market = res.data.market;
+                window.market = $scope.market;
+            });
+        });
+    })();
 }
 
 const DEFAULT_MODEL = {
@@ -88,7 +143,6 @@ const DEFAULT_MODEL = {
         phone: 2056396666,
         published: false,
         video: "https://www.youtube.com/watch?v=DA2QpqgIq6g",
-        specialDates: [ {} ],
         image: "http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg",
         baseRate: 99.99,
         hourlyRates: {
