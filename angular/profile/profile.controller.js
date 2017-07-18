@@ -2,7 +2,12 @@ angular.module('profile')
 .controller('ProfileController', ProfileController);
 
 function ProfileController( $scope ) {
-    $scope.profile = DEFAULT_MODEL.profile;
+    $scope.profile = {
+        user: DEFAULT_MODEL.profile,
+        customer: {},
+        caroler: {},
+        director: {}
+    };
     init();
     /**
      * Models
