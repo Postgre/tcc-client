@@ -3,10 +3,10 @@ angular.module('profile')
 
 function ProfileController( $scope ) {
     $scope.profile = {
-        user: DEFAULT_MODEL.profile,
-        customer: {},
-        caroler: {},
-        director: {}
+        user_profile: DEFAULT_MODEL.profile,
+        customer_profile: {},
+        caroler_profile: {},
+        director_profile: {}
     };
     init();
     /**
@@ -34,11 +34,11 @@ function ProfileController( $scope ) {
      * ===============
      */
     function init(){
-        var promise = window.dataService.getProfile(window.authService.id());
+        var promise = window.dataService.getProfiles();
         promise.then(function(res){
             console.log("res", res);
             $scope.$apply(function(){
-                $scope.profile = res.data.profile;
+                $scope.profile.user_profile = res.data.user_profile;
             });
         });
         promise.catch(function(err){

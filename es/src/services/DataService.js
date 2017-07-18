@@ -125,15 +125,15 @@ module.exports = class DataService {
      * PROFILE
      * ========================
      */
-    getProfile( id ){
+    getProfiles(){
         return this.connection({
-            url: "users/"+id+"/profile",
+            url: "users/profile",
             method: "GET"
         })
     }
     putProfile( params ){
         return this.connection({
-            url: "users/"+this.authService.id()+"/profile",
+            url: "users/profile",
             method: "PUT",
             params: params
         })
