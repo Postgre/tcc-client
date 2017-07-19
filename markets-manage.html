@@ -135,13 +135,13 @@
 
 							<div ng-repeat="market in markets | filter : search" class="entry clearfix">
 								<div class="entry-image">
-									<a href="market-page.html">
+									<a ng-click="gotoPage(market)" href="#">
 										<img ng-src="{{market.image}}" alt="{{market.name}}">
 									</a>
 								</div>
 								<div class="entry-c">
 									<div class="entry-title">
-										<h2><a ng-bind="market.name" href="market-page.html">
+										<h2><a ng-bind="market.name" ng-click="gotoPage(market)" href="#">
                                             <!-- Market Name -->
                                         </a></h2>
 									</div>

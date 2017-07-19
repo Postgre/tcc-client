@@ -16,7 +16,7 @@ function MarketsManageController( $scope ) {
     $scope.createMarket = createMarket;
     $scope.deleteMarket = deleteMarket;
     $scope.gotoEdit = gotoEdit;
-    $scope.gotoProfile = gotoProfile;
+    $scope.gotoPage = gotoPage;
     $scope.inviteCaroler = inviteCaroler;
     $scope.inviteDirector = inviteDirector;
     function createMarket(){
@@ -69,12 +69,6 @@ function MarketsManageController( $scope ) {
         });
 
     }
-    function gotoProfile(market){
-        window.navService.goto("market_profile", {
-            market_id: market.id,
-            market: market
-        })
-    }
     function gotoEdit(market){
         window.navService.goto("edit_market", {
             market_id: market.id,
@@ -103,6 +97,11 @@ function MarketsManageController( $scope ) {
                 alertNoAccount();
             });
         }, "Director's User Email");
+    }
+    function gotoPage(market){
+        window.navService.goto('market_page', {
+            market_id: market.id
+        })
     }
 
     (function init(){
