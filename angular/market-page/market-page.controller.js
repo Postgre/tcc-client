@@ -1,36 +1,37 @@
-angular.module('market')
-.controller('MarketController', MarketController);
+angular.module('market-page')
+.controller('MarketPageController', MarketPageController);
 
-function MarketController( $scope ) {
+function MarketPageController( $scope ) {
     $scope.market = DEFAULT_MODEL.market;
     $scope.gallery = DEFAULT_MODEL.gallery;
     init();
 
+    $scope.rate = function(){
+        return window.calcMarketPrice(4, $scope.market.rate_caroler_base, $scope.market.rate_caroler_discount);
+    };
+    $scope.handleBookNow = function(){
+        window.navService.goto("book_event", {
+            market_id: $scope.market.id
+        });
+    };
     /**
      * Functions
      * ===============
      */
-
     function init(){
-        var loc = $scope.market.address + " " + $scope.market.city + ", " + $scope.market.state;
-        jQuery('#event-location').gMap({
-            address: loc,
-            maptype: 'ROADMAP',
-            zoom: 15,
-            markers: [
-                {
-                    address: loc
-                }
-            ],
-            doubleclickzoom: false,
-            controls: {
-                panControl: true,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false
-            }
+        var promise = window.dataService.getMarket( navService.getNavParams().market_id );
+        promise.then(function(res){
+            console.log("res", res);
+            var mkt = res.data.market;
+            $scope.$apply(function(){
+                $scope.market = mkt;
+            });
+            loadMap( mkt.address+', '+mkt.city,', '+mkt.state);
+            $("#viewMap").attr('href', 'https://maps.google.com/maps?q='+mkt.address+','+mkt.city+','+mkt.state);
+        });
+        promise.catch(function(err){
+            console.log("err", err);
+            alert("something went wrong");
         });
     }
 }

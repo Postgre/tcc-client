@@ -20,7 +20,7 @@
     "edit_market": {
       "path": "market-edit.html"
     },
-    "market_profile": {
+    "market_page": {
       "path": "market-page.html"
     },
     "manage_markets": {

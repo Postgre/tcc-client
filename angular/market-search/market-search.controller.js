@@ -9,6 +9,7 @@ function MarketSearchController( $scope ) {
     $scope.openMap = openMap;
     $scope.handleBookNow = handleBookNow;
     $scope.calcBaseRate = calcBaseRate;
+    $scope.openPage = openPage;
     function search( address, radius, limit, offset ){
         var search_state = $("#search_state").val();
         if( !address ) address = $scope.search.city+", "+search_state;
@@ -28,6 +29,11 @@ function MarketSearchController( $scope ) {
     }
     function openMap( market ){
         window.open("https://maps.google.com/maps?q="+market.city+',+'+market.state);
+    }
+    function openPage( market ){
+        window.navService.goto("market_page", {
+            market_id: market.id
+        })
     }
     function handleBookNow( market ){
         navService.goto("book_event", {
