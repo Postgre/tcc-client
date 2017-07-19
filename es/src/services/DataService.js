@@ -36,6 +36,19 @@ module.exports = class DataService {
             })
         });
     }
+    postQuotePreview( address, start_time, end_time, caroler_count, market_id ){
+        return this.connection({
+            url: "quotes",
+            method: "POST",
+            data: qs.stringify({
+                address: address,
+                start_time: start_time,
+                end_time: end_time,
+                caroler_count: caroler_count,
+                market_id: market_id
+            })
+        });
+    }
     postSaveQuote( quote_id, email ){
         return this.connection({
             url: "quotes/"+quote_id+"/save",
@@ -127,8 +140,9 @@ module.exports = class DataService {
         })
     }
     postBooking( market_id, event_data ){
+        event_data.market_id = market_id;
         return this.connection({
-            url: "book-event",
+            url: "events",
             method: "POST",
             data: qs.stringify(event_data)
         })

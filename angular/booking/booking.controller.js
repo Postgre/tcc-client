@@ -167,11 +167,12 @@ function BookingController($scope) {
         if (!$("#travel_form").valid()) return;
         // form is valid
         // generate quote
-        var p = window.dataService.postQuote(
+        var p = window.dataService.postQuotePreview(
             $scope.event.address+', '+$scope.event.city+', '+$scope.event.state,
             $scope.event.start_time,
             $scope.event.end_time,
-            $scope.event.caroler_count
+            $scope.event.caroler_count,
+            $scope.market.id
         );
         p.then(function(res){
             console.info("res", res);
@@ -179,8 +180,8 @@ function BookingController($scope) {
                 $scope.invoice.cost_carolers = res.data.quote.cost_carolers;
                 $scope.invoice.cost_date = res.data.quote.cost_date;
                 $scope.invoice.cost_discounts = res.data.quote.cost_discounts;
-                $scope.invoice.tax = res.data.quote.cost_tax;
-                $scope.invoice.cost_travel = res.data.quote.cost_travel;
+                $scope.invoice.cost_travel_distance = res.data.quote.cost_travel_distance;
+                $scope.invoice.cost_travel_duration = res.data.quote.cost_travel_duration;
                 $scope.invoice.cost_total = res.data.quote.cost_total;
             });
             proccess_tabs.tabs("enable", 2);
@@ -194,11 +195,26 @@ function BookingController($scope) {
         });
     }
     function stepToConfirm() {
-        console.log( "event data", $scope.event );
-        // window.dataService.postBooking( $scope.market.id, $scope.event );
+        var eventData = {
+            name: $scope.event.name,
+            start_time: $scope.event.start_time,
+            end_time: $scope.event.end_time,
+            state: $scope.event.state,
+            city: $scope.event.city,
+            address: $scope.event.address,
+            caroler_count: $scope.event.caroler_count,
+        };
+        console.log( "event data", eventData );
 
-        proccess_tabs.tabs("enable", 3);
-        stepTo(3);
+        var promise = window.dataService.postBooking( $scope.market.id, eventData);
+        promise.then(function(res){
+            console.log("res", res);
+            proccess_tabs.tabs("enable", 3);
+            stepTo(3);
+        });
+        promise.catch(function(err){
+            console.log("err", err);
+        });
     }
     function stepTo(tab_number) {
         proccess_tabs.tabs("option", "active", tab_number);
