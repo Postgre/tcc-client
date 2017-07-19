@@ -88,11 +88,19 @@ function MarketsManageController( $scope ) {
             alertSuccess(email, "caroler");
         }, "Caroler's User Email");
     }
-    function inviteDirector(){
+    function inviteDirector(market){
         promptForUserEmail(function(email){
             if(typeof email === 'undefined') return;
             // API call
-            alertNoAccount();
+            var promise = window.dataService.postDelegationsDirector(market.id, email);
+            promise.then(function(res){
+                console.log("res", res);
+                alertSuccess(email, "director");
+            });
+            promise.catch(function(err){
+                console.log("err", err);
+                alertNoAccount();
+            });
         }, "Director's User Email");
     }
 
