@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en-US">
-<head>
+<!DOCTYPE html><html dir="ltr" lang="en-US"><head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="author" content="SemiColonWeb">
 
     <!-- Stylesheets
     ============================================= -->
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
-          rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="css/dark.css" type="text/css">
@@ -71,74 +68,65 @@
 
     <!-- Header
     ============================================= -->
-    <header id="header" class="full-header dark">
-        <div id="header-wrap">
-            <div class="container clearfix">
-                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-                <!-- Logo
-                ============================================= -->
-                <div id="logo">
-                    <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png"
-                       class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-                    <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png"
-                       class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-                </div><!-- #logo end -->
-                <!-- Account
-                ============================================= -->
-                <div id="top-account" class="dropdown">
-                    <a href="javascript:navService.goto(&apos;auth&apos;)" id="login-register" class="btn btn-default">Login
-                        / Register</a>
-                    <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i
-                            class="icon-angle-down"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                        <li><a href="javascript:navService.goto(&apos;profile&apos;)">Profile</a></li>
-                        <li><a href="javascript:navService.goto(&apos;my_events&apos;)">My Events</a></li>
-                        <li class="tcc_if_admin divider" role="separator"></li>
-                        <li class="tcc_if_admin"><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Manage
-                            Markets</a></li>
-                        <li class="tcc_if_caroler divider" role="separator"></li>
-                        <li class="tcc_if_caroler"><a href="javascript:navService.goto(&apos;caroler_dashboard&apos;)">Caroler
-                            Dashboard</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
-                    </ul>
-                </div>
-
-                <!-- Primary Navigation
-                ============================================= -->
-                <nav id="primary-menu">
-                    <ul>
-                        <li>
-                            <a href="javascript:navService.goto(&apos;home&apos;)">
-                                <div>Home</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:navService.goto(&apos;book_event&apos;)">
-                                <div>Book Event</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:navService.goto(&apos;find_market&apos;)">
-                                <div>Find a Market</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:navService.goto(&apos;about&apos;)">
-                                <div>About</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:navService.goto(&apos;contact&apos;)">
-                                <div>Contact</div>
-                            </a>
-                        </li>
-                    </ul>
-                </nav><!-- #primary-menu end -->
-            </div>
+    <header id="header" class="full-header dark"><div id="header-wrap">
+    <div class="container clearfix">
+        <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+        <!-- Logo
+        ============================================= -->
+        <div id="logo">
+            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+        </div><!-- #logo end -->
+        <!-- Account
+        ============================================= -->
+        <div id="top-account" class="dropdown">
+            <a href="javascript:navService.goto(&apos;auth&apos;)" id="login-register" class="btn btn-default">Login / Register</a>
+            <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                <li><a href="javascript:navService.goto(&apos;profile&apos;)">Profile</a></li>
+                <li><a href="javascript:navService.goto(&apos;my_events&apos;)">My Events</a></li>
+                <li class="tcc_if_admin tcc_if_director divider" role="separator"></li>
+                <li class="tcc_if_admin tcc_if_director"><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Manage Markets</a></li>
+                <li class="tcc_if_caroler divider" role="separator"></li>
+                <li class="tcc_if_caroler"><a href="javascript:navService.goto(&apos;caroler_dashboard&apos;)">Caroler Dashboard</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
+            </ul>
         </div>
-    </header><!-- #header end -->
+
+        <!-- Primary Navigation
+        ============================================= -->
+        <nav id="primary-menu">
+            <ul>
+                <li>
+                    <a href="javascript:navService.goto(&apos;home&apos;)">
+                        <div>Home</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:navService.goto(&apos;book_event&apos;)">
+                        <div>Book Event</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:navService.goto(&apos;find_market&apos;)">
+                        <div>Find a Market</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:navService.goto(&apos;about&apos;)">
+                        <div>About</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:navService.goto(&apos;contact&apos;)">
+                        <div>Contact</div>
+                    </a>
+                </li>
+            </ul>
+        </nav><!-- #primary-menu end -->
+    </div>
+</div></header><!-- #header end -->
 
     <!-- Page Title
     ============================================= -->
@@ -209,8 +197,7 @@
 
                                 <div class="col_half col_last">
                                     <label for="form-phone">Primary Phone:</label>
-                                    <input ng-model="market.phone" ui-us-phone-number="" type="text" id="form-phone"
-                                           name="form-phone" value="" class="sm-form-control">
+                                    <input ng-model="market.phone" ui-us-phone-number="" type="text" id="form-phone" name="form-phone" value="" class="sm-form-control">
                                 </div>
 
                             </form>
@@ -222,8 +209,7 @@
                                 </div>
                                 <div class="col_half col_last">
                                     <label>Market Bio:</label>
-                                    <textarea ng-model="market.bio" class="sm-form-control" rows="6"
-                                              cols="30"></textarea>
+                                    <textarea ng-model="market.bio" class="sm-form-control" rows="6" cols="30"></textarea>
                                 </div>
 
                                 <div class="clear"></div>
@@ -255,11 +241,9 @@
                                         </tbody>
                                     </table>
                                     <button ng-click="addGalleryImage()" class="btn btn-primary">+ Add</button>
-                                    <button ng-click="editing_gallery=!editing_gallery" ng-hide="editing_gallery"
-                                            class="btn btn-danger"> Edit
+                                    <button ng-click="editing_gallery=!editing_gallery" ng-hide="editing_gallery" class="btn btn-danger"> Edit
                                     </button>
-                                    <button ng-click="editing_gallery=!editing_gallery" ng-show="editing_gallery"
-                                            class="btn btn-success"> Stop Editing
+                                    <button ng-click="editing_gallery=!editing_gallery" ng-show="editing_gallery" class="btn btn-success"> Stop Editing
                                     </button>
                                 </div>
 
@@ -294,12 +278,10 @@
                             <h5>Please provide the following pricing for the season</h5>
                             <div class="col_half">
                                 <label>Market Base Rate:</label>
-                                <input ng-model="market.rate_caroler_base" ui-money-mask="0" type="text"
-                                       class="sm-form-control">
+                                <input ng-model="market.rate_caroler_base" ui-money-mask="0" type="text" class="sm-form-control">
                                 <br>
                                 <label>Hourly Discount:</label>
-                                <input ng-model="market.rate_caroler_discount" ui-percentage-mask="0" type="text"
-                                       class="sm-form-control">
+                                <input ng-model="market.rate_caroler_discount" ui-percentage-mask="0" type="text" class="sm-form-control">
                             </div>
                             <div class="col_half col_last">
                                 <table class="table">
@@ -341,8 +323,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <label>Available?</label>
-                                    <select ng-model="date.isAvailable" name="template-contactform-service"
-                                            class="sm-form-control">
+                                    <select ng-model="date.isAvailable" name="template-contactform-service" class="sm-form-control">
                                         <option value="">-- Select One --</option>
                                         <option value="no">No</option>
                                         <option value="yes">Yes</option>
@@ -350,18 +331,15 @@
                                 </div>
                                 <div ng-hide="date.isAvailable === &apos;no&apos;" class="col-sm-3">
                                     <label>Price Scale:</label>
-                                    <input ng-model="date.priceScale" type="number" class="sm-form-control"
-                                           placeholder="0.5 = half price">
+                                    <input ng-model="date.priceScale" type="number" class="sm-form-control" placeholder="0.5 = half price">
                                 </div>
                             </div>
                             <br>
                             <button ng-click="createSpecialDate()" class="btn btn-primary"> + Add Date</button>
-                            <button ng-hide="editing_special_dates" ng-click="editSpecialDates()"
-                                    class="btn btn-danger">
+                            <button ng-hide="editing_special_dates" ng-click="editSpecialDates()" class="btn btn-danger">
                                 Edit
                             </button>
-                            <button ng-show="editing_special_dates" ng-click="stopEditingSpecialDates()"
-                                    class="btn btn-success"> Stop Editing
+                            <button ng-show="editing_special_dates" ng-click="stopEditingSpecialDates()" class="btn btn-success"> Stop Editing
                             </button>
                         </div>
                     </div>
@@ -371,12 +349,10 @@
                 <div class="action-buttons-wrapper">
                     <button ng-click="updateMarket()" class="btn btn-success mr15"> Save Changes</button>
 
-                    <button ng-show="market.published === 0" ng-click="publishMarket()"
-                            class="btn btn-success btn-outline">
+                    <button ng-show="market.published === 0" ng-click="publishMarket()" class="btn btn-success btn-outline">
                         <i class="icon-arrow-up"></i> &#xA0; Publish Market
                     </button>
-                    <button ng-show="market.published === 1" ng-click="unpublishMarket()"
-                            class="btn btn-danger btn-outline">
+                    <button ng-show="market.published === 1" ng-click="unpublishMarket()" class="btn btn-danger btn-outline">
                         <i class="icon-arrow-down"></i>&#xA0; Un-publish Market
                     </button>
 
@@ -391,124 +367,115 @@
     ============================================= -->
     <footer id="footer" class="dark">
 
-        <div class="container">
+    <div class="container">
 
-            <!-- Footer Widgets
-            ============================================= -->
-            <div class="footer-widgets-wrap clearfix">
-
-                <div class="col_one_third">
-
-                    <div class="widget clearfix">
-
-                        <img src="images/tcc-logo.png" alt="" class="footer-logo">
-
-                    </div>
-
-                </div>
-
-                <div class="col_one_third">
-
-                    <div class="widget clearfix">
-                        <div>
-                            <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
-                            <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
-                            <br><br>
-                            <div class="bottommargin-sm widget_links">
-                                <ul>
-                                    <li><a href="#">Resellers</a></li>
-                                    <li><a href="#">Have a Caroling Group?</a></li>
-                                    <li><a href="#">Become a Caroler</a></li>
-                                    <li><a href="#">National Caroler Association</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="widget clearfix">
-
-                        <a href="#" class="social-icon si-small si-rounded si-facebook">
-                            <i class="icon-facebook"></i>
-                            <i class="icon-facebook"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-small si-rounded si-twitter">
-                            <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="col_one_third col_last">
-
-                    <div class="widget quick-contact-widget clearfix">
-
-                        <h4>Send Message</h4>
-
-                        <div class="quick-contact-form-result"></div>
-
-                        <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form"
-                              action="include/quickcontact.php" class="quick-contact-form nobottommargin">
-
-                            <div class="form-process"></div>
-
-                            <div class="input-group divcenter">
-                                <span class="input-group-addon"><i class="icon-user"></i></span>
-                                <input type="text" class="required form-control input-block-level"
-                                       id="quick-contact-form-name" name="quick-contact-form-name" value=""
-                                       placeholder="Full Name">
-                            </div>
-                            <div class="input-group divcenter">
-                                <span class="input-group-addon"><i class="icon-email2"></i></span>
-                                <input type="text" class="required form-control email input-block-level"
-                                       id="quick-contact-form-email" name="quick-contact-form-email" value=""
-                                       placeholder="Email Address">
-                            </div>
-                            <textarea class="required form-control input-block-level short-textarea"
-                                      id="quick-contact-form-message" name="quick-contact-form-message" rows="4"
-                                      cols="30" placeholder="Message"></textarea>
-                            <input type="text" class="hidden" id="quick-contact-form-botcheck"
-                                   name="quick-contact-form-botcheck" value="">
-                            <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit"
-                                    class="btn btn-danger nomargin" value="submit">Send Email
-                            </button>
-
-                        </form>
-
-                    </div>
-
-                </div>
-
-            </div><!-- .footer-widgets-wrap end -->
-
-        </div>
-
-        <!-- Copyrights
+        <!-- Footer Widgets
         ============================================= -->
-        <div id="copyrights">
+        <div class="footer-widgets-wrap clearfix">
 
-            <div class="container clearfix">
+            <div class="col_one_third">
 
-                <div class="col_half">
-                    Copyrights &#xA9; 2017 All Rights Reserved by Christmas
-                </div>
+                <div class="widget clearfix">
 
-                <div class="col_half col_last tright">
-                    <div class="fright clearfix">
-                        <div class="copyrights-menu copyright-links nobottommargin">
-                            <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
-                            Use</a>/<a href="#">Privacy Policy</a>
-                        </div>
-                    </div>
+                    <img src="images/tcc-logo.png" alt="" class="footer-logo">
+
                 </div>
 
             </div>
 
-        </div><!-- #copyrights end -->
+            <div class="col_one_third">
 
-    </footer><!-- #footer end -->
+                <div class="widget clearfix">
+                    <div>
+                        <abbr title="Phone Number"><strong>Phone:</strong></abbr> 844-922-7653<br>
+                        <abbr title="Email Address"><strong>Email:</strong></abbr> info@thechristmascarolers.com
+                        <br><br>
+                        <div class="bottommargin-sm widget_links">
+                            <ul>
+                                <li><a href="#">Resellers</a></li>
+                                <li><a href="#">Have a Caroling Group?</a></li>
+                                <li><a href="#">Become a Caroler</a></li>
+                                <li><a href="#">National Caroler Association</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget clearfix">
+
+                    <a href="#" class="social-icon si-small si-rounded si-facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social-icon si-small si-rounded si-twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col_one_third col_last">
+
+                <div class="widget quick-contact-widget clearfix">
+
+                    <h4>Send Message</h4>
+
+                    <div class="quick-contact-form-result"></div>
+
+                    <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form" action="include/quickcontact.php" class="quick-contact-form nobottommargin">
+
+                        <div class="form-process"></div>
+
+                        <div class="input-group divcenter">
+                            <span class="input-group-addon"><i class="icon-user"></i></span>
+                            <input type="text" class="required form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name">
+                        </div>
+                        <div class="input-group divcenter">
+                            <span class="input-group-addon"><i class="icon-email2"></i></span>
+                            <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address">
+                        </div>
+                        <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+                        <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="">
+                        <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div><!-- .footer-widgets-wrap end -->
+
+    </div>
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+
+        <div class="container clearfix">
+
+            <div class="col_half">
+                Copyrights &#xA9; 2017 All Rights Reserved by Christmas
+            </div>
+
+            <div class="col_half col_last tright">
+                <div class="fright clearfix">
+                    <div class="copyrights-menu copyright-links nobottommargin">
+                        <a href="#">All Rights Reserved</a>/<a href="#">Privacy Policy</a>/<a href="#">Terms of
+                        Use</a>/<a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- #copyrights end -->
+
+</footer><!-- #footer end -->
 
 </div><!-- #wrapper end -->
 
@@ -537,5 +504,5 @@
 <script type="text/javascript" src="js/functions.js"></script>
 
 
-</body>
-</html>
+
+</body></html>

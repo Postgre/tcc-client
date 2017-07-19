@@ -7,9 +7,12 @@ module.exports = class ApplicationService {
     }
 
     renderSession(){
+        this.ifOperations.forEach( function( operation ){ // hide them all
+            $(operation.selector).hide();
+        });
         this.ifOperations.forEach( function( operation ){
             var result = operation.condition();
-            result ? $(operation.selector).show() : $(operation.selector).hide();
+            if(result) $(operation.selector).show();
         });
         this.bindOperations.forEach( function ( operation ) {
             $(operation.selector).html( operation.content() );

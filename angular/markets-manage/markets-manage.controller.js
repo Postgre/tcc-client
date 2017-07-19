@@ -91,6 +91,7 @@ function MarketsManageController( $scope ) {
     function inviteDirector(market){
         promptForUserEmail(function(email){
             if(typeof email === 'undefined') return;
+            if( !confirm( email +" "+ market.id ) ) return;
             // API call
             var promise = window.dataService.postDelegationsDirector(market.id, email);
             promise.then(function(res){
