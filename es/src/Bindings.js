@@ -17,6 +17,12 @@ module.exports = class Bindings {
         });
         this.appService.registerIf( ".tcc_if_admin", function(){
             return self.authService.hasRole('admin');
-        })
+        });
+        this.appService.registerIf( ".tcc_if_caroler", function(){
+            return self.authService.hasRole('caroler');
+        });
+        this.appService.registerIf( ".tcc_if_director", function(){
+            return self.authService.hasRole('director');
+        });
     }
 };

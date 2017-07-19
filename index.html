@@ -247,19 +247,21 @@
         <!-- Logo
         ============================================= -->
         <div id="logo">
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
         </div><!-- #logo end -->
         <!-- Account
         ============================================= -->
         <div id="top-account" class="dropdown">
-            <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
+            <a href="javascript:navService.goto(&apos;auth&apos;)" id="login-register" class="btn btn-default">Login / Register</a>
             <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="events-personal.html">My Events</a></li>
+                <li><a href="javascript:navService.goto(&apos;profile&apos;)">Profile</a></li>
+                <li><a href="javascript:navService.goto(&apos;my_events&apos;)">My Events</a></li>
                 <li class="tcc_if_admin divider" role="separator"></li>
-                <li class="tcc_if_admin"><a href="markets-manage.html">Manage Markets</a></li>
+                <li class="tcc_if_admin"><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Manage Markets</a></li>
+                <li class="tcc_if_caroler divider" role="separator"></li>
+                <li class="tcc_if_caroler"><a href="javascript:navService.goto(&apos;caroler_dashboard&apos;)">Caroler Dashboard</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
             </ul>
@@ -270,27 +272,27 @@
         <nav id="primary-menu">
             <ul>
                 <li>
-                    <a href="index.html">
+                    <a href="javascript:navService.goto(&apos;home&apos;)">
                         <div>Home</div>
                     </a>
                 </li>
                 <li>
-                    <a href="event-book.html">
+                    <a href="javascript:navService.goto(&apos;book_event&apos;)">
                         <div>Book Event</div>
                     </a>
                 </li>
                 <li>
-                    <a href="market-search.html">
+                    <a href="javascript:navService.goto(&apos;find_market&apos;)">
                         <div>Find a Market</div>
                     </a>
                 </li>
                 <li>
-                    <a href="about.html">
+                    <a href="javascript:navService.goto(&apos;about&apos;)">
                         <div>About</div>
                     </a>
                 </li>
                 <li>
-                    <a href="contact.html">
+                    <a href="javascript:navService.goto(&apos;contact&apos;)">
                         <div>Contact</div>
                     </a>
                 </li>
@@ -533,81 +535,81 @@
 
                     <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
                         <ul>
-                            <li><i class="icon-music"></i>&nbsp; Angels We Have Heard On High</li>
-                            <li><i class="icon-music"></i>&nbsp; Away in the Manger</li>
-                            <li><i class="icon-music"></i>&nbsp; Blue Xmas</li>
-                            <li><i class="icon-music"></i>&nbsp; Bright, Bright the Holly Berries</li>
-                            <li><i class="icon-music"></i>&nbsp; Bring a Torch, Jeannette Isabella</li>
-                            <li><i class="icon-music"></i>&nbsp; Candlelight Carol</li>
-                            <li><i class="icon-music"></i>&nbsp; Caroling, Caroling</li>
-                            <li><i class="icon-music"></i>&nbsp; Carol of the Bells</li>
-                            <li><i class="icon-music"></i>&nbsp; Carol of the Drum</li>
-                            <li><i class="icon-music"></i>&nbsp; The Christmas Song</li>
-                            <li><i class="icon-music"></i>&nbsp; Christmas Time Is Here</li>
-                            <li><i class="icon-music"></i>&nbsp; Come Dear Children</li>
-                            <li><i class="icon-music"></i>&nbsp; Coventry Carol</li>
-                            <li><i class="icon-music"></i>&nbsp; Deck the Halls</li>
-                            <li><i class="icon-music"></i>&nbsp; Do you Hear What I Hear?</li>
-                            <li><i class="icon-music"></i>&nbsp; Feliz Navidad</li>
+                            <li><i class="icon-music"></i>&#xA0; Angels We Have Heard On High</li>
+                            <li><i class="icon-music"></i>&#xA0; Away in the Manger</li>
+                            <li><i class="icon-music"></i>&#xA0; Blue Xmas</li>
+                            <li><i class="icon-music"></i>&#xA0; Bright, Bright the Holly Berries</li>
+                            <li><i class="icon-music"></i>&#xA0; Bring a Torch, Jeannette Isabella</li>
+                            <li><i class="icon-music"></i>&#xA0; Candlelight Carol</li>
+                            <li><i class="icon-music"></i>&#xA0; Caroling, Caroling</li>
+                            <li><i class="icon-music"></i>&#xA0; Carol of the Bells</li>
+                            <li><i class="icon-music"></i>&#xA0; Carol of the Drum</li>
+                            <li><i class="icon-music"></i>&#xA0; The Christmas Song</li>
+                            <li><i class="icon-music"></i>&#xA0; Christmas Time Is Here</li>
+                            <li><i class="icon-music"></i>&#xA0; Come Dear Children</li>
+                            <li><i class="icon-music"></i>&#xA0; Coventry Carol</li>
+                            <li><i class="icon-music"></i>&#xA0; Deck the Halls</li>
+                            <li><i class="icon-music"></i>&#xA0; Do you Hear What I Hear?</li>
+                            <li><i class="icon-music"></i>&#xA0; Feliz Navidad</li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
                         <ul>
-                            <li><i class="icon-music"></i>&nbsp; First Noel</li>
-                            <li><i class="icon-music"></i>&nbsp; Frosty the Snowperson</li>
-                            <li><i class="icon-music"></i>&nbsp; God Rest Ye Merry Gentlemen</li>
-                            <li><i class="icon-music"></i>&nbsp; Good Christian Men Rejoice</li>
-                            <li><i class="icon-music"></i>&nbsp; Good King Wenceslas</li>
-                            <li><i class="icon-music"></i>&nbsp; Grandma Got Run Over by a Reindeer</li>
-                            <li><i class="icon-music"></i>&nbsp; Grinch</li>
-                            <li><i class="icon-music"></i>&nbsp; Have Yourself A Merry Little Christmas</li>
-                            <li><i class="icon-music"></i>&nbsp; Here Comes Santa Claus!</li>
-                            <li><i class="icon-music"></i>&nbsp; Here We Come A-Caroling</li>
-                            <li><i class="icon-music"></i>&nbsp; Hi To You</li>
-                            <li><i class="icon-music"></i>&nbsp; The Holly and the Ivy</li>
-                            <li><i class="icon-music"></i>&nbsp; A Holly Jolly Christmas</li>
-                            <li><i class="icon-music"></i>&nbsp; I&#x2019;ll Be Home For Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; First Noel</li>
+                            <li><i class="icon-music"></i>&#xA0; Frosty the Snowperson</li>
+                            <li><i class="icon-music"></i>&#xA0; God Rest Ye Merry Gentlemen</li>
+                            <li><i class="icon-music"></i>&#xA0; Good Christian Men Rejoice</li>
+                            <li><i class="icon-music"></i>&#xA0; Good King Wenceslas</li>
+                            <li><i class="icon-music"></i>&#xA0; Grandma Got Run Over by a Reindeer</li>
+                            <li><i class="icon-music"></i>&#xA0; Grinch</li>
+                            <li><i class="icon-music"></i>&#xA0; Have Yourself A Merry Little Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; Here Comes Santa Claus!</li>
+                            <li><i class="icon-music"></i>&#xA0; Here We Come A-Caroling</li>
+                            <li><i class="icon-music"></i>&#xA0; Hi To You</li>
+                            <li><i class="icon-music"></i>&#xA0; The Holly and the Ivy</li>
+                            <li><i class="icon-music"></i>&#xA0; A Holly Jolly Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; I&#x2019;ll Be Home For Christmas</li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
                         <ul>
-                            <li><i class="icon-music"></i>&nbsp; I Wanna Hippopotamus for Christmas</li>
-                            <li><i class="icon-music"></i>&nbsp; It Came Upon A Midnight Clear</li>
-                            <li><i class="icon-music"></i>&nbsp; It&#x2019;s Beginning To Look Like Christmas</li>
-                            <li><i class="icon-music"></i>&nbsp; Jingle Bell Rock</li>
-                            <li><i class="icon-music"></i>&nbsp; Jingle Bells</li>
-                            <li><i class="icon-music"></i>&nbsp; Joy to the World</li>
-                            <li><i class="icon-music"></i>&nbsp; Let It Snow</li>
-                            <li><i class="icon-music"></i>&nbsp; Lo, How a Rose</li>
-                            <li><i class="icon-music"></i>&nbsp; Merry Christmas Darling</li>
-                            <li><i class="icon-music"></i>&nbsp; Merry Christmas Round</li>
-                            <li><i class="icon-music"></i>&nbsp; Most Wonderful Time of the Year</li>
-                            <li><i class="icon-music"></i>&nbsp; Nuttin&#x2019; For Christmas</li>
-                            <li><i class="icon-music"></i>&nbsp; Come, O Come, Emmanuel</li>
-                            <li><i class="icon-music"></i>&nbsp; Holy Night</li>
-                            <li><i class="icon-music"></i>&nbsp; Little Town of Bethlehem</li>
-                            <li><i class="icon-music"></i>&nbsp; Tannenbaum</li>
+                            <li><i class="icon-music"></i>&#xA0; I Wanna Hippopotamus for Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; It Came Upon A Midnight Clear</li>
+                            <li><i class="icon-music"></i>&#xA0; It&#x2019;s Beginning To Look Like Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; Jingle Bell Rock</li>
+                            <li><i class="icon-music"></i>&#xA0; Jingle Bells</li>
+                            <li><i class="icon-music"></i>&#xA0; Joy to the World</li>
+                            <li><i class="icon-music"></i>&#xA0; Let It Snow</li>
+                            <li><i class="icon-music"></i>&#xA0; Lo, How a Rose</li>
+                            <li><i class="icon-music"></i>&#xA0; Merry Christmas Darling</li>
+                            <li><i class="icon-music"></i>&#xA0; Merry Christmas Round</li>
+                            <li><i class="icon-music"></i>&#xA0; Most Wonderful Time of the Year</li>
+                            <li><i class="icon-music"></i>&#xA0; Nuttin&#x2019; For Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; Come, O Come, Emmanuel</li>
+                            <li><i class="icon-music"></i>&#xA0; Holy Night</li>
+                            <li><i class="icon-music"></i>&#xA0; Little Town of Bethlehem</li>
+                            <li><i class="icon-music"></i>&#xA0; Tannenbaum</li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-6 bottommargin-sm widget_links">
                         <ul>
-                            <li><i class="icon-music"></i>&nbsp; Oh Come All Ye Faithful</li>
-                            <li><i class="icon-music"></i>&nbsp; Oh, What A Merry Christmas Day</li>
-                            <li><i class="icon-music"></i>&nbsp; Rockin&#x201D; Around the Christmas Tree</li>
-                            <li><i class="icon-music"></i>&nbsp; Rudolph the Red Nosed Reindeer</li>
-                            <li><i class="icon-music"></i>&nbsp; Santa Claus is Coming to Town</li>
-                            <li><i class="icon-music"></i>&nbsp; Santa Baby</li>
-                            <li><i class="icon-music"></i>&nbsp; Silent Night</li>
-                            <li><i class="icon-music"></i>&nbsp; Silver Bells</li>
-                            <li><i class="icon-music"></i>&nbsp; Sleigh Ride</li>
-                            <li><i class="icon-music"></i>&nbsp; Still, Still, Still</li>
-                            <li><i class="icon-music"></i>&nbsp; Toyland</li>
-                            <li><i class="icon-music"></i>&nbsp; Up on the Housetop/ Jolly Old Saint Nick (Medley)</li>
-                            <li><i class="icon-music"></i>&nbsp; We Three Kings of Orient Are</li>
-                            <li><i class="icon-music"></i>&nbsp; We Wish You a Merry Christmas</li>
-                            <li><i class="icon-music"></i>&nbsp; What Child Is This?</li>
-                            <li><i class="icon-music"></i>&nbsp; White Christmas</li>
-                            <li><i class="icon-music"></i>&nbsp; Winter Wonderland</li>
+                            <li><i class="icon-music"></i>&#xA0; Oh Come All Ye Faithful</li>
+                            <li><i class="icon-music"></i>&#xA0; Oh, What A Merry Christmas Day</li>
+                            <li><i class="icon-music"></i>&#xA0; Rockin&#x201D; Around the Christmas Tree</li>
+                            <li><i class="icon-music"></i>&#xA0; Rudolph the Red Nosed Reindeer</li>
+                            <li><i class="icon-music"></i>&#xA0; Santa Claus is Coming to Town</li>
+                            <li><i class="icon-music"></i>&#xA0; Santa Baby</li>
+                            <li><i class="icon-music"></i>&#xA0; Silent Night</li>
+                            <li><i class="icon-music"></i>&#xA0; Silver Bells</li>
+                            <li><i class="icon-music"></i>&#xA0; Sleigh Ride</li>
+                            <li><i class="icon-music"></i>&#xA0; Still, Still, Still</li>
+                            <li><i class="icon-music"></i>&#xA0; Toyland</li>
+                            <li><i class="icon-music"></i>&#xA0; Up on the Housetop/ Jolly Old Saint Nick (Medley)</li>
+                            <li><i class="icon-music"></i>&#xA0; We Three Kings of Orient Are</li>
+                            <li><i class="icon-music"></i>&#xA0; We Wish You a Merry Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; What Child Is This?</li>
+                            <li><i class="icon-music"></i>&#xA0; White Christmas</li>
+                            <li><i class="icon-music"></i>&#xA0; Winter Wonderland</li>
                         </ul>
                     </div>
                 </div>

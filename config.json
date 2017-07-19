@@ -25,6 +25,18 @@
     },
     "manage_markets": {
       "path": "markets-manage.html"
+    },
+    "about": {
+      "path": "about.html"
+    },
+    "profile": {
+      "path": "profile.html"
+    },
+    "my_events": {
+      "path": "events-personal.html"
+    },
+    "caroler_dashboard": {
+      "path": "caroler-dashboard.html"
     }
   }
 }

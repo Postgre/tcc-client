@@ -4,23 +4,25 @@
         <!-- Logo
         ============================================= -->
         <div id="logo">
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
+            <a href="javascript:navService.goto('home')" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img
                     src="images/tcc-logo.png" alt="TCC Logo"></a>
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
+            <a href="javascript:navService.goto('home')" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img
                     src="images/tcc-logo.png" alt="TCC Logo"></a>
         </div><!-- #logo end -->
         <!-- Account
         ============================================= -->
         <div id="top-account" class="dropdown">
-            <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
+            <a href="javascript:navService.goto('auth')" id="login-register" class="btn btn-default">Login / Register</a>
             <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                aria-haspopup="true"
                aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="events-personal.html">My Events</a></li>
+                <li><a href="javascript:navService.goto('profile')">Profile</a></li>
+                <li><a href="javascript:navService.goto('my_events')">My Events</a></li>
                 <li class="tcc_if_admin divider" role="separator"></li>
-                <li class="tcc_if_admin"><a href="markets-manage.html">Manage Markets</a></li>
+                <li class="tcc_if_admin"><a href="javascript:navService.goto('manage_markets')">Manage Markets</a></li>
+                <li class="tcc_if_caroler divider" role="separator"></li>
+                <li class="tcc_if_caroler"><a href="javascript:navService.goto('caroler_dashboard')">Caroler Dashboard</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
             </ul>
@@ -31,27 +33,27 @@
         <nav id="primary-menu">
             <ul>
                 <li>
-                    <a href="index.html">
+                    <a href="javascript:navService.goto('home')">
                         <div>Home</div>
                     </a>
                 </li>
                 <li>
-                    <a href="event-book.html">
+                    <a href="javascript:navService.goto('book_event')">
                         <div>Book Event</div>
                     </a>
                 </li>
                 <li>
-                    <a href="market-search.html">
+                    <a href="javascript:navService.goto('find_market')">
                         <div>Find a Market</div>
                     </a>
                 </li>
                 <li>
-                    <a href="about.html">
+                    <a href="javascript:navService.goto('about')">
                         <div>About</div>
                     </a>
                 </li>
                 <li>
-                    <a href="contact.html">
+                    <a href="javascript:navService.goto('contact')">
                         <div>Contact</div>
                     </a>
                 </li>

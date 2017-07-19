@@ -43,19 +43,21 @@
         <!-- Logo
         ============================================= -->
         <div id="logo">
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-            <a href="index.html" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
+            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
         </div><!-- #logo end -->
         <!-- Account
         ============================================= -->
         <div id="top-account" class="dropdown">
-            <a href="login-register.html" id="login-register" class="btn btn-default">Login / Register</a>
+            <a href="javascript:navService.goto(&apos;auth&apos;)" id="login-register" class="btn btn-default">Login / Register</a>
             <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="events-personal.html">My Events</a></li>
+                <li><a href="javascript:navService.goto(&apos;profile&apos;)">Profile</a></li>
+                <li><a href="javascript:navService.goto(&apos;my_events&apos;)">My Events</a></li>
                 <li class="tcc_if_admin divider" role="separator"></li>
-                <li class="tcc_if_admin"><a href="markets-manage.html">Manage Markets</a></li>
+                <li class="tcc_if_admin"><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Manage Markets</a></li>
+                <li class="tcc_if_caroler divider" role="separator"></li>
+                <li class="tcc_if_caroler"><a href="javascript:navService.goto(&apos;caroler_dashboard&apos;)">Caroler Dashboard</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
             </ul>
@@ -66,27 +68,27 @@
         <nav id="primary-menu">
             <ul>
                 <li>
-                    <a href="index.html">
+                    <a href="javascript:navService.goto(&apos;home&apos;)">
                         <div>Home</div>
                     </a>
                 </li>
                 <li>
-                    <a href="event-book.html">
+                    <a href="javascript:navService.goto(&apos;book_event&apos;)">
                         <div>Book Event</div>
                     </a>
                 </li>
                 <li>
-                    <a href="market-search.html">
+                    <a href="javascript:navService.goto(&apos;find_market&apos;)">
                         <div>Find a Market</div>
                     </a>
                 </li>
                 <li>
-                    <a href="about.html">
+                    <a href="javascript:navService.goto(&apos;about&apos;)">
                         <div>About</div>
                     </a>
                 </li>
                 <li>
-                    <a href="contact.html">
+                    <a href="javascript:navService.goto(&apos;contact&apos;)">
                         <div>Contact</div>
                     </a>
                 </li>
