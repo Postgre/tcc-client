@@ -12,7 +12,7 @@ const Bindings = require('./Bindings');
 /* Initalizing Libraries */
 window.appService = new ApplicationService();
 window.navService = new NavService(config);
-window.authService = new AuthService(config);
+window.authService = new AuthService(config, navService);
 window.dataService = new DataService(config, authService);
 new Bindings( authService, appService ).apply();
 

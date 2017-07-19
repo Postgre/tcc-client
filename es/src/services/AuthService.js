@@ -5,11 +5,12 @@ const jwtDecode = require('jwt-decode');
 
 /* Auth Service */
 module.exports = class AuthService {
-    constructor(config) {
+    constructor(config, navService) {
         console.info('AuthService Loading...');
 
         /* Saving Config */
         this.config = config;
+        this.navSerice = navService;
 
         /* Local variables */
         this.jwt = localStorage.getItem('jwt');
@@ -118,5 +119,15 @@ module.exports = class AuthService {
 
     id(){
         if( this.isLoggedIn() ) return this.user.id;
+    }
+
+    require( roles ){
+        var authorized = false;
+        roles.forEach((role)=>{
+            if(this.hasRole(role)) authorized = true;
+        });
+        if(!authorized){
+            this.navSerice.goto('auth');
+        }
     }
 };

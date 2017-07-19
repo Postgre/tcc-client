@@ -121,7 +121,6 @@ function BookingController($scope) {
         });
     })();
 
-
     $scope.stepToTravel = stepToTravel;
     $scope.stepToReview = stepToReview;
     $scope.stepToConfirm = stepToConfirm;
@@ -149,7 +148,7 @@ function BookingController($scope) {
         }
 
         proccess_tabs.tabs("enable", 1);
-        proccess_tabs.tabs("option", "active", 1);
+        stepTo(1);
     }
     function stepToReview() {
         // validate 'Travel Details'
@@ -184,18 +183,18 @@ function BookingController($scope) {
                 $scope.invoice.cost_travel = res.data.quote.cost_travel;
                 $scope.invoice.cost_total = res.data.quote.cost_total;
             });
+            proccess_tabs.tabs("enable", 2);
+            stepTo(2);
         });
         p.catch(function(err){
             console.error("err", err);
-            ;
+            if(err.status === "BAD_ADDRESS"){
+                alert("Bad Address");
+            }
         });
-        // step forward
-        proccess_tabs.tabs("enable", 2);
-        proccess_tabs.tabs("option", "active", 2);
     }
     function stepToConfirm() {
         console.log( "event data", $scope.event );
-        console.log( "market data", $scope.market );
         // window.dataService.postBooking( $scope.market.id, $scope.event );
 
         proccess_tabs.tabs("enable", 3);
@@ -214,40 +213,3 @@ $(document).ready(function () {
         disabled: [1, 2, 3]
     });
 });
-
-const DEFAULT_MODEL = {
-    event: {
-        name: "",
-        state: "",
-        city: "",
-        venue: "",
-        type: "",
-        company_name: "",
-        start_time: "",
-        end_time: "",
-        details: [],
-        special_requests: ""
-    },
-    market: {
-        name: "The Birmingham Carolers",
-        description: "Beautiful Birmingham is known for its impressive skyline. That skyline lights up even brighter at Christmas, when holiday lights adorn every corner. From the Zoolight Safari at Birmingham Zoo to the city tree lighting ceremony, there’s a lot to love.",
-        address: "Birmingham, AL",
-        banner: "http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg"
-    },
-    invoice: {
-        carolers: 400,
-        travel: 43,
-        parking: 0,
-        toll_roads: 0,
-        special_dates: 0,
-        promos: -20,
-        total: 423
-    },
-    travel_costs: {
-        cost_travel_distance: "___",      // miles
-        cost_travel_duration: "___",       // minutes
-        distance: "___",   // USD
-        duration: "___",   // USD
-        tolls: 6        // USD
-    }
-};
