@@ -24,6 +24,9 @@
 	<!-- Angular
 	============================================= -->
 	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="angular/shared/plugins.module.js"></script>
+	<script src="angular/shared/state-select/state-select.directive.js"></script>
+	<script src="angular/shared/daterange/daterange.directive.js"></script>
 	<script src="angular/markets-manage/markets-manage.module.js"></script>
 	<script src="angular/markets-manage/markets-manage.controller.js"></script>
 
@@ -143,7 +146,10 @@
                                         </a></h2>
 									</div>
 									<ul class="entry-meta clearfix">
-										<li><span class="label label-success" ng-bind="&apos;ID: &apos;+market.id"></span></li>
+										<li>
+											<span ng-if="market.published === 1" class="label label-success">Published</span>
+											<span ng-if="market.published === 0" class="label label-danger">Not Published</span>
+										</li>
 										<li><a href="#"><i class="icon-map-marker2"></i>
 											<span ng-bind="market.city+&apos;, &apos;+market.state"></span>
 										</a></li>

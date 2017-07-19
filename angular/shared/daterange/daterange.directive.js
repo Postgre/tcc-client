@@ -1,4 +1,4 @@
-angular.module('market-edit')
+angular.module('plugins')
     .directive('tccDateRange', tccDateRange);
 
 function tccDateRange() {
@@ -8,7 +8,7 @@ function tccDateRange() {
             to: "=to",
             from: "=from"
         },
-        templateUrl: "angular/market-edit/daterange/daterange.html"
+        templateUrl: "angular/shared/daterange/daterange.html"
     };
     return directive;
 

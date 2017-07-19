@@ -1,1 +1,1 @@
-angular.module("booking", []);
+angular.module("booking", ['plugins']);

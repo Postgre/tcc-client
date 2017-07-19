@@ -120,6 +120,13 @@ module.exports = class DataService {
             }
         })
     }
+    postBooking( market_id, event_data ){
+        return this.connection({
+            url: "book-event",
+            method: "POST",
+            data: qs.stringify(event_data)
+        })
+    }
 
     /**
      * PROFILE

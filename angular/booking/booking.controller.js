@@ -16,7 +16,9 @@ function BookingController($scope) {
      * ===============
      */
     $scope.previewTravelCosts = previewTravelCosts;
+    $scope.updateAddress = updateAddress;
     function previewTravelCosts() {
+        updateAddress();
         if (!$("#travel_form").valid()) return;
         // do stuff
         // api call => update travel_costs
@@ -33,6 +35,43 @@ function BookingController($scope) {
         });
         p.catch(function (err) {
             console.error("err", err);
+        });
+    }
+    function updateAddress(){
+        const map = jQuery('#google-map-custom').gMap();
+        var p1 = $scope.event.state;
+        var p2 = $scope.event.city;
+        var p3 = $scope.event.address;
+        var address = p3 + p2 + ", " + p1;
+        var locationFinderIcon = jQuery(this).find('i');	// get the icon to animate
+        locationFinderIcon.removeClass('icon-map-marker').addClass('icon-line-loader icon-spin');	// animate the icon
+        // 1.) make pricing request to data-service
+        // 2.) clear map markers
+        // 3.) place market map marker
+        // 4.) call geocoding api => place event map marker
+        var market_lat = window.market.location.coordinates[0];
+        var market_lng = window.market.location.coordinates[1];
+        map.gMap('addMarker', {
+            latitude: market_lat,
+            longitude: market_lng,
+            content: "Market Location",
+            zoom: 12
+        });
+        map.gMap('clearMarkers');
+        jQuery.ajax({
+            url: 'http://maps.google.com/maps/api/geocode/json?address=' + encodeURI(address),		// request to google api
+            //force to handle it as text
+            dataType: "text",
+            success: function (data) {
+                var json = jQuery.parseJSON(data);
+                map.gMap('addMarker', {
+                    latitude: json.results[0].geometry.location.lat,
+                    longitude: json.results[0].geometry.location.lng,
+                    content: "Your Event",
+                    zoom: 12
+                });
+                locationFinderIcon.removeClass('icon-line-loader icon-spin').addClass('icon-map-marker');
+            }
         });
     }
 
@@ -82,13 +121,6 @@ function BookingController($scope) {
         });
     })();
 
-    $("#state").on("change", function () {
-        var val = $("#state").val();
-        $scope.$apply(function () {
-            $scope.event.state = val;
-        });
-        console.log($scope.event.state);
-    });
 
     $scope.stepToTravel = stepToTravel;
     $scope.stepToReview = stepToReview;
@@ -162,12 +194,14 @@ function BookingController($scope) {
         proccess_tabs.tabs("option", "active", 2);
     }
     function stepToConfirm() {
-        // generate quote
+        console.log( "event data", $scope.event );
+        console.log( "market data", $scope.market );
+        // window.dataService.postBooking( $scope.market.id, $scope.event );
+
         proccess_tabs.tabs("enable", 3);
-        proccess_tabs.tabs("option", "active", 3);
+        stepTo(3);
     }
     function stepTo(tab_number) {
-        // submit booking
         proccess_tabs.tabs("option", "active", tab_number);
     }
 }
