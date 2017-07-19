@@ -103,6 +103,12 @@ module.exports = class DataService {
             url: "markets/"+id
         })
     }
+    getMarketsManaged(){
+        return this.connection({
+            url: "markets/managed",
+            method: "GET"
+        })
+    }
 
     /**
      * BOOKING

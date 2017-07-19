@@ -15,7 +15,14 @@ function CarolerDashboardController($scope) {
      */
     $scope.handleClaimEvent = handleClaimEvent;
     $scope.handleWithdraw = handleWithdraw;
-    function handleClaimEvent(event){}
+    function handleClaimEvent(event){
+        promptClaimConfirm(function(boo){
+            if(boo){
+                // do ajax request. then ->
+                notifyClaimed();
+            }
+        });
+    }
     function handleWithdraw(event){}
 
     /**

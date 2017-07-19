@@ -115,6 +115,7 @@ module.exports = class AuthService {
         if( this.user ){
             return ( this.user.roles.indexOf(role) !== -1 );
         }
+        return false;
     }
 
     id(){

@@ -97,11 +97,11 @@ function MarketsManageController( $scope ) {
     }
 
     (function init(){
-        var p = window.dataService.searchMarkets();
+        var p = window.dataService.getMarketsManaged();
         p.then(function(res){
             console.info("res", res);
             $scope.$apply(function(){
-                $scope.markets = res.data;
+                $scope.markets = res.data.markets;
             });
         });
         p.catch(function(err){
