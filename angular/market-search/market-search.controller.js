@@ -8,6 +8,7 @@ function MarketSearchController( $scope ) {
     $scope.search = search;
     $scope.openMap = openMap;
     $scope.handleBookNow = handleBookNow;
+    $scope.calcBaseRate = calcBaseRate;
     function search( address, radius, limit, offset ){
         var search_state = $("#search_state").val();
         if( !address ) address = $scope.search.city+", "+search_state;
@@ -32,6 +33,9 @@ function MarketSearchController( $scope ) {
         navService.goto("book_event", {
             market_id: market.id
         })
+    }
+    function calcBaseRate(market){
+        return hour4 = window.calcMarketPrice( 4, market.rate_caroler_base, market.rate_caroler_discount);
     }
 
     (function init(){

@@ -13,3 +13,8 @@ window.getQueryVariable = function(variable) {
     }
     console.log('Query variable %s not found', variable);
 };
+window.calcMarketPrice = function( nthHour, rate, hourlyDiscount ){
+    if( nthHour === 1 ) return rate;
+    var price = window.calcMarketPrice( nthHour-1, rate, hourlyDiscount ) * (1-hourlyDiscount);
+    return Math.round(price * 100) / 100;
+};

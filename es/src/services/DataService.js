@@ -139,4 +139,28 @@ module.exports = class DataService {
         })
     }
 
+    /**
+     * DELEGATIONS
+     * ====================
+     */
+    postDelegationsCaroler(market_id, caroler_email){
+        return this.connection({
+            url: "delegations/caroler",
+            method: "POST",
+            data: qs.stringify({
+                marketID: market_id,
+                email: caroler_email
+            })
+        })
+    }
+    postDelegationsDirector(market_id, director_email){
+        return this.connection({
+            url: "delegations/director",
+            method: "POST",
+            data: qs.stringify({
+                marketID: market_id,
+                email: director_email
+            })
+        })
+    }
 };

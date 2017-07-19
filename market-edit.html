@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
     <!-- Bootstrap File Upload CSS -->
     <link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css">
+    <!-- Bootstrap Select -->
+    <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
     <!-- Radio Checkbox Plugin -->
     <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
 
@@ -40,6 +42,8 @@
     <script src="node_modules/angular-input-masks/releases/angular-input-masks-dependencies.min.js"></script>
     <script src="node_modules/angular-input-masks/releases/angular-input-masks.min.js"></script>
     <script src="node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
+    <script src="angular/shared/plugins.module.js"></script>
+    <script src="angular/shared/state-select.directive.js"></script>
     <script src="angular/market-edit/market-edit.module.js"></script>
     <script src="angular/market-edit/market-edit.controller.js"></script>
     <script src="angular/market-edit/daterange/daterange.directive.js"></script>
@@ -177,19 +181,20 @@
                                     <input ng-model="market.name" type="text" class="sm-form-control">
                                 </div>
 
+                                <div class="col_full">
+                                    <label>Center Address (Used for calculating travel costs):</label>
+                                    <input ng-model="market.address" type="text" class="sm-form-control">
+                                </div>
+
                                 <div class="col_half">
                                     <label>State:</label>
-                                    <input ng-model="market.state" type="text" class="sm-form-control">
+                                    <tcc-state-select bind="market.state"></tcc-state-select>
                                 </div>
+
 
                                 <div class="col_half col_last">
                                     <label>City / Town:</label>
                                     <input ng-model="market.city" type="text" class="sm-form-control">
-                                </div>
-
-                                <div class="col_full">
-                                    <label>Center Address (Used for calculating travel costs):</label>
-                                    <input ng-model="market.address" type="text" class="sm-form-control">
                                 </div>
 
                                 <div class="col_half">
@@ -515,6 +520,8 @@
 <script type="text/javascript" src="js/components/timepicker.js"></script>
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="js/components/daterangepicker.js"></script>
+<!-- BS Select -->
+<script src="js/components/bs-select.js"></script>
 
 <!-- Footer Scripts
 ============================================= -->
