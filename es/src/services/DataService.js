@@ -139,6 +139,12 @@ module.exports = class DataService {
             method: "GET"
         })
     }
+    getMyEvents(){
+        return this.connection({
+            url: "users/events/booked",
+            method: "GET"
+        })
+    }
 
     /**
      * BOOKING
