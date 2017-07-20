@@ -34,6 +34,7 @@
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="angular/shared/plugins.module.js"></script>
     <script src="angular/shared/state-select/state-select.directive.js"></script>
+    <script src="angular/shared/select/selectpicker.directive.js"></script>
     <script src="angular/booking/booking.module.js"></script>
     <script src="angular/booking/booking.controller.js"></script>
 
@@ -204,14 +205,9 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col_half col_last">
+                                            <div class="col_half">
                                                 <label>Type of Event</label>
-                                                <select ng-model="event.type" class="selectpicker" required>
-                                                    <option value="">-- Select One --</option>
-                                                    <option value="personal">Personal</option>
-                                                    <option value="company">Company</option>
-                                                    <option value="public">Public Venue</option>
-                                                </select>
+                                                <tcc-select-picker bind="event.type" options="eventTypes"></tcc-select-picker>
                                             </div>
 
                                             <div class="col_half col_last">

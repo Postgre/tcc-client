@@ -28,6 +28,20 @@ function BookingController($scope) {
             count: 6
         }
     ];
+    $scope.eventTypes = [
+        {
+            name: "Public",
+            val: "public"
+        },
+        {
+            name: "Personal",
+            val: "personal"
+        },
+        {
+            name: "Company",
+            val: "company"
+        }
+    ];
 
     /**
      * Functions

@@ -185,33 +185,6 @@
 							<div class="widget clearfix">
 								<button data-target="#newMarketModal" data-toggle="modal" class="btn btn-success btn-block"> <i class="icon-line-plus"></i> Create a New Market </button>
 							</div>
-							<div class="widget clearfix">
-								<h4>Upcoming Events</h4>
-								<div id="post-list-footer">
-
-									<div ng-repeat="event in upcoming_events" class="spost clearfix">
-										<div class="entry-image">
-											<a href="events-personal.html" class="nobg">
-												<img ng-src="{{event.image}}" alt="">
-												<!-- Event Image -->
-											</a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4>
-													<a ng-bind="event.name" href="events-personal.html">
-														<!-- Event Name -->
-													</a>
-												</h4>
-											</div>
-											<ul class="entry-meta">
-												<li ng-bind="event.start_time"></li>
-											</ul>
-										</div>
-									</div>
-
-								</div>
-							</div>
 						</div>
 					</div>
 
