@@ -25,6 +25,7 @@ module.exports = class AuthService {
             /* Checking if already expired */
             if (decoded.exp < (new Date().getTime() / 1000)) {
                 this.logout();
+                this.navSerice.goto("home");
             }
         }
 
