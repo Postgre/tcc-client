@@ -10,6 +10,24 @@ function BookingController($scope) {
     $scope.market = {};
     $scope.invoice = {};
     $scope.travel_costs = {};
+    $scope.carolerConfigurations = [
+        {
+            name: "Trio ( S, A, B )",
+            count: 3
+        },
+        {
+            name: "Trio ( S, T, B )",
+            count: 3
+        },
+        {
+            name: "Quartets ( S, A, T, B )",
+            count: 4
+        },
+        {
+            name: "Sixtets ( S, S, A, T, T, B )",
+            count: 6
+        }
+    ];
 
     /**
      * Functions
@@ -74,34 +92,29 @@ function BookingController($scope) {
             }
         });
     }
+    function loadQuote(quote){
+        $scope.event.state = quote.state;
+        $scope.event.city = quote.city;
+        $scope.event.address = quote.address;
+        $scope.event.caroler_count = quote.caroler_count;
+        $("#cc").selectpicker('val', quote.caroler_count);
+        $scope.event.start_time = quote.start_time;
+        $scope.event.end_time = quote.end_time;
+        $(selector_daterange).data('daterangepicker').setStartDate(new Date(quote.start_time));
+        $(selector_daterange).data('daterangepicker').setEndDate(new Date(quote.end_time));
+        loadMarket(quote.market_id);
+    }
 
     /**
      * Init
      * ===============
      */
     (function init() {
-        /* Check for a quote */
-        var quote_id = window.getQueryVariable("quote_id");
-        if (quote_id) {
-            // load the data from the quote
-        }
-
-        /* get the market object from the server */
-        var nav_params = navService.getNavParams();
-        console.log(nav_params);
-        if (typeof nav_params === "undefined") {
+        /* Make sure nav params are test */
+        if (typeof window.navService.getNavParams().market_id === "undefined") {
             navService.goto("find_market");
             return;
         }
-        var p = window.dataService.getMarket(nav_params.market_id);
-        p.then(function (res) {
-            console.log("res", res);
-            $scope.$apply(function () {
-                $scope.market = res.data.market;
-                window.market = $scope.market;
-            });
-        });
-
         /* Setup directive for the daterangepicker plugin */
         $(selector_daterange).daterangepicker({
             "opens": "center",
@@ -119,7 +132,35 @@ function BookingController($scope) {
                 $scope.event.end_time = picker.endDate.format("MM/DD/YYYY h:mm A");
             });
         });
+
+        /* Check for a quote */
+        var quote_id = window.getQueryVariable("quote_id");
+        if (!quote_id) {
+            quote_id = window.navService.getNavParams().quote_id;
+        }
+        if(quote_id){
+            var promise = window.dataService.getQuote(quote_id);
+            promise.then(function(res){
+                console.log("quote", res);
+                loadQuote(res.data.quote);
+            });
+            promise.catch(function(err){
+                console.log("err", err);
+            });
+            return;
+        }
+        loadMarket(window.navService.getNavParams().market_id);
     })();
+    function loadMarket(id) {
+        var p = window.dataService.getMarket(id);
+        p.then(function (res) {
+            console.log("res", res);
+            $scope.$apply(function () {
+                $scope.market = res.data.market;
+                window.market = $scope.market;
+            });
+        });
+    }
 
     $scope.stepToTravel = stepToTravel;
     $scope.stepToReview = stepToReview;
@@ -175,14 +216,15 @@ function BookingController($scope) {
             $scope.market.id
         );
         p.then(function(res){
-            console.info("res", res);
+            console.info("res quote preview", res);
             $scope.$apply(function(){
-                $scope.invoice.cost_carolers = res.data.quote.cost_carolers;
-                $scope.invoice.cost_date = res.data.quote.cost_date;
-                $scope.invoice.cost_discounts = res.data.quote.cost_discounts;
-                $scope.invoice.cost_travel_distance = res.data.quote.cost_travel_distance;
-                $scope.invoice.cost_travel_duration = res.data.quote.cost_travel_duration;
-                $scope.invoice.cost_total = res.data.quote.cost_total;
+                var quote = res.data;
+                $scope.invoice.cost_carolers = quote.cost_carolers;
+                $scope.invoice.cost_date = quote.cost_date;
+                $scope.invoice.cost_discounts = quote.cost_discounts;
+                $scope.invoice.cost_travel_distance = quote.cost_travel_distance;
+                $scope.invoice.cost_travel_duration = quote.cost_travel_duration;
+                $scope.invoice.cost_total = quote.cost_total;
             });
             proccess_tabs.tabs("enable", 2);
             stepTo(2);

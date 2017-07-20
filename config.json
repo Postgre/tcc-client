@@ -37,6 +37,10 @@
     },
     "caroler_dashboard": {
       "path": "caroler-dashboard.html"
+    },
+    "upcoming_events": {
+      "path": "market-events.html",
+      "requires": ["market"]
     }
   }
 }

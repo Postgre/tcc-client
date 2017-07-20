@@ -19,6 +19,7 @@ function MarketsManageController( $scope ) {
     $scope.gotoPage = gotoPage;
     $scope.inviteCaroler = inviteCaroler;
     $scope.inviteDirector = inviteDirector;
+    $scope.gotoUpcomingEvents = gotoUpcomingEvents;
     function createMarket(){
         var form = document.forms.newMarketForm;
         var name = form.name.value;
@@ -102,6 +103,11 @@ function MarketsManageController( $scope ) {
         window.navService.goto('market_page', {
             market_id: market.id
         })
+    }
+    function gotoUpcomingEvents(market){
+        window.navService.goto('upcoming_events', {
+            market: market
+        });
     }
 
     (function init(){

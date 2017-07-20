@@ -38,7 +38,7 @@ module.exports = class DataService {
     }
     postQuotePreview( address, start_time, end_time, caroler_count, market_id ){
         return this.connection({
-            url: "quotes",
+            url: "quotes/preview",
             method: "POST",
             data: qs.stringify({
                 address: address,
@@ -57,6 +57,12 @@ module.exports = class DataService {
                 email: email,
                 callback: this.callback_save_quote
             })
+        })
+    }
+    getQuote( id ){
+        return this.connection({
+            url: "quotes/"+id,
+            method: "GET"
         })
     }
 
@@ -119,6 +125,17 @@ module.exports = class DataService {
     getMarketsManaged(){
         return this.connection({
             url: "markets/managed",
+            method: "GET"
+        })
+    }
+
+    /**
+     * EVENTS
+     * ==================
+     */
+    getMarketEvents( market_id ){
+        return this.connection({
+            url: "markets/"+market_id+"/events",
             method: "GET"
         })
     }
