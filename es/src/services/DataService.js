@@ -128,6 +128,12 @@ module.exports = class DataService {
             method: "GET"
         })
     }
+    getMarketCarolers(id){
+        return this.connection({
+            url: "markets/"+id+"/carolers",
+            method: "GET"
+        })
+    }
 
     /**
      * EVENTS
