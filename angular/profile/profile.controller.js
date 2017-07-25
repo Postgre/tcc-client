@@ -5,7 +5,8 @@ function ProfileController( $scope ) {
     $scope.profile = {
         user: {},
         director: {},
-        customer: {}
+        customer: {},
+        caroler: {}
     };
     init();
     /**
@@ -19,9 +20,12 @@ function ProfileController( $scope ) {
      */
     $scope.updateProfile = updateProfile;
     function updateProfile(){
-        var promise = window.dataService.putProfile({
-            user_profile: $scope.profile.user
-        });
+        var putData = {
+            user_profile: $scope.profile.user,
+            caroler_profile: $scope.caroler_profile
+        };
+        console.log("req", putData);
+        var promise = window.dataService.putProfile(putData);
         promise.then(function(res){
             console.log("res", res);
             notifySuccess();
