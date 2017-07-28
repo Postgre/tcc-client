@@ -18,14 +18,18 @@ function tccDateRange() {
             format: 'mm/dd/yyyy',
             autoclose: true
         });
-        $(element.find('input')[0]).datepicker('setDate', scope.from);
-        $(element.find('input')[1]).datepicker('setDate', scope.to);
+        var inputs = element.find('input');
+        $(inputs[0]).datepicker('setDate', moment(scope.from).format("MM/DD/YYYY"));
+        $(inputs[1]).datepicker('setDate', moment(scope.to).format("MM/DD/YYYY"));
+
         $(elem).datepicker().on("changeDate", function(){
             var inputs = element.find('input');
             var start = moment($(inputs[0]).datepicker("getDate"));
             var end = moment($(inputs[1]).datepicker("getDate"));
-            scope.from = start.format(format);
-            scope.to = end.format(format);
+            scope.$apply(function(){
+                scope.from = start.format(format);
+                scope.to = end.format(format);
+            });
         });
     }
 }

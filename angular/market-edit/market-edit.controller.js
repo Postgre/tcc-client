@@ -2,7 +2,6 @@ angular.module('market-edit')
 .controller('MarketEditController', MarketEditController);
 
 function MarketEditController( $scope ) {
-    $scope.ready = false;
 
     $scope.market = {};
     $scope.gallery = [{
