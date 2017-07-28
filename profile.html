@@ -23,6 +23,8 @@
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Bootstrap Select CSS -->
+    <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
 
     <!-- Angular
     ============================================= -->
@@ -144,9 +146,21 @@
                                             <div>
                                                 <form class="nobottommargin">
 
-                                                    <div class="col_half col_last">
+                                                    <div class="clear"></div>
+
+                                                    <div class="col_half">
                                                         <label>Name:</label>
                                                         <input ng-model="profile.user.name" type="text" class="sm-form-control">
+                                                    </div>
+
+                                                    <div class="col_half col_last">
+                                                        <label>Caroler Types</label>
+                                                        <select ng-model="caroler_profile.caroler_types" class="selectpicker form-control" multiple>
+                                                            <option value="bass">bass</option>
+                                                            <option value="tenor">tenor</option>
+                                                            <option value="alto">alto</option>
+                                                            <option value="soprano">soprano</option>
+                                                        </select>
                                                     </div>
 
                                                     <div class="clear"></div>
@@ -407,6 +421,8 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/plugins.js"></script>
 <script type="text/javascript" src="js/components/bs-filestyle.js"></script>
+<!-- Bootstrap Select Plugin -->
+<script type="text/javascript" src="js/components/bs-select.js"></script>
 
 <!-- Footer Scripts
 ============================================= -->

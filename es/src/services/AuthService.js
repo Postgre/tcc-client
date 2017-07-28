@@ -106,10 +106,11 @@ module.exports = class AuthService {
         localStorage.removeItem('jwt');
         this.jwt = null;
         this.jwtExpire = null;
+        this.navSerice.goto("home");
     }
 
     isLoggedIn(){
-        return this.jwt != null;
+        return this.jwt !== null;
     }
 
     hasRole( role ){

@@ -9,6 +9,9 @@ const ApplicationService = require('./services/ApplicationService');
 const NavService = require('./services/NavService');
 const Bindings = require('./Bindings');
 
+/* Loading Models */
+window.SpDate = require('./models/SpDate');
+
 /* Initalizing Libraries */
 window.appService = new ApplicationService();
 window.navService = new NavService(config);

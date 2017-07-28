@@ -6,20 +6,22 @@ function MarketEditController( $scope ) {
     $scope.gallery = [{
         image: "https://www.nycgo.com/images/uploads/homepage/Empire-State-Building-Observatory-Tom-Perry-2618.jpg"
     }];
-    $scope.specialDates = [ {} ];
+    $scope.specialDates = [];
+    $scope.availOpts = SpDate.availabilityOptions();
 
     $scope.editing_special_dates = false;
     $scope.editing_gallery = false;
-    $scope.editClassMap = "col-sm-6";
+    $scope.getEditClass = function() {
+        if($scope.editing_special_dates) return "col-sm-5";
+        return "col-sm-6";
+    };
 
     /**
      * Functions
      * ===============
      */
     $scope.deleteSpecialDate = deleteSpecialDate;
-    $scope.editSpecialDates = editSpecialDates;
     $scope.createSpecialDate = createSpecialDate;
-    $scope.stopEditingSpecialDates = stopEditingSpecialDates;
     $scope.publishMarket = publishMarket;
     $scope.unpublishMarket = unpublishMarket;
     $scope.deleteGalleryImage = deleteGalleryImage;
@@ -32,15 +34,8 @@ function MarketEditController( $scope ) {
         $scope.specialDates.splice( ind, 1 );
     }
     function createSpecialDate(){
-        $scope.specialDates.push({});
-    }
-    function editSpecialDates(){
-        $scope.editClassMap = "col-sm-5";
-        $scope.editing_special_dates = true;
-    }
-    function stopEditingSpecialDates() {
-        $scope.editClassMap = "col-sm-6";
-        $scope.editing_special_dates = false;
+        var date = new SpDate();
+        $scope.specialDates.push(date);
     }
     function publishMarket() {
         swal({
@@ -105,6 +100,7 @@ function MarketEditController( $scope ) {
             rate_caroler_base: mkt.rate_caroler_base,
             rate_caroler_discount: mkt.rate_caroler_discount
         };
+        console.log("Special Dates: ", $scope.specialDates);
         console.log(postData);
         var p = window.dataService.putMarket( $scope.market.id, postData );
         p.then(function(res){
