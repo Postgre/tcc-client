@@ -1326,6 +1326,12 @@
             "end_time": end
         });
         var p = quote.submit();
+        p.catch((err) => {
+            console.error(err.response.data);
+            if(err.response.data.status === "BAD_ADDRESS"){
+                swal("Bad Address", "Address could not be resolved", "error");
+            }
+        });
         p.then((res) => {
             console.log(res);
             var quote = res.data.quote;
@@ -1339,9 +1345,6 @@
                 dates: quote.cost_date,
                 total: quote.cost_total
             }, market);
-        });
-        p.catch((err) => {
-            console.error(err);
         });
         return false;
     }

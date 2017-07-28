@@ -8,7 +8,7 @@ module.exports = class BaseModel {
     bootstrap(){
         this.fillable.forEach((prop)=>{
             if(typeof this[prop] === 'undefined') this[prop] = BaseModel.getDefault();
-        })
+        });
     }
     getFillables(){
         this.bootstrap();
@@ -19,6 +19,6 @@ module.exports = class BaseModel {
         return data;
     }
     static getDefault(){
-        return null;
+        return "";
     }
 };

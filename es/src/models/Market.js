@@ -41,7 +41,9 @@ module.exports = class Market extends BaseModel {
         if(ind === -1) return;
         this.mediaLinks.splice(ind,1);
     }
-
+    loadSpecialDates(){
+        
+    }
     save() {
         let dates = [];
         this.specialDates.forEach((date)=>{

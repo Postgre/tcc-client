@@ -7,6 +7,7 @@ module.exports = class SpDate extends BaseModel {
         this.fillable = [
             "date_from", "date_to", "available", "pricing_scale", "pricing_offset"
         ];
+        this.pricing_scale = 1;
         this.bootstrap();
     }
 

@@ -138,9 +138,9 @@ module.exports = class DataService {
         return this.connection({
             url: "markets/"+market_id+"/special-dates",
             method: "PUT",
-            data: {
-                special_dates: qs.stringify(specialDates)
-            }
+            data: qs.stringify({
+                special_dates: specialDates
+            })
         })
     }
     
