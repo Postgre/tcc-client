@@ -264,4 +264,22 @@ module.exports = class DataService {
             })
         })
     }
+
+    /**
+     * CONTACT
+     * =========================
+     * */
+    postContact(name, email, phone, subject, message){
+        return this.connection({
+            url: "contact",
+            method: "POST",
+            data: qs.stringify({
+                name: name,
+                email: email,
+                phone: phone,
+                subject: subject,
+                message: message
+            })
+        })
+    }
 };

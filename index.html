@@ -722,7 +722,7 @@
 
                     <div class="quick-contact-form-result"></div>
 
-                    <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form" action="include/quickcontact.php" class="quick-contact-form nobottommargin">
+                    <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form" class="quick-contact-form nobottommargin">
 
                         <div class="form-process"></div>
 
@@ -932,10 +932,8 @@
      * ===============================
      * */
     jQuery(window).load(function () {
-        
         var p = window.dataService.searchMarkets();
         p.then(function(res){
-            console.info("res", res);
             var markets = [];
             for (var i = 0; i < res.data.length; i++) {
                 var mkt = res.data[i];
@@ -984,11 +982,10 @@
                     "elementType": "geometry",
                     "stylers": [{"visibility": "on"}, {"lightness": 700}]
                 }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
-            });;
+            });
         });
         p.catch(function(err){
             console.error("err", err);
-            ;
         });
     });
 </script>
