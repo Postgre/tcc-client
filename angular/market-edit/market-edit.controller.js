@@ -51,9 +51,12 @@ function MarketEditController( $scope ) {
             $scope.$apply(function(){
                 $scope.market.published = 1;
             });
-            swal("We're Live!",
-                $scope.market.name + " is live and discoverable!",
-                "success");
+            var p = $scope.updateMarket(true);
+            p.then((msg) => {
+                swal("We're Live!",
+                    $scope.market.name + " is live and discoverable!",
+                    "success");
+            });
         });
     }
     function unpublishMarket() {
@@ -70,9 +73,12 @@ function MarketEditController( $scope ) {
             $scope.$apply(function(){
                 $scope.market.published = 0;
             });
-            swal("Done.",
-                $scope.market.name + " is no longer discoverable",
-                "success");
+            var p = $scope.updateMarket(true);
+            p.then((res)=>{
+                swal("Done.",
+                    $scope.market.name + " is no longer discoverable",
+                    "success");
+            });
         });
     }
     function deleteGalleryImage(img){
@@ -85,7 +91,7 @@ function MarketEditController( $scope ) {
             image: "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
         });
     }
-    function updateMarket() {
+    function updateMarket(promise = false) {
         var mkt = $scope.market;
         var postData = {
             name: mkt.name,
@@ -103,14 +109,15 @@ function MarketEditController( $scope ) {
         console.log("Special Dates: ", $scope.specialDates);
         console.log(postData);
         var p = window.dataService.putMarket( $scope.market.id, postData );
+        p.catch(function(err){
+            console.error("err", err);
+        });
+        if(promise) return p;
         p.then(function(res){
             console.info("res", res);
             swal("Success!",
                 "Your changes have been saved",
                 "success");
-        });
-        p.catch(function(err){
-            console.error("err", err);
         });
     }
     function getPrice( nthHour ){
