@@ -128,7 +128,19 @@ module.exports = class DataService {
             method: "GET"
         })
     }
-
+    postSpecialDates( market_id, specialDate ){
+        return this.connection({
+            url: "markets/"+market_id+"/special-dates",
+            method: "POST",
+            data: qs.stringify({
+                date_from: specialDate.from,
+                date_to: specialDate.to,
+                available: specialDate.available,
+                pricing_scale: specialDate.scale
+            })
+        })
+    }
+    
     /**
      * EVENTS
      * ==================
