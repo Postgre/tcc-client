@@ -337,13 +337,21 @@
         });
         p.catch(function (err) {
             console.log("fail", err);
+            if(err.response.status === 403){
+                swal("Not so Fast!", "You need to validate your email first.", "warning");
+                return;
+            }
+            if(err.response.status === 401){
+                swal("Invalid Login", "Try Again.", "danger");
+                return;
+            }
             swal({
-                title: "Invalid Login",
-                text: "Try Again",
+                title: "Oops..",
+                text: "Something went wrong",
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: 'OK',
+                confirmButtonText: 'OK :(',
                 closeOnConfirm: false
             });
         });
