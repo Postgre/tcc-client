@@ -384,13 +384,17 @@
             });
         });
         p.catch(function (err) {
+            if(err.response.status === 409){
+                swal("Wait a Minute!", "There's already an account with that email", "warning");
+                return;
+            }
             swal({
                 title: "Oops!",
                 text: "Something went wrong!",
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-warning",
-                confirmButtonText: 'Damnit, Rocco',
+                confirmButtonText: 'Ok :(',
                 closeOnConfirm: false
             });
         });
