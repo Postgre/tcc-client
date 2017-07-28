@@ -32,7 +32,7 @@ function MarketEditController( $scope ) {
     $scope.getPrice = getPrice;
 
     function createSpecialDate(){
-        $scope.market.addSpecialDate(new SpDate());
+        $scope.market.addSpecialDate(window.modelFactory.make("SpDate"));
     }
     function publishMarket() {
         swal({
@@ -89,7 +89,7 @@ function MarketEditController( $scope ) {
         });
     }
     function updateMarket(promise = false) {
-        let p = $scope.market.save();
+        let p = $scope.market.save()[0];
         p.catch(function(err){
             console.error("err", err);
         });

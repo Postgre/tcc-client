@@ -10,8 +10,6 @@ const NavService = require('./services/NavService');
 const Bindings = require('./Bindings');
 const ModelFactory = require('./models/ModelFactory');
 
-/* Loading Data Classes */
-require('./data_classes/loader');
 /* Loading Model Classes */
 require('./models/loader');
 

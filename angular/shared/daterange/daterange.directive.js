@@ -22,8 +22,10 @@ function tccDateRange() {
             var inputs = element.find('input');
             var start = moment($(inputs[0]).datepicker("getDate"));
             var end = moment($(inputs[1]).datepicker("getDate"));
-            scope.from = start.format("MM-DD-YYYY");
-            scope.to = end.format("MM-DD-YYYY");
+            scope.from = start.format(format);
+            scope.to = end.format(format);
         });
     }
 }
+
+const format = "YYYY-MM-DD HH:MM:SS";

@@ -22,8 +22,8 @@ module.exports = class Market extends BaseModel {
         ];
         this.bootstrap();
 
-        this.specialDates =     [];
-        this.mediaLinks =       [];
+        this.specialDates   =   [];
+        this.mediaLinks     =   [];
     }
     addSpecialDate(SpecialDate){
         this.specialDates.push(SpecialDate);
@@ -42,8 +42,16 @@ module.exports = class Market extends BaseModel {
         this.mediaLinks.splice(ind,1);
     }
 
-    save(){
-        console.info("saving", this, this.getFillables());
-        return this.dataService.putMarket(this.id, this.getFillables());
+    save() {
+        let dates = [];
+        this.specialDates.forEach((date)=>{
+            dates.push(date.getFillables());
+        });
+        console.info("saving", this.getFillables(), dates);
+        return [
+            this.dataService.putMarket(this.id, this.getFillables()),
+            this.dataService.putSpecialDates(this.id, dates)
+        ];
     }
+
 };

@@ -20,6 +20,7 @@ function CustomerEventsController( $scope ) {
      * ===============
      */
     function init(){
+        loadCalendar({});
         var promise = window.dataService.getMyEvents();
         promise.then(function(res){
             console.log("res", res);

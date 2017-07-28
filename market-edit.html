@@ -319,7 +319,7 @@
                                 </div>
                                 <div ng-class="getEditClass()">
                                     <label>Date Range</label>
-                                    <tcc-date-range to="date.to" from="date.from"></tcc-date-range>
+                                    <tcc-date-range to="date.date_to" from="date.date_from"></tcc-date-range>
                                 </div>
                                 <div class="col-sm-3">
                                     <label>Available?</label>
@@ -333,7 +333,7 @@
                                 </div>
                                 <div ng-hide="date.available === false" class="col-sm-3">
                                     <label>Price Scale:</label>
-                                    <input ng-model="date.scale" type="number" class="sm-form-control" placeholder="0.5 = half price">
+                                    <input ng-model="date.pricing_scale" type="number" class="sm-form-control" placeholder="0.5 = half price">
                                 </div>
                             </div>
                             <br>

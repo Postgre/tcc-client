@@ -1,1 +1,0 @@
-window.SpDate = require('./SpDate');
