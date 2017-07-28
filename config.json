@@ -2,6 +2,9 @@
   "serverURL": "http://api.tcc.vectorwebdevelopment.com",
   "callback_save_quote": "http://tcc.vectorwebdevelopment.com/event-book.html",
   "activity_map": {
+    "home": {
+      "path": "index.html"
+    },
     "find_market": {
       "path": "market-search.html"
     },
@@ -10,9 +13,6 @@
     },
     "contact": {
       "path": "contact.html"
-    },
-    "home": {
-      "path": "index.html"
     },
     "auth": {
       "path": "login-register.html"

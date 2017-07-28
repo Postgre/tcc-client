@@ -24,7 +24,7 @@ module.exports = class DataService {
      * QUOTES
      * =============================
      */
-    postQuote( address, start_time, end_time, caroler_count ){
+    postQuote( address, start_time, end_time, caroler_config ){
         return this.connection({
             url: "quotes",
             method: "POST",
@@ -32,7 +32,7 @@ module.exports = class DataService {
                 address: address,
                 start_time: start_time,
                 end_time: end_time,
-                caroler_count: caroler_count
+                caroler_config: caroler_config
             })
         });
     }
