@@ -143,6 +143,12 @@ module.exports = class DataService {
             })
         })
     }
+    getSpecialDates(market_id){
+        return this.connection({
+            url: "markets/"+market_id+"/special-dates",
+            method: "GET"
+        })
+    }
     
     /**
      * EVENTS

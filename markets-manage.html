@@ -131,7 +131,7 @@
 							<label> Search: </label>
 							<input ng-model="search" type="text" class="form-control" placeholder="Search by: location, name, description, or type!">
 						</div>
-						<div id="posts" class="events small-thumbs">
+						<div ng-if="ready" id="posts" class="events small-thumbs">
 
 							<div ng-repeat="market in markets | filter : search" class="entry clearfix">
 								<div class="entry-image">
@@ -181,7 +181,7 @@
 					</div>
 
 					<div class="sidebar nobottommargin col_last clearfix">
-						<div class="sidebar-widgets-wrap">
+						<div ng-if="ready" class="sidebar-widgets-wrap">
 							<div class="widget clearfix">
 								<button data-target="#newMarketModal" data-toggle="modal" class="btn btn-success btn-block"> <i class="icon-line-plus"></i> Create a New Market </button>
 							</div>

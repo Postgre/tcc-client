@@ -1262,9 +1262,9 @@
      * Form Element Plugins
      * =============================
      */
-    var today = new Date();
-    var date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
-    var nowHour = today.getHours();
+    let today = new Date();
+    let date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
+    let nowHour = today.getHours();
     const daterange = $(".daterange").daterangepicker({
         "opens": "center",
         timePicker: true,
@@ -1308,16 +1308,16 @@
         $(quotemodal).modal("show");
     }
 
-    var quote_id = null;
-    var market_id = null;
+    let quote_id = null;
+    let market_id = null;
     function handleQuoteForm() {
-        var start = daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm");
-        var end = daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm");
-        var city = document.forms.quoteForm.city.value;
-        var state = document.forms.quoteForm.state.value;
-        var address = document.forms.quoteForm.address.value;
-        var caroler_config = document.forms.quoteForm.caroler_config.value;
-        var formatted_address = address + ", " + city + ", " + state;
+        let start = daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm");
+        let end = daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm");
+        let city = document.forms.quoteForm.city.value;
+        let state = document.forms.quoteForm.state.value;
+        let address = document.forms.quoteForm.address.value;
+        let caroler_config = document.forms.quoteForm.caroler_config.value;
+        let formatted_address = address + ", " + city + ", " + state;
 
         let quote = window.modelFactory.make("Quote", {
             "caroler_config": caroler_config,
@@ -1325,7 +1325,7 @@
             "start_time": start,
             "end_time": end
         });
-        var p = quote.submit();
+        let p = quote.submit();
         p.catch((err) => {
             console.error(err.response.data);
             if(err.response.data.status === "BAD_ADDRESS"){
@@ -1334,8 +1334,8 @@
         });
         p.then((res) => {
             console.log(res);
-            var quote = res.data.quote;
-            var market = res.data.market;
+            let quote = res.data.quote;
+            let market = res.data.market;
             quote_id = quote.id;
             market_id = market.id;
             renderQuote({

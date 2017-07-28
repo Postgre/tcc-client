@@ -42,7 +42,11 @@ module.exports = class Market extends BaseModel {
         this.mediaLinks.splice(ind,1);
     }
     loadSpecialDates(){
-        
+        let p = this.dataService.getSpecialDates(this.id);
+        p.then((res)=>{
+            alert("check console");
+            console.log(res);
+        });
     }
     save() {
         let dates = [];
