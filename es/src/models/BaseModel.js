@@ -1,20 +1,24 @@
 module.exports = class BaseModel {
     constructor(DataService, AuthService, data){
-        this.fillable = [];
+        this.required = [];
+        this.optional = [];
         this.dataService = DataService;
         this.authService = AuthService;
         Object.assign(this, data);
     }
     bootstrap(){
-        this.fillable.forEach((prop)=>{
+        this.required.forEach((prop)=>{
             if(typeof this[prop] === 'undefined') this[prop] = BaseModel.getDefault();
         });
     }
-    getFillables(){
+    getData(){
         this.bootstrap();
         let data = {};
-        this.fillable.forEach((prop)=>{
+        this.required.forEach((prop)=>{
             data[prop] = this[prop];
+        });
+        this.optional.forEach((prop)=>{
+            if(this[prop]) data[prop] = this[prop];
         });
         return data;
     }

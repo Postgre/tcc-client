@@ -4,7 +4,7 @@ module.exports = class SpDate extends BaseModel {
 
     constructor(DataService, AuthService, data){
         super(DataService, AuthService, data);
-        this.fillable = [
+        this.required = [
             "caroler_config",
             "address",
             "start_time",

@@ -120,10 +120,11 @@ function MarketEditController( $scope ) {
             console.log("res", res);
             let _market = res.data.market;
             let model = window.modelFactory.make("Market", _market);
-            model.loadSpecialDates();
-            $scope.$apply(function () {
-                $scope.market = model;
-                window.market = $scope.market;
+            model.loadSpecialDates().then((res)=>{
+                $scope.$apply(function () {
+                    $scope.market = model;
+                    window.market = $scope.market;
+                });
             });
         });
     })();

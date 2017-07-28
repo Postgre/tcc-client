@@ -18,6 +18,8 @@ function tccDateRange() {
             format: 'mm/dd/yyyy',
             autoclose: true
         });
+        $(element.find('input')[0]).datepicker('setDate', scope.from);
+        $(element.find('input')[1]).datepicker('setDate', scope.to);
         $(elem).datepicker().on("changeDate", function(){
             var inputs = element.find('input');
             var start = moment($(inputs[0]).datepicker("getDate"));

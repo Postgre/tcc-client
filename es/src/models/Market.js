@@ -1,10 +1,11 @@
 const BaseModel = require('./BaseModel');
+const SpDate = require('./SpDate');
 
 module.exports = class Market extends BaseModel {
     constructor(DataService, AuthService, data){
         super(DataService, AuthService, data);
 
-        this.fillable = [
+        this.required = [
             'id',
             'published',
             'rate_caroler_base',
@@ -44,18 +45,22 @@ module.exports = class Market extends BaseModel {
     loadSpecialDates(){
         let p = this.dataService.getSpecialDates(this.id);
         p.then((res)=>{
-            alert("check console");
-            console.log(res);
+            let _dates = res.data;
+            _dates.forEach((_date)=>{
+                this.addSpecialDate(new SpDate(this.dataService, this.authService, _date));
+                console.log(this.specialDates);
+            });
         });
+        return p;
     }
     save() {
         let dates = [];
         this.specialDates.forEach((date)=>{
-            dates.push(date.getFillables());
+            dates.push(date.getData());
         });
-        console.info("saving", this.getFillables(), dates);
+        console.info("saving", this.getData(), dates);
         return [
-            this.dataService.putMarket(this.id, this.getFillables()),
+            this.dataService.putMarket(this.id, this.getData()),
             this.dataService.putSpecialDates(this.id, dates)
         ];
     }
