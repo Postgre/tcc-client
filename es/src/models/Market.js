@@ -29,8 +29,8 @@ module.exports = class Market extends BaseModel {
     addSpecialDate(SpecialDate){
         this.specialDates.push(SpecialDate);
     }
-    removeSpecialDate(SpeicalDate){
-        let ind = this.specialDates.indexOf(SpeicalDate);
+    deleteSpecialDate(SpecialDate){
+        let ind = this.specialDates.indexOf(SpecialDate);
         if(ind === -1) return;
         this.specialDates.splice(ind,1);
     }

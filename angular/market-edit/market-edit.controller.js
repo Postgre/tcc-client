@@ -22,7 +22,7 @@ function MarketEditController( $scope ) {
      * Functions
      * ===============
      */
-    $scope.deleteSpecialDate = $scope.market.deleteSpecialDate;
+    $scope.deleteSpecialDate = deleteSpecialDate;
     $scope.createSpecialDate = createSpecialDate;
     $scope.publishMarket = publishMarket;
     $scope.unpublishMarket = unpublishMarket;
@@ -33,6 +33,9 @@ function MarketEditController( $scope ) {
 
     function createSpecialDate(){
         $scope.market.addSpecialDate(window.modelFactory.make("SpDate"));
+    }
+    function deleteSpecialDate(specialDate){
+        $scope.market.deleteSpecialDate(specialDate);
     }
     function publishMarket() {
         swal({
