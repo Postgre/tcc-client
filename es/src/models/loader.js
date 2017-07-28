@@ -1,0 +1,1 @@
+window.Market = require('./Market');

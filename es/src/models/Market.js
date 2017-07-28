@@ -4,20 +4,23 @@ module.exports = class Market extends BaseModel {
     constructor(DataService, AuthService, data){
         super(DataService, AuthService, data);
 
-        this.id = null;
-        this.published = null;
-        this.rate_caroler_base = null;
-        this.rate_caroler_discount = null;
-        this.rate_travel_distance = null;
-        this.rate_travel_duration = null;
-        this.name = null;
-        this.city = null;
-        this.phone = null;
-        this.email = null;
-        this.image = null;
-        this.html = null;
-        this.address = null;
-        this.state = null;
+        this.fillable = [
+            'id',
+            'published',
+            'rate_caroler_base',
+            'rate_caroler_discount',
+            'rate_travel_distance',
+            'rate_travel_duration',
+            'name',
+            'city',
+            'phone',
+            'email',
+            'image',
+            'html',
+            'address',
+            'state'
+        ];
+        this.bootstrap();
 
         this.specialDates =     [];
         this.mediaLinks =       [];
@@ -37,5 +40,10 @@ module.exports = class Market extends BaseModel {
         let ind = this.mediaLinks.indexOf(url);
         if(ind === -1) return;
         this.mediaLinks.splice(ind,1);
+    }
+
+    save(){
+        console.info("saving", this, this.getFillables());
+        return this.dataService.putMarket(this.id, this.getFillables());
     }
 };

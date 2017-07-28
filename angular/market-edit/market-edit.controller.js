@@ -2,7 +2,9 @@ angular.module('market-edit')
 .controller('MarketEditController', MarketEditController);
 
 function MarketEditController( $scope ) {
-    $scope.market = DEFAULT_MODEL.market;
+    $scope.ready = false;
+
+    $scope.market = {};
     $scope.gallery = [{
         image: "https://www.nycgo.com/images/uploads/homepage/Empire-State-Building-Observatory-Tom-Perry-2618.jpg"
     }];
@@ -20,7 +22,7 @@ function MarketEditController( $scope ) {
      * Functions
      * ===============
      */
-    $scope.deleteSpecialDate = deleteSpecialDate;
+    $scope.deleteSpecialDate = $scope.market.deleteSpecialDate;
     $scope.createSpecialDate = createSpecialDate;
     $scope.publishMarket = publishMarket;
     $scope.unpublishMarket = unpublishMarket;
@@ -29,13 +31,8 @@ function MarketEditController( $scope ) {
     $scope.updateMarket = updateMarket;
     $scope.getPrice = getPrice;
 
-    function deleteSpecialDate( date ){
-        var ind = $scope.specialDates.indexOf( date );
-        $scope.specialDates.splice( ind, 1 );
-    }
     function createSpecialDate(){
-        var date = new SpDate();
-        $scope.specialDates.push(date);
+        $scope.market.addSpecialDate(new SpDate());
     }
     function publishMarket() {
         swal({
@@ -73,7 +70,7 @@ function MarketEditController( $scope ) {
             $scope.$apply(function(){
                 $scope.market.published = 0;
             });
-            var p = $scope.updateMarket(true);
+            var p = $scope.market.save();
             p.then((res)=>{
                 swal("Done.",
                     $scope.market.name + " is no longer discoverable",
@@ -92,23 +89,7 @@ function MarketEditController( $scope ) {
         });
     }
     function updateMarket(promise = false) {
-        var mkt = $scope.market;
-        var postData = {
-            name: mkt.name,
-            bio: mkt.bio,
-            image: mkt.image,
-            state: mkt.state,
-            city: mkt.city,
-            address: mkt.address,
-            email: mkt.email,
-            phone: mkt.phone,
-            published: mkt.published,
-            rate_caroler_base: mkt.rate_caroler_base,
-            rate_caroler_discount: mkt.rate_caroler_discount
-        };
-        console.log("Special Dates: ", $scope.specialDates);
-        console.log(postData);
-        var p = window.dataService.putMarket( $scope.market.id, postData );
+        let p = $scope.market.save();
         p.catch(function(err){
             console.error("err", err);
         });
@@ -129,58 +110,20 @@ function MarketEditController( $scope ) {
     }
 
     (function init(){
-        var nav_params = navService.getNavParams();
+        let nav_params = navService.getNavParams();
         console.log("nav params:", nav_params);
-        if (typeof nav_params === "undefined") {
+        if (typeof nav_params.market_id === "undefined") {
             alert("no market selected!");
         }
-        var p = window.dataService.getMarket(nav_params.market_id);
-        p.then(function (res) {
+        let p = window.dataService.getMarket(nav_params.market_id);
+        p.then((res)=>{
             console.log("res", res);
+            let _market = res.data.market;
+            let model = window.modelFactory.make("Market", _market);
             $scope.$apply(function () {
-                var mkt = res.data.market;
-                $scope.market = res.data.market;
+                $scope.market = model;
                 window.market = $scope.market;
             });
         });
     })();
 }
-
-const DEFAULT_MODEL = {
-    market: {
-        name: "The Birmingham Carolers",
-        description: "Birmingham's best holiday entertainment",
-        html: 'Beautiful Birmingham is known for its impressive skyline. That skyline lights up even brighter at Christmas, when holiday lights adorn every corner. From the Zoolight Safari at Birmingham Zoo to the city tree lighting ceremony, there’s a lot to love.',
-        city: "Birmingham",
-        state: "AL",
-        zip: 35205,
-        address: "1617 13th Avenue South",
-        email: "chris.rocco7@gmail.com",
-        phone: 2056396666,
-        published: false,
-        video: "https://www.youtube.com/watch?v=DA2QpqgIq6g",
-        image: "http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg",
-        baseRate: 99.99,
-        hourlyRates: {
-            "1": 100,
-            "2": 100,
-            "3": 100,
-            "4": 100,
-            "5": 100
-        },
-        discounts: {
-            "10-20":    .10,
-            "21-30":    .14,
-            "31-40":    .17,
-            "41+":      .20
-        },
-        carolerConfigurations: {
-            sab:        true,
-            stb:        false,
-            satb:       true,
-            ssattb:     false,
-            ssattbb:    false
-        },
-        squareCash: "$JohnDoe"
-    }
-};

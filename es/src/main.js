@@ -12,6 +12,8 @@ const ModelFactory = require('./models/ModelFactory');
 
 /* Loading Data Classes */
 require('./data_classes/loader');
+/* Loading Model Classes */
+require('./models/loader');
 
 /* Initalizing Libraries */
 window.appService = new ApplicationService();
