@@ -4,10 +4,6 @@ angular.module('market-edit')
 function MarketEditController( $scope ) {
 
     $scope.market = {};
-    $scope.gallery = [{
-        image: "https://www.nycgo.com/images/uploads/homepage/Empire-State-Building-Observatory-Tom-Perry-2618.jpg"
-    }];
-    $scope.specialDates = [];
     $scope.availOpts = SpDate.availabilityOptions();
 
     $scope.editing_special_dates = false;
@@ -80,14 +76,12 @@ function MarketEditController( $scope ) {
             });
         });
     }
-    function deleteGalleryImage(img){
-        // use ajax request for deletes
-        var ind = $scope.gallery.indexOf(img);
-        $scope.gallery.splice(ind,1);
+    function deleteGalleryImage(media){
+        $scope.market.removeMediaLink(media);
     }
     function addGalleryImage(){
-        $scope.gallery.push({
-            image: "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
+        $scope.market.addMediaLink({
+            url: "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
         });
     }
     function updateMarket(promise = false) {
@@ -122,6 +116,7 @@ function MarketEditController( $scope ) {
             console.log("res", res);
             let _market = res.data.market;
             let model = window.modelFactory.make("Market", _market);
+            model.loadMediaLinks();
             model.loadSpecialDates().then((res)=>{
                 $scope.$apply(function () {
                     $scope.market = model;

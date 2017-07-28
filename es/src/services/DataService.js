@@ -149,6 +149,36 @@ module.exports = class DataService {
             method: "GET"
         })
     }
+    putMedia(market_id, links){
+        return this.connection({
+            url: "markets/"+market_id+"/gallery",
+            method: "PUT",
+            data: qs.stringify({
+                gallery: links
+            })
+        })
+    }
+    getMedia(market_id){
+        return this.connection({
+            url: "markets/"+market_id+"/gallery",
+            method: "GET"
+        })
+    }
+    putCarolerConfigs(market_id, carolerConfigs){
+        return this.connection({
+            url: "markets/"+market_id+"/caroler-configs",
+            method: "PUT",
+            data: qs.stringify({
+                caroler_configs: carolerConfigs
+            })
+        })
+    }
+    getCarolerConfigs(market_id){
+        return this.connection({
+            url: "markets/"+market_id+"/caroler-configs",
+            method: "GET"
+        })
+    }
     
     /**
      * EVENTS

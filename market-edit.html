@@ -209,7 +209,7 @@
                                 </div>
                                 <div class="col_half col_last">
                                     <label>Market Bio:</label>
-                                    <textarea ng-model="market.bio" class="sm-form-control" rows="6" cols="30"></textarea>
+                                    <textarea ng-model="market.html" class="sm-form-control" rows="6" cols="30"></textarea>
                                 </div>
 
                                 <div class="clear"></div>
@@ -223,18 +223,18 @@
                                     <label>Gallery Images</label>
                                     <table class="table">
                                         <tbody>
-                                        <tr ng-repeat="img in gallery">
+                                        <tr ng-repeat="media in market.mediaLinks">
                                             <td>
-                                                <img style="max-height: 100px;max-width: 100px" ng-src="{{img.image}}">
+                                                <img style="max-height: 100px;max-width: 100px" ng-src="{{media.url}}">
                                             </td>
-                                            <td ng-bind="img.image" ng-if="!editing_gallery">
+                                            <td ng-bind="media.url" ng-if="!editing_gallery">
                                                 <!-- Image URL -->
                                             </td>
                                             <td ng-if="editing_gallery">
-                                                <input ng-model="img.image" type="text" class="sm-form-control">
+                                                <input ng-model="media.url" type="text" class="sm-form-control">
                                             </td>
                                             <td ng-if="editing_gallery">
-                                                <button ng-click="deleteGalleryImage(img)" class="btn btn-danger">x
+                                                <button ng-click="deleteGalleryImage(media)" class="btn btn-danger">x
                                                 </button>
                                             </td>
                                         </tr>
@@ -253,25 +253,24 @@
                             <h2>Caroler Configurations</h2>
                             <p>Select below the caroler group configurations your group offers</p>
                             <div>
-                                <input id="sab" class="checkbox-style" name="sab" type="checkbox">
+                                <input ng-model="trio_sab" id="sab" class="checkbox-style" type="checkbox">
                                 <label for="sab" class="checkbox-style-3-label">Trio ( S, A, B )</label>
                             </div>
                             <div>
-                                <input id="stb" class="checkbox-style" name="stb" type="checkbox">
+                                <input ng-model="trio_stb" id="stb" class="checkbox-style" type="checkbox">
                                 <label for="stb" class="checkbox-style-3-label">Trio ( S, T, B )</label>
                             </div>
                             <div>
-                                <input id="satb" class="checkbox-style" name="satb" type="checkbox" checked disabled>
+                                <input ng-model="quartet" id="satb" class="checkbox-style" type="checkbox" checked disabled>
                                 <label for="satb" class="checkbox-style-3-label">Quartets ( S, A, T, B )</label>
                             </div>
                             <div>
-                                <input id="ssattb" class="checkbox-style" name="ssattb" type="checkbox">
+                                <input ng-model="sixtet" id="ssattb" class="checkbox-style" type="checkbox">
                                 <label for="ssattb" class="checkbox-style-3-label">Sixtets ( S, S, A, T, T, B )</label>
                             </div>
                             <div>
-                                <input id="ssaattbb" class="checkbox-style" name="ssaattbb" type="checkbox">
-                                <label for="ssaattbb" class="checkbox-style-3-label">Octets ( S, S, A, A, T, T, B, B
-                                    )</label>
+                                <input ng-model="octet" id="ssaattbb" class="checkbox-style" type="checkbox">
+                                <label for="ssaattbb" class="checkbox-style-3-label">Octets ( S, S, A, A, T, T, B, B )</label>
                             </div>
                         </div>
                         <div id="tab-pricing" class="tab-content clearfix">

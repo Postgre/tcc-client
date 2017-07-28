@@ -25,6 +25,7 @@ module.exports = class Market extends BaseModel {
 
         this.specialDates   =   [];
         this.mediaLinks     =   [];
+        this.carolerConfigs =   [];
     }
     addSpecialDate(SpecialDate){
         this.specialDates.push(SpecialDate);
@@ -34,13 +35,27 @@ module.exports = class Market extends BaseModel {
         if(ind === -1) return;
         this.specialDates.splice(ind,1);
     }
-    addMediaLink(url){
-        this.mediaLinks.push(url);
+    addMediaLink(media){
+        this.mediaLinks.push(media);
     }
     removeMediaLink(url){
         let ind = this.mediaLinks.indexOf(url);
         if(ind === -1) return;
         this.mediaLinks.splice(ind,1);
+    }
+    loadMediaLinks(){
+        let p = this.dataService.getMedia(this.id);
+        p.then((res)=>{
+            let _links = res.data;
+            _links.forEach((_link)=>{
+                this.addMediaLink({
+                    id: _link.id,
+                    url: _link.url
+                })
+                console.log("link", _link);
+            })
+        });
+        return p;
     }
     loadSpecialDates(){
         let p = this.dataService.getSpecialDates(this.id);
@@ -61,7 +76,8 @@ module.exports = class Market extends BaseModel {
         console.info("saving", this.getData(), dates);
         return [
             this.dataService.putMarket(this.id, this.getData()),
-            this.dataService.putSpecialDates(this.id, dates)
+            this.dataService.putSpecialDates(this.id, dates),
+            this.dataService.putMedia(this.id, this.mediaLinks)
         ];
     }
 
