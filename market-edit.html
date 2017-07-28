@@ -317,16 +317,18 @@
                                     <label>Delete</label>
                                     <button ng-click="deleteSpecialDate(date)" class="btn btn-danger">x</button>
                                 </div>
-                                <div ng-class="editClassMap">
+                                <div ng-class="getEditClass()">
                                     <label>Date Range</label>
                                     <tcc-date-range to="date.to" from="date.from"></tcc-date-range>
                                 </div>
                                 <div class="col-sm-3">
                                     <label>Available?</label>
-                                    <select ng-model="date.available" name="template-contactform-service" class="sm-form-control">
-                                        <option value="">-- Select One --</option>
-                                        <option value="true">No</option>
-                                        <option value="false">Yes</option>
+                                    <select ng-init="date.available = true"
+                                            ng-model="date.available"
+                                            ng-options="option.val as option.label for option in availOpts"
+                                            class="sm-form-control">
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
                                     </select>
                                 </div>
                                 <div ng-hide="date.available === false" class="col-sm-3">
@@ -336,10 +338,12 @@
                             </div>
                             <br>
                             <button ng-click="createSpecialDate()" class="btn btn-primary"> + Add Date</button>
-                            <button ng-hide="editing_special_dates" ng-click="editSpecialDates()" class="btn btn-danger">
+                            <button ng-hide="editing_special_dates"
+                                    ng-click="editing_special_dates = true" class="btn btn-danger">
                                 Edit
                             </button>
-                            <button ng-show="editing_special_dates" ng-click="stopEditingSpecialDates()" class="btn btn-success"> Stop Editing
+                            <button ng-show="editing_special_dates"
+                                    ng-click="editing_special_dates = false" class="btn btn-success"> Stop Editing
                             </button>
                         </div>
                     </div>

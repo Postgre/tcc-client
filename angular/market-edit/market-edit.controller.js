@@ -7,19 +7,21 @@ function MarketEditController( $scope ) {
         image: "https://www.nycgo.com/images/uploads/homepage/Empire-State-Building-Observatory-Tom-Perry-2618.jpg"
     }];
     $scope.specialDates = [];
+    $scope.availOpts = SpDate.availabilityOptions();
 
     $scope.editing_special_dates = false;
     $scope.editing_gallery = false;
-    $scope.editClassMap = "col-sm-6";
+    $scope.getEditClass = function() {
+        if($scope.editing_special_dates) return "col-sm-5";
+        return "col-sm-6";
+    };
 
     /**
      * Functions
      * ===============
      */
     $scope.deleteSpecialDate = deleteSpecialDate;
-    $scope.editSpecialDates = editSpecialDates;
     $scope.createSpecialDate = createSpecialDate;
-    $scope.stopEditingSpecialDates = stopEditingSpecialDates;
     $scope.publishMarket = publishMarket;
     $scope.unpublishMarket = unpublishMarket;
     $scope.deleteGalleryImage = deleteGalleryImage;
@@ -34,14 +36,6 @@ function MarketEditController( $scope ) {
     function createSpecialDate(){
         var date = new SpDate();
         $scope.specialDates.push(date);
-    }
-    function editSpecialDates(){
-        $scope.editClassMap = "col-sm-5";
-        $scope.editing_special_dates = true;
-    }
-    function stopEditingSpecialDates() {
-        $scope.editClassMap = "col-sm-6";
-        $scope.editing_special_dates = false;
     }
     function publishMarket() {
         swal({
