@@ -6,7 +6,7 @@ function MarketEditController( $scope ) {
     $scope.gallery = [{
         image: "https://www.nycgo.com/images/uploads/homepage/Empire-State-Building-Observatory-Tom-Perry-2618.jpg"
     }];
-    $scope.specialDates = [ {} ];
+    $scope.specialDates = [];
 
     $scope.editing_special_dates = false;
     $scope.editing_gallery = false;
@@ -32,7 +32,8 @@ function MarketEditController( $scope ) {
         $scope.specialDates.splice( ind, 1 );
     }
     function createSpecialDate(){
-        $scope.specialDates.push({});
+        var date = new SpDate();
+        $scope.specialDates.push(date);
     }
     function editSpecialDates(){
         $scope.editClassMap = "col-sm-5";
@@ -105,6 +106,7 @@ function MarketEditController( $scope ) {
             rate_caroler_base: mkt.rate_caroler_base,
             rate_caroler_discount: mkt.rate_caroler_discount
         };
+        console.log("Special Dates: ", $scope.specialDates);
         console.log(postData);
         var p = window.dataService.putMarket( $scope.market.id, postData );
         p.then(function(res){

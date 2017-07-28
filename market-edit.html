@@ -22,7 +22,7 @@
     <!-- Date & Time Picker CSS -->
     <link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/timepicker.css" type="text/css">
-    <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.min.css" type="text/css">
     <!-- Bootstrap File Upload CSS -->
     <link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css">
     <!-- Bootstrap Select -->
@@ -323,15 +323,15 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <label>Available?</label>
-                                    <select ng-model="date.isAvailable" name="template-contactform-service" class="sm-form-control">
+                                    <select ng-model="date.available" name="template-contactform-service" class="sm-form-control">
                                         <option value="">-- Select One --</option>
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="true">No</option>
+                                        <option value="false">Yes</option>
                                     </select>
                                 </div>
-                                <div ng-hide="date.isAvailable === &apos;no&apos;" class="col-sm-3">
+                                <div ng-hide="date.available === false" class="col-sm-3">
                                     <label>Price Scale:</label>
-                                    <input ng-model="date.priceScale" type="number" class="sm-form-control" placeholder="0.5 = half price">
+                                    <input ng-model="date.scale" type="number" class="sm-form-control" placeholder="0.5 = half price">
                                 </div>
                             </div>
                             <br>
@@ -492,7 +492,7 @@
 <script type="text/javascript" src="js/components/bs-filestyle.js"></script>
 <!-- Date & Time Picker JS -->
 <script type="text/javascript" src="js/components/moment.js"></script>
-<script type="text/javascript" src="demos/travel/js/datepicker.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="js/components/timepicker.js"></script>
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="js/components/daterangepicker.js"></script>
@@ -502,7 +502,4 @@
 <!-- Footer Scripts
 ============================================= -->
 <script type="text/javascript" src="js/functions.js"></script>
-
-
-
 </body></html>
