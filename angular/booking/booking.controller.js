@@ -195,8 +195,8 @@ function BookingController($scope) {
             alert("please select event type");
             return;
         }
-        if( !$scope.event.caroler_count ||
-            $scope.event.caroler_count == ""){
+        if( !$scope.event.caroler_config ||
+            $scope.event.caroler_config === ""){
             alert("please select a caroler configuration");
             return;
         }
