@@ -8,15 +8,17 @@ const DataService = require('./services/DataService.js');
 const ApplicationService = require('./services/ApplicationService');
 const NavService = require('./services/NavService');
 const Bindings = require('./Bindings');
+const ModelFactory = require('./models/ModelFactory');
 
-/* Loading Models */
-window.SpDate = require('./models/SpDate');
+/* Loading Data Classes */
+require('./data_classes/loader');
 
 /* Initalizing Libraries */
 window.appService = new ApplicationService();
 window.navService = new NavService(config);
 window.authService = new AuthService(config, navService);
 window.dataService = new DataService(config, authService);
+window.modelFactory = new ModelFactory(window.dataService, window.authService);
 new Bindings( authService, appService ).apply();
 
 /* Global Functions */
