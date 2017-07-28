@@ -36,7 +36,7 @@ module.exports = class DataService {
             })
         });
     }
-    postQuotePreview( address, start_time, end_time, caroler_count, market_id ){
+    postQuotePreview( address, start_time, end_time, caroler_config, market_id ){
         return this.connection({
             url: "quotes/preview",
             method: "POST",
@@ -44,7 +44,7 @@ module.exports = class DataService {
                 address: address,
                 start_time: start_time,
                 end_time: end_time,
-                caroler_count: caroler_count,
+                caroler_config: caroler_config,
                 market_id: market_id
             })
         });

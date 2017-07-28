@@ -114,8 +114,8 @@ function BookingController($scope) {
         $scope.event.state = quote.state;
         $scope.event.city = quote.city;
         $scope.event.address = quote.address;
-        $scope.event.caroler_count = quote.caroler_count;
-        $("#cc").selectpicker('val', quote.caroler_count);
+        $scope.event.caroler_config = quote.caroler_config;
+        $("#cc").selectpicker('val', quote.caroler_config);
         $scope.event.start_time = quote.start_time;
         $scope.event.end_time = quote.end_time;
         $(selector_daterange).data('daterangepicker').setStartDate(new Date(quote.start_time));
@@ -230,7 +230,7 @@ function BookingController($scope) {
             $scope.event.address+', '+$scope.event.city+', '+$scope.event.state,
             $scope.event.start_time,
             $scope.event.end_time,
-            $scope.event.caroler_count,
+            $scope.event.caroler_config,
             $scope.market.id
         );
         p.then(function(res){
@@ -262,7 +262,7 @@ function BookingController($scope) {
             state: $scope.event.state,
             city: $scope.event.city,
             address: $scope.event.address,
-            caroler_count: $scope.event.caroler_count,
+            caroler_config: $scope.event.caroler_config,
         };
         console.log( "event data", eventData );
 
