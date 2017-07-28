@@ -200,7 +200,7 @@
 
                                             <div class="col_full">
                                                 <label>Caroler Configuration</label>
-                                                <select ng-model="event.caroler_count" ng-options="c.count as c.name for c in carolerConfigurations track by c.name" id="cc" class="selectpicker form-control">
+                                                <select ng-model="event.caroler_config" ng-options="c.val as c.name for c in carolerConfigurations track by c.name" id="cc" class="selectpicker form-control">
                                                     <option value="">-- Select a Configuration --</option>
                                                 </select>
                                             </div>

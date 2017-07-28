@@ -13,19 +13,23 @@ function BookingController($scope) {
     $scope.carolerConfigurations = [
         {
             name: "Trio ( S, A, B )",
-            count: 3
+            val: "trio_sab"
         },
         {
             name: "Trio ( S, T, B )",
-            count: 3
+            val: "trio_stb"
         },
         {
             name: "Quartets ( S, A, T, B )",
-            count: 4
+            val: "quartet"
         },
         {
             name: "Sixtets ( S, S, A, T, T, B )",
-            count: 6
+            val: "sixtet"
+        },
+        {
+            name: "Octets ( S, S, A, A, T, T, B, B )",
+            val: "octet"
         }
     ];
     $scope.eventTypes = [
