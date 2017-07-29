@@ -282,4 +282,18 @@ module.exports = class DataService {
             })
         })
     }
+
+    /**
+     * ADMINS
+     * =========================
+     */
+    searchUsers(query){
+        return this.connection({
+            url: "users",
+            method: "GET",
+            data: qs.stringify({
+                search: query
+            })
+        })
+    }
 };
