@@ -125,7 +125,6 @@
 
     </section><!-- #page-title end -->
 
-
     <section id="content">
 
         <div class="content-wrap">
@@ -137,14 +136,14 @@
                             <table id="requests-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>From</th>
+                                        <th>Name</th>
                                         <th>Email</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="request in requests">
-                                    <td ng-bind="request.from"></td>
+                                <tr ng-repeat="request in carolerRequests">
+                                    <td ng-bind="request.name"></td>
                                     <td ng-bind="request.email"></td>
                                     <td>
                                         <button class="btn btn-success">

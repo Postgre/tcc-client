@@ -19,8 +19,7 @@ function MarketsManageController( $scope ) {
     $scope.deleteMarket = deleteMarket;
     $scope.gotoEdit = gotoEdit;
     $scope.gotoPage = gotoPage;
-    $scope.inviteCaroler = inviteCaroler;
-    $scope.inviteDirector = inviteDirector;
+    $scope.invites = invites;
     $scope.gotoUpcomingEvents = gotoUpcomingEvents;
     function createMarket(){
         var form = document.forms.newMarketForm;
@@ -78,28 +77,10 @@ function MarketsManageController( $scope ) {
             market: market
         })
     }
-    function inviteCaroler(){
-        promptForUserEmail(function(email){
-            if(typeof email === 'undefined') return;
-            // API call
-            alertSuccess(email, "caroler");
-        }, "Caroler's User Email");
-    }
-    function inviteDirector(market){
-        promptForUserEmail(function(email){
-            if(typeof email === 'undefined') return;
-            if( !confirm( email +" "+ market.id ) ) return;
-            // API call
-            var promise = window.dataService.postDelegationsDirector(market.id, email);
-            promise.then(function(res){
-                console.log("res", res);
-                alertSuccess(email, "director");
-            });
-            promise.catch(function(err){
-                console.log("err", err);
-                alertNoAccount();
-            });
-        }, "Director's User Email");
+    function invites(market){
+        window.navService.goto("invites", {
+            market: market
+        });
     }
     function gotoPage(market){
         window.navService.goto('market_page', {

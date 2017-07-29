@@ -5,39 +5,30 @@ function InviteController($scope){
     $scope.market = {
         name: "Sample Market"
     };
-    $scope.users = [
+    $scope.carolerRequests = [
         {
             name: "Chris Rocco",
             email: "chris.rocco7@gmail.com"
         },
         {
             name: "Caleb Falcione",
-            email: "cfalcione@gmail.com"
-        }
-    ];
-    $scope.requests = [
-        {
-            from: "Chris Rocco",
-            email: "chris.rocco7@gmail.com"
-        },
-        {
-            from: "Caleb Falcione",
             email: "caleb.falcionechris.rocco7@gmail.com"
         },{
-            from: "Kenyon Ross",
+            name: "Kenyon Ross",
             email: "kenyonross@gmail.com"
         },
         {
-            from: "John",
+            name: "John",
             email: "john@gmail.com"
         }
     ];
 
     (function init(){
+        $scope.market = window.navService.getNavParams().market;
         let p = window.dataService.searchUsers("");
         p.then((res)=>{
             $scope.$apply(function(){
-                $scope.users = res.data;
+                $scope.carolerRequests = res.data;
             });
             setTimeout(function(){
                 bootstrapTable();

@@ -32,6 +32,9 @@
     "profile": {
       "path": "profile.html"
     },
+    "invites": {
+      "path": "invite-users.html"
+    },
     "my_events": {
       "path": "events-personal.html"
     },

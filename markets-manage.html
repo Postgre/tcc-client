@@ -34,6 +34,13 @@
 	============================================= -->
 	<title>Markets</title>
 
+	<!-- Custom Styles -->
+	<style>
+		.entry-c {
+			overflow: visible;
+		}
+	</style>
+
 </head>
 
 <body class="stretched" ng-app="markets-manage" ng-controller="MarketsManageController">
@@ -166,8 +173,8 @@
 											<ul class="dropdown-menu pull-right" role="menu">
 												<li><a ng-click="deleteMarket(market)" href=""><i class="icon-trash"></i> Delete Market</a></li>
 												<li class="divider"></li>
-												<li><a ng-click="inviteCaroler(market)" href="#"><i class="icon-email"></i> Invite Carolers</a></li>
-												<li><a ng-click="inviteDirector(market)" href="#"><i class="icon-share"></i> Invite Director</a></li>
+												<li><a ng-click="invites(market)" href="#"><i class="icon-email"></i> Invite Carolers</a></li>
+												<li><a ng-click="invites(market)" href="#"><i class="icon-share"></i> Invite Director</a></li>
 												<li class="divider"></li>
 												<li><a ng-click="gotoUpcomingEvents(market)" href="#"><i class="icon-calendar"></i> Upcoming Events</a></li>
 											</ul>
@@ -378,33 +385,5 @@
 	============================================= -->
 	<script type="text/javascript" src="js/functions.js"></script>
 	<script src="es/dist/bundle.js"></script>
-
-	<script>
-		function promptForUserEmail( cb, title ){
-            swal({
-                    title: title,
-                    text: "They must have an existing account",
-                    type: "input",
-                    showCancelButton: true,
-                    closeOnConfirm: false,
-                    animation: "slide-from-top",
-                    inputPlaceholder: "daenarys@dragonstone.com"
-                },
-                function(inputValue){
-                    if (inputValue === false) return false;
-                    if (inputValue === "") {
-                        swal.showInputError("You need to write something!");
-                        return false
-                    }
-                    cb(inputValue);
-                });
-		}
-		function alertSuccess(email, whatAccess){
-            swal("Success!", email+" now has "+whatAccess+" access to this market", "success");
-		}
-		function alertNoAccount(){
-            swal("Who's That?", "No account with that email was found", "error");
-		}
-	</script>
 
 </body></html>
