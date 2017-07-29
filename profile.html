@@ -358,21 +358,19 @@
 
                     <div class="quick-contact-form-result"></div>
 
-                    <form id="quick-contact-form" onsubmit="return parseContactForm()" name="quick-contact-form" action="include/quickcontact.php" class="quick-contact-form nobottommargin">
-
-                        <div class="form-process"></div>
+                    <form onsubmit="sendContact(this); return false;" class="quick-contact-form nobottommargin">
 
                         <div class="input-group divcenter">
                             <span class="input-group-addon"><i class="icon-user"></i></span>
-                            <input type="text" class="required form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name">
+                            <input class="required form-control input-block-level" name="name" placeholder="Full Name">
                         </div>
                         <div class="input-group divcenter">
                             <span class="input-group-addon"><i class="icon-email2"></i></span>
-                            <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address">
+                            <input type="email" class="required form-control email input-block-level" name="email" value="" placeholder="Email Address">
                         </div>
-                        <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-                        <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="">
-                        <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email
+                        <textarea class="required form-control input-block-level short-textarea" name="message" rows="4" cols="30" placeholder="Message"></textarea>
+                        <input class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck">
+                        <button type="submit" class="btn btn-danger nomargin" value="submit">Send Email
                         </button>
 
                     </form>

@@ -18,8 +18,13 @@ window.calcMarketPrice = function( nthHour, rate, hourlyDiscount ){
     let price = window.calcMarketPrice( nthHour-1, rate, hourlyDiscount ) * (1-hourlyDiscount);
     return Math.round(price * 100) / 100;
 };
-window.sendContact = function(){
-    let form = document.getElementById("quick-contact-form");
+window.sendContact = function(form){
+    form.name = form.name || "";
+    form.phone = form.phone || "";
+    form.email = form.email || "";
+    form.subject = form.subject || "";
+    form.message = form.message || "";
+
     let name = form.name.value;
     let phone = form.phone.value;
     let email = form.email.value;
