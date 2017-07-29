@@ -19,13 +19,25 @@ module.exports = class Market extends BaseModel {
             'image',
             'html',
             'address',
-            'state'
+            'state',
+            'hour1',
+            'hour2',
+            'hour3',
+            'hour4',
+            'hour5',
         ];
+        this.defaults = {
+            "hour1": 100,
+            "hour2": 100,
+            "hour3": 100,
+            "hour4": 100,
+            "hour5": 100,
+        };
         this.bootstrap();
 
         this.specialDates   =   [];
         this.mediaLinks     =   [];
-        this.carolerConfigs =   [];
+        this.carolerConfigs =   {};
     }
     static carolerConfigOptions(){
         return [
@@ -75,7 +87,7 @@ module.exports = class Market extends BaseModel {
                 this.addMediaLink({
                     id: _link.id,
                     url: _link.url
-                })
+                });
                 console.log("link", _link);
             })
         });
@@ -91,6 +103,13 @@ module.exports = class Market extends BaseModel {
             });
         });
         return p;
+    }
+    loadCarolerConfigs(){
+        this.carolerConfigs.trio_sab = true;
+        this.carolerConfigs.trio_stb = true;
+        this.carolerConfigs.quartets = true;
+        this.carolerConfigs.sixtets = true;
+        this.carolerConfigs.octets = true;
     }
     save() {
         let dates = [];

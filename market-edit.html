@@ -253,57 +253,60 @@
                             <h2>Caroler Configurations</h2>
                             <p>Select below the caroler group configurations your group offers</p>
                             <div>
-                                <input ng-model="trio_sab" id="sab" class="checkbox-style" type="checkbox">
+                                <input ng-model="market.carolerConfigs.trio_sab" id="sab" class="checkbox-style" type="checkbox">
                                 <label for="sab" class="checkbox-style-3-label">Trio ( S, A, B )</label>
                             </div>
                             <div>
-                                <input ng-model="trio_stb" id="stb" class="checkbox-style" type="checkbox">
+                                <input ng-model="market.carolerConfigs.trio_stb" id="stb" class="checkbox-style" type="checkbox">
                                 <label for="stb" class="checkbox-style-3-label">Trio ( S, T, B )</label>
                             </div>
                             <div>
-                                <input ng-model="quartet" id="satb" class="checkbox-style" type="checkbox" checked disabled>
+                                <input ng-model="market.carolerConfigs.quartets" id="satb" class="checkbox-style" type="checkbox" checked disabled>
                                 <label for="satb" class="checkbox-style-3-label">Quartets ( S, A, T, B )</label>
                             </div>
                             <div>
-                                <input ng-model="sixtet" id="ssattb" class="checkbox-style" type="checkbox">
+                                <input ng-model="market.carolerConfigs.sixtets" id="ssattb" class="checkbox-style" type="checkbox">
                                 <label for="ssattb" class="checkbox-style-3-label">Sixtets ( S, S, A, T, T, B )</label>
                             </div>
                             <div>
-                                <input ng-model="octet" id="ssaattbb" class="checkbox-style" type="checkbox">
+                                <input ng-model="market.carolerConfigs.octets" id="ssaattbb" class="checkbox-style" type="checkbox">
                                 <label for="ssaattbb" class="checkbox-style-3-label">Octets ( S, S, A, A, T, T, B, B )</label>
                             </div>
                         </div>
                         <div id="tab-pricing" class="tab-content clearfix">
                             <h5>Please provide the following pricing for the season</h5>
-                            <div class="col_half">
-                                <label>Market Base Rate:</label>
-                                <input ng-model="market.rate_caroler_base" ui-money-mask="0" type="text" class="sm-form-control">
-                                <br>
-                                <label>Hourly Discount:</label>
-                                <input ng-model="market.rate_caroler_discount" ui-percentage-mask="0" type="text" class="sm-form-control">
-                            </div>
                             <div class="col_half col_last">
                                 <table class="table">
                                     <tbody>
                                     <tr>
                                         <td><label>First Hour: </label></td>
-                                        <td>$<label ng-bind="getPrice(1)"></label></td>
+                                        <td>
+                                            <input ng-model="market.hour1" ui-money-mask="0" type="text" class="sm-form-control">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label>Second Hour: </label></td>
-                                        <td>$<label ng-bind="getPrice(2)"></label></td>
+                                        <td>
+                                            <input ng-model="market.hour2" ui-money-mask="0" type="text" class="sm-form-control">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label>Third Hour: </label></td>
-                                        <td>$<label ng-bind="getPrice(3)"></label></td>
+                                        <td>
+                                            <input ng-model="market.hour3" ui-money-mask="0" type="text" class="sm-form-control">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label>Fourth Hour: </label></td>
-                                        <td>$<label ng-bind="getPrice(4)"></label></td>
+                                        <td>
+                                            <input ng-model="market.hour4" ui-money-mask="0" type="text" class="sm-form-control">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label>Fifth or Beyond Hours: </label></td>
-                                        <td>$<label ng-bind="getPrice(5)"></label></td>
+                                        <td>
+                                            <input ng-model="market.hour5" ui-money-mask="0" type="text" class="sm-form-control">
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

@@ -117,6 +117,7 @@ function MarketEditController( $scope ) {
             let _market = res.data.market;
             let model = window.modelFactory.make("Market", _market);
             model.loadMediaLinks();
+            model.loadCarolerConfigs();
             model.loadSpecialDates().then((res)=>{
                 $scope.$apply(function () {
                     $scope.market = model;
