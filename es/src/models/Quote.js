@@ -10,7 +10,6 @@ module.exports = class SpDate extends BaseModel {
             "start_time",
             "end_time"
         ];
-        this.bootstrap();
     }
 
     submit(){

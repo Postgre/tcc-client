@@ -115,10 +115,7 @@ function MarketEditController( $scope ) {
         p.then((res)=>{
             console.log("res", res);
             let _market = res.data.market;
-            let model = window.modelFactory.make("Market", _market);
-            model.loadMediaLinks();
-            model.loadCarolerConfigs();
-            model.loadSpecialDates().then((res)=>{
+            window.modelFactory.load("Market", _market).then((model)=>{
                 $scope.$apply(function () {
                     $scope.market = model;
                     window.market = $scope.market;

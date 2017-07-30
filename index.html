@@ -1314,7 +1314,7 @@
         let caroler_config = document.forms.quoteForm.caroler_config.value;
         let formatted_address = address + ", " + city + ", " + state;
 
-        let quote = window.modelFactory.make("Quote", {
+        let quote = window.modelFactory.create("Quote", {
             "caroler_config": caroler_config,
             "address": formatted_address,
             "start_time": start,
