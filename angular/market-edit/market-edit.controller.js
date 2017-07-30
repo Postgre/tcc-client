@@ -85,7 +85,7 @@ function MarketEditController( $scope ) {
         });
     }
     function updateMarket(promise = false) {
-        let p = $scope.market.save()[0];
+        let p = window.modelFactory.update($scope.market)[0];
         p.catch(function(err){
             console.error("err", err);
         });
@@ -104,6 +104,8 @@ function MarketEditController( $scope ) {
         var price = getPrice( nthHour-1 ) * (1-discnt);
         return Math.round(price * 100) / 100;
     }
+    function save(){
+    }
 
     (function init(){
         let nav_params = navService.getNavParams();
@@ -111,16 +113,23 @@ function MarketEditController( $scope ) {
         if (typeof nav_params.market_id === "undefined") {
             alert("no market selected!");
         }
-        let p = window.dataService.getMarket(nav_params.market_id);
-        p.then((res)=>{
-            console.log("res", res);
-            let _market = res.data.market;
-            window.modelFactory.load("Market", _market).then((model)=>{
-                $scope.$apply(function () {
-                    $scope.market = model;
-                    window.market = $scope.market;
-                });
-            });
-        });
+
+        let ready = () => {
+            $scope.$apply();
+            window.market = $scope.market;
+        };
+        $scope.market = window.modelFactory.find("Market", navService.getNavParams().market_id, ready, "market");
+
+        // let p = window.dataService.getMarket(nav_params.market_id);
+        // p.then((res)=>{
+        //     console.log("res", res);
+        //     let _market = res.data.market;
+        //     window.modelFactory.load("Market", _market).then((model)=>{
+        //         $scope.$apply(function () {
+        //             $scope.market = model;
+        //             window.market = $scope.market;
+        //         });
+        //     });
+        // });
     })();
 }

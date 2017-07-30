@@ -68,41 +68,6 @@ module.exports = class Market extends BaseModel {
         this.specialDates   =   [];
         this.mediaLinks     =   [];
         this.carolerConfigs =   {};
-
-        // this.registerLoader((instance, dataService)=>{
-        //     let p = dataService.getSpecialDates(instance.id);
-        //     p.then((res)=>{
-        //         let _dates = res.data;
-        //         _dates.forEach((_date)=>{
-        //             instance.addSpecialDate(new SpDate(dataService, AuthService, _date));
-        //         });
-        //     });
-        //     return p;
-        // }); // special dates
-        // this.registerLoader((instance, dataService)=>{
-        //     let p = dataService.getMedia(instance.id);
-        //     p.then((res)=>{
-        //         let _links = res.data;
-        //         _links.forEach((_link)=>{
-        //             instance.addMediaLink({
-        //                 id: _link.id,
-        //                 url: _link.url
-        //             });
-        //             console.log("link", _link);
-        //         })
-        //     });
-        //     return p;
-        // }); // media links
-        // this.registerLoader((instance, dataService)=>{
-        //     return new Promise((res, rej)=>{
-        //         instance.carolerConfigs.trio_sab = true;
-        //         instance.carolerConfigs.trio_stb = true;
-        //         instance.carolerConfigs.quartets = true;
-        //         instance.carolerConfigs.sixtets = true;
-        //         instance.carolerConfigs.octets = true;
-        //         res();
-        //     });
-        // }); // caroler configs
     }
 
     addSpecialDate(SpecialDate){
@@ -175,35 +140,4 @@ module.exports = class Market extends BaseModel {
             }
         ]
     }
-
-    // save() {
-    //     let dates = [];
-    //     this.specialDates.forEach((date)=>{
-    //         dates.push(date.getData());
-    //     });
-    //     console.info("saving", this.getData(), dates);
-    //     return [
-    //         this.dataService.putMarket(this.id, this.getData()),
-    //         this.dataService.putSpecialDates(this.id, dates),
-    //         this.dataService.putMedia(this.id, this.mediaLinks)
-    //     ];
-    // }
-    // static load(id){
-    //     // I. Just. Hope. that we catch all exceptions
-    //     // Oh nah nah, just be careful
-    //     // Oh nah nah, ORMs aint simple
-    //     // La la, Promise me no promises
-    //     let promise_market = window.dataService.getMarket(nav_params.market_id);
-    //     let market = new Market(window.dataService, window.authService);
-    //     promise_market.then((res)=>{
-    //         let _market = res.data.market;
-    //         let market =
-    //         window.modelFactory.load("Market", _market).then((model)=>{
-    //             $scope.$apply(function () {
-    //                 $scope.market = model;
-    //                 window.market = $scope.market;
-    //             });
-    //         });
-    //     });
-    // }
 };
