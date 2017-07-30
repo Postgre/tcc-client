@@ -8,10 +8,10 @@ const DataService = require('./services/DataService.js');
 const ApplicationService = require('./services/ApplicationService');
 const NavService = require('./services/NavService');
 const Bindings = require('./Bindings');
-const ModelFactory = require('./models/ModelFactory');
+const ModelFactory = require('./models/core/ModelFactory');
 
 /* Loading Model Classes */
-require('./models/loader');
+require('./models/core/loader');
 
 /* Initalizing Libraries */
 window.appService = new ApplicationService();

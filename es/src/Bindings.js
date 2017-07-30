@@ -6,8 +6,8 @@ module.exports = class Bindings {
     }
 
     apply(){
-        var self = this;
-        var loggedIn = this.authService.isLoggedIn();
+        let self = this;
+        let loggedIn = this.authService.isLoggedIn();
 
         this.appService.registerIf( "#login-register", function () {
             return !loggedIn;

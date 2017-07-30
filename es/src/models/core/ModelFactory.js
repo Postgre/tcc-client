@@ -6,15 +6,15 @@ module.exports = class ModelFactory {
     }
 
     // TODO: write a decent API so we don't need these 'location' attrs
-    find(ModelClass, id, ready, responseLocation){
+    find(ModelClass, id, ready, responseHandler){
         let instance = new window[ModelClass]({id:id});
         this.dataService.connection({
             url: instance.constructor.endpoint+"/"+id,
             method: "GET"
         }).then((res)=>{
             let props = res.data;
-            if(responseLocation !== null){
-                props = res.data[responseLocation];
+            if(responseHandler !== null){
+                props = responseHandler(res.data);
             }
             instance.setData(props);
             ready(instance);
@@ -39,14 +39,16 @@ module.exports = class ModelFactory {
         });
         return promises;
     }
-    save(model, idLocation){
+    save(model, responseHandler){
         return this.dataService.connection({
             url: model.constructor.endpoint,
             method: "POST",
             data: qs.stringify(model.getData())
         }).then((res)=>{
             let id = res.data.id;
-            if(idLocation) id = res.data[idLocation].id;
+            if(responseHandler){
+                id = responseHandler(res.data);
+            }
             model.id = id;
             model.constructor.savers.forEach((saver)=>{
                 saver(model, this.dataService);
