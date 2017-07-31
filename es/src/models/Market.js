@@ -1,4 +1,4 @@
-const BaseModel = require('./BaseModel');
+const BaseModel = require('./core/BaseModel');
 const SpDate = require('./SpDate');
 
 module.exports = class Market extends BaseModel {

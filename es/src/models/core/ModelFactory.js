@@ -6,7 +6,7 @@ module.exports = class ModelFactory {
     }
 
     // TODO: write a decent API so we don't need these 'location' attrs
-    find(ModelClass, id, ready, responseHandler){
+    find(ModelClass, id, responseHandler){
         let instance = new window[ModelClass]({id:id});
         this.dataService.connection({
             url: instance.constructor.endpoint+"/"+id,
@@ -14,14 +14,16 @@ module.exports = class ModelFactory {
         }).then((res)=>{
             let props = res.data;
             if(responseHandler !== null){
-                props = responseHandler(res.data);
+                props = responseHandler(res);
             }
             instance.setData(props);
-            ready(instance);
+            instance.onLoaded();
         });
         // invoke loaders
         instance.constructor.loaders.forEach((loader)=>{
-            loader(instance, this.dataService).then(()=>{ready()});
+            loader(instance, this.dataService).then(
+                () => { instance.onLoaded(); }
+            );
         });
         return instance;
     }

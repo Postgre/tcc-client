@@ -14,6 +14,8 @@ module.exports = class BaseModel {
     static get loaders(){ return [] }
     static get savers(){ return [] }
 
+    onLoaded(){}
+
     constructor(data){
         // initialize required properties
         this.constructor.required.forEach((prop)=>{

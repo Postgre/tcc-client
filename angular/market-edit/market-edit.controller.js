@@ -114,11 +114,14 @@ function MarketEditController( $scope ) {
             alert("no market selected!");
         }
 
-        let ready = () => {
+        let market = window.modelFactory.find("Market", navService.getNavParams().market_id, (res)=>{
+            return res.data.market;
+        });
+        market.onLoaded = () => {
             $scope.$apply();
             window.market = $scope.market;
         };
-        $scope.market = window.modelFactory.find("Market", navService.getNavParams().market_id, ready, "market");
+        $scope.market = market;
 
         // let p = window.dataService.getMarket(nav_params.market_id);
         // p.then((res)=>{

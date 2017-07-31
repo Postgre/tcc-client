@@ -1,4 +1,4 @@
-const BaseModel = require('./BaseModel');
+const BaseModel = require('./core/BaseModel');
 
 module.exports = class Quote extends BaseModel {
     static get required(){
