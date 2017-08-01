@@ -25,14 +25,23 @@ module.exports = class DataService {
      * =============================
      */
     postQuote( address, start_time, end_time, caroler_config ){
-        return this.connection({
-            url: "quotes",
-            method: "POST",
-            data: qs.stringify({
-                address: address,
-                start_time: start_time,
-                end_time: end_time,
-                caroler_config: caroler_config
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "quotes",
+                method: "POST",
+                data: qs.stringify({
+                    address: address,
+                    start_time: start_time,
+                    end_time: end_time,
+                    caroler_config: caroler_config
+                })
+            }).then((res)=>{
+                resolve(res.data.quote, res.data.market);
+            }).catch((err)=>{
+                if(err.response.data.status === "BAD_ADDRESS"){
+                    reject("BAD_ADDRESS");
+                }
+                reject(err);
             })
         });
     }

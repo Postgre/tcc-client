@@ -104,8 +104,6 @@ function MarketEditController( $scope ) {
         var price = getPrice( nthHour-1 ) * (1-discnt);
         return Math.round(price * 100) / 100;
     }
-    function save(){
-    }
 
     (function init(){
         let nav_params = navService.getNavParams();

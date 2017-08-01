@@ -1,0 +1,1 @@
+window.QuoteRequest = require('./quote/QuoteRequest');

@@ -1290,17 +1290,8 @@
     const marketBio = ".tcc_market_bio";
 
     function renderQuote(quote, market) {
-        $(quoteDistance).html(market.distance);
-        $(quoteImage).attr("src", market.image);
-        $(marketName).html(market.name);
-        $(marketLocation).html(market.city + ", " + market.state);
-        $(marketBio).html(market.bio);
-        $(quotecarolers).html(quote.carolers);
-        $(quotetravel).html(quote.travel);
-        $(quotedates).html(quote.dates);
-        $(quotepromos).html(quote.promos);
-        $(quotetotal).html(quote.total);
-        $(quotemodal).modal("show");
+
+        alert("called")
     }
 
     let quote_id = null;
@@ -1314,33 +1305,39 @@
         let caroler_config = document.forms.quoteForm.caroler_config.value;
         let formatted_address = address + ", " + city + ", " + state;
 
-        let quote = window.modelFactory.create("Quote", {
+//        let quote = window.modelFactory.create("Quote", {
+//            "caroler_config": caroler_config,
+//            "address": formatted_address,
+//            "start_time": start,
+//            "end_time": end
+//        });
+        let quote = new QuoteRequest({
             "caroler_config": caroler_config,
             "address": formatted_address,
             "start_time": start,
             "end_time": end
-        });
-        let p = quote.submit();
-        p.catch((err) => {
-            console.error(err.response.data);
-            if(err.response.data.status === "BAD_ADDRESS"){
-                swal("Bad Address", "Address could not be resolved", "error");
-            }
-        });
-        p.then((res) => {
-            console.log(res);
-            let quote = res.data.quote;
-            let market = res.data.market;
-            quote_id = quote.id;
-            market_id = market.id;
-            renderQuote({
-                carolers: quote.cost_carolers,
-                travel: quote.cost_travel,
-                promos: quote.cost_discounts,
-                dates: quote.cost_date,
-                total: quote.cost_total
-            }, market);
-        });
+        }, window.dataService);
+        quote.win = (_quote, _market) => {
+            console.log("quote", _quote, "market", _market);
+            quote_id = _quote.id;
+            market_id = _market.id;
+
+            $(quoteDistance).html(_market.distance);
+            $(quoteImage).attr("src", _market.image);
+            $(marketName).html(_market.name);
+            $(marketLocation).html(_market.city + ", " + _market.state);
+            $(marketBio).html(_market.bio);
+            $(quotecarolers).html(_quote.carolers);
+            $(quotetravel).html(_quote.travel);
+            $(quotedates).html(_quote.dates);
+            $(quotepromos).html(_quote.promos);
+            $(quotetotal).html(_quote.total);
+            $(quotemodal).modal("show");
+        };
+        quote.badAddress = () => {
+            swal("Bad Address", "Address could not be resolved", "error");
+        };
+        quote.submit();
         return false;
     }
     function handleSaveQuote() {

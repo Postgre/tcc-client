@@ -11,7 +11,8 @@ const Bindings = require('./Bindings');
 const ModelFactory = require('./models/core/ModelFactory');
 
 /* Loading Model Classes */
-require('./models/core/loader');
+require('./models/autoload');
+require('./lib/autoload');
 
 /* Initalizing Libraries */
 window.appService = new ApplicationService();

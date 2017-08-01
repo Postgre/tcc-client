@@ -1,5 +1,5 @@
-angular.module('customer-events')
-.controller('CustomerEventsController', CustomerEventsController);
+angular.module("customer-events", [])
+    .controller('CustomerEventsController', CustomerEventsController);
 
 function CustomerEventsController( $scope ) {
 

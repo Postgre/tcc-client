@@ -64,7 +64,6 @@ module.exports = class Market extends BaseModel {
 
     constructor(data){
         super(data);
-
         this.specialDates   =   [];
         this.mediaLinks     =   [];
         this.carolerConfigs =   {};
