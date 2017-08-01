@@ -37,31 +37,6 @@ module.exports = class Market extends BaseModel {
         };
     }
 
-    static get carolerConfigOptions(){
-        return [
-            {
-                name: "Trio (S,T,B)",
-                val: "trio_stb"
-            },
-            {
-                name: "Trio (S,A,B)",
-                val: "trio_sab"
-            },
-            {
-                name: "Quartet",
-                val: "quaretet"
-            },
-            {
-                name: "Sixtet",
-                val: "sixtet"
-            },
-            {
-                name: "Octet",
-                val: "octet"
-            }
-        ]
-    }
-
     constructor(data){
         super(data);
         this.specialDates   =   [];
