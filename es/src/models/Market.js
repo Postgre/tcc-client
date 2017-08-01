@@ -1,5 +1,5 @@
 const BaseModel = require('./core/BaseModel');
-const SpDate = require('./SpDate');
+const CarolerConfigs = require('./../lib/caroler_configs/CarolerConfigs');
 
 module.exports = class Market extends BaseModel {
     static get endpoint(){
@@ -66,7 +66,7 @@ module.exports = class Market extends BaseModel {
         super(data);
         this.specialDates   =   [];
         this.mediaLinks     =   [];
-        this.carolerConfigs =   {};
+        this.carolerConfigs =   new CarolerConfigs();
     }
 
     find(id, onload){
@@ -93,11 +93,11 @@ module.exports = class Market extends BaseModel {
                 onload();
             });
         // load caroler configs
-        this.carolerConfigs.trio_sab = true;
-        this.carolerConfigs.trio_stb = true;
-        this.carolerConfigs.quartets = true;
-        this.carolerConfigs.sixtets = true;
-        this.carolerConfigs.octets = true;
+        dataService.getCarolerConfigs(this.id)
+            .then((_configs)=>{
+                this.carolerConfigs = new CarolerConfigs(_configs);
+                onload();
+            })
     }
     update(){
         let p = super.update();
@@ -109,6 +109,9 @@ module.exports = class Market extends BaseModel {
         if(this.mediaLinks.length > 0){
             this.dataService.putMedia(this.id, this.mediaLinks)
         }
+        // update caroler configs
+        this.dataService.putCarolerConfigs(this.id, this.carolerConfigs);
+
         return p;
     }
 

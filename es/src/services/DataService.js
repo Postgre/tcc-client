@@ -177,15 +177,18 @@ module.exports = class DataService {
         return this.connection({
             url: "markets/"+market_id+"/caroler-configs",
             method: "PUT",
-            data: qs.stringify({
-                caroler_configs: carolerConfigs
-            })
+            data: qs.stringify(carolerConfigs)
         })
     }
     getCarolerConfigs(market_id){
-        return this.connection({
-            url: "markets/"+market_id+"/caroler-configs",
-            method: "GET"
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "markets/"+market_id+"/caroler-configs",
+                method: "GET"
+            }).then((res)=>{
+                if(res.data) resolve(res.data);
+                reject();
+            })
         })
     }
     

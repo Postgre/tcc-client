@@ -4,6 +4,7 @@ angular.module('market-edit')
 function MarketEditController( $scope ) {
 
     $scope.market = {};
+
     $scope.availOpts = [
         {
             val: 1,
@@ -14,6 +15,7 @@ function MarketEditController( $scope ) {
             label: "No"
         }
     ];
+    $scope.carolerConfigOptions = CarolerConfigs.options;
 
     $scope.editing_special_dates = false;
     $scope.editing_gallery = false;
@@ -33,10 +35,12 @@ function MarketEditController( $scope ) {
     $scope.deleteGalleryImage = deleteGalleryImage;
     $scope.addGalleryImage = addGalleryImage;
     $scope.updateMarket = updateMarket;
-    $scope.getPrice = getPrice;
 
     function createSpecialDate(){
-        $scope.market.addSpecialDate(window.modelFactory.create("SpDate"));
+        // TODO: wrap special date in a /lib class
+        $scope.market.addSpecialDate({
+            available: 1
+        });
     }
     function deleteSpecialDate(specialDate){
         $scope.market.deleteSpecialDate(specialDate);
@@ -77,7 +81,7 @@ function MarketEditController( $scope ) {
             $scope.$apply(function(){
                 $scope.market.published = 0;
             });
-            var p = $scope.market.save();
+            var p = $scope.market.update();
             p.then((res)=>{
                 swal("Done.",
                     $scope.market.name + " is no longer discoverable",
@@ -89,6 +93,7 @@ function MarketEditController( $scope ) {
         $scope.market.removeMediaLink(media);
     }
     function addGalleryImage(){
+        // TODO: wrap media links into a /lib class
         $scope.market.addMediaLink({
             url: "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
         });
@@ -106,37 +111,12 @@ function MarketEditController( $scope ) {
                 "success");
         });
     }
-    function getPrice( nthHour ){
-        var rate = $scope.market.rate_caroler_base;
-        var discnt = $scope.market.rate_caroler_discount;
-        if( nthHour === 1 ) return rate;
-        var price = getPrice( nthHour-1 ) * (1-discnt);
-        return Math.round(price * 100) / 100;
-    }
 
     (function init(){
-        let nav_params = navService.getNavParams();
-        console.log("nav params:", nav_params);
-        if (typeof nav_params.market_id === "undefined") {
-            alert("no market selected!");
-        }
-
         let onLoaded = () => {
             $scope.$apply();
             window.market = $scope.market;
         };
         $scope.market = window.modelFactory.find("Market", navService.getNavParams().market_id, onLoaded);
-
-        // let p = window.dataService.getMarket(nav_params.market_id);
-        // p.then((res)=>{
-        //     console.log("res", res);
-        //     let _market = res.data.market;
-        //     window.modelFactory.load("Market", _market).then((model)=>{
-        //         $scope.$apply(function () {
-        //             $scope.market = model;
-        //             window.market = $scope.market;
-        //         });
-        //     });
-        // });
     })();
 }
