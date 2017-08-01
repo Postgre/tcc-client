@@ -131,16 +131,4 @@ module.exports = class Market extends BaseModel {
         if(ind === -1) return;
         this.mediaLinks.splice(ind,1);
     }
-
-    static get savers(){
-        return [
-            (self, ds)=>{
-
-            },
-            (self, ds)=>{
-                if(self.mediaLinks.length === 0) return;
-                ds.putMedia(self.id, self.mediaLinks)
-            }
-        ]
-    }
 };
