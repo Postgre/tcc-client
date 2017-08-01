@@ -69,6 +69,49 @@ module.exports = class Market extends BaseModel {
         this.carolerConfigs =   {};
     }
 
+    find(id, onload){
+        super.find(id, onload);
+        // load special dates
+        dataService.getSpecialDates(this.id)
+            .then((res)=>{
+                let _dates = res.data;
+                _dates.forEach((_date)=>{
+                    this.addSpecialDate(_date);
+                });
+                onload();
+            });
+        // load media links
+        dataService.getMedia(this.id)
+            .then((res)=>{
+                let _links = res.data;
+                _links.forEach((_link)=>{
+                    this.addMediaLink({
+                        id: _link.id,
+                        url: _link.url
+                    });
+                });
+                onload();
+            });
+        // load caroler configs
+        this.carolerConfigs.trio_sab = true;
+        this.carolerConfigs.trio_stb = true;
+        this.carolerConfigs.quartets = true;
+        this.carolerConfigs.sixtets = true;
+        this.carolerConfigs.octets = true;
+    }
+    update(){
+        let p = super.update();
+        // update special dates
+        if(this.specialDates.length > 0){
+            this.dataService.putSpecialDates(this.id, this.specialDates);
+        }
+        // update media links
+        if(this.mediaLinks.length > 0){
+            this.dataService.putMedia(this.id, this.mediaLinks)
+        }
+        return p;
+    }
+
     addSpecialDate(SpecialDate){
         this.specialDates.push(SpecialDate);
     }
@@ -86,52 +129,10 @@ module.exports = class Market extends BaseModel {
         this.mediaLinks.splice(ind,1);
     }
 
-    static get loaders(){
-        return [
-            (instance, dataService)=>{
-                let p = dataService.getSpecialDates(instance.id);
-                p.then((res)=>{
-                    let _dates = res.data;
-                    _dates.forEach((_date)=>{
-                        instance.addSpecialDate(new SpDate(_date));
-                    });
-                });
-                return p;
-            },
-            (instance, dataService)=>{
-                let p = dataService.getMedia(instance.id);
-                p.then((res)=>{
-                    let _links = res.data;
-                    _links.forEach((_link)=>{
-                        instance.addMediaLink({
-                            id: _link.id,
-                            url: _link.url
-                        });
-                    })
-                });
-                return p;
-            },
-            (instance, dataService)=>{
-                return new Promise((res)=>{
-                    instance.carolerConfigs.trio_sab = true;
-                    instance.carolerConfigs.trio_stb = true;
-                    instance.carolerConfigs.quartets = true;
-                    instance.carolerConfigs.sixtets = true;
-                    instance.carolerConfigs.octets = true;
-                    res();
-                });
-            }
-        ];
-    }
     static get savers(){
         return [
             (self, ds)=>{
-                if(self.specialDates.length === 0) return;
-                let _dates = [];
-                self.specialDates.forEach((date)=>{
-                    _dates.push(date.getData());
-                });
-                ds.putSpecialDates(self.id, _dates);
+
             },
             (self, ds)=>{
                 if(self.mediaLinks.length === 0) return;

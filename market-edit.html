@@ -325,9 +325,8 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <label>Available?</label>
-                                    <select ng-init="date.available = true" ng-model="date.available" ng-options="option.val as option.label for option in availOpts" class="sm-form-control">
-                                        <option value="true">Yes</option>
-                                        <option value="false">No</option>
+                                    <select ng-model="date.available"
+                                            ng-options="option.val as option.label for option in availOpts" class="sm-form-control">
                                     </select>
                                 </div>
                                 <div ng-hide="date.available === false" class="col-sm-3">

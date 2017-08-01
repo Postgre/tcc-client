@@ -4,7 +4,16 @@ angular.module('market-edit')
 function MarketEditController( $scope ) {
 
     $scope.market = {};
-    $scope.availOpts = SpDate.availabilityOptions();
+    $scope.availOpts = [
+        {
+            val: 1,
+            label: "Yes"
+        },
+        {
+            val: 0,
+            label: "No"
+        }
+    ];
 
     $scope.editing_special_dates = false;
     $scope.editing_gallery = false;
@@ -27,7 +36,7 @@ function MarketEditController( $scope ) {
     $scope.getPrice = getPrice;
 
     function createSpecialDate(){
-        $scope.market.addSpecialDate(window.modelFactory.make("SpDate"));
+        $scope.market.addSpecialDate(window.modelFactory.create("SpDate"));
     }
     function deleteSpecialDate(specialDate){
         $scope.market.deleteSpecialDate(specialDate);
@@ -85,7 +94,7 @@ function MarketEditController( $scope ) {
         });
     }
     function updateMarket(promise = false) {
-        let p = window.modelFactory.update($scope.market)[0];
+        let p = $scope.market.update();
         p.catch(function(err){
             console.error("err", err);
         });
@@ -112,14 +121,11 @@ function MarketEditController( $scope ) {
             alert("no market selected!");
         }
 
-        let market = window.modelFactory.find("Market", navService.getNavParams().market_id, (res)=>{
-            return res.data.market;
-        });
-        market.onLoaded = () => {
+        let onLoaded = () => {
             $scope.$apply();
             window.market = $scope.market;
         };
-        $scope.market = market;
+        $scope.market = window.modelFactory.find("Market", navService.getNavParams().market_id, onLoaded);
 
         // let p = window.dataService.getMarket(nav_params.market_id);
         // p.then((res)=>{

@@ -10,16 +10,4 @@ module.exports = class SpDate extends BaseModel {
         };
     }
 
-    static availabilityOptions() {
-        return [
-            {
-                val: true,
-                label: "Yes"
-            },
-            {
-                val: false,
-                label: "No"
-            }
-        ];
-    }
 };

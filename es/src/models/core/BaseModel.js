@@ -1,3 +1,5 @@
+const qs = require('qs');
+
 module.exports = class BaseModel {
     static get endpoint(){
         return "";
@@ -34,22 +36,24 @@ module.exports = class BaseModel {
         });
     }
     update(){
-        this.dataService.connection({
-            url: this.constructor.endpoint+"/"+model.getId(),
+        return this.dataService.connection({
+            url: this.constructor.endpoint+"/"+this.getId(),
             method: "PUT",
             data: qs.stringify(this.getData())
         });
     }
     save(){
-        this.dataService.connection({
+        return this.dataService.connection({
             url: this.constructor.endpoint,
             method: "POST",
             data: qs.stringify(this.getData())
+        }).then((res)=>{
+            this.setId(res.data.id)
         })
     }
     destroy(){
-        this.dataService.connection({
-            url: model.constructor.endpoint+"/"+model.getId(),
+        return this.dataService.connection({
+            url: this.constructor.endpoint+"/"+this.getId(),
             method: "DELETE"
         })
     }

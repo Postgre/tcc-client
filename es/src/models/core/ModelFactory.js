@@ -1,5 +1,3 @@
-const qs = require('qs');
-
 module.exports = class ModelFactory {
     constructor(DataService){
         this.dataService = DataService;
@@ -11,7 +9,7 @@ module.exports = class ModelFactory {
         return instance;
     }
     create(ModelClass, data){
-        let instance = new new window[ModelClass](this.dataService);
+        let instance = new window[ModelClass](this.dataService);
         instance.setData(data);
         return instance;
     }
