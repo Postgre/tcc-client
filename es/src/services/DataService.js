@@ -257,12 +257,22 @@ module.exports = class DataService {
      * ====================
      */
     postDelegationsCaroler(market_id, caroler_email){
-        return this.connection({
-            url: "delegations/caroler",
-            method: "POST",
-            data: qs.stringify({
-                marketID: market_id,
-                email: caroler_email
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "delegations/caroler",
+                method: "POST",
+                data: qs.stringify({
+                    marketID: market_id,
+                    email: caroler_email
+                })
+            }).then(()=>{
+                resolve();
+            }).catch((err)=>{
+                switch(err.response.status){
+                    case 422:
+                        reject("DUPLICATE")
+                }
+                reject();
             })
         })
     }
@@ -300,12 +310,18 @@ module.exports = class DataService {
      * =========================
      */
     searchUsers(query){
-        return this.connection({
-            url: "users",
-            method: "GET",
-            data: qs.stringify({
-                search: query
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "users",
+                method: "GET",
+                params: {
+                    search: query
+                }
+           }).then((res)=>{
+                resolve(res.data);
+            }).catch(()=>{
+                reject();
             })
-        })
+        });
     }
 };
