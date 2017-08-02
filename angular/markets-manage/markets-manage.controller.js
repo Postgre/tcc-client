@@ -1,4 +1,4 @@
-angular.module('markets-manage')
+angular.module('markets-manage', [])
 .controller('MarketsManageController', MarketsManageController);
 
 function MarketsManageController( $scope ) {
@@ -6,10 +6,6 @@ function MarketsManageController( $scope ) {
 
     $scope.markets = {};
     $scope.upcoming_events = [];
-    /**
-     * Models
-     * ===============
-     */
 
     /**
      * Functions
@@ -19,15 +15,13 @@ function MarketsManageController( $scope ) {
     $scope.deleteMarket = deleteMarket;
     $scope.gotoEdit = gotoEdit;
     $scope.gotoPage = gotoPage;
-    $scope.invites = invites;
     $scope.gotoUpcomingEvents = gotoUpcomingEvents;
-    function createMarket(){
-        var form = document.forms.newMarketForm;
-        var name = form.name.value;
-        var address = form.city.value+', '+form.state.value;
-        var bio = "Edit this market to write a BIO and upload a banner!";
+    $scope.invites = invites;
 
-        var p = window.dataService.postMarket( name, bio, address );
+    function createMarket(){
+        let formData = parseNewMarketForm();
+
+        let p = window.dataService.postMarket( formData.name, formData.bio, formData.address );
         p.then(function(res){
             console.info("res", res);
             swal({
@@ -44,6 +38,21 @@ function MarketsManageController( $scope ) {
         });
     }
     function deleteMarket( market ){
+        let win = (res) => {
+            swal({
+                title: "Success!",
+                text: "'"+market.name+"' has been deleted.",
+                type: "success",
+            }, function(){
+                init();
+            });
+        };
+        let doIt = () => {
+            let p = window.dataService.deleteMarket(market.id);
+            p.then( win );
+            p.catch(window.somethingWentWrong);
+        };
+
         swal({
             title: "Delete Market?",
             text: "Are you sure? This can't be undone.",
@@ -52,35 +61,13 @@ function MarketsManageController( $scope ) {
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false
-        }, function(){
-            var p = window.dataService.deleteMarket(market.id);
-            p.then(function(res){
-                console.info("res", res);
-                swal({
-                    title: "Success!",
-                    text: "'"+market.name+"' has been deleted.",
-                    type: "success",
-                }, function(){
-                    window.location.reload();
-                });
-            });
-            p.catch(function(err){
-                console.error("err", err);
-                sweetAlert("Oops...", "Something went wrong!", "error");
-            });
-        });
-
+        }, doIt );
     }
     function gotoEdit(market){
         window.navService.goto("edit_market", {
             market_id: market.id,
             market: market
         })
-    }
-    function invites(market){
-        window.navService.goto("invites", {
-            market: market
-        });
     }
     function gotoPage(market){
         window.navService.goto('market_page', {
@@ -92,9 +79,14 @@ function MarketsManageController( $scope ) {
             market: market
         });
     }
+    function invites(market){
+        window.navService.goto("invites", {
+            market: market
+        });
+    }
 
-    (function init(){
-        var p = window.dataService.getMarketsManaged();
+    function init(){
+        let p = window.dataService.getMarketsManaged();
         p.then(function(res){
             console.info("res", res);
             $scope.$apply(function(){
@@ -106,5 +98,6 @@ function MarketsManageController( $scope ) {
             console.error("err", err);
             alert( "Something went wrong" );
         });
-    })();
+    }
+    init();
 }
