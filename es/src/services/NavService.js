@@ -15,6 +15,10 @@ module.exports = class NavService {
         window.location = this.activity_map[activity]['path'];
     }
 
+    getNavParam(name){
+        let params = this.getNavParams();
+        if( params ) return params[name];
+    }
     getNavParams(){
         if( localStorage.nav_params ) return JSON.parse(localStorage.getItem('nav_params'));
     }

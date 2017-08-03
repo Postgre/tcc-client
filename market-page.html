@@ -1,7 +1,7 @@
 <!DOCTYPE html><html dir="ltr" lang="en-US"><head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="TheChristmasCarolers">
+    <meta name="author" content="Chris Rocco">
 
     <!-- Stylesheets
     ============================================= -->
@@ -155,7 +155,7 @@
                                     <div class="clearfix" style="margin-bottom: 10px;">
                                         <hr>
                                     </div>
-                                    <p ng-bind-html="market.bio" class="nobottommargin">
+                                    <p ng-bind-html="market.html" class="nobottommargin">
                                         <!-- Market Description -->
                                     </p>
                                 </div>
@@ -164,7 +164,7 @@
                         <div class="col-md-2 col-sm-4 center">
                             <div class="hotel-price">
                                 <i class="icon-dollar"></i>
-                                <span ng-bind="rate()">
+                                <span ng-bind="market.rate_caroler_fourth">
 										<!-- Market Base Rate -->
 									</span>
                             </div>
@@ -196,14 +196,14 @@
                             <h4>Gallery</h4>
                             <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
 
-                                <div ng-repeat="item in gallery" class="oc-item">
+                                <div ng-repeat="item in market.mediaLinks" class="oc-item">
                                     <div class="iportfolio">
                                         <div class="portfolio-image">
                                             <a href="#">
-                                                <img ng-src="{{item.thumb}}" alt="">
+                                                <img ng-src="{{item.url}}" alt="">
                                             </a>
                                             <div class="portfolio-overlay">
-                                                <a href="{{item.overlay}}" class="center-icon" data-lightbox="iframe"><i class="icon-line-plus"></i></a>
+                                                <a href="{{item.url}}" class="center-icon" data-lightbox="iframe"><i class="icon-line-plus"></i></a>
                                             </div>
                                         </div>
                                         <div class="portfolio-desc center nobottompadding">
@@ -361,7 +361,7 @@
         jQuery('#event-location').gMap({
             address: address,
             maptype: 'ROADMAP',
-            zoom: 15,
+            zoom: 8,
             markers: [
                 {
                     address: address

@@ -91,6 +91,10 @@ module.exports = class Market extends BaseModel {
         return p;
     }
 
+    getFormattedAddress(){
+        return this.city+", "+this.state+", "+this.address;
+    }
+
     addSpecialDate(){
         this.specialDates.push(new SpecialDate());
     }
