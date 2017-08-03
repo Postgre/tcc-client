@@ -35,3 +35,6 @@ window.sendContact = function(form){
     p.then(()=>{ alert("Email sent! We'll get back to you soon.") });
     p.catch(()=>{ alert("Oops.. Something went wrong") });
 };
+window.somethingWentWrong = () => {
+    sweetAlert("Oops...", "Something went wrong!", "error");
+};
