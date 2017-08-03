@@ -111,17 +111,30 @@ module.exports = class DataService {
         });
     }
     postQuotePreview( address, start_time, end_time, caroler_config, market_id ){
-        return this.connection({
-            url: "quotes/preview",
-            method: "POST",
-            data: qs.stringify({
-                address: address,
-                start_time: start_time,
-                end_time: end_time,
-                caroler_config: caroler_config,
-                market_id: market_id
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "quotes/preview",
+                method: "POST",
+                data: qs.stringify({
+                    address: address,
+                    start_time: start_time,
+                    end_time: end_time,
+                    caroler_config: caroler_config,
+                    market_id: market_id
+                })
+            }).then((res)=>{
+                let myFormat = {
+                    carolers:   res.data.cost_carolers,
+                    date:       res.data.cost_date,
+                    discounts:  res.data.cost_discounts,
+                    travel:     res.data.cost_travel_distance + res.data.cost_travel_duration,
+                    total:      res.data.cost_total
+                };
+                resolve(myFormat);
+            }).catch((err)=>{
+                reject(err);
             })
-        });
+        })
     }
     postSaveQuote( quote_id, email ){
         return this.connection({
@@ -268,24 +281,32 @@ module.exports = class DataService {
      * ==============================
      */
     previewTravel( market_id, address, city, state ){
-        return this.connection({
-            url: "quotes/preview/travel",
-            method: "POST",
-            params: {
-                market_id: market_id,
-                address: address,
-                city: city,
-                state: state
-            }
-        })
-    }
-    postBooking( market_id, event_data ){
-        event_data.market_id = market_id;
-        return this.connection({
-            url: "events",
-            method: "POST",
-            data: qs.stringify(event_data)
-        })
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "quotes/preview/travel",
+                method: "POST",
+                params: {
+                    market_id: market_id,
+                    address: address,
+                    city: city,
+                    state: state
+                }
+            }).then((res)=>{
+                let myFormat = {
+                    costs: {
+                        distance: res.data.cost_travel_distance,
+                        duration: res.data.cost_travel_duration
+                    },
+                    metrics: {
+                        distance: res.data.distance,
+                        duration: res.data.duration * 60 // hours => minutes
+                    }
+                };
+                resolve(myFormat);
+            }).catch((err)=>{
+                reject(err);
+            })
+        });
     }
 
     /**

@@ -10,7 +10,7 @@ module.exports = class ModelFactory {
     }
     create(ModelClass, data){
         let instance = new window[ModelClass](this.dataService);
-        instance.setData(data);
+        if(data) instance.setData(data);
         return instance;
     }
 };

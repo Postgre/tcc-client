@@ -49,7 +49,7 @@ module.exports = class BaseModel {
             data: qs.stringify(this.getData())
         }).then((res)=>{
             this.setId(res.data.id)
-        })
+        });
     }
     destroy(){
         return this.dataService.connection({
