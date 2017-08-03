@@ -8,6 +8,9 @@
     "find_market": {
       "path": "market-search.html"
     },
+    "faq": {
+      "path": "faq.html"
+    },
     "book_event": {
       "path": "event-book.html"
     },
