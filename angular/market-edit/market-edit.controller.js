@@ -24,28 +24,24 @@ function MarketEditController( $scope ) {
         return "col-sm-6";
     };
 
+    (function init(){
+        let onLoaded = () => {
+            $scope.$apply();
+        };
+        $scope.market = window.modelFactory.find("Market", navService.getNavParams().market_id, onLoaded);
+    })();
+
     /**
      * Functions
      * ===============
      */
-    $scope.deleteSpecialDate = deleteSpecialDate;
-    $scope.createSpecialDate = createSpecialDate;
-    $scope.publishMarket = publishMarket;
-    $scope.unpublishMarket = unpublishMarket;
-    $scope.deleteGalleryImage = deleteGalleryImage;
-    $scope.addGalleryImage = addGalleryImage;
-    $scope.updateMarket = updateMarket;
-
-    function createSpecialDate(){
-        // TODO: wrap special date in a /lib class
-        $scope.market.addSpecialDate({
-            available: 1
-        });
-    }
-    function deleteSpecialDate(specialDate){
+    $scope.createSpecialDate        =   function (){
+        $scope.market.addSpecialDate();
+    };
+    $scope.deleteSpecialDate        =   function (specialDate){
         $scope.market.deleteSpecialDate(specialDate);
-    }
-    function publishMarket() {
+    };
+    $scope.publishMarket            =   function () {
         swal({
             title: "Lets go Live!",
             text: "Once this market is published, it will be discoverable and users can book events. Please review the market settings before publishing!",
@@ -66,8 +62,8 @@ function MarketEditController( $scope ) {
                     "success");
             });
         });
-    }
-    function unpublishMarket() {
+    };
+    $scope.unpublishMarket          =   function () {
         swal({
             title: "Take Down Market?",
             text: "You are about to un-publish this market. This will make it non-discoverable, but not affect existing events.",
@@ -88,20 +84,20 @@ function MarketEditController( $scope ) {
                     "success");
             });
         });
-    }
-    function deleteGalleryImage(media){
+    };
+    $scope.deleteGalleryImage       =   function (media){
         $scope.market.removeMediaLink(media);
-    }
-    function addGalleryImage(){
+    };
+    $scope.addGalleryImage          =   function (){
         // TODO: wrap media links into a /lib class
         $scope.market.addMediaLink({
             url: "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
         });
-    }
-    function updateMarket(promise = false) {
+    };
+    $scope.updateMarket             =   function (promise = false) {
         let p = $scope.market.update();
         p.catch(function(err){
-            console.error("err", err);
+            console.log("err", err);
         });
         if(promise) return p;
         p.then(function(res){
@@ -110,13 +106,11 @@ function MarketEditController( $scope ) {
                 "Your changes have been saved",
                 "success");
         });
-    }
-
-    (function init(){
-        let onLoaded = () => {
-            $scope.$apply();
-            window.market = $scope.market;
-        };
-        $scope.market = window.modelFactory.find("Market", navService.getNavParams().market_id, onLoaded);
-    })();
+    };
 }
+
+const DEFAULT_MODEL = {
+    market: {
+
+    }
+};

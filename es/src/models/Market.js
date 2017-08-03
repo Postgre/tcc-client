@@ -1,5 +1,6 @@
 const BaseModel = require('./core/BaseModel');
 const CarolerConfigs = require('./../lib/caroler_configs/CarolerConfigs');
+const SpecialDate = require('./../lib/special_date/SpecialDate');
 
 module.exports = class Market extends BaseModel {
     static get endpoint(){
@@ -90,8 +91,8 @@ module.exports = class Market extends BaseModel {
         return p;
     }
 
-    addSpecialDate(SpecialDate){
-        this.specialDates.push(SpecialDate);
+    addSpecialDate(){
+        this.specialDates.push(new SpecialDate());
     }
     deleteSpecialDate(SpecialDate){
         let ind = this.specialDates.indexOf(SpecialDate);

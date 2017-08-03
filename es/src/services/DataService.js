@@ -20,6 +20,58 @@ module.exports = class DataService {
         })
     }
 
+    postResource( resourceName, body ){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: resourceName,
+                method: "POST",
+                data: qs.stringify(body)
+            }).then((res)=>{
+                resolve(res.data.id);
+            }).catch((err)=>{
+                reject(err);
+            })
+        })
+    }
+    deleteResource( resourceName, id ){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: resourceName+"/"+id,
+                method: "DELETE",
+                data: qs.stringify(body)
+            }).then((res)=>{
+                resolve(res);
+            }).catch((err)=>{
+                reject(err);
+            })
+        })
+    }
+    putResource( resourceName, body, id ){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: resourceName+"/"+id,
+                method: "PUT",
+                data: qs.stringify(body)
+            }).then((res)=>{
+                resolve(res.data.id);
+            }).catch((err)=>{
+                reject(err);
+            })
+        })
+    }
+    getResource( resourceName, id ){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: resourceName+"/"+id,
+                method: "GET"
+            }).then((res)=>{
+                resolve(res.data);
+            }).catch((err)=>{
+                reject(err);
+            })
+        })
+    }
+
     /**
      * QUOTES
      * =============================
@@ -79,29 +131,12 @@ module.exports = class DataService {
      * MARKETS
      * =============================
      */
-    postMarket( name, bio, location ){
-        return this.connection({
-            url: "markets",
-            method: "POST",
-            data: qs.stringify({
-                name: name,
-                bio: bio,
-                address: location
-            })
-        })
-    }
     putMarket( id, params ){
         return this.connection({
             url: "markets/"+id,
             method: "PUT",
             data: qs.stringify(params)
         });
-    }
-    deleteMarket( id ){
-        return this.connection({
-            url: "markets/"+id,
-            method: "delete"
-        })
     }
     searchMarkets( search, limit, offset ){
         var params = {};
@@ -132,10 +167,16 @@ module.exports = class DataService {
         })
     }
     getMarketsManaged(){
-        return this.connection({
-            url: "markets/managed",
-            method: "GET"
-        })
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "markets/managed",
+                method: "GET"
+            }).then((res)=>{
+                resolve(res.data.markets);
+            }).catch((err)=>{
+                reject(err);
+            })
+        });
     }
     getMarketCarolers(id){
         return this.connection({

@@ -38,11 +38,8 @@ module.exports = class AuthService {
         })
     }
 
-    /* Login Requests */
     login(email, password) {
         return new Promise((resolve, reject) => {
-
-            /* Making login request */
             this.connection({
                 url: '/auth/login',
                 method: "POST",
@@ -50,30 +47,18 @@ module.exports = class AuthService {
                     email: email,
                     password: password
                 })
-            })
+            }).then((res) => {
+                this.jwt = res.data.token;
+                localStorage.setItem('jwt', res.data.token);
 
-            /* Success */
-                .then((res) => {
+                let decoded = jwtDecode(res.data.token);
+                this.user = decoded.user;
+                this.jwtExpire = decoded.exp;
 
-                    console.log("from server", res);
-                    /* Saving JWT */
-                    this.jwt = res.data.token;
-                    localStorage.setItem('jwt', res.data.token);
-
-                    /* Decoding jwt */
-                    let decoded = jwtDecode(res.data.token);
-                    this.user = decoded.user;
-                    this.jwtExpire = decoded.exp;
-
-                    /* Sending back authenicated */
-                    resolve('Logged in');
-                })
-
-                /* Error handling */
-                .catch((error) => {
-                    /* Sending back error */
-                    reject(error);
-                });
+                resolve('Logged in');
+            }).catch((error) => {
+                reject(error);
+            });
         })
     }
 

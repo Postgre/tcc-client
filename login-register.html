@@ -334,13 +334,13 @@
             window.location = "index.html";
         });
         p.catch(function (err) {
-            console.log("fail", err);
+            console.log("fail", err.response);
             if(err.response.status === 403){
                 swal("Not so Fast!", "You need to validate your email first.", "warning");
                 return;
             }
             if(err.response.status === 401){
-                swal("Invalid Login", "Try Again.", "danger");
+                swal("Invalid Login", "Try Again.", "error");
                 return;
             }
             swal({
