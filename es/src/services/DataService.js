@@ -145,13 +145,7 @@ module.exports = class DataService {
                 callback: this.callback_save_quote
             })
         })
-    }
-    getQuote( id ){
-        return this.connection({
-            url: "quotes/"+id,
-            method: "GET"
-        })
-    }
+    }                           // TODO: resolve
 
     /**
      * MARKETS
@@ -174,7 +168,7 @@ module.exports = class DataService {
             method: "GET",
             params: params
         })
-    }
+    }                   // TODO: resolve
     searchMarketsGeo( address, radius, limit, offset ){
         return this.connection({
             url: "markets/geo",
@@ -186,12 +180,12 @@ module.exports = class DataService {
                 offset: offset
             }
         })
-    }
+    }       // TODO: resolve
     getMarket( id ){
         return this.connection({
             url: "markets/"+id
         })
-    }
+    }                                           // TODO: use resource route
     getMarketsManaged(){
         return new Promise((resolve, reject)=>{
             this.connection({
@@ -209,7 +203,7 @@ module.exports = class DataService {
             url: "markets/"+id+"/carolers",
             method: "GET"
         })
-    }
+    }                                   // TODO: resolve
     putSpecialDates( market_id, specialDates ){
         return this.connection({
             url: "markets/"+market_id+"/special-dates",
@@ -224,7 +218,7 @@ module.exports = class DataService {
             url: "markets/"+market_id+"/special-dates",
             method: "GET"
         })
-    }
+    }                               // TODO: resolve
     putMedia(market_id, links){
         return this.connection({
             url: "markets/"+market_id+"/gallery",
@@ -239,7 +233,7 @@ module.exports = class DataService {
             url: "markets/"+market_id+"/gallery",
             method: "GET"
         })
-    }
+    }                                       // TODO: resolve
     putCarolerConfigs(market_id, carolerConfigs){
         return this.connection({
             url: "markets/"+market_id+"/caroler-configs",
@@ -268,13 +262,13 @@ module.exports = class DataService {
             url: "markets/"+market_id+"/events",
             method: "GET"
         })
-    }
+    }    // TODO: resolve
     getMyEvents(){
         return this.connection({
             url: "users/events/booked",
             method: "GET"
         })
-    }
+    }                   // TODO: resolve
 
     /**
      * BOOKING
@@ -318,7 +312,7 @@ module.exports = class DataService {
             url: "users/profile",
             method: "GET"
         })
-    }
+    } // TODO: resolve
     putProfile( params ){
         return this.connection({
             url: "users/profile",
@@ -360,7 +354,7 @@ module.exports = class DataService {
                 email: director_email
             })
         })
-    }
+    } // TODO: implement
 
     /**
      * CONTACT
