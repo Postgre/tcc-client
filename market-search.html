@@ -1,7 +1,7 @@
 <!DOCTYPE html><html dir="ltr" lang="en-US"><head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="SemiColonWeb">
+    <meta name="author" content="Chris Rocco">
 
     <!-- Stylesheets
     ============================================= -->
@@ -220,15 +220,6 @@
                                             <input ng-model="search.city" type="text" id="template-contactform-location" class="sm-form-control required" placeholder="King&apos;s Landing">
                                         </div>
 
-                                        <div class="input-daterange travel-date-group">
-
-                                            <div class="col_full">
-                                                <label for="">Event Date</label>
-                                                <input type="text" value="" class="sm-form-control tleft" name="start" placeholder="mm/dd/yyyy">
-                                            </div>
-
-                                        </div>
-
                                         <div class="clear"></div>
 
                                         <div class="col_full nobottommargin">
@@ -282,7 +273,7 @@
                         <div ng-repeat="market in markets" class="entry clearfix">
                             <div class="row clearfix">
                                 <div class="col-md-4">
-                                    <a href="{{market.image}}" data-lightbox="image">
+                                    <a ng-click="openPage(market)" href="" data-lightbox="image">
                                         <img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
                                     </a>
                                 </div>
@@ -307,12 +298,6 @@
                                                     View map
                                                 </a>
                                             </li>
-                                            <!--<li>-->
-                                            <!--<i class="icon-comments"></i>-->
-                                            <!--<a href="#">-->
-                                            <!--24 Reviews-->
-                                            <!--</a>-->
-                                            <!--</li>-->
                                         </ul>
                                         <br>
                                         <div class="entry-content">

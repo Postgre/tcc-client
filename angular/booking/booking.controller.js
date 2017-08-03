@@ -128,11 +128,6 @@ function BookingController($scope) {
      * ===============
      */
     (function init() {
-        /* Make sure nav params are test */
-        if (typeof window.navService.getNavParams().market_id === "undefined") {
-            navService.goto("find_market");
-            return;
-        }
         /* Setup directive for the daterangepicker plugin */
         $(selector_daterange).daterangepicker({
             "opens": "center",
@@ -152,7 +147,7 @@ function BookingController($scope) {
         });
 
         /* Check for a quote */
-        var quote_id = window.getQueryVariable("quote_id");
+        let quote_id = window.getQueryVariable("quote_id");
         if (!quote_id) {
             quote_id = window.navService.getNavParams().quote_id;
         }

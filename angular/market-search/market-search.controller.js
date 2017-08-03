@@ -5,12 +5,7 @@ function MarketSearchController( $scope ) {
     $scope.markets = [];
     $scope.search = {};
 
-    $scope.search = search;
-    $scope.openMap = openMap;
-    $scope.handleBookNow = handleBookNow;
-    $scope.calcBaseRate = calcBaseRate;
-    $scope.openPage = openPage;
-    function search( address, radius, limit, offset ){
+    $scope.search           = function ( address, radius, limit, offset ){
         var search_state = $("#search_state").val();
         if( !address ) address = $scope.search.city+", "+search_state;
         if( radius === 'undefined' ) radius = $scope.search.radius;
@@ -26,25 +21,30 @@ function MarketSearchController( $scope ) {
         p.catch(function(err){
             console.error("err", err);
         });
-    }
-    function openMap( market ){
+    };
+    $scope.openMap          = function ( market ){
         window.open("https://maps.google.com/maps?q="+market.city+',+'+market.state);
-    }
-    function openPage( market ){
+    };
+    $scope.openPage         = function ( market ){
         window.navService.goto("market_page", {
             market_id: market.id
         })
-    }
-    function handleBookNow( market ){
+    };
+    $scope.handleBookNow    = function ( market ){
         navService.goto("book_event", {
             market_id: market.id
         })
-    }
-    function calcBaseRate(market){
+    };
+    $scope.calcBaseRate     = function (market){
         return hour4 = window.calcMarketPrice( 4, market.rate_caroler_base, market.rate_caroler_discount);
-    }
+    };
 
     (function init(){
-        search( "Birmingham, AL", false );
+        window.dataService.getResourceAll("markets", {
+            published: true
+        }).then((markets)=>{
+            $scope.markets = markets;
+            $scope.$apply();
+        }).catch(window.somethingWentWrong);
     })();
 }

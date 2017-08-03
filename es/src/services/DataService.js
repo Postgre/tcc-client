@@ -71,6 +71,19 @@ module.exports = class DataService {
             })
         })
     }
+    getResourceAll( resourceName, filters ){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: resourceName,
+                method: "GET",
+                params: filters
+            }).then((res)=>{
+                resolve(res.data);
+            }).catch((err)=>{
+                reject(err);
+            })
+        })
+    }
 
     /**
      * QUOTES
