@@ -936,13 +936,14 @@
      * ===============================
      * */
     jQuery(window).load(function () {
-        var p = window.dataService.searchMarkets();
-        p.then(function(res){
-            var markets = [];
-            for (var i = 0; i < res.data.length; i++) {
-                var mkt = res.data[i];
-                markets.push({
-                    address: mkt.city+', '+mkt.state,
+        window.dataService.getResourceAll("markets", {
+            published: true
+        }).then((markets)=>{
+            var markers = [];
+            for (var i = 0; i < markets.length; i++) {
+                var mkt = markets[i];
+                markers.push({
+                    address: mkt.city+', '+mkt.state+", "+mkt.address,
                     icon: {
                         image: "images/icons/map-icon-red.png",
                         iconsize: [32, 39],
@@ -950,48 +951,48 @@
                     }
                 })
             }
-
-            jQuery('#popular-dest-map').gMap({
-                address: 'United States',
-                maptype: 'ROADMAP',
-                zoom: 4,
-                markers: markets,
-                doubleclickzoom: false,
-                controls: {
-                    panControl: false,
-                    zoomControl: true,
-                    mapTypeControl: false,
-                    scaleControl: false,
-                    streetViewControl: false,
-                    overviewMapControl: false
-                },
-                styles: [{
-                    "featureType": "landscape.natural",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-                }, {
-                    "featureType": "poi",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-                }, {
-                    "featureType": "road",
-                    "elementType": "geometry",
-                    "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-                }, {
-                    "featureType": "road",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "off"}]
-                }, {
-                    "featureType": "transit.line",
-                    "elementType": "geometry",
-                    "stylers": [{"visibility": "on"}, {"lightness": 700}]
-                }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
-            });
-        });
-        p.catch(function(err){
-            console.error("err", err);
-        });
+            renderMap(markers);
+        }).catch(window.somethingWentWrong);
     });
+
+    function renderMap(markers){
+        jQuery('#popular-dest-map').gMap({
+            address: 'United States',
+            maptype: 'ROADMAP',
+            zoom: 4,
+            markers: markers,
+            doubleclickzoom: false,
+            controls: {
+                panControl: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            },
+            styles: [{
+                "featureType": "landscape.natural",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+            }, {
+                "featureType": "road",
+                "elementType": "labels",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{"visibility": "on"}, {"lightness": 700}]
+            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+        });
+    }
 </script>
 
 <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
