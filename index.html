@@ -1,7 +1,7 @@
 <!DOCTYPE html><html dir="ltr" lang="en-US"><head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="SemiColonWeb">
+    <meta name="author" content="Chris Rocco">
 
     <!-- Stylesheets
     ============================================= -->
@@ -936,13 +936,14 @@
      * ===============================
      * */
     jQuery(window).load(function () {
-        var p = window.dataService.searchMarkets();
-        p.then(function(res){
-            var markets = [];
-            for (var i = 0; i < res.data.length; i++) {
-                var mkt = res.data[i];
-                markets.push({
-                    address: mkt.city+', '+mkt.state,
+        window.dataService.getResourceAll("markets", {
+            published: true
+        }).then((markets)=>{
+            var markers = [];
+            for (var i = 0; i < markets.length; i++) {
+                var mkt = markets[i];
+                markers.push({
+                    address: mkt.city+', '+mkt.state+", "+mkt.address,
                     icon: {
                         image: "images/icons/map-icon-red.png",
                         iconsize: [32, 39],
@@ -950,48 +951,48 @@
                     }
                 })
             }
-
-            jQuery('#popular-dest-map').gMap({
-                address: 'United States',
-                maptype: 'ROADMAP',
-                zoom: 4,
-                markers: markets,
-                doubleclickzoom: false,
-                controls: {
-                    panControl: false,
-                    zoomControl: true,
-                    mapTypeControl: false,
-                    scaleControl: false,
-                    streetViewControl: false,
-                    overviewMapControl: false
-                },
-                styles: [{
-                    "featureType": "landscape.natural",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-                }, {
-                    "featureType": "poi",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-                }, {
-                    "featureType": "road",
-                    "elementType": "geometry",
-                    "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-                }, {
-                    "featureType": "road",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "off"}]
-                }, {
-                    "featureType": "transit.line",
-                    "elementType": "geometry",
-                    "stylers": [{"visibility": "on"}, {"lightness": 700}]
-                }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
-            });
-        });
-        p.catch(function(err){
-            console.error("err", err);
-        });
+            renderMap(markers);
+        }).catch(window.somethingWentWrong);
     });
+
+    function renderMap(markers){
+        jQuery('#popular-dest-map').gMap({
+            address: 'United States',
+            maptype: 'ROADMAP',
+            zoom: 4,
+            markers: markers,
+            doubleclickzoom: false,
+            controls: {
+                panControl: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            },
+            styles: [{
+                "featureType": "landscape.natural",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+            }, {
+                "featureType": "road",
+                "elementType": "labels",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{"visibility": "on"}, {"lightness": 700}]
+            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+        });
+    }
 </script>
 
 <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
@@ -1235,31 +1236,6 @@
 ============================================= -->
 <script type="text/javascript">
     /**
-     * Welcome Message
-     * ==================
-     */
-    if (window.authService.isLoggedIn()) {
-        toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-bottom-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        };
-        toastr["info"]("Welcome back " + authService.user.name + "!");
-    }
-
-    /**
      * Form Element Plugins
      * =============================
      */
@@ -1295,11 +1271,6 @@
     const marketLocation = ".tcc_market_location";
     const marketBio = ".tcc_market_bio";
 
-    function renderQuote(quote, market) {
-
-        alert("called")
-    }
-
     let quote_id = null;
     let market_id = null;
     function handleQuoteForm() {
@@ -1311,12 +1282,6 @@
         let caroler_config = document.forms.quoteForm.caroler_config.value;
         let formatted_address = address + ", " + city + ", " + state;
 
-//        let quote = window.modelFactory.create("Quote", {
-//            "caroler_config": caroler_config,
-//            "address": formatted_address,
-//            "start_time": start,
-//            "end_time": end
-//        });
         let quote = new QuoteRequest({
             "caroler_config": caroler_config,
             "address": formatted_address,
