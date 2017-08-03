@@ -37,8 +37,7 @@ module.exports = class DataService {
         return new Promise((resolve, reject)=>{
             this.connection({
                 url: resourceName+"/"+id,
-                method: "DELETE",
-                data: qs.stringify(body)
+                method: "DELETE"
             }).then((res)=>{
                 resolve(res);
             }).catch((err)=>{
