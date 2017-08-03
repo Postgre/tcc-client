@@ -35,10 +35,10 @@ module.exports = class Booking extends BaseModel {
         return this.city+", "+this.state+", "+this.address;
     }
 
-    applyPromoCode(code){
-
-    }
-
+    /**
+     * Previews
+     * ==================
+     */
     getTravelPreview(){
         return this.dataService.previewTravel(this.market_id, this.address, this.city, this.state);
     }
@@ -51,7 +51,14 @@ module.exports = class Booking extends BaseModel {
             this.market_id
         )
     }
+    applyPromoCode(code){
+        // TODO: implement promotions
+    }
 
+    /**
+     * Validators
+     * ==================
+     */
     validateDetails(){
         return (
             this.name
