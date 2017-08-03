@@ -18,14 +18,14 @@ module.exports = class AuthService {
         this.jwtExpire = null;
 
         /* Setting up refresh */
-        if (this.jwt != null) {
+        if (this.jwt !== null) {
             let decoded = jwtDecode(this.jwt);
             this.user = decoded.user;
 
             /* Checking if already expired */
             if (decoded.exp < (new Date().getTime() / 1000)) {
                 this.logout();
-                this.navSerice.goto("home");
+                this.navSerice.goto("home", { expired: true });
             }
         }
 

@@ -15,7 +15,10 @@ module.exports = class NavService {
         window.location = this.activity_map[activity]['path'];
     }
 
-    getNavParams(){
+    static getNavParams(){
         if( localStorage.nav_params ) return JSON.parse(localStorage.getItem('nav_params'));
+    }
+    static resetNavParams(){
+        delete localStorage.nav_params;
     }
 };

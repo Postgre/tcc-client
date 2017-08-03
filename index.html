@@ -234,6 +234,12 @@
 </head>
 
 <body class="stretched">
+<script>
+    if(window.navService.getNavParams().expired){
+        window.navService.resetNavParams();
+        swal("You Session has Expired", "Please log in again", "warning");
+    }
+</script>
 
 <!-- Document Wrapper
 ============================================= -->
