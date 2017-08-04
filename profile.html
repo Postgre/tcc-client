@@ -18,8 +18,6 @@
 
     <!-- Radio Checkbox Plugin -->
     <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
-    <!-- Bootstrap File Upload -->
-    <link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css">
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
@@ -123,7 +121,7 @@
 
                         <div class="heading-block noborder">
                             <h3 ng-bind="profile.user.name"></h3>
-                            <span ng-bind="profile.user.bio"></span>
+                            <span ng-bind="profile.user.email"></span>
                         </div>
 
                         <div class="clear"></div>
@@ -136,8 +134,8 @@
 
                                     <ul class="tab-nav clearfix">
                                         <li><a href="#tab-profile"><i class="icon-pencil2"></i> Profile</a></li>
-                                        <li><a href="#tab-billing"><i class="icon-credit"></i> Billing </a></li>
-                                        <li><a href="#tab-taxforms"><i class="icon-line-paper"></i> Tax Forms </a></li>
+                                        <li class="tccIfCaroler"><a href="#tab-caroler-profile"><i class="icon-pencil2"></i> Caroler Profile</a></li>
+                                        <li class="tccIfDirector"><a href="#tab-director-profile"><i class="icon-pencil2"></i> Director Profile</a></li>
                                     </ul>
 
                                     <div class="tab-container">
@@ -151,23 +149,6 @@
                                                     <div class="col_half">
                                                         <label>Name:</label>
                                                         <input ng-model="profile.user.name" type="text" class="sm-form-control">
-                                                    </div>
-
-                                                    <div class="col_half col_last">
-                                                        <label>Caroler Types</label>
-                                                        <select ng-model="caroler_profile.caroler_types" class="selectpicker form-control" multiple>
-                                                            <option value="bass">bass</option>
-                                                            <option value="tenor">tenor</option>
-                                                            <option value="alto">alto</option>
-                                                            <option value="soprano">soprano</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="clear"></div>
-
-                                                    <div class="col_half">
-                                                        <label for="form-email">Email Address:</label>
-                                                        <input ng-model="profile.user.email" type="email" id="form-email" name="form-email" value="" class="sm-form-control">
                                                     </div>
 
                                                     <div class="col_half col_last">
@@ -205,67 +186,11 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="tab-content clearfix" id="tab-billing">
-                                            <div>
-                                                <form class="nobottommargin">
-
-                                                    <div class="col_half">
-                                                        <label>Card Number:</label>
-                                                        <input ng-model="billing.number" type="text" class="sm-form-control">
-                                                    </div>
-
-                                                    <div class="col_half col_last">
-                                                        <label>Expiration Date:</label>
-                                                        <input ng-model="billing.expiration" type="text" class="sm-form-control">
-                                                    </div>
-
-                                                    <div class="col_full">
-                                                        <label>Security Code:</label>
-                                                        <input ng-model="billing.cvs" type="email" class="sm-form-control">
-                                                    </div>
-
-                                                    <div class="col_full">
-                                                        <input ng-model="billing_same_as_personal" id="radio-10" class="radio-style" name="radio-group-3" type="checkbox" checked>
-                                                        <label for="radio-10" class="radio-style-3-label">Billing
-                                                            address is the same as personal address</label>
-                                                    </div>
-
-                                                    <div ng-if="!billing_same_as_personal">
-                                                        <div class="col_half">
-                                                            <label>State:</label>
-                                                            <input ng-model="billing.state" type="text" class="sm-form-control">
-                                                        </div>
-
-                                                        <div class="col_half col_last">
-                                                            <label>City / Town:</label>
-                                                            <input ng-model="billing.city" type="text" class="sm-form-control">
-                                                        </div>
-
-                                                        <div class="col_full">
-                                                            <label>Address:</label>
-                                                            <input ng-model="billing.address" type="email" class="sm-form-control">
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                        <div class="tab-content clearfix" id="tab-caroler-profile">
+                                            <!-- Caroler-specific Fields -->
                                         </div>
-                                        <div class="tab-content clearfix" id="tab-taxforms">
-                                            <div class="style-msg successmsg">
-                                                <div class="sb-msg">
-                                                    <i class="icon-thumbs-up"></i>
-                                                    <strong>All good here!</strong>
-                                                    We have your W9 on file.
-                                                </div>
-                                            </div>
-                                            <input id="w9" type="file" class="file">
-                                            <hr>
-                                            <div class="col_full">
-                                                <label>Download TCC-Signed W-9</label>
-                                                <a href="https://dl.dropboxusercontent.com/u/9678141/TCC/Common%20Folders/Agreements/TCC_W-9.pdf" class="btn btn-primary">
-                                                    <i class="icon-download"></i>
-                                                    Download
-                                                </a>
-                                            </div>
+                                        <div class="tab-content clearfix" id="tab-director-profile">
+                                            <!-- Director-specific Fields -->
                                         </div>
 
                                     </div>
@@ -454,19 +379,13 @@
 ============================================= -->
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/plugins.js"></script>
-<script type="text/javascript" src="js/components/bs-filestyle.js"></script>
 <!-- Bootstrap Select Plugin -->
 <script type="text/javascript" src="js/components/bs-select.js"></script>
 
 <!-- Footer Scripts
 ============================================= -->
-<script type="text/javascript" src="js/functions.js"></script>
 
 <script>
-    $(document).ready(function(){
-        $("#w9").fileinput();
-    })
-
     function notifySuccess(){
         swal({
             title: "Success!",
