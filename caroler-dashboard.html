@@ -135,50 +135,10 @@
 
             <div class="container clearfix">
 
-<<<<<<< HEAD
-                <div class="col_full nobottommargin">
-                    <div class="heading-block highlight-me">
-                        <h2>Available Events</h2>
-                        <span>Showing Events you are Eligable to Claim</span>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Event Name</th>
-                                    <th>Date &amp; Time</th>
-                                    <th>Status</th>
-                                    <th>Open Slots</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="avail in available_events">
-                                <td ng-bind="avail.customer" class="col-cust"></td>
-                                <td ng-bind="avail.date_time"></td>
-                                <td>
-                                    <span class="label label-primary">Booked</span>
-                                    <span ng-if="avail.status === &apos;booked&apos;" class="label label-primary">Booked</span>
-                                    <span ng-if="avail.status === &apos;pending&apos;" class="label label-warning">Pending</span>
-                                </td>
-                                <td>
-                                    <span ng-repeat="part in avail.parts" ng-bind="part" class="label label-success" style="margin-right: 10px">
-                                        <!-- Available parts show here -->
-                                    </span>
-                                </td>
-                                <td>
-                                    <a ng-click="handleClaimEvent(event)" href="#" class="button button-rounded button-green button-small button-reveal button-border tright"><i class="icon-play"></i><span>Claim Event</span></a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-=======
                 <div class="table-responsive">
                     <div class="heading-block highlight-me">
                         <h2>Available Events</h2>
                         <span>Showing Events you are Eligible for</span>
->>>>>>> dev
                     </div>
                     <table id="datatable" class="table" cellspacing="0" width="100%">
                         <thead>
