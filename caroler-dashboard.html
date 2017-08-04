@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="css/responsive.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap Data Table Plugin -->
+    <link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css" />
+
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
@@ -132,6 +135,7 @@
 
             <div class="container clearfix">
 
+<<<<<<< HEAD
                 <div class="col_full nobottommargin">
                     <div class="heading-block highlight-me">
                         <h2>Available Events</h2>
@@ -169,36 +173,80 @@
                             </tr>
                             </tbody>
                         </table>
+=======
+                <div class="table-responsive">
+                    <div class="heading-block highlight-me">
+                        <h2>Available Events</h2>
+                        <span>Showing Events you are Eligible for</span>
+>>>>>>> dev
                     </div>
+                    <table id="datatable" class="table" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date &amp; Time</th>
+                            <th>Status</th>
+                            <th>Available Parts</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="avail in available_events">
+                            <td ng-bind="avail.customer" class="col-cust"></td>
+                            <td ng-bind="avail.date_time"></td>
+                            <td>
+                                <span class="label label-primary">Booked</span>
+                                <span ng-if="avail.status === &apos;booked&apos;" class="label label-primary">Booked</span>
+                                <span ng-if="avail.status === &apos;pending&apos;" class="label label-warning">Pending</span>
+                            </td>
+                            <td>
+                                <span ng-repeat="part in avail.parts" ng-bind="part" class="label label-success" style="margin-right: 10px">
+                                    <!-- Available parts show here -->
+                                </span>
+                            </td>
+                            <td>
+                                <a ng-click="handleClaimEvent(event)" href="#" class="button button-rounded button-green button-small button-reveal button-border tright"><i class="icon-play"></i><span>Claim Event</span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="col_full nobottommargin">
-                    <h2>My Pending Events</h2>
-
-                    <div class="panel panel-default">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Customer</th>
-                                <th>Event Date &amp; Time</th>
-                                <th>Status</th>
-                                <th>Your Part</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Caleb&apos;s Christmas Party</td>
-                                <td>11/15/17 10:30 PM</td>
-                                <td><span class="label label-success">Booked</span></td>
-                                <td><span class="label label-primary">Soprano</span></td>
-                                <td>
-                                    <a href="#" class="button button-rounded button-reveal button-small button-border button-red tright"><i class="icon-warning-sign"></i><span>Withdraw</span></a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <div class="table-responsive">
+                    <div class="heading-block highlight-me">
+                        <h2>Registered Events</h2>
+                        <span>Events you are Registered for</span>
                     </div>
+                    <table id="datatable2" class="table" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date &amp; Time</th>
+                            <th>Status</th>
+                            <th>Available Parts</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="avail in available_events">
+                            <td ng-bind="avail.customer" class="col-cust"></td>
+                            <td ng-bind="avail.date_time"></td>
+                            <td>
+                                <span class="label label-primary">Booked</span>
+                                <span ng-if="avail.status === &apos;booked&apos;" class="label label-primary">Booked</span>
+                                <span ng-if="avail.status === &apos;pending&apos;" class="label label-warning">Pending</span>
+                            </td>
+                            <td>
+                                <span ng-repeat="part in avail.parts" ng-bind="part" class="label label-success" style="margin-right: 10px">
+                                    <!-- Available parts show here -->
+                                </span>
+                            </td>
+                            <td>
+                                <a ng-click="handleClaimEvent(event)" href="#" class="button button-rounded button-green button-small button-reveal button-border tright"><i class="icon-play"></i><span>Claim Event</span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
@@ -365,6 +413,9 @@
 ============================================= -->
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/plugins.js"></script>
+<!-- Bootstrap Data Table Plugin -->
+<script type="text/javascript" src="js/components/bs-datatable.js"></script>
+
 
 <!-- Footer Scripts
 ============================================= -->
@@ -383,6 +434,11 @@
     }
     function notifyClaimed(){
         swal("Done!", "The position is yours!", "success")
+    }
+
+    function initDataTable(){
+        $('#datatable').dataTable();
+        $('#datatable2').dataTable();
     }
 </script>
 
