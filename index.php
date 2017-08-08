@@ -2,7 +2,11 @@
 <html dir="ltr" lang="en-US">
 <head>
     <?php require 'partials/head.htm' ?>
+    <?php require 'partials/angular.html' ?>
 
+    <!-- CSS
+    ================================= -->
+    <link rel="stylesheet" href="css/home/home.css" />
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
     <!-- Vector Maps -->
@@ -11,20 +15,15 @@
     <link rel="stylesheet" href="css/components/datepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/timepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
-
-    <?php require 'partials/angular.html' ?>
-    <link rel="stylesheet" href="css/home/home.css" />
-
     <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/settings.css" media="screen">
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/layers.css">
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
-
 </head>
 <body class="stretched" ng-app="home" ng-controller="HomeController">
 <div id="wrapper" class="clearfix">
-    <?php require 'partials/header-1.htm'; ?>
-    <?php require 'angular/home/home.html'; ?>
+    <?php require 'partials/header-1.htm' ?>
+    <?php require 'angular/home/home.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>
 <div id="gotoTop" class="icon-angle-up"></div>
