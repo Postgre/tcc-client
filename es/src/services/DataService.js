@@ -100,7 +100,20 @@ module.exports = class DataService {
                     caroler_config: caroler_config
                 })
             }).then((res)=>{
-                resolve(res.data.quote, res.data.market);
+                let market  = res.data.market;
+                let q = res.data.quote;
+                let quote   = {
+                    id: q.id,
+                    carolers: q.cost_carolers,
+                    travel: q.cost_travel,
+                    dates: q.cost_date,
+                    discounts: q.cost_discounts,
+                    total: q.cost_total
+                };
+                resolve({
+                    market: market,
+                    quote: quote
+                });
             }).catch((err)=>{
                 if(err.response.data.status === "BAD_ADDRESS"){
                     reject("BAD_ADDRESS");

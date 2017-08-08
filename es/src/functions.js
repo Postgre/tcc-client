@@ -38,3 +38,6 @@ window.sendContact = function(form){
 window.somethingWentWrong = () => {
     sweetAlert("Oops...", "Something went wrong!", "error");
 };
+window.formatAddress = function(address, city, state){
+    return `${address}, ${city}, ${state}`;
+}

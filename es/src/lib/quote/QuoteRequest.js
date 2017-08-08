@@ -8,16 +8,6 @@ module.exports = class QuoteRequest {
     }
 
     submit(){
-        return this.dataService.postQuote(this.address, this.start_time, this.end_time, this.caroler_config)
-            .then((quote, market)=>{
-                this.win(quote, market);
-            })
-            .catch((err)=>{
-                if(err === "BAD_ADDRESS"){
-                    this.badAddress();
-                }
-            })
+        return this.dataService.postQuote(this.address, this.start_time, this.end_time, this.caroler_config);
     }
-    badAddress(){}
-    win(quote, market){}
 };
