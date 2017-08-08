@@ -19,13 +19,13 @@ function HomeController($scope) {
             }).catch((err)=>{
                 swal("Bad Address", "Address could not be resolved", "error");
             })
-    }
+    };
     $scope.handleBookNow = () => {
         window.navService.goto("book_event", {
             market_id: $scope.quote.market.id,
             quote_id: $scope.quote.id
         });
-    }
+    };
 
     function init(){
         let today = new Date();

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
 
     <?php require 'partials/angular.html' ?>
-    <link rel="stylesheet" href="angular/home/home.css" />
+    <link rel="stylesheet" href="css/home/home.css" />
 
     <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/settings.css" media="screen">
