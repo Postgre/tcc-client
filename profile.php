@@ -23,7 +23,7 @@
 
     <?php require 'partials/header.htm' ?>
 
-    <?php require 'angular/profile/profile.html' ?>
+    <?php require 'app/profile/profile.html' ?>
 
     <?php require 'partials/footer.htm' ?>
 

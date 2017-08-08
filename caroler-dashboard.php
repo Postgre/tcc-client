@@ -21,7 +21,7 @@
 <body class="stretched" ng-app="caroler-dashboard" ng-controller="CarolerDashboardController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/header.htm' ?>
-    <?php require 'angular/caroler-dashboard/caroler-dashboard.html' ?>
+    <?php require 'app/caroler-dashboard/caroler-dashboard.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div><!-- #wrapper end -->
 

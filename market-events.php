@@ -11,7 +11,7 @@
 <body class="stretched" ng-app="market-events" ng-controller="MarketEventsController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/header.htm' ?>
-    <?php require 'angular/market-events/market-events.html' ?>
+    <?php require 'app/market-events/market-events.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>
 

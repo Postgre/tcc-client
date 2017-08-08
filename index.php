@@ -23,7 +23,7 @@
 <body class="stretched" ng-app="home" ng-controller="HomeController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/header-1.htm' ?>
-    <?php require 'angular/home/home.html' ?>
+    <?php require 'app/home/home.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>
 <div id="gotoTop" class="icon-angle-up"></div>

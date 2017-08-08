@@ -25,7 +25,7 @@
 
     <?php require 'partials/header.htm' ?>
 
-    <?php require 'angular/markets-manage/markets-manage.html' ?>
+    <?php require 'app/markets-manage/markets-manage.html' ?>
 
     <?php require 'partials/footer.htm' ?>
 

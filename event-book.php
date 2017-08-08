@@ -47,7 +47,7 @@
 <div id="wrapper" class="clearfix">
 
     <?php require 'partials/header.htm' ?>
-    <?php require 'angular/booking/event-book.html' ?>
+    <?php require 'app/booking/event-book.html' ?>
     <?php require 'partials/footer.htm' ?>
 
 </div><!-- #wrapper end -->

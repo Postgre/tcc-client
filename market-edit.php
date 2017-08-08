@@ -35,7 +35,7 @@
 <body class="stretched" ng-app="market-edit" ng-controller="MarketEditController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/header.htm' ?>
-    <?php require 'angular/market-edit/market-edit.html' ?>
+    <?php require 'app/market-edit/market-edit.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div><!-- #wrapper end -->
 

@@ -18,7 +18,7 @@
 ============================================= -->
 <div id="wrapper" class="clearfix">
     <?php require 'partials/header.htm' ?>
-    <?php require 'angular/customer-events/customer-events.html' ?>
+    <?php require 'app/customer-events/customer-events.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>
 
