@@ -1,0 +1,93 @@
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="parallax header-stick bottommargin-lg dark"
+             style="padding: 60px 0; background-image: url(&apos;images/red_deer.jpg&apos;); height: 100%;"
+             data-stellar-background-ratio="0.5">
+
+            <div class="container clearfix">
+
+                <div class="events-calendar">
+                    <div class="events-calendar-header clearfix">
+                        <!--<h2>Events Overview</h2>-->
+                        <h3 class="calendar-month-year">
+                            <span id="calendar-month" class="calendar-month"></span>
+                            <span id="calendar-year" class="calendar-year"></span>
+                            <nav>
+                                    <span id="calendar-prev" class="calendar-prev"><i
+                                            class="icon-chevron-left"></i></span>
+                                <span id="calendar-next" class="calendar-next"><i
+                                        class="icon-chevron-right"></i></span>
+                                <span id="calendar-current" class="calendar-current" title="Got to current date"><i
+                                        class="icon-reload"></i></span>
+                            </nav>
+                        </h3>
+                    </div>
+                    <div id="calendar" class="fc-calendar-container"></div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="container clearfix">
+
+            <h2>Upcoming Events</h2>
+
+            <div id="posts" class="events small-thumbs">
+
+                <div ng-repeat="event in upcoming_events" class="entry clearfix">
+                    <div class="entry-image">
+                        <a href="#">
+                            <img src="https://static1.squarespace.com/static/56043717e4b0a2d546ed7e0f/5672fc19a2bab8f9c977c761/57e29bda893fc0483504108b/1474469124333/christmas-party.jpg?format=1500w"
+                                 alt="Inventore voluptates velit totam ipsa tenetur">
+                            <div class="entry-date">
+                                <b ng-bind="event.startDate"></b>
+                                <span ng-bind="event.startMonth">[month]</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="entry-c">
+                        <div class="entry-title">
+                            <h2>
+                                <a href="" ng-bind="event.name"></a>
+                            </h2>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li>
+                                    <span ng-bind="event.type" class="label label-warning">
+
+                                    </span>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-time"></i>
+                                    {{event.start_time}}
+                                </a>
+                            </li>
+                            <li><a href="#"><i class="icon-map-marker2"></i>
+                                {{event.city+&apos;, &apos;+event.state}}
+                            </a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>
+                                <b>Caroler Registration Status: </b>
+                                <label class="label label-success" title="Filled!">soprano</label>
+                                <label class="label label-danger" title="Searching for an Alto..">alto</label>
+                                <label class="label label-success" title="Filled!">tenor</label>
+                                <label class="label label-success" title="Filled!">bass</label>
+                            </p>
+                            <a href="#" class="btn btn-primary"> Pay Now </a>
+                            <a href="#" class="btn btn-danger"> Cancel Event </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>

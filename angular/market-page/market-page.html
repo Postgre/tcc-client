@@ -1,0 +1,130 @@
+<!-- Page Title
+    ============================================= -->
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1 ng-bind="market.name"><!-- Market Name --></h1>
+        <ol class="breadcrumb">
+            <li><a href="javascript:navService.goto(&apos;home&apos;)">Home</a></li>
+            <li><a href="javascript:navService.goto(&apos;find_market&apos;)">Markets</a></li>
+            <li class="active" ng-bind="market.name"><!--Market Name--></li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <div class="entry clearfix">
+                <div class="row clearfix">
+                    <div class="col-md-4">
+                        <a href="{{market.image}}" data-lightbox="image">
+                            <img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
+                        </a>
+                    </div>
+                    <div class="bottommargin-sm visible-sm visible-xs"></div>
+                    <div class="col-md-6 col-sm-8">
+                        <div class="entry-c">
+                            <div class="entry-title">
+                                <h2>
+                                    <a ng-bind="market.name" href="#">
+                                        <!-- Market Name -->
+                                    </a>
+                                </h2>
+                            </div>
+                            <ul class="entry-meta clearfix">
+                                <li>
+                                    <i class="icon-map-marker2"></i>
+                                    <a ng-bind="market.city + &apos;, &apos; + market.state" href="#"></a>
+                                </li>
+                                <li>
+                                    <i class="icon-line-map"></i>
+                                    <a id="viewMap" href="" data-lightbox="iframe">
+                                        View map
+                                    </a>
+                                </li>
+                            </ul>
+                            <br>
+                            <div class="entry-content">
+                                <div class="clearfix" style="margin-bottom: 10px;">
+                                    <hr>
+                                </div>
+                                <p ng-bind-html="market.html" class="nobottommargin">
+                                    <!-- Market Description -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 center">
+                        <div class="hotel-price">
+                            <i class="icon-dollar"></i>
+                            <span ng-bind="market.rate_caroler_fourth">
+										<!-- Market Base Rate -->
+									</span>
+                        </div>
+                        <small><em>Base hourly rate*</em></small>
+                        <br>
+                        <a ng-click="handleBookNow()" href="#" class="button button-rounded topmargin-sm">Book
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="postcontent nobottommargin clearfix">
+                <div class="single-event">
+
+                    <div class="col_full">
+
+                        <h4>Location</h4>
+
+                        <section id="event-location" class="gmap" style="height: 300px;"></section>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sidebar nobottommargin col_last clearfix">
+                <div class="sidebar-widgets-wrap">
+
+                    <div class="widget clearfix">
+
+                        <h4>Gallery</h4>
+                        <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1"
+                             data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+
+                            <div ng-repeat="item in market.mediaLinks" class="oc-item">
+                                <div class="iportfolio">
+                                    <div class="portfolio-image">
+                                        <a href="#">
+                                            <img ng-src="{{item.url}}" alt="">
+                                        </a>
+                                        <div class="portfolio-overlay">
+                                            <a href="{{item.url}}" class="center-icon" data-lightbox="iframe"><i
+                                                    class="icon-line-plus"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-desc center nobottompadding">
+                                        <h3><a href="#" ng-bind="item.caption"></a></h3>
+                                        <span><a href="#" ng-bind="item.tag"></a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->

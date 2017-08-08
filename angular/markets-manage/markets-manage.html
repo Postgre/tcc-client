@@ -1,0 +1,166 @@
+<!-- Page Title
+    ============================================= -->
+<section id="page-title" class="page-title-mini">
+
+    <div class="container clearfix">
+        <h1>Manage Caroling Groups</h1>
+        <span>Markets you have access to display here</span>
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Markets</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+
+
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <div class="postcontent nobottommargin">
+                <div class="col_full">
+                    <label> Search: </label>
+                    <input ng-model="search" type="text" class="form-control"
+                           placeholder="Search by: location, name, description, or type!">
+                </div>
+                <div ng-if="ready" id="posts" class="events small-thumbs">
+
+                    <div ng-repeat="market in markets | filter : search" class="entry clearfix">
+                        <div class="entry-image">
+                            <a ng-click="gotoPage(market)" href="#">
+                                <img ng-src="{{market.image}}" alt="{{market.name}}">
+                            </a>
+                        </div>
+                        <div class="entry-c">
+                            <div class="entry-title">
+                                <h2><a ng-bind="market.name" ng-click="gotoPage(market)" href="#">
+                                    <!-- Market Name -->
+                                </a></h2>
+                            </div>
+                            <ul class="entry-meta clearfix">
+                                <li>
+                                        <span ng-if="market.published === 1"
+                                              class="label label-success">Published</span>
+                                    <span ng-if="market.published === 0"
+                                          class="label label-danger">Not Published</span>
+                                </li>
+                                <li><a href="#"><i class="icon-map-marker2"></i>
+                                    <span ng-bind="market.city+&apos;, &apos;+market.state"></span>
+                                </a></li>
+                            </ul>
+                            <div class="entry-content">
+                                <p ng-bind="market.html"></p>
+                                <a ng-click="gotoEdit(market)" href="#" class="btn btn-warning"><i
+                                        class="icon-edit"></i> &#xA0;Edit</a>
+                                <div class="btn-group dropup">
+                                    <button type="button" class="btn btn-primary">Actions</button>
+                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                            data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a ng-click="deleteMarket(market)" href=""><i class="icon-trash"></i>
+                                            Delete Market</a></li>
+                                        <li class="divider"></li>
+                                        <li><a ng-click="gotoInvites(market)" href="#"><i class="icon-email"></i>
+                                            Invite
+                                            Carolers</a></li>
+                                        <li><a ng-click="gotoInvites(market)" href="#"><i class="icon-share"></i>
+                                            Invite
+                                            Director</a></li>
+                                        <li class="divider"></li>
+                                        <li><a ng-click="gotoUpcomingEvents(market)" href="#"><i
+                                                class="icon-calendar"></i> Upcoming Events</a></li>
+                                    </ul>
+                                </div><!-- /btn-group -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="sidebar nobottommargin col_last clearfix">
+                <div ng-if="ready" class="sidebar-widgets-wrap">
+                    <div class="widget clearfix">
+                        <button data-target="#newMarketModal" data-toggle="modal" class="btn btn-success btn-block">
+                            <i class="icon-line-plus"></i> Create a New Market
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="newMarketModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-body">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &#xD7;
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Create New Market</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <div>
+
+                                    <form name="newMarketForm" class="nobottommargin">
+
+                                        <div class="form-process"></div>
+
+                                        <div class="col_full">
+                                            <label>Market Name: </label>
+                                            <input name="name" type="text" class="sm-form-control">
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                        <div class="col_one_third">
+                                            <label>State
+                                                <small>*</small>
+                                            </label>
+                                            <input name="state" type="text" value=""
+                                                   class="sm-form-control required">
+                                        </div>
+
+                                        <div class="col_one_third">
+                                            <label>City
+                                                <small>*</small>
+                                            </label>
+                                            <input name="city" type="text" class="required sm-form-control">
+                                        </div>
+
+                                        <div class="col_one_third col_last">
+                                            <label>Type</label>
+                                            <select name="type" class="sm-form-control">
+                                                <option value="">-- Select One --</option>
+                                                <option value="tcc">TCC</option>
+                                                <option value="non-tcc">Non TCC</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                        <div class="col_full">
+                                            <button ng-click="createMarket()" name="submit" tabindex="5"
+                                                    class="button button-3d nomargin">Submit
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- #content end -->

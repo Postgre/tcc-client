@@ -1,20 +1,7 @@
-<!DOCTYPE html><html dir="ltr" lang="en-US"><head>
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="Chris Rocco">
-
-    <link rel="icon" href="images/favicon.png" sizes="16x16" type="image/png">
-
-    <!-- Stylesheets
-    ============================================= -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto:300,400,500,700|Rubik:400,600" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="css/dark.css" type="text/css">
-
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    <?php require 'partials/head.htm' ?>
 
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
@@ -28,22 +15,11 @@
     <link rel="stylesheet" href="css/components/datepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/timepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/daterangepicker.css" type="text/css">
-    <!-- Sweet Alert -->
-    <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
-    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
-
-    <link rel="stylesheet" href="css/responsive.css" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-    <![endif]-->
 
     <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/settings.css" media="screen">
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/layers.css">
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
-
-    <script src="es/dist/bundle.js"></script>
 
     <!-- Revolution slider -->
     <style>
@@ -229,12 +205,7 @@
         }
     </style>
 
-    <!-- Document Title
-    ============================================= -->
-    <title>Welcome to The Christmas Carolers</title>
-
 </head>
-
 <body class="stretched">
 <script>
     if (window.navService.getNavParam('expired')) {
@@ -246,115 +217,134 @@
 <!-- Document Wrapper
 ============================================= -->
 <div id="wrapper" class="clearfix">
-
-    <!-- Header
-    ============================================= -->
-    <header id="header" class="full-header transparent-header dark"><div id="header-wrap">
-    <div class="container clearfix">
-        <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-        <!-- Logo
-        ============================================= -->
-        <div id="logo">
-            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="standard-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-            <a href="javascript:navService.goto(&apos;home&apos;)" data-dark-logo="images/tcc-logo.png" class="retina-logo"><img src="images/tcc-logo.png" alt="TCC Logo"></a>
-        </div><!-- #logo end -->
-        <!-- Account
-        ============================================= -->
-        <div id="top-account" class="dropdown">
-            <a href="javascript:navService.goto(&apos;auth&apos;)" id="login-register" class="btn btn-default">Login / Register</a>
-            <a href="#" id="my-account" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: none"><i class="icon-user"></i><i class="icon-angle-down"></i></a>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                <li><a href="javascript:navService.goto(&apos;profile&apos;)">Profile</a></li>
-                <li><a href="javascript:navService.goto(&apos;my_events&apos;)">My Events</a></li>
-                <li class="tcc_if_admin tcc_if_director divider" role="separator"></li>
-                <li class="tcc_if_admin tcc_if_director"><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Manage Markets</a></li>
-                <li class="tcc_if_caroler divider" role="separator"></li>
-                <li class="tcc_if_caroler"><a href="javascript:navService.goto(&apos;caroler_dashboard&apos;)">Caroler Dashboard</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="javascript:logout()">Logout <i class="icon-signout"></i></a></li>
-            </ul>
-        </div>
-
-        <!-- Primary Navigation
-        ============================================= -->
-        <nav id="primary-menu">
-            <ul>
-                <li>
-                    <a href="javascript:navService.goto(&apos;home&apos;)">
-                        <div>Home</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:navService.goto(&apos;find_market&apos;)">
-                        <div>Find a Market</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:navService.goto(&apos;about&apos;)">
-                        <div>About</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:navService.goto(&apos;contact&apos;)">
-                        <div>Contact</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:navService.goto(&apos;faq&apos;)">
-                        <div>FAQs</div>
-                    </a>
-                </li>
-            </ul>
-        </nav><!-- #primary-menu end -->
-    </div>
-</div></header><!-- #header end -->
+    <?php require 'partials/header-1.htm'; ?>
 
     <!-- Slider
 		============================================= -->
     <section id="slider" class="revslider-wrap full-screen clearfix">
 
-        <div id="rev_slider_431_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="christmas-snow" style="background-color:transparent;padding:0px;">
+        <div id="rev_slider_431_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="christmas-snow"
+             style="background-color:transparent;padding:0px;">
             <!-- START REVOLUTION SLIDER 5.2.0 fullscreen mode -->
             <div id="rev_slider_431_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.2.0">
                 <ul>
                     <!-- SLIDE  -->
-                    <li data-index="rs-1495" class="dark" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="include/rs-plugin/demos/assets/images/red_deer-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                    <li data-index="rs-1495" class="dark" data-transition="fade" data-slotamount="default"
+                        data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default"
+                        data-masterspeed="1000" data-thumb="include/rs-plugin/demos/assets/images/red_deer-100x50.jpg"
+                        data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2=""
+                        data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8=""
+                        data-param9="" data-param10="" data-description="">
                         <!-- MAIN IMAGE -->
-                        <img src="include/rs-plugin/demos/assets/images/red_deer.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="3" class="rev-slidebg" data-no-retina="">
+                        <img src="include/rs-plugin/demos/assets/images/red_deer.jpg" alt=""
+                             data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                             data-bgparallax="3" class="rev-slidebg" data-no-retina="">
                         <!-- LAYERS -->
 
                         <!-- LAYER NR. 1 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-3" data-x="center" data-hoffset="" data-y="center" data-voffset="-220" data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="1500" data-responsive_offset="on" style="z-index: 5;text-transform:left;"><img src="include/rs-plugin/demos/assets/images/deer.png" alt="" width="71" height="76" data-ww="71px" data-hh="76px" data-no-retina=""></div>
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-3" data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="-220"
+                             data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="1500" data-responsive_offset="on"
+                             style="z-index: 5;text-transform:left;"><img
+                                    src="include/rs-plugin/demos/assets/images/deer.png" alt="" width="71" height="76"
+                                    data-ww="71px" data-hh="76px" data-no-retina=""></div>
 
                         <!-- LAYER NR. 2 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-4" data-x="center" data-hoffset="" data-y="center" data-voffset="-153" data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="1650" data-responsive_offset="on" style="z-index: 6;text-transform:left;"><img src="include/rs-plugin/demos/assets/images/bow_tie.png" alt="" width="80" height="60" data-ww="80px" data-hh="60px" data-no-retina=""></div>
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-4" data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="-153"
+                             data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="1650" data-responsive_offset="on"
+                             style="z-index: 6;text-transform:left;"><img
+                                    src="include/rs-plugin/demos/assets/images/bow_tie.png" alt="" width="80"
+                                    height="60" data-ww="80px" data-hh="60px" data-no-retina=""></div>
 
                         <!-- LAYER NR. 3 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-5" data-x="center" data-hoffset="-180" data-y="center" data-voffset="-160" data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-transform_idle="o:1;" data-transform_in="x:50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="1800" data-responsive_offset="on" style="z-index: 7;text-transform:left;"><img src="include/rs-plugin/demos/assets/images/ornament_left.png" alt="" width="209" height="83" data-ww="209px" data-hh="83px" data-no-retina=""></div>
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-5" data-x="center"
+                             data-hoffset="-180" data-y="center" data-voffset="-160"
+                             data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-transform_idle="o:1;"
+                             data-transform_in="x:50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="1800" data-responsive_offset="on"
+                             style="z-index: 7;text-transform:left;"><img
+                                    src="include/rs-plugin/demos/assets/images/ornament_left.png" alt="" width="209"
+                                    height="83" data-ww="209px" data-hh="83px" data-no-retina=""></div>
 
                         <!-- LAYER NR. 4 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-6" data-x="center" data-hoffset="180" data-y="center" data-voffset="-160" data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-transform_idle="o:1;" data-transform_in="x:-50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="1950" data-responsive_offset="on" style="z-index: 8;text-transform:left;"><img src="include/rs-plugin/demos/assets/images/ornament_right.png" alt="" width="209" height="83" data-ww="209px" data-hh="83px" data-no-retina=""></div>
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-6" data-x="center" data-hoffset="180"
+                             data-y="center" data-voffset="-160"
+                             data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-transform_idle="o:1;"
+                             data-transform_in="x:-50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="1950" data-responsive_offset="on"
+                             style="z-index: 8;text-transform:left;"><img
+                                    src="include/rs-plugin/demos/assets/images/ornament_right.png" alt="" width="209"
+                                    height="83" data-ww="209px" data-hh="83px" data-no-retina=""></div>
 
                         <!-- LAYER NR. 5 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-7" data-x="center" data-hoffset="" data-y="center" data-voffset="-60" data-width="[&apos;auto&apos;]" data-height="[&apos;auto&apos;]" data-transform_idle="o:1;" data-transform_in="z:0;rX:90deg;rY:0deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="2100" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 9; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Playfair Display;text-transform:left;font-style:italic;">
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-7" data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="-60" data-width="[&apos;auto&apos;]"
+                             data-height="[&apos;auto&apos;]" data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:90deg;rY:0deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="2100" data-splitin="none"
+                             data-splitout="none" data-responsive_offset="on"
+                             style="z-index: 9; white-space: nowrap; font-size: 90px; line-height: 90px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Playfair Display;text-transform:left;font-style:italic;">
                             Merry Christmas
                         </div>
 
                         <!-- LAYER NR. 6 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-8" data-x="center" data-hoffset="" data-y="center" data-voffset="24" data-width="[&apos;auto&apos;]" data-height="[&apos;auto&apos;]" data-transform_idle="o:1;" data-transform_in="z:0;rX:-90deg;rY:0deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="2250" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 10; white-space: nowrap; font-size: 40px; line-height: 40px; font-weight: 300; color: rgba(255, 255, 255, 1.00);font-family:Roboto Slab;text-transform:left;">
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-8" data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="24" data-width="[&apos;auto&apos;]"
+                             data-height="[&apos;auto&apos;]" data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:-90deg;rY:0deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="2250" data-splitin="none"
+                             data-splitout="none" data-responsive_offset="on"
+                             style="z-index: 10; white-space: nowrap; font-size: 40px; line-height: 40px; font-weight: 300; color: rgba(255, 255, 255, 1.00);font-family:Roboto Slab;text-transform:left;">
                             &amp; A Happy New Year
                         </div>
 
                         <!-- LAYER NR. 7 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-9" data-x="center" data-hoffset="" data-y="center" data-voffset="110" data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="2350" data-responsive_offset="on" style="z-index: 11;text-transform:left;"><img src="include/rs-plugin/demos/assets/images/banner.png" alt="" width="375" height="58" data-ww="375px" data-hh="58px" data-no-retina=""></div>
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-9" data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="110"
+                             data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:0;rY:360deg;rZ:0;sX:0.5;sY:0.5;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="2350" data-responsive_offset="on"
+                             style="z-index: 11;text-transform:left;"><img
+                                    src="include/rs-plugin/demos/assets/images/banner.png" alt="" width="375"
+                                    height="58" data-ww="375px" data-hh="58px" data-no-retina=""></div>
 
                         <!-- LAYER NR. 8 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-10" data-x="center" data-hoffset="" data-y="center" data-voffset="109" data-width="[&apos;auto&apos;]" data-height="[&apos;auto&apos;]" data-transform_idle="o:1;" data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeOut;" data-transform_out="auto:auto;s:700;" data-start="2500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 12; white-space: nowrap; font-size: 40px; line-height: 40px; font-weight: 700; color: rgba(161, 23, 2, 1.00);font-family:Roboto Slab;text-transform:left;">
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-10" data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="109" data-width="[&apos;auto&apos;]"
+                             data-height="[&apos;auto&apos;]" data-transform_idle="o:1;"
+                             data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="2500" data-splitin="none"
+                             data-splitout="none" data-responsive_offset="on"
+                             style="z-index: 12; white-space: nowrap; font-size: 40px; line-height: 40px; font-weight: 700; color: rgba(161, 23, 2, 1.00);font-family:Roboto Slab;text-transform:left;">
                             2017
                         </div>
 
                         <!-- LAYER NR. 9 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-11" data-x="center" data-hoffset="" data-y="center" data-voffset="200" data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]" data-transform_idle="o:1;" data-transform_in="y:-50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;" data-transform_out="auto:auto;s:700;" data-start="2650" data-responsive_offset="on" style="z-index: 13;text-transform:left;"><img src="include/rs-plugin/demos/assets/images/ornament_wide.png" alt="" width="450" height="78" data-ww="450px" data-hh="78px" data-no-retina=""></div>
+                        <div class="tp-caption   tp-resizeme" id="slide-1495-layer-11" data-x="center" data-hoffset=""
+                             data-y="center" data-voffset="200"
+                             data-width="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-height="[&apos;none&apos;,&apos;none&apos;,&apos;none&apos;,&apos;none&apos;]"
+                             data-transform_idle="o:1;"
+                             data-transform_in="y:-50px;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;s:1500;e:Back.easeOut;"
+                             data-transform_out="auto:auto;s:700;" data-start="2650" data-responsive_offset="on"
+                             style="z-index: 13;text-transform:left;"><img
+                                    src="include/rs-plugin/demos/assets/images/ornament_wide.png" alt="" width="450"
+                                    height="78" data-ww="450px" data-hh="78px" data-no-retina=""></div>
                     </li>
                 </ul>
                 <div style="" class="tp-static-layers">
@@ -369,7 +359,7 @@
         <div class="container clearfix">
             <ul class="tab-nav clearfix">
                 <li><a href="#tab-properties" data-scrollto="#tab-properties" data-offset="133">Check Rates and
-                    Availability</a></li>
+                        Availability</a></li>
             </ul>
         </div>
 
@@ -389,7 +379,8 @@
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
                                 <label>State</label>
-                                <select name="state" class="selectpicker form-control" data-live-search="true" data-size="6" style="width:100%;">
+                                <select name="state" class="selectpicker form-control" data-live-search="true"
+                                        data-size="6" style="width:100%;">
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                         <option value="AK">Alaska</option>
                                         <option value="HI">Hawaii</option>
@@ -463,10 +454,12 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 bottommargin-sm">
                                 <label>Event Date and Time</label>
-                                <input type="text" class="sm-form-control daterange" value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
+                                <input type="text" class="sm-form-control daterange"
+                                       value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
                             </div>
                             <div class="col-md-4 col-md-offset-2 float-right">
-                                <button class="button button-3d button-rounded btn-block nomargin" style="margin-top: 35px !important;">Check Rates and Availability!
+                                <button class="button button-3d button-rounded btn-block nomargin"
+                                        style="margin-top: 35px !important;">Check Rates and Availability!
                                 </button>
                             </div>
                             <div class="clear visible-xs bottommargin-sm"></div>
@@ -670,151 +663,8 @@
 
     <!-- Footer
     ============================================= -->
-    <footer id="footer" class="dark notopborder">
-
-    <div class="container">
-
-        <!-- Footer Widgets
-        ============================================= -->
-        <div class="footer-widgets-wrap clearfix">
-
-            <div class="row clearfix">
-
-                <div class="col-md-3">
-                    <img src="images/tcc-logo.png">
-                </div>
-                <div class="col-md-4">
-                    <div class="widget clearfix">
-                        <div class="row">
-
-                            <div class="col-xs-6 widget_links">
-                                <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">FAQs</a></li>
-                                    <li><a href="#">Support</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="col-xs-6 widget_links">
-                                <ul>
-                                    <li><a href="#">Shop</a></li>
-                                    <li><a href="#">Portfolio</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Events</a></li>
-                                    <li><a href="#">Forums</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="visible-sm bottommargin-sm"></div>
-                </div>
-                <div class="col-md-5">
-                    <div class="widget subscribe-widget clearfix">
-                        <h4>Subscribe to Our Newsletter</h4>
-                        <p>Get Important Offers and Deals directly to your Email Inbox. <em>We never send spam!</em></p>
-                        <div class="widget-subscribe-form-result"></div>
-                        <form id="widget-subscribe-form" role="form" method="post" class="nobottommargin">
-                            <div style="margin-bottom: -10px;">
-                                <div class="row">
-                                    <div class="col-sm-9" style="margin-bottom:10px;">
-                                        <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control not-dark required email" placeholder="Enter your Email">
-                                    </div>
-                                    <div class="col-sm-3" style="margin-bottom:10px;">
-                                        <button class="btn btn-block btn-primary" type="submit">Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="line"></div>
-
-            <div class="row clearfix">
-
-                <div class="col-md-7 col-sm-6">
-                    <div class="widget clearfix">
-                        <div class="clear-bottommargin-sm">
-                            <div class="row clearfix">
-
-                                <div class="col-md-6">
-                                    <div class="footer-big-contacts">
-                                        <span>Call Us:</span>
-                                        +1 (800) 833-CAROLER
-                                    </div>
-                                    <div class="visible-sm visible-xs bottommargin-sm"></div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="footer-big-contacts">
-                                        <span>Send an Email:</span>
-                                        info@thechristmascarolers.com
-                                    </div>
-                                    <div class="visible-xs bottommargin-sm"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="visible-sm visible-xs bottommargin-sm"></div>
-                </div>
-
-                <div class="col-md-5 col-sm-6">
-
-                    <div class="clearfix" data-class-lg="fright" data-class-md="fright" data-class-sm="fright" data-class-xs="" data-class-xxs="">
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-facebook">
-                            <i class="icon-facebook"></i>
-                            <i class="icon-facebook"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-twitter">
-                            <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-gplus">
-                            <i class="icon-gplus"></i>
-                            <i class="icon-gplus"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-pinterest">
-                            <i class="icon-pinterest"></i>
-                            <i class="icon-pinterest"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-vimeo">
-                            <i class="icon-vimeo"></i>
-                            <i class="icon-vimeo"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-github">
-                            <i class="icon-github"></i>
-                            <i class="icon-github"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-yahoo">
-                            <i class="icon-yahoo"></i>
-                            <i class="icon-yahoo"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-rounded si-small si-colored si-linkedin">
-                            <i class="icon-linkedin"></i>
-                            <i class="icon-linkedin"></i>
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</footer><!-- #footer end -->
+    <?php require 'partials/footer.htm' ?>
+    <!-- #footer end -->
 
 </div><!-- #wrapper end -->
 
@@ -824,7 +674,8 @@
 
 <!-- Modals
 ============================================= -->
-<div id="quoteModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div id="quoteModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-body">
             <div class="modal-content">
@@ -839,7 +690,8 @@
                             <div class="entry clearfix">
                                 <div class="entry-image">
                                     <a href="market-page.html">
-                                        <img id="quote_image" src="http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg">
+                                        <img id="quote_image"
+                                             src="http://soulofamerica.com/soagalleries/birmingham/enjoy/Birmingham-skyline.jpg">
                                     </a>
                                 </div>
                                 <div class="entry-c">
@@ -916,7 +768,8 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount color lead"><strong>$<span id="quote-total">120</span></strong></span>
+                                            <span class="amount color lead"><strong>$<span
+                                                            id="quote-total">120</span></strong></span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -956,7 +809,8 @@
 <script type="text/javascript" src="js/components/timepicker.js"></script>
 
 <!-- Google Map -->
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI"></script>
+<script type="text/javascript"
+        src="https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI"></script>
 <script type="text/javascript" src="js/jquery.gmap.js"></script>
 
 <!-- Include Date Range Picker -->
@@ -1041,7 +895,8 @@
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
-<script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript"
+        src="include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
 <script type="text/javascript" src="include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
@@ -1392,5 +1247,5 @@
     }
 </script>
 
-
-</body></html>
+</body>
+</html>

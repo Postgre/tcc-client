@@ -3,49 +3,49 @@
   "callback_save_quote": "http://tcc.vectorwebdevelopment.com/event-book.html",
   "activity_map": {
     "home": {
-      "path": "index.html"
+      "path": "index.php"
     },
     "find_market": {
-      "path": "market-search.html"
+      "path": "market-search.php"
     },
     "faq": {
-      "path": "faq.html"
+      "path": "faq.php"
     },
     "book_event": {
-      "path": "event-book.html"
+      "path": "event-book.php"
     },
     "contact": {
-      "path": "contact.html"
+      "path": "contact.php"
     },
     "auth": {
-      "path": "login-register.html"
+      "path": "login-register.php"
     },
     "edit_market": {
-      "path": "market-edit.html"
+      "path": "market-edit.php"
     },
     "market_page": {
-      "path": "market-page.html"
+      "path": "market-page.php"
     },
     "manage_markets": {
-      "path": "markets-manage.html"
+      "path": "markets-manage.php"
     },
     "about": {
-      "path": "about.html"
+      "path": "about.php"
     },
     "profile": {
-      "path": "profile.html"
+      "path": "profile.php"
     },
     "invites": {
-      "path": "invite-users.html"
+      "path": "invite-users.php"
     },
     "my_events": {
-      "path": "events-personal.html"
+      "path": "events-personal.php"
     },
     "caroler_dashboard": {
-      "path": "caroler-dashboard.html"
+      "path": "caroler-dashboard.php"
     },
     "upcoming_events": {
-      "path": "market-events.html",
+      "path": "market-events.php",
       "requires": ["market"]
     }
   }

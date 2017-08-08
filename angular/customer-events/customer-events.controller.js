@@ -1,4 +1,4 @@
-angular.module("customer-events", [])
+angular.module("customer-events")
     .controller('CustomerEventsController', CustomerEventsController);
 
 function CustomerEventsController( $scope ) {

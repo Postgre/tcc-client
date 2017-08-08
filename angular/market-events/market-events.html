@@ -1,0 +1,60 @@
+<section id="page-title" class="page-title-right">
+
+    <div class="container clearfix">
+        <h1 ng-bind="market.name">[Birmingham Market]</h1>
+        <span> Upcoming Events </span>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Markets</a></li>
+            <li class="active" ng-bind="market.name">[Birmingham Market]</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+<section id="content">
+
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="table-responsive">
+                <table id="events_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Event Name</th>
+                        <th>Status</th>
+                        <th>Date &amp; Time</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Event Name</th>
+                        <th>Status</th>
+                        <th>Date &amp; Time</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr ng-repeat="ev in events">
+                        <td ng-bind="ev.user_name"></td>
+                        <td ng-bind="ev.name"></td>
+                        <td>
+                            <label ng-if="ev.status == &apos;booked&apos;"
+                                   class="label label-primary">booked</label>
+                        </td>
+                        <td ng-bind="ev.start_time"></td>
+                        <td ng-bind="ev.address"></td>
+                        <td>
+                            <button class="btn btn-default"><i class="icon-chat"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section><!-- #content end -->
