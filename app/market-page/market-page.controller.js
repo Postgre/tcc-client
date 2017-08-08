@@ -36,3 +36,25 @@ function MarketPageController( $scope ) {
     }
     init();
 }
+
+function loadMap(address) {
+    jQuery('#event-location').gMap({
+        address: address,
+        maptype: 'ROADMAP',
+        zoom: 8,
+        markers: [
+            {
+                address: address
+            }
+        ],
+        doubleclickzoom: false,
+        controls: {
+            panControl: true,
+            zoomControl: true,
+            mapTypeControl: true,
+            scaleControl: false,
+            streetViewControl: false,
+            overviewMapControl: false
+        }
+    });
+}

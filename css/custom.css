@@ -5,6 +5,45 @@
 	Overwriting Default Theme Styles for Better Hanlding Updates
 -----------------------------------------------------------------*/
 
+#top-bar {
+    background-color: #800020;
+    border-bottom-color: #610000;
+}
 
+#top-bar .container {
+    width: 95%;
+}
 
+#top-social li a {
+    color: whitesmoke;
+}
+#top-social li { border-left-color: #610000; }
 
+#top-bar .top-links li > a {
+    display: block;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 44px;
+    color: whitesmoke;
+}
+#top-bar .welcome span {
+    display: block;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 44px;
+    color: whitesmoke;
+}
+#top-bar .top-links li:hover {
+    background-color: #610000;
+}
+
+#top-bar .top-links ul li {
+    float: left;
+    position: relative;
+    height: 44px;
+    border-left: 1px solid #610000;
+}

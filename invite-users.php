@@ -18,7 +18,7 @@
             <span> Delegate Market Access </span>
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Markets</a></li>
+                <li><a href="javascript:navService.goto('manage_markets')">Markets</a></li>
                 <li class="active" ng-bind="market.name"></li>
             </ol>
         </div>

@@ -5,7 +5,7 @@
         <span> Upcoming Events </span>
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li><a href="javascript:navService.goto(&apos;manage_markets&apos;)">Markets</a></li>
+            <li><a href="javascript:navService.goto('manage_markets')">Markets</a></li>
             <li class="active" ng-bind="market.name">[Birmingham Market]</li>
         </ol>
     </div>
@@ -42,7 +42,7 @@
                         <td ng-bind="ev.user_name"></td>
                         <td ng-bind="ev.name"></td>
                         <td>
-                            <label ng-if="ev.status == &apos;booked&apos;"
+                            <label ng-if="ev.status == 'booked'"
                                    class="label label-primary">booked</label>
                         </td>
                         <td ng-bind="ev.start_time"></td>

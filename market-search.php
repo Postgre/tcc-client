@@ -22,7 +22,8 @@
 
 <body class="stretched" ng-app="market-search" ng-controller="MarketSearchController">
 <div id="wrapper" class="clearfix">
-    <?php require 'partials/header.htm' ?>
+    <?php require 'partials/top-bar.htm' ?>
+<?php require 'partials/header.htm' ?>
     <?php require 'app/market-search/market-search.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>

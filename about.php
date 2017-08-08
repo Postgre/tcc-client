@@ -9,7 +9,8 @@
 ============================================= -->
 <div id="wrapper" class="clearfix">
 
-    <?php require 'partials/header.htm' ?>
+    <?php require 'partials/top-bar.htm' ?>
+<?php require 'partials/header.htm' ?>
 
     <!-- Content
     ============================================= -->
@@ -75,7 +76,7 @@
                 </div>
             </div>
 
-            <a href="javascript:navService.goto(&apos;find_market&apos;)"
+            <a href="javascript:navService.goto('find_market')"
                class="button button-full center tright topmargin footer-stick">
                 <div class="container clearfix">
                     We are Available! <strong>Book Carolers Today</strong> <i class="icon-caret-right"

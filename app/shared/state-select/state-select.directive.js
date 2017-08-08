@@ -7,7 +7,7 @@ function tccStateSelect(){
         scope: {
             bind: "=bind"
         },
-        templateUrl: "angular/shared/state-select/state-select.htm"
+        templateUrl: "app/shared/state-select/state-select.htm"
     };
 
     function link(scope, element, attr){

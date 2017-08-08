@@ -21,6 +21,7 @@
 ============================================= -->
 <div id="wrapper" class="clearfix">
 
+    <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header.htm' ?>
 
     <?php require 'app/profile/profile.html' ?>
@@ -34,8 +35,8 @@
 <!-- Bootstrap Select Plugin -->
 <script type="text/javascript" src="js/components/bs-select.js"></script>
 <script>
-    jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
-        jQuery( '.flexslider .slide' ).resize();
+    jQuery("#tabs-profile").on("tabsactivate", function (event, ui) {
+        jQuery('.flexslider .slide').resize();
     });
 </script>
 

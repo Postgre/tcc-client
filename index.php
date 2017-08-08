@@ -6,7 +6,7 @@
 
     <!-- CSS
     ================================= -->
-    <link rel="stylesheet" href="css/home/home.css" />
+    <link rel="stylesheet" href="css/home/home.css"/>
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
     <!-- Vector Maps -->
@@ -22,6 +22,7 @@
 </head>
 <body class="stretched" ng-app="home" ng-controller="HomeController">
 <div id="wrapper" class="clearfix">
+    <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-1.htm' ?>
     <?php require 'app/home/home.html' ?>
     <?php require 'partials/footer.htm' ?>

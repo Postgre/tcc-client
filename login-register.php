@@ -5,6 +5,7 @@
 </head>
 <body class="stretched">
 <div id="wrapper" class="clearfix">
+    <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header.htm' ?>
     <section id="page-title">
 
@@ -112,12 +113,12 @@
         </div>
 
     </section>
-    <?php require 'partials/footer.htm'?>
+    <?php require 'partials/footer.htm' ?>
 </div>
 
 <!-- JAVASCRIPTS
 =========================== -->
-<?php require 'partials/javascripts.htm'?>
+<?php require 'partials/javascripts.htm' ?>
 <script>
     function login() {
         let email = $("#login-form-username").val();
@@ -149,6 +150,7 @@
         });
         return false;
     }
+
     function register() {
         let name = $("#register-form-name").val();
         let email = $("#register-form-email").val();

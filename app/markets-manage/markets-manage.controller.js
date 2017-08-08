@@ -93,3 +93,16 @@ function MarketsManageController( $scope ) {
     }
     init();
 }
+
+function parseNewMarketForm() {
+    let form = document.forms.newMarketForm;
+    let name = form.name.value;
+    let address = form.city.value + ', ' + form.state.value;
+    let bio = "Edit this market to write a BIO and upload a banner!";
+
+    return {
+        name: name,
+        address: address,
+        bio: bio
+    }
+}

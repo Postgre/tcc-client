@@ -5,7 +5,7 @@
     <div class="container clearfix">
         <h1>Caroler Dashboard</h1>
         <ol class="breadcrumb">
-            <li><a href="javascript:navService.goto(&apos;home&apos;)">Home</a></li>
+            <li><a href="javascript:navService.goto('home')">Home</a></li>
             <li class="active">Caroler Dashboard</li>
         </ol>
     </div>
@@ -41,9 +41,9 @@
                         <td ng-bind="avail.date_time"></td>
                         <td>
                             <span class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === &apos;booked&apos;"
+                            <span ng-if="avail.status === 'booked'"
                                   class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === &apos;pending&apos;"
+                            <span ng-if="avail.status === 'pending'"
                                   class="label label-warning">Pending</span>
                         </td>
                         <td>
@@ -83,9 +83,9 @@
                         <td ng-bind="avail.date_time"></td>
                         <td>
                             <span class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === &apos;booked&apos;"
+                            <span ng-if="avail.status === 'booked'"
                                   class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === &apos;pending&apos;"
+                            <span ng-if="avail.status === 'pending'"
                                   class="label label-warning">Pending</span>
                         </td>
                         <td>

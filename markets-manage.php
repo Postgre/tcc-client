@@ -8,25 +8,16 @@
     <!-- Angular
     ============================================= -->
     <?php require 'partials/angular.html' ?>
-
-    <!-- Custom Styles -->
-    <style>
-        .entry-c {
-            /*overflow: visible;*/
-        }
-    </style>
 </head>
-
 <body class="stretched" ng-app="markets-manage" ng-controller="MarketsManageController">
 
 <!-- Document Wrapper
 ============================================= -->
 <div id="wrapper" class="clearfix">
 
+    <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header.htm' ?>
-
     <?php require 'app/markets-manage/markets-manage.html' ?>
-
     <?php require 'partials/footer.htm' ?>
 
 </div><!-- #wrapper end -->
@@ -41,23 +32,5 @@
 
 <script type="text/javascript" src="js/jquery.calendario.js"></script>
 <script type="text/javascript" src="js/events-data.js"></script>
-
-<!-- Page Scripts
-============================-->
-<script>
-    function parseNewMarketForm() {
-        var form = document.forms.newMarketForm;
-        var name = form.name.value;
-        var address = form.city.value + ', ' + form.state.value;
-        var bio = "Edit this market to write a BIO and upload a banner!";
-
-        return {
-            name: name,
-            address: address,
-            bio: bio
-        }
-    }
-</script>
-
 </body>
 </html>

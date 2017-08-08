@@ -5,8 +5,8 @@
     <div class="container clearfix">
         <h1 ng-bind="market.name"><!-- Market Name --></h1>
         <ol class="breadcrumb">
-            <li><a href="javascript:navService.goto(&apos;home&apos;)">Home</a></li>
-            <li><a href="javascript:navService.goto(&apos;find_market&apos;)">Markets</a></li>
+            <li><a href="javascript:navService.goto('home')">Home</a></li>
+            <li><a href="javascript:navService.goto('find_market')">Markets</a></li>
             <li class="active" ng-bind="market.name"><!--Market Name--></li>
         </ol>
     </div>
@@ -40,7 +40,7 @@
                             <ul class="entry-meta clearfix">
                                 <li>
                                     <i class="icon-map-marker2"></i>
-                                    <a ng-bind="market.city + &apos;, &apos; + market.state" href="#"></a>
+                                    <a ng-bind="market.city + ', ' + market.state" href="#"></a>
                                 </li>
                                 <li>
                                     <i class="icon-line-map"></i>

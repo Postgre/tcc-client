@@ -13,6 +13,7 @@
 </head>
 <body class="stretched" ng-app="market-events" ng-controller="MarketEventsController">
 <div id="wrapper" class="clearfix">
+    <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header.htm' ?>
     <?php require 'app/customer-events/customer-events.html' ?>
     <?php require 'partials/footer.htm' ?>

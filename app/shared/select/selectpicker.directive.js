@@ -9,7 +9,7 @@ function selectPicker(){
             bind: "=bind",
             options: "=options" // { val: 1, name: 'One' }
         },
-        templateUrl: "angular/shared/select/selectpicker.htm"
+        templateUrl: "app/shared/select/selectpicker.htm"
     };
 
     function link(scope, el, attr){

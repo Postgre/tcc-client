@@ -8,7 +8,7 @@ function tccDateRange() {
             to: "=to",
             from: "=from"
         },
-        templateUrl: "angular/shared/daterange/daterange.html"
+        templateUrl: "app/shared/daterange/daterange.html"
     };
     return directive;
 
