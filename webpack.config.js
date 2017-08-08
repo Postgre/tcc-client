@@ -1,42 +1,42 @@
 /* Libraries */
-const path    = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 /* Webpack Config */
 module.exports = {
-  /* Application Entry Point */
-  entry: path.resolve('./es/src/main.js'),
+    /* Application Entry Point */
+    entry: path.resolve('./es/src/main.js'),
 
-  /* Application output */
-  output:{
-    path: path.resolve('./es/dist'),
-    filename: 'bundle.js'
-  },
+    /* Application output */
+    output: {
+        path: path.resolve('./es/dist'),
+        filename: 'bundle.js'
+    },
 
-  /* Development Config */
-  devtool: 'source-map',
+    /* Development Config */
+    devtool: 'source-map',
 
-  /* Modules */
-  module: {
-    loaders: [
-      {
-        test: /.js?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015']
-        }
-      },
-      {
-        test: /\.css$/,
-        loader: 'style!css'
-      }
+    /* Modules */
+    module: {
+        loaders: [
+            {
+                test: /.js?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015']
+                }
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            }
+        ]
+    },
+
+    /* Plugins */
+    plugins: [
+        new UglifyJSPlugin(),
     ]
-  },
-
-  /* Plugins */
-  plugins: [
-    new UglifyJSPlugin(),
-  ]
 };
