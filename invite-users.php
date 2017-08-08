@@ -6,8 +6,7 @@
     <!-- Bootstrap Data Table Plugin -->
     <link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css">
 
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/invite/invites.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 </head>
 <body class="stretched" ng-app="invite" ng-controller="InviteController">
 <div id="wrapper" class="clearfix">

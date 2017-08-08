@@ -8,10 +8,7 @@
 
     <!-- Angular
     ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="angular/market-page/market-page.module.js"></script>
-    <script src="angular/market-page/market-page.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 
 </head>
 <body class="stretched" ng-app="market-page" ng-controller="MarketPageController">

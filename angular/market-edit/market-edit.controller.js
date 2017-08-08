@@ -108,9 +108,3 @@ function MarketEditController( $scope ) {
         });
     };
 }
-
-const DEFAULT_MODEL = {
-    market: {
-
-    }
-};

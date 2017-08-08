@@ -16,9 +16,7 @@
 
     <!-- Angular
     ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/market-search/market-search.module.js"></script>
-    <script src="angular/market-search/market-search.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 
 </head>
 

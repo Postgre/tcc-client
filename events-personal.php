@@ -2,12 +2,13 @@
 <html dir="ltr" lang="en-US">
 <head>
     <?php require 'partials/head.htm' ?>
+    <!-- CSS
+    ================================ -->
+    <link rel="stylesheet" href="css/calendar.css"/>
 
     <!-- Angular
     ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/customer-events/customer-events.module.js"></script>
-    <script src="angular/customer-events/customer-events.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 
 </head>
 

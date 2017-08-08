@@ -7,11 +7,7 @@
 
     <!-- Angular
     ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/shared/plugins.module.js"></script>
-    <script src="angular/shared/state-select/state-select.directive.js"></script>
-    <script src="angular/shared/daterange/daterange.directive.js"></script>
-    <script src="angular/markets-manage/markets-manage.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 
     <!-- Custom Styles -->
     <style>

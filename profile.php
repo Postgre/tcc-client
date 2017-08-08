@@ -12,9 +12,7 @@
 
     <!-- Angular
     ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/profile/profile.module.js"></script>
-    <script src="angular/profile/profile.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 
 </head>
 <body class="stretched" ng-app="profile" ng-controller="ProfileController">

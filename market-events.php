@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css">
 
     <!-- Angular -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/market-events/market-events.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 </head>
 <body class="stretched" ng-app="market-events" ng-controller="MarketEventsController">
 <div id="wrapper" class="clearfix">

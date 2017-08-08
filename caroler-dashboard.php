@@ -6,14 +6,6 @@
     <?php require 'partials/head.htm' ?>
     <!-- Bootstrap Data Table Plugin -->
     <link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css"/>
-
-    <!-- Angular
-    ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/caroler-dashboard/caroler-dashboard.module.js"></script>
-    <script src="angular/caroler-dashboard/caroler-dashboard.controller.js"></script>
-
-    <!-- Page-Specific Styles -->
     <style>
         .col-cust {
             font-weight: bold;
@@ -21,6 +13,10 @@
             padding-left: 15px;
         }
     </style>
+
+    <!-- Angular
+    ============================================= -->
+    <?php require 'partials/angular.html' ?>
 </head>
 <body class="stretched" ng-app="caroler-dashboard" ng-controller="CarolerDashboardController">
 <div id="wrapper" class="clearfix">

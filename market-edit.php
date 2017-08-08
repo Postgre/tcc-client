@@ -18,19 +18,6 @@
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
     <!-- Radio Checkbox Plugin -->
     <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
-
-    <!-- Angular
-    ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/angular-input-masks/releases/angular-input-masks-dependencies.min.js"></script>
-    <script src="node_modules/angular-input-masks/releases/angular-input-masks.min.js"></script>
-    <script src="node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
-    <script src="angular/shared/plugins.module.js"></script>
-    <script src="angular/shared/state-select/state-select.directive.js"></script>
-    <script src="angular/shared/daterange/daterange.directive.js"></script>
-    <script src="angular/market-edit/market-edit.module.js"></script>
-    <script src="angular/market-edit/market-edit.controller.js"></script>
-
     <style>
         .action-buttons-wrapper {
             text-align: right;
@@ -40,6 +27,10 @@
             margin-right: 20px;
         }
     </style>
+
+    <!-- Angular
+    ======================== -->
+    <?php require 'partials/angular.html' ?>
 </head>
 <body class="stretched" ng-app="market-edit" ng-controller="MarketEditController">
 <div id="wrapper" class="clearfix">

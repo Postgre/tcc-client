@@ -16,12 +16,7 @@
 
     <!-- Angular
     ============================================= -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="angular/shared/plugins.module.js"></script>
-    <script src="angular/shared/state-select/state-select.directive.js"></script>
-    <script src="angular/shared/select/selectpicker.directive.js"></script>
-    <script src="angular/booking/booking.module.js"></script>
-    <script src="angular/booking/booking.controller.js"></script>
+    <?php require 'partials/angular.html' ?>
 
     <style>
         .travel_cost_breakdown b {
