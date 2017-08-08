@@ -24,6 +24,9 @@ module.exports = class Bindings {
         this.appService.registerIf( ".tcc_if_director", function(){
             return self.authService.hasRole('director');
         });
+        this.appService.registerIf( ".tcc_if_login", ()=>{
+            return self.authService.isLoggedIn();
+        });
         this.appService.registerBind(".tcc_name", function(){
             if(self.authService.isLoggedIn()){
                 return self.authService.user.name;
