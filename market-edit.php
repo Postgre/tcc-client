@@ -5,9 +5,6 @@
 
     <!-- CSS
     =========================================-->
-    <!-- Sweet Alert -->
-    <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
-    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Date & Time Picker CSS -->
     <link rel="stylesheet" href="demos/travel/css/datepicker.css" type="text/css">
     <link rel="stylesheet" href="css/components/timepicker.css" type="text/css">

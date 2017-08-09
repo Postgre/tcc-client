@@ -13,4 +13,18 @@ module.exports = class ModelFactory {
         if(data) instance.setData(data);
         return instance;
     }
+
+    all(ModelClass, filters, onload){
+        let out = [];
+        this.dataService.getResourceAll(window[ModelClass].endpoint, filters)
+            .then((_models)=>{
+                _models.forEach((_model)=>{
+                    let model = new window[ModelClass](this.dataService);
+                    model.setData(_model);
+                    out.push(model);
+                });
+                onload();
+            });
+        return out;
+    }
 };

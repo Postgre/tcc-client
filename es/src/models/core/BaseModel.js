@@ -55,7 +55,7 @@ module.exports = class BaseModel {
         return this.dataService.connection({
             url: this.constructor.endpoint+"/"+this.getId(),
             method: "DELETE"
-        })
+        });
     }
 
     getData(){
@@ -66,7 +66,7 @@ module.exports = class BaseModel {
         });
         // extract optional properties
         this.constructor.optional.forEach((prop)=>{
-            if(this[prop]) data[prop] = this[prop];
+            if(typeof this[prop] !== 'undefined') data[prop] = this[prop];
         });
         return data;
     }

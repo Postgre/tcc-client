@@ -1,0 +1,145 @@
+<!-- Page Title
+    ============================================= -->
+<section id="page-title">
+    <div class="container clearfix">
+        <h1>Caroler List</h1>
+        <ol class="breadcrumb">
+            <li><a href="javascript:navService.goto('home')">Home</a></li>
+            <li class="active">Caroler List</li>
+        </ol>
+    </div>
+</section><!-- #page-title end -->
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <div class="table-responsive">
+                <div class="col_half">
+                    <div class="heading-block highlight-me">
+                        <h2>Active Promotions</h2>
+                        <span>Create, Update, Delete, and View Promotions</span>
+                    </div>
+                </div>
+                <div class="col_half col_last">
+                    <button ng-click="create()" class="btn btn-primary pull-right"> + Create a Promo Code </button>
+                </div>
+
+                <table id="datatable" class="table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Discount</th>
+                        <th>Code</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in rows">
+                        <td ng-bind="row.name" class="col-cust"></td>
+                        <td ng-bind="row.description"></td>
+                        <td>
+                            <span ng-if="1-row.pricing_scale !== 0"
+                                  class="label label-success txt-sm">
+                                <b ng-bind="((1 - row.pricing_scale)*100).toFixed(0)"></b>%
+                            </span>
+                            &nbsp;
+                            <span ng-if="row.pricing_offset"
+                                  class="label label-success txt-sm">
+                                $<b ng-bind="row.pricing_offset"></b>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="label label-default txt-md">
+                                <b ng-bind="row.code"></b>
+                            </span>
+                        </td>
+                        <td>
+                            <button ng-click="edit(row)" class="btn btn-warning"> Edit </button>
+                            <button ng-click="delete(row)" class="btn btn-danger"> End </button>
+                            <button class="btn btn-primary"> View </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                x
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Create New Promotion</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <form class="nobottommargin">
+
+                                    <div class="form-process"></div>
+
+                                    <div class="col_half">
+                                        <label>Name
+                                            <small>*</small>
+                                        </label>
+                                        <input ng-model="form.name" type="text"
+                                               class="sm-form-control required">
+                                    </div>
+
+                                    <div class="col_half col_last">
+                                        <label>Code</label>
+                                        <input ng-model="form.code" class="sm-form-control" placeholder="( Optional )">
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                    <div class="col_half">
+                                        <label>Pricing Scale</label>
+                                        <input ng-model="form.pricing_scale" ui-percentage-mask="0" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="col_last col_half">
+                                        <label>Pricing Offset</label>
+                                        <input ng-model="form.pricing_offset" ui-money-mask="0" type="text" class="form-control"/>
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                    <div class="col_full">
+                                        <label> Duration </label>
+                                        <tcc-date-range from="form.start" to="form.end"></tcc-date-range>
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                    <div class="col_full">
+                                        <label>Description: </label>
+                                        <textarea ng-model="form.description" type="text" class="sm-form-control"></textarea>
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                    <div class="col_full">
+                                        <button ng-click="submit()" name="submit" tabindex="5"
+                                                class="button button-3d nomargin">Submit
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- #content end -->

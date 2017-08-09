@@ -1,28 +1,24 @@
 <!-- Top Bar
 		============================================= -->
 <div id="top-bar" class="tcc_if_login">
-
     <div class="container clearfix">
-
         <div class="col_half nobottommargin">
-
             <div class="welcome">
-                <span>Welcome back, <b class="tcc_name"> <!--Dynamic --></b>!</span>
+                <span>Welcome back, <b class="tcc_name"><!--Dynamic --></b>!</span>
             </div>
-
         </div>
-
         <div class="col_half fright col_last nobottommargin">
             <div class="top-links">
                 <ul>
-                    <li class="tcc_if_director tcc_if_admin"><a href="javascript:navService.goto('manage_markets')">Markets</a></li>
+                    <li class="tcc_if_director tcc_if_admin">
+                        <a href="javascript:navService.goto('manage_markets')">Markets</a>
+                    </li>
                     <li class="tcc_if_admin"><a href="#">Directors</a></li>
-                    <li class="tcc_if_director tcc_if_admin"><a href="#">Carolers</a></li>
+                    <li class="tcc_if_director tcc_if_admin"><a href="caroler-list.php">Carolers</a></li>
                     <li class="tcc_if_customer"><a href="javascript:navService.goto('my_events')">My Events</a></li>
+                    <li class="tcc_if_admin"><a href="promos.php">Promos</a></li>
                 </ul>
             </div>
         </div>
-
     </div>
-
 </div><!-- #top-bar end -->

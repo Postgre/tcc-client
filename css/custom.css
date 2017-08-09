@@ -47,3 +47,13 @@
     height: 44px;
     border-left: 1px solid #610000;
 }
+
+.txt-lg {
+    font-size: large;
+}
+.txt-md {
+    font-size: medium;
+}
+.txt-sm {
+    font-size: small;
+}
