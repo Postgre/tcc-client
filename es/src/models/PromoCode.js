@@ -9,7 +9,9 @@ module.exports = class PromoCode extends BaseModel {
             'name',
             'description',
             'pricing_scale',
-            'pricing_offset'
+            'pricing_offset',
+            'start_time',
+            'end_time'
         ];
     }
     static get optional(){

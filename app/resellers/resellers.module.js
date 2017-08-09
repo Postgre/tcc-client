@@ -1,0 +1,1 @@
+angular.module("resellers", [ 'plugins', 'ui.utils.masks' ]);

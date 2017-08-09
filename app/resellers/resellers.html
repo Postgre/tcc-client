@@ -20,49 +20,24 @@
             <div class="table-responsive">
                 <div class="col_half">
                     <div class="heading-block highlight-me">
-                        <h2>Active Promotions</h2>
-                        <span>Create, Update, Delete, and View Promotions</span>
+                        <h2>Reseller Profiles</h2>
+                        <span>Create, Update, Delete, and View Resellers</span>
                     </div>
                 </div>
                 <div class="col_half col_last">
-                    <button ng-click="create()" class="btn btn-primary pull-right"> + Create a Promo Code </button>
+                    <button ng-click="create()" class="btn btn-primary pull-right"> + Create a Reseller </button>
                 </div>
 
                 <table id="datatable" class="table" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Discount</th>
-                        <th>Code</th>
-                        <th>Actions</th>
+                        <th ng-repeat="header in headers" ng-bind="header"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in rows">
-                        <td ng-bind="row.name" class="col-cust"></td>
+                        <td ng-bind="row.name"></td>
                         <td ng-bind="row.description"></td>
-                        <td>
-                            <span ng-if="1-row.pricing_scale !== 0"
-                                  class="label label-success txt-sm">
-                                <b ng-bind="((1 - row.pricing_scale)*100).toFixed(0)"></b>%
-                            </span>
-                            &nbsp;
-                            <span ng-if="row.pricing_offset"
-                                  class="label label-success txt-sm">
-                                $<b ng-bind="row.pricing_offset"></b>
-                            </span>
-                        </td>
-                        <td>
-                            <span class="label label-default txt-md">
-                                <b ng-bind="row.code"></b>
-                            </span>
-                        </td>
-                        <td>
-                            <button ng-click="edit(row)" class="btn btn-warning"> Edit </button>
-                            <button ng-click="delete(row)" class="btn btn-danger"> End </button>
-                            <button class="btn btn-primary"> View </button>
-                        </td>
                     </tr>
                     </tbody>
                 </table>

@@ -1,4 +1,5 @@
 const BaseModel = require('./core/BaseModel');
+const PromoCode = require('./PromoCode');
 
 module.exports = class Booking extends BaseModel {
     static get endpoint(){
@@ -13,7 +14,6 @@ module.exports = class Booking extends BaseModel {
             'state',
             'city',
             'address',
-            'caroler_config',
             'type',
             'requests'
         ];
@@ -30,9 +30,20 @@ module.exports = class Booking extends BaseModel {
         this.promo_codes = [];
     }
 
+    submit(){
+        return this.dataService.postBooking(this.getData(), this.caroler_config, this.getPromoData());
+    }
+
     getFormattedAddress(){
         if(!this.validateAddress()) return null;
         return this.city+", "+this.state+", "+this.address;
+    }
+    getPromoData(){
+        let _promos = [];
+        this.promo_codes.forEach((code)=>{
+            _promos.push(code.getData());
+        });
+        return _promos;
     }
 
     /**
@@ -43,16 +54,23 @@ module.exports = class Booking extends BaseModel {
         return this.dataService.previewTravel(this.market_id, this.address, this.city, this.state);
     }
     getInvoicePreview(){
-        return this.dataService.postQuotePreview(
-            this.getFormattedAddress(),
-            this.start_time,
-            this.end_time,
-            this.caroler_config,
-            this.market_id
-        )
+        let postData = this.getData();
+        postData.address = this.getFormattedAddress();
+        console.log(postData);
+        return this.dataService.postQuotePreview(postData, this.caroler_config, this.getPromoData());
     }
     applyPromoCode(code){
-        // TODO: implement promotions
+        return new Promise((resolve, reject)=>{
+            this.dataService.validatePromo(code, this.start_time, this.end_time)
+                .then((_promo)=>{
+                    let promo = new PromoCode(this.dataService);
+                    promo.setData(_promo);
+                    this.promo_codes.push(promo);
+                    resolve(promo);
+                }).catch((err)=>{
+                    reject(err);
+                })
+        });
     }
 
     /**

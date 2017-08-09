@@ -13,7 +13,6 @@ function BookingController($scope) {
         costs: {},
         metrics: {}
     };
-
     $scope.carolerConfigurations = CarolerConfigs.options;
     $scope.eventTypes = [
         {
@@ -34,16 +33,18 @@ function BookingController($scope) {
      * Functions
      * ===============
      */
-    $scope.previewTravelCosts = previewTravelCosts;
-    function previewTravelCosts() {
+    $scope.previewTravelCosts = function previewTravelCosts() {
         updateMap();
         $scope.booking.getTravelPreview($scope.market.id)
             .then((report)=>{
                 console.log("Travel Preview", report);
                 $scope.travelPreview = report;
                 $scope.$apply();
-            }).catch(somethingWentWrong);
-    }
+            }).catch((err)=>{
+                let r = err.response.data.status;
+                alert(r);
+            });
+    };
     function updateMap(){
         if(!$scope.booking.validateAddress()){
             alert("Invalid Address");
@@ -76,6 +77,37 @@ function BookingController($scope) {
         });
     }
 
+    $scope.applyPromo = function (){
+        let tryIt = (code) => {
+            console.log("Trying..");
+            $scope.booking.applyPromoCode(code).then((promo)=>{
+                swal("Success!", `Promo '${promo.name}' has been applied`, "success");
+                reloadInvoicePreview();
+            }).catch((err)=>{
+                swal("Hmm..", "We couldn't find that code", "warning");
+            });
+        };
+        swal({
+                title: "Enter Your Code:",
+                text: "",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "Ex: XMAS2017"
+            },
+            function(inputValue){
+                if (inputValue === false) return false;
+
+                if (inputValue === "") {
+                    swal.showInputError("You need to write something!");
+                    return false
+                }
+
+                tryIt(inputValue);
+            });
+    };
+
     /**
      * Init
      * ===============
@@ -83,7 +115,15 @@ function BookingController($scope) {
     (function init() {
         initTabs();
         initDatepicker($scope);
-        $scope.booking  = window.modelFactory.create("Booking");
+        $scope.booking  = window.modelFactory.create("Booking", {
+            'address': 'Martin Luther King Dr',
+            'state': 'NJ',
+            'city': 'Atlantic City',
+            'name': 'Caroling in NJ',
+            'start_time': '07/10/2018 12:00 PM',
+            'end_time': '07/10/2018 2:00 PM'
+        });
+        // $scope.booking  = window.modelFactory.create("Booking");
         $scope.market   = window.modelFactory.find("Market", window.navService.getNavParams().market_id, ()=>{
             $scope.booking.market_id = $scope.market.id;
             $scope.$apply();
@@ -116,7 +156,7 @@ function BookingController($scope) {
             }).catch(somethingWentWrong);
     };
     $scope.stepToConfirm    = function () {
-        $scope.booking.save()
+        $scope.booking.submit()
             .then(()=>{
                 process_tabs.tabs("enable", 3);
                 $scope.stepTo(3);
@@ -125,6 +165,14 @@ function BookingController($scope) {
     $scope.stepTo           = function (tab_number) {
         process_tabs.tabs("option", "active", tab_number);
     };
+
+    function reloadInvoicePreview(){
+        $scope.booking.getInvoicePreview()
+            .then((invoice)=> {
+                $scope.invoice = invoice;
+                $scope.$apply();
+            }).catch(somethingWentWrong);
+    }
 }
 
 window.process_tabs = null;

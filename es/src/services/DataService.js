@@ -122,18 +122,14 @@ module.exports = class DataService {
             })
         });
     }
-    postQuotePreview( address, start_time, end_time, caroler_config, market_id ){
+    postQuotePreview( event, caroler_config, promo_codes ){
+        event['caroler_config'] = caroler_config;
+        event['promo_codes'] = promo_codes;
         return new Promise((resolve, reject)=>{
             this.connection({
                 url: "quotes/preview",
                 method: "POST",
-                data: qs.stringify({
-                    address: address,
-                    start_time: start_time,
-                    end_time: end_time,
-                    caroler_config: caroler_config,
-                    market_id: market_id
-                })
+                data: qs.stringify(event)
             }).then((res)=>{
                 let myFormat = {
                     carolers:   res.data.cost_carolers,
@@ -313,6 +309,37 @@ module.exports = class DataService {
                 reject(err);
             })
         });
+    }
+    postBooking(event, caroler_config, promo_codes){
+        event['promo_codes'] = promo_codes;
+        event['caroler_config'] = caroler_config;
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "events/book",
+                method: "POST",
+                data: qs.stringify(event)
+            }).then((res)=>{
+                resolve(res)
+            }).catch((err)=>{
+                reject(err);
+            })
+        })
+    }
+    validatePromo( code, start, end ){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "promotions/validate/" + code,
+                method: "GET",
+                params: {
+                    start_time: start,
+                    end_time: end
+                }
+            }).then((res)=>{
+                resolve(res.data);
+            }).catch((err)=>{
+                reject(err.response.data.status);
+            })
+        })
     }
 
     /**
