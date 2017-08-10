@@ -5,15 +5,13 @@ const jwtDecode = require('jwt-decode');
 
 /* Auth Service */
 module.exports = class AuthService {
-    constructor(config, navService) {
-        console.info('AuthService Loading...');
-
+    constructor(config, storage) {
         /* Saving Config */
         this.config = config;
-        this.navSerice = navService;
+        this.storage = storage;
 
         /* Local variables */
-        this.jwt = localStorage.getItem('jwt');
+        this.jwt = this.storage.getItem('jwt');
         this.user = null;
         this.jwtExpire = null;
 
@@ -49,7 +47,7 @@ module.exports = class AuthService {
                 })
             }).then((res) => {
                 this.jwt = res.data.token;
-                localStorage.setItem('jwt', res.data.token);
+                this.storage.setItem('jwt', res.data.token);
 
                 let decoded = jwtDecode(res.data.token);
                 this.user = decoded.user;
@@ -88,10 +86,9 @@ module.exports = class AuthService {
 
     logout() {
         /* Clearing login data */
-        localStorage.removeItem('jwt');
+        this.storage.removeItem('jwt');
         this.jwt = null;
         this.jwtExpire = null;
-        this.navSerice.goto("home");
     }
 
     isLoggedIn(){

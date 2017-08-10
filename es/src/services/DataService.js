@@ -5,8 +5,6 @@ const qs = require('qs');
 module.exports = class DataService {
 
     constructor(config, authService) {
-        console.info('DataService Loading...');
-
         this.callback_save_quote = config.callback_save_quote;
         this.authService = authService;
 

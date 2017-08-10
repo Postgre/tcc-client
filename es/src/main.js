@@ -1,30 +1,43 @@
 /* Configuration */
 const config = require('../../config.json');
 
-/* Custom Services */
-const jQuery = require('jQuery');
-const AuthService = require('./services/AuthService.js');
-const DataService = require('./services/DataService.js');
+/* Services */
+const AuthService = require('./services/AuthService');
+const DataService = require('./services/DataService');
 const ApplicationService = require('./services/ApplicationService');
 const NavService = require('./services/NavService');
 const Bindings = require('./Bindings');
-const ModelFactory = require('./models/core/ModelFactory');
-
-/* Loading Model Classes */
-require('./models/autoload');
-require('./lib/autoload');
-
-/* Initalizing Libraries */
 window.appService = new ApplicationService();
 window.navService = new NavService(config);
-window.authService = new AuthService(config, navService);
+window.authService = new AuthService(config, window.localStorage);
 window.dataService = new DataService(config, authService);
-window.modelFactory = new ModelFactory(window.dataService, window.authService);
-new Bindings( authService, appService ).apply();
+new Bindings(authService, appService).apply();
+
+/* ORM Models */
+const ModelFactory = require('./models/core/ModelFactory');
+const Market = require('./models/Market');
+const Booking = require('./models/Booking');
+const PromoCode = require('./models/PromoCode');
+const Reseller = require('./models/Reseller');
+window.modelFactory = new ModelFactory(window.dataService, {
+    Market, Booking, PromoCode, Reseller
+});
+window.Market = Market;
+window.Booking = Booking;
+window.PromoCode = PromoCode;
+window.Reseller = Reseller;
+
+/* Libraries */
+const QuoteRequest = require('./lib/quote/QuoteRequest');
+const CarolerConfigs = require('./lib/caroler_configs/CarolerConfigs');
+const SpecialDate = require('./lib/special_date/SpecialDate');
+window.QuoteRequest = QuoteRequest;
+window.CarolerConfigs = CarolerConfigs;
+window.SpecialDate = SpecialDate;
 
 /* Global Functions */
 require('./functions');
-
-jQuery(document).ready(function(){
+const jQuery = require('jQuery');
+jQuery(document).ready(function () {
     appService.renderSession();
 });

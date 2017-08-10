@@ -38,8 +38,8 @@ module.exports = class Market extends BaseModel {
         };
     }
 
-    constructor(data){
-        super(data);
+    constructor(dataService, data){
+        super(dataService, data);
         this.specialDates   =   [];
         this.mediaLinks     =   [];
         this.carolerConfigs =   new CarolerConfigs();
@@ -48,7 +48,7 @@ module.exports = class Market extends BaseModel {
     find(id, onload){
         super.find(id, onload);
         // load special dates
-        dataService.getSpecialDates(this.id)
+        this.dataService.getSpecialDates(this.id)
             .then((res)=>{
                 let _dates = res.data;
                 _dates.forEach((_date)=>{
@@ -57,7 +57,7 @@ module.exports = class Market extends BaseModel {
                 onload();
             });
         // load media links
-        dataService.getMedia(this.id)
+        this.dataService.getMedia(this.id)
             .then((res)=>{
                 let _links = res.data;
                 _links.forEach((_link)=>{
@@ -69,7 +69,7 @@ module.exports = class Market extends BaseModel {
                 onload();
             });
         // load caroler configs
-        dataService.getCarolerConfigs(this.id)
+        this.dataService.getCarolerConfigs(this.id)
             .then((_configs)=>{
                 this.carolerConfigs = new CarolerConfigs(_configs);
                 onload();

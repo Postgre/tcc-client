@@ -1,6 +1,6 @@
 const BaseModel = require('./core/BaseModel');
 
-module.exports = class PromoCode extends BaseModel {
+module.exports = class Reseller extends BaseModel {
     static get endpoint(){
         return "resellers";
     }
@@ -19,16 +19,6 @@ module.exports = class PromoCode extends BaseModel {
     constructor(dataService){
         super(dataService);
         this.promo = {};
-    }
-    find(id, onload){
-        super.find(id, ()=>{
-            this.loadPromo().then(onload);
-        });
-    }
-    save(){
-        super.save().then(()=>{
-            return this.loadPromo();
-        });
     }
 
     loadPromo(){

@@ -5,39 +5,40 @@
  * create(Resource): creates a new, blank, resource model
  * all(Resource, filters, rel[]): fetches an entire resource collection, wrapping each entity in a model
  */
+// TODO: relations
 module.exports = class ModelFactory {
-    constructor(DataService){
+    constructor(DataService, classMap){
         this.dataService = DataService;
+        this.classMap = classMap;
     }
 
-
-    // TODO: refactor
-    find(ModelClass, id, onload){
-        // soon...
-        // let instance = new window[ModelClass](this.dataService, this);
-        // return instance.find(id);
-        let instance = new window[ModelClass](this.dataService);
-        instance.find(id, onload);
-        return instance;
+    find(ModelClass, id){
+        return new Promise((resolve, reject)=>{
+            let instance = new this.classMap[ModelClass](this.dataService);
+            this.dataService.getResource(instance.constructor.endpoint, id)
+                .then((_model)=>{
+                    instance.setData(_model);
+                    resolve(instance);
+                }).catch(reject);
+        });
     }
     create(ModelClass, data){
-        // let instance = new window[ModelClass](this.dataService, this);
-        let instance = new window[ModelClass](this.dataService);
+        let instance = new this.classMap[ModelClass](this.dataService);
         if(data) instance.setData(data);
         return instance;
     }
-
-    all(ModelClass, filters, onload){
-        let out = [];
-        this.dataService.getResourceAll(window[ModelClass].endpoint, filters)
-            .then((_models)=>{
-                _models.forEach((_model)=>{
-                    let model = new window[ModelClass](this.dataService);
-                    model.setData(_model);
-                    out.push(model);
-                });
-                onload();
-            });
-        return out;
+    all(ModelClass, filters){
+        return new Promise((resolve, reject)=>{
+            this.dataService.getResourceAll(this.classMap[ModelClass].endpoint, filters)
+                .then((_models)=>{
+                    let models = [];
+                    _models.forEach((_model)=>{
+                        let model = new this.classMap[ModelClass](this.dataService);
+                        model.setData(_model);
+                        models.push(model);
+                    });
+                    resolve(models);
+                }).catch(reject);
+        });
     }
 };

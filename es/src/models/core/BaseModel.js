@@ -4,18 +4,16 @@ const qs = require('qs');
  * Models a resource in the database, allowing update, save, and deletion.
  * -----------------------
  *  + endpoint      :   the REST resource endpoint
- *  + required      :   these properties will be initialized to null if they aren't set, and will always be in requests
- *  + optional      :   these properties will be included in requests if they are set
- *  + defaults      :   specify default values
+ *  + required[]    :   these properties will be initialized to null if they aren't set, and will always be in requests
+ *  + optional[]    :   these properties will be included in requests if they are set
+ *  + defaults[]    :   specify default values
+ *  + hasOne{}      :   specifies a has-one relationship with another resource. Properties with this name get wrapped into the specified model class in the load middleware.
+ *                      { <property_name> : <model_class> }
+ *  + hasMany{}     :   specifies a has-many relationship with other resource.
+ *                      { <property_name> : <model_class> }
  *  [+] update()    :   calls PUT /<endpoint>/id with required and optional properties
  *  [+] save()      :   calls POST /<endpoint> with required and optional properties
  *  [+] destroy()   :   calls DELETE /<endpoint>/id
- *  -----------------------
- *  MIDDLEWARE:
- *  [~] onLoad()
- *  [~] onUpdate()
- *  [~] onCreate()
- *  [~] onDelete()
  */
 module.exports = class BaseModel {
     static get endpoint(){
@@ -32,7 +30,7 @@ module.exports = class BaseModel {
     }
 
     // TODO: refactor
-    constructor(dataService/*, modelFactory*/){
+    constructor(dataService){
         this.dataService = dataService;
         // this.modelFactory = modelFactory;
         // initialize required properties
@@ -41,19 +39,6 @@ module.exports = class BaseModel {
         });
         // set defaults
         Object.assign(this, this.constructor.defaults);
-    }
-    // TODO: refactor
-    find(id, onload){
-        this.setId(id);
-        // return
-        this.dataService.connection({   // load the actual model data
-            url: this.constructor.endpoint+"/"+id,
-            method: "GET"
-        }).then((res)=>{
-            let props = res.data;
-            this.setData(props);
-            onload();
-        });
     }
     update(){
         return this.dataService.connection({
