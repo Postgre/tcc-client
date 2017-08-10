@@ -16,6 +16,9 @@ angular.module("resellers")
  * [-] init()   =>  loads all resource models into +rows
  */
 function ResellersController( $scope ){
+    $scope.log = () => {
+        console.log($scope);
+    };
     const RESOURCE  =   "Reseller";
     const FILTERS   =   {};
     const HEADERS   =   ['Name', 'Address', 'Code'];
@@ -33,8 +36,12 @@ function ResellersController( $scope ){
     };
 
     function init(){
-        $scope.rows = window.modelFactory.all(RESOURCE, FILTERS, ()=>{
+        window.modelFactory.all(RESOURCE, FILTERS).then((rows)=>{
+            $scope.rows = rows;
             $scope.$apply();
+            setTimeout(function(){
+                initDataTable();
+            }, 100);
         });
     }
 
@@ -111,4 +118,8 @@ function ResellersController( $scope ){
 
 function modal(){
     $("#modal").modal('show');
+}
+
+function initDataTable(){
+    $("#datatable").dataTable();
 }

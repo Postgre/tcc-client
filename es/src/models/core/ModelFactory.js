@@ -35,34 +35,33 @@ module.exports = class ModelFactory {
             })
         });
     }
-    create(ModelClass){
+    create(ModelClass, data){
         let schema = this.schema[ModelClass];
         let instance = new this.classMap[ModelClass]();
-        let depends = { dataService: this.dataService };
-        Object.assign(instance, depends, schema);
+        let depends = {
+            dataService: this.dataService,
+            factory: this
+        };
+        Object.assign(instance, depends, schema, data);
         instance.init();
         return instance;
     }
     all(ModelClass, filters){
-        let promises = [];
-        let collectionPromise = new Promise((resolve, reject)=>{
+        return new Promise((resolve, reject)=>{
             this.dataService.getResourceAll(this.schema[ModelClass].endpoint, filters)
                 .then((_models)=>{
                     let models = [];
+                    let modelPromises = [];
                     _models.forEach((_model)=>{
                         let model = this.create(ModelClass);
                         model.setData(_model);
-                        model.load(promises, Promise.resolve(model));
+                        model.load(modelPromises, Promise.resolve(model));
                         models.push(model);
                     });
-                    resolve(models);
+                    Promise.all(modelPromises).then(()=>{
+                        resolve(models);
+                    });
                 }).catch(reject);
-        });
-        promises.push(collectionPromise);
-        return new Promise((resolve, reject)=>{
-            Promise.all(promises).then((resolves)=>{
-                resolve(resolves[0]);
-            });
         });
     }
 

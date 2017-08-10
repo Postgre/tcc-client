@@ -2,20 +2,7 @@ angular.module("promos")
 .controller("PromosController", PromosController);
 
 function PromosController( $scope ){
-    $scope.rows = [
-        {
-            name: "Caleb Falcione",
-            pricing_offset: 50,
-            pricing_scale: null,
-            email: "caleb.falcione@gmail.com"
-        },
-        {
-            name: "Chris Rocco",
-            pricing_offset: null,
-            pricing_scale: 0.13,
-            email: "caleb.falcione@gmail.com"
-        }
-    ];
+    $scope.rows = [];
 
     $scope.form = {};
 
@@ -64,8 +51,12 @@ function PromosController( $scope ){
     };
 
     function init(){
-        $scope.rows = window.modelFactory.all("PromoCode", { 'active': true }, ()=>{
+        window.modelFactory.all("PromoCode", { 'active': true }).then((promo_codes)=>{
+            $scope.rows = promo_codes;
             $scope.$apply();
+            setTimeout(function(){
+                initDataTable();
+            }, 2000);
         });
     }
     init();
@@ -73,4 +64,8 @@ function PromosController( $scope ){
 
 function modal(){
     $("#modal").modal('show');
+}
+
+function initDataTable(){
+    $("#datatable").dataTable();
 }

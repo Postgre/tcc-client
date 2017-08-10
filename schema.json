@@ -56,5 +56,29 @@
       "type": "personal",
       "caroler_config": "quartet"
     }
+  },
+  "PromoCode": {
+    "endpoint": "promotions",
+    "required": [
+      "name",
+      "description",
+      "pricing_scale",
+      "pricing_offset",
+      "start_time",
+      "end_time"
+    ],
+    "optional": [
+      "code",
+      "active"
+    ],
+    "defaults": {
+      "pricing_scale": 1,
+      "pricing_offset": 0
+    }
+  },
+  "Resellers": {
+    "endpoint": "resellers",
+    "required": [ "name", "address" ],
+    "optional": [ "code" ]
   }
 }
