@@ -1,5 +1,22 @@
 const qs = require('qs');
 
+/**
+ * Models a resource in the database, allowing update, save, and deletion.
+ * -----------------------
+ *  + endpoint      :   the REST resource endpoint
+ *  + required      :   these properties will be initialized to null if they aren't set, and will always be in requests
+ *  + optional      :   these properties will be included in requests if they are set
+ *  + defaults      :   specify default values
+ *  [+] update()    :   calls PUT /<endpoint>/id with required and optional properties
+ *  [+] save()      :   calls POST /<endpoint> with required and optional properties
+ *  [+] destroy()   :   calls DELETE /<endpoint>/id
+ *  -----------------------
+ *  MIDDLEWARE:
+ *  [~] onLoad()
+ *  [~] onUpdate()
+ *  [~] onCreate()
+ *  [~] onDelete()
+ */
 module.exports = class BaseModel {
     static get endpoint(){
         return "";
@@ -14,8 +31,10 @@ module.exports = class BaseModel {
         return {};
     }
 
-    constructor(dataService){
+    // TODO: refactor
+    constructor(dataService/*, modelFactory*/){
         this.dataService = dataService;
+        // this.modelFactory = modelFactory;
         // initialize required properties
         this.constructor.required.forEach((prop)=>{
             if(typeof this[prop] === 'undefined') this[prop] = null;
@@ -23,9 +42,10 @@ module.exports = class BaseModel {
         // set defaults
         Object.assign(this, this.constructor.defaults);
     }
-
+    // TODO: refactor
     find(id, onload){
         this.setId(id);
+        // return
         this.dataService.connection({   // load the actual model data
             url: this.constructor.endpoint+"/"+id,
             method: "GET"

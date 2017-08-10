@@ -83,7 +83,7 @@ module.exports = class Market extends BaseModel {
         }
         // update media links
         if(this.mediaLinks.length > 0){
-            this.dataService.putMedia(this.id, this.mediaLinks)
+            this.dataService.putMedia(this.id, this.mediaLinks);
         }
         // update caroler configs
         this.dataService.putCarolerConfigs(this.id, this.carolerConfigs);

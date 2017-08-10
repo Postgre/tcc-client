@@ -70,33 +70,16 @@
 
                                     <div class="col_half col_last">
                                         <label>Code</label>
-                                        <input ng-model="form.code" class="sm-form-control" placeholder="( Optional )">
-                                    </div>
-
-                                    <div class="clear"></div>
-
-                                    <div class="col_half">
-                                        <label>Pricing Scale</label>
-                                        <input ng-model="form.pricing_scale" ui-percentage-mask="0" type="text" class="form-control" />
-                                    </div>
-
-                                    <div class="col_last col_half">
-                                        <label>Pricing Offset</label>
-                                        <input ng-model="form.pricing_offset" ui-money-mask="0" type="text" class="form-control"/>
+                                        <label ng-if="form.promotion_id" ng-bind="form.promotion_id" class="label label-primary txt-md"></label>
+                                        <label class="label label-default txt-md">( Will be generated )</label>
                                     </div>
 
                                     <div class="clear"></div>
 
                                     <div class="col_full">
-                                        <label> Duration </label>
-                                        <tcc-date-range from="form.start_time" to="form.end_time"></tcc-date-range>
-                                    </div>
-
-                                    <div class="clear"></div>
-
-                                    <div class="col_full">
-                                        <label>Description: </label>
-                                        <textarea ng-model="form.description" type="text" class="sm-form-control"></textarea>
+                                        <label> Address </label>
+                                        <input ng-model="form.address" type="text"
+                                               class="sm-form-control required">
                                     </div>
 
                                     <div class="clear"></div>

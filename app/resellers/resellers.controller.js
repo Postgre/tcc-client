@@ -92,8 +92,10 @@ function ResellersController( $scope ){
      */
     $scope.submit = function(){
         if($scope.form.id){
-            $scope.form.update()
-                .then(onUpdate).catch(somethingWentWrong);
+            $scope.form.update().then(()=>{
+                $scope.$apply();
+                onUpdate();
+            }).catch(somethingWentWrong);
             return;
         }
         $scope.form.save()
