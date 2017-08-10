@@ -3,61 +3,25 @@ const CarolerConfigs = require('./../lib/caroler_configs/CarolerConfigs');
 const SpecialDate = require('./../lib/special_date/SpecialDate');
 
 module.exports = class Market extends BaseModel {
-    static get endpoint(){
-        return "markets";
-    }
-    static get required(){
-        return [
-            'published',
-            'rate_caroler_base',
-            'rate_caroler_discount',
-            'rate_travel_distance',
-            'rate_travel_duration',
-            'name',
-            'city',
-            'phone',
-            'email',
-            'image',
-            'html',
-            'address',
-            'state',
-            'hour1',
-            'hour2',
-            'hour3',
-            'hour4',
-            'hour5',
-        ];
-    }
-    static get defaults(){
-        return {
-            "hour1": 100,
-            "hour2": 100,
-            "hour3": 100,
-            "hour4": 100,
-            "hour5": 100,
-        };
-    }
 
-    constructor(dataService, data){
-        super(dataService, data);
+    constructor(){
+        super();
         this.specialDates   =   [];
         this.mediaLinks     =   [];
         this.carolerConfigs =   new CarolerConfigs();
     }
 
-    find(id, onload){
-        super.find(id, onload);
+    load(promises){
         // load special dates
-        this.dataService.getSpecialDates(this.id)
+        let specialDatesPromise = this.dataService.getSpecialDates(this.id)
             .then((res)=>{
                 let _dates = res.data;
                 _dates.forEach((_date)=>{
                     this.addSpecialDate(_date);
                 });
-                onload();
             });
         // load media links
-        this.dataService.getMedia(this.id)
+        let mediaLinksPromise = this.dataService.getMedia(this.id)
             .then((res)=>{
                 let _links = res.data;
                 _links.forEach((_link)=>{
@@ -66,14 +30,15 @@ module.exports = class Market extends BaseModel {
                         url: _link.url
                     });
                 });
-                onload();
             });
         // load caroler configs
-        this.dataService.getCarolerConfigs(this.id)
+        let carolerConfigsPromise = this.dataService.getCarolerConfigs(this.id)
             .then((_configs)=>{
                 this.carolerConfigs = new CarolerConfigs(_configs);
-                onload();
-            })
+            });
+        promises.push(specialDatesPromise);
+        promises.push(mediaLinksPromise);
+        promises.push(carolerConfigsPromise);
     }
     update(){
         let p = super.update();

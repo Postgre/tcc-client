@@ -18,7 +18,7 @@
 ============================================= -->
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
-<?php require 'partials/header.htm' ?>
+<?php require 'partials/header-2.php' ?>
     <?php require 'app/customer-events/customer-events.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>

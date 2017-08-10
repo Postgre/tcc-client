@@ -25,10 +25,10 @@ function MarketEditController( $scope ) {
     };
 
     (function init(){
-        let onLoaded = () => {
+        window.modelFactory.find("Market", navService.getNavParams().market_id).then((market)=>{
+            $scope.market = market;
             $scope.$apply();
-        };
-        $scope.market = window.modelFactory.find("Market", navService.getNavParams().market_id, onLoaded);
+        });
     })();
 
     /**

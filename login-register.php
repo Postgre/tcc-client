@@ -6,7 +6,7 @@
 <body class="stretched">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
-    <?php require 'partials/header.htm' ?>
+    <?php require 'partials/header-2.php' ?>
     <section id="page-title">
 
         <div class="container clearfix">

@@ -23,7 +23,7 @@
 <body class="stretched" ng-app="home" ng-controller="HomeController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
-    <?php require 'partials/header-1.htm' ?>
+    <?php require 'partials/header-1.php' ?>
     <?php require 'app/home/home.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>

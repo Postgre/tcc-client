@@ -2,31 +2,9 @@ const BaseModel = require('./core/BaseModel');
 const PromoCode = require('./PromoCode');
 
 module.exports = class Booking extends BaseModel {
-    static get endpoint(){
-        return "events";
-    }
-    static get required(){
-        return [
-            'name',
-            'market_id',
-            'start_time',
-            'end_time',
-            'state',
-            'city',
-            'address',
-            'type',
-            'requests'
-        ];
-    }
-    static get defaults(){
-        return {
-            'type': 'personal',
-            'caroler_config': 'quartet'
-        };
-    }
 
-    constructor(data){
-        super(data);
+    constructor(){
+        super();
         this.promo_codes = [];
     }
 

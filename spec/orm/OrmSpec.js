@@ -14,6 +14,7 @@ describe("ORM", function(){
     };
     /* Configuration */
     const config = require('../../config.json');
+    const schema = require('../../schema.json');
     const AuthService = require('../../es/src/services/AuthService');
     const DataService = require('../../es/src/services/DataService');
     const ModelFactory = require('../../es/src/models/core/ModelFactory');
@@ -26,10 +27,9 @@ describe("ORM", function(){
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
 
         authService = new AuthService(config, mockStorage);
-
         authService.login("admin@example.com", "password").then(()=>{
             dataService = new DataService(config, authService);
-            modelFactory = new ModelFactory(dataService, modelClassMap);
+            modelFactory = new ModelFactory(dataService, modelClassMap, schema);
             done();
         });
     });
@@ -52,6 +52,7 @@ describe("ORM", function(){
             })
         });
         it("RETRIEVE ONE", function(done){
+            console.log("ID: ", id);
             modelFactory.find("Reseller", id)
                 .then((reseller)=>{
                     expect(reseller.address).toEqual("123 Dove Lane");
@@ -63,6 +64,7 @@ describe("ORM", function(){
             modelFactory.all("Reseller")
                 .then((resellers)=>{
                     expect(resellers.length).toBeGreaterThan(0);
+                    console.log(resellers);
                     done();
                 })
         });

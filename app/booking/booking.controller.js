@@ -115,7 +115,8 @@ function BookingController($scope) {
     (function init() {
         initTabs();
         initDatepicker($scope);
-        $scope.booking  = window.modelFactory.create("Booking", {
+        $scope.booking = window.modelFactory.create("Booking");
+        $scope.booking.setData({
             'address': 'Martin Luther King Dr',
             'state': 'NJ',
             'city': 'Atlantic City',
@@ -123,8 +124,11 @@ function BookingController($scope) {
             'start_time': '07/10/2018 12:00 PM',
             'end_time': '07/10/2018 2:00 PM'
         });
+        console.log("CREATED", $scope.booking);
         // $scope.booking  = window.modelFactory.create("Booking");
-        $scope.market   = window.modelFactory.find("Market", window.navService.getNavParams().market_id, ()=>{
+        window.modelFactory.find("Market", window.navService.getNavParams().market_id).then((market)=>{
+            console.log($scope.booking);
+            $scope.market = market;
             $scope.booking.market_id = $scope.market.id;
             $scope.$apply();
         });

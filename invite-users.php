@@ -10,7 +10,7 @@
 </head>
 <body class="stretched" ng-app="invite" ng-controller="InviteController">
 <div id="wrapper" class="clearfix">
-    <?php require 'partials/header.htm'?>
+    <?php require 'partials/header-2.php'?>
     <section id="page-title" class="page-title-right">
 
         <div class="container clearfix">

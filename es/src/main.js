@@ -1,42 +1,40 @@
 /* Configuration */
 const config = require('../../config.json');
+const schema = require('../../schema.json');
+const modelClassMap = require('./modelClassMap');
 
 /* Services */
 const AuthService = require('./services/AuthService');
 const DataService = require('./services/DataService');
 const ApplicationService = require('./services/ApplicationService');
-const NavService = require('./services/NavService');
 const Bindings = require('./Bindings');
-window.appService = new ApplicationService();
-window.navService = new NavService(config);
-window.authService = new AuthService(config, window.localStorage);
-window.dataService = new DataService(config, authService);
-new Bindings(authService, appService).apply();
+const NavService = require('./services/NavService');
+
+let authService = new AuthService(config, window.localStorage);
+let dataService = new DataService(config, authService);
 
 /* ORM Models */
 const ModelFactory = require('./models/core/ModelFactory');
-const Market = require('./models/Market');
-const Booking = require('./models/Booking');
-const PromoCode = require('./models/PromoCode');
-const Reseller = require('./models/Reseller');
-window.modelFactory = new ModelFactory(window.dataService, {
-    Market, Booking, PromoCode, Reseller
-});
-window.Market = Market;
-window.Booking = Booking;
-window.PromoCode = PromoCode;
-window.Reseller = Reseller;
+let modelFactory = new ModelFactory(dataService, modelClassMap, schema);
 
 /* Libraries */
 const QuoteRequest = require('./lib/quote/QuoteRequest');
 const CarolerConfigs = require('./lib/caroler_configs/CarolerConfigs');
 const SpecialDate = require('./lib/special_date/SpecialDate');
+
+/* Escaping Webpack */
+window.authService = authService;
+window.dataService = dataService;
+window.modelFactory = modelFactory;
 window.QuoteRequest = QuoteRequest;
 window.CarolerConfigs = CarolerConfigs;
 window.SpecialDate = SpecialDate;
 
-/* Global Functions */
+/* Document Functions */
 require('./functions');
+window.navService = new NavService(config);
+window.appService = new ApplicationService();
+new Bindings(authService, appService).apply();
 const jQuery = require('jQuery');
 jQuery(document).ready(function () {
     appService.renderSession();

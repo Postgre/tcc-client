@@ -16,40 +16,26 @@ const qs = require('qs');
  *  [+] destroy()   :   calls DELETE /<endpoint>/id
  */
 module.exports = class BaseModel {
-    static get endpoint(){
-        return "";
-    }
-    static get required(){
-        return [];
-    }
-    static get optional(){
-        return [];
-    }
-    static get defaults(){
-        return {};
-    }
 
-    // TODO: refactor
-    constructor(dataService){
-        this.dataService = dataService;
-        // this.modelFactory = modelFactory;
-        // initialize required properties
-        this.constructor.required.forEach((prop)=>{
-            if(typeof this[prop] === 'undefined') this[prop] = null;
+    init(){
+        this.required.forEach((prop)=>{
+            this[prop] = null;
         });
-        // set defaults
-        Object.assign(this, this.constructor.defaults);
+        Object.assign(this, this.defaults);
+    }
+    load(promises, resourcePromise){
+        // NOOP
     }
     update(){
         return this.dataService.connection({
-            url: this.constructor.endpoint+"/"+this.getId(),
+            url: this.endpoint+"/"+this.getId(),
             method: "PUT",
             data: qs.stringify(this.getData())
         });
     }
     save(){
         return this.dataService.connection({
-            url: this.constructor.endpoint,
+            url: this.endpoint,
             method: "POST",
             data: qs.stringify(this.getData())
         }).then((res)=>{
@@ -58,7 +44,7 @@ module.exports = class BaseModel {
     }
     destroy(){
         return this.dataService.connection({
-            url: this.constructor.endpoint+"/"+this.getId(),
+            url: this.endpoint+"/"+this.getId(),
             method: "DELETE"
         });
     }
@@ -66,13 +52,17 @@ module.exports = class BaseModel {
     getData(){
         let data = {};
         // extract required properties
-        this.constructor.required.forEach((prop)=>{
-            data[prop] = this[prop];
-        });
+        if(this.required){
+            this.required.forEach((prop)=>{
+                data[prop] = this[prop];
+            });
+        }
         // extract optional properties
-        this.constructor.optional.forEach((prop)=>{
-            if(typeof this[prop] !== 'undefined') data[prop] = this[prop];
-        });
+        if(this.optional){
+            this.optional.forEach((prop)=>{
+                if(typeof this[prop] !== 'undefined') data[prop] = this[prop];
+            });
+        }
         return data;
     }
     setData(data){

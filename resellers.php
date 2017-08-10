@@ -18,7 +18,7 @@
 <body class="stretched" ng-app="resellers" ng-controller="ResellersController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
-    <?php require 'partials/header.htm' ?>
+    <?php require 'partials/header-2.php' ?>
     <?php require 'app/resellers/resellers.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div><!-- #wrapper end -->

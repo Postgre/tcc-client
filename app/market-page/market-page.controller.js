@@ -15,7 +15,8 @@ function MarketPageController( $scope ) {
      * ===============
      */
     function init(){
-        $scope.market = modelFactory.find("Market", navService.getNavParam('market_id'), ()=>{
+        modelFactory.find("Market", navService.getNavParam('market_id')).then((market)=>{
+            $scope.market = market;
             $scope.$apply();
             loadMap($scope.market.getFormattedAddress());
         });

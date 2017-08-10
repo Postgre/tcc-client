@@ -11,7 +11,7 @@
 <div id="wrapper" class="clearfix">
 
     <?php require 'partials/top-bar.htm' ?>
-<?php require 'partials/header.htm' ?>
+<?php require 'partials/header-2.php' ?>
 
     <!-- Page Title
     ============================================= -->
