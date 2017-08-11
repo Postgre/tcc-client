@@ -12,6 +12,7 @@ function MarketsManageController( $scope ) {
 
     function init(){
         window.dataService.getMarketsManaged().then(function(_markets){
+            console.log(_markets);
             $scope.markets = modelFactory.wrapAll("Market", _markets);
             $scope.$apply();
         });

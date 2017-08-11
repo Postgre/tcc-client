@@ -52,7 +52,7 @@
                                 <label for="template-contactform-name">Name
                                     <small>*</small>
                                 </label>
-                                <input id="template-contactform-name" name="name"
+                                <input id="template-contactform-name" name="name" placeholder="Name"
                                        value="" class="sm-form-control required">
                             </div>
 
@@ -61,12 +61,14 @@
                                     <small>*</small>
                                 </label>
                                 <input type="email" id="template-contactform-email" name="email"
+                                       placeholder="Email"
                                        value="" class="required email sm-form-control">
                             </div>
 
                             <div class="col_one_third col_last">
                                 <label for="template-contactform-phone">Phone</label>
                                 <input id="template-contactform-phone" name="phone"
+                                       placeholder="(optional)"
                                        value="" class="sm-form-control">
                             </div>
 
@@ -77,6 +79,7 @@
                                     <small>*</small>
                                 </label>
                                 <input id="template-contactform-subject" name="subject"
+                                       placeholder="Subject Line"
                                        value="" class="required sm-form-control">
                             </div>
 

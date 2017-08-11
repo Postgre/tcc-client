@@ -198,7 +198,7 @@ module.exports = class DataService {
                 url: "markets/managed",
                 method: "GET"
             }).then((res)=>{
-                resolve(res.data.markets);
+                resolve(res.data);
             }).catch((err)=>{
                 reject(err);
             })
