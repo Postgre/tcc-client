@@ -184,7 +184,7 @@
                 confirmButtonText: 'OK',
                 closeOnConfirm: false
             }, function () {
-                window.location = "index.html";
+                window.location = "index.php";
             });
         });
         p.catch(function (err) {
