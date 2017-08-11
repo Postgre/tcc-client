@@ -19,7 +19,7 @@ module.exports = class Booking extends BaseModel {
     getPromoData(){
         let _promos = [];
         this.promo_codes.forEach((code)=>{
-            _promos.push(code.getData());
+            _promos.push(code.code);
         });
         return _promos;
     }
@@ -41,8 +41,7 @@ module.exports = class Booking extends BaseModel {
         return new Promise((resolve, reject)=>{
             this.dataService.validatePromo(code, this.start_time, this.end_time)
                 .then((_promo)=>{
-                    let promo = new PromoCode(this.dataService);
-                    promo.setData(_promo);
+                    let promo = this.factory.create("PromoCode", _promo);
                     this.promo_codes.push(promo);
                     resolve(promo);
                 }).catch((err)=>{

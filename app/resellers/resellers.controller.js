@@ -7,6 +7,8 @@ angular.module("resellers")
  * An easy interface to CRUD operations on resources.
  *
  *  _  RESOURCE =>  class name of the resource model
+ *  _  FILTERS  =>  specify resource filters here
+ *  _  ACTIVITY =>  text bindings
  *  +  rows     =>  table rows. array of resource models
  *  +  form     =>  references the model in the form
  * [+] create() =>  open new resource in form
@@ -16,39 +18,35 @@ angular.module("resellers")
  * [-] init()   =>  loads all resource models into +rows
  */
 function ResellersController( $scope ){
-    $scope.log = () => {
-        console.log($scope);
-    };
     const RESOURCE  =   "Reseller";
     const FILTERS   =   {};
-    const HEADERS   =   ['Name', 'Address', 'Code'];
-    const onSave = ()=>{
-
+    const ACTIVITY  =   {
+        title: "Reseller Profiles",
+        subtitle: "Create, Update, Delete, and View Resellers",
+        create_label: "Create a Reseller",
+        create_title: "Create a Reseller"
     };
-    const onCreate = ()=>{
-
+    const onSave = ()=>{
+        swal("Success!", "Reseller has been created", "success");
     };
     const onDelete = ()=>{
-
+        swal("Success!", "Reseller has been deleted", "success");
     };
     const onUpdate = ()=>{
-
+        swal("Saved!", "Your changes have been saved", "success");
     };
 
     function init(){
         window.modelFactory.all(RESOURCE, FILTERS).then((rows)=>{
             $scope.rows = rows;
             $scope.$apply();
-            setTimeout(function(){
-                initDataTable();
-            }, 100);
+            setTimeout(initDataTable, 50);
         });
     }
 
     /*==========================================================*/
     /*==========================================================*/
     /*==========================================================*/
-
 
     $scope.rows = [];   // table rows. array of resource models
     $scope.form = {};   // references the model in the form
@@ -88,7 +86,7 @@ function ResellersController( $scope ){
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, end it!",
+            confirmButtonText: "Yes!",
             closeOnConfirm: false
         }, doit);
     };
@@ -112,12 +110,12 @@ function ResellersController( $scope ){
             }).catch(somethingWentWrong);
     };
 
-    $scope.headers = HEADERS;
+    $scope.activity = ACTIVITY;
     init();
 }
 
 function modal(){
-    $("#modal").modal('show');
+    $("#modal").modal();
 }
 
 function initDataTable(){

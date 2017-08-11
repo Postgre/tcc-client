@@ -37,13 +37,14 @@ module.exports = class ModelFactory {
     }
     create(ModelClass, data){
         let schema = this.schema[ModelClass];
-        let instance = new this.classMap[ModelClass]();
         let depends = {
             dataService: this.dataService,
             factory: this
         };
-        Object.assign(instance, depends, schema, data);
+        let instance = new this.classMap[ModelClass]();
+        Object.assign(instance, depends, schema);
         instance.init();
+        if(data) Object.assign(instance, data);
         return instance;
     }
     all(ModelClass, filters){
@@ -63,6 +64,13 @@ module.exports = class ModelFactory {
                     });
                 }).catch(reject);
         });
+    }
+    wrapAll(ModelClass, dataArray){
+        let out = [];
+        dataArray.forEach((_model)=>{
+            out.push(this.create(ModelClass, _model));
+        });
+        return out;
     }
 
     /* Exception Handling */

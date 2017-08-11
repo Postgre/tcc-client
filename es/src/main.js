@@ -39,3 +39,11 @@ const jQuery = require('jQuery');
 jQuery(document).ready(function () {
     appService.renderSession();
 });
+/* Subscribe to Auth Events */
+authService.subscribe('expired', function(e){
+    swal("Your Session has expired", "Please log in again", "waring");
+    window.navService.goto('home');
+});
+authService.subscribe('logout', function(e){
+    window.navService.goto('home');
+});

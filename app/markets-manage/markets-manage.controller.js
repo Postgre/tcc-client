@@ -1,63 +1,93 @@
-angular.module('markets-manage', [])
+angular.module('markets-manage')
 .controller('MarketsManageController', MarketsManageController);
 
 function MarketsManageController( $scope ) {
 
-    $scope.markets = {};
-    $scope.upcoming_events = [];
+    $scope.markets = [];
+    $scope.form = {
+        name: "TEST",
+        state: "MS",
+        city: "Biloxi"
+    };
 
-    $scope.ready = false;
+    function init(){
+        window.dataService.getMarketsManaged().then(function(_markets){
+            $scope.markets = modelFactory.wrapAll("Market", _markets);
+            $scope.$apply();
+        });
+    }
+
+    let onCreate = (market) => {
+        swal({
+            title: "Success!",
+            text: "'"+market.name+"' has been created!",
+            type: "success",
+        }, init);
+    };
+    let onDelete = (market) => {
+        swal({
+            title: "Success!",
+            text: "'"+market.name+"' has been deleted.",
+            type: "success",
+        }, init);
+    };
 
     /**
      * Functions
      * ===============
      */
-    $scope.createMarket         = function(){
-        let formData = parseNewMarketForm();
-        window.dataService.postResource("markets", {
-                name: formData.name,
-                bio: formData.bio,
-                address: formData.address
-            }).then(function(id){
-                console.info("res", id);
-                swal({
-                    title: "Success!",
-                    text: "'"+formData.name+"' has been created!",
-                    type: "success",
-                }, function(){
-                    init();
-                });
-            }).catch(function(err){
-                console.error("err", err);
-                sweetAlert("Oops...", "Something went wrong!", "error");
-            });
+    $scope.create = () => {
+        let market = modelFactory.create("Market", parseNewMarketForm());
+        market.save().then(onCreate).catch(somethingWentWrong);
     };
-    $scope.deleteMarket         = function(market){
-        let win = () => {
-            swal({
-                title: "Success!",
-                text: "'"+market.name+"' has been deleted.",
-                type: "success",
-            }, function(){
-                init();
-            });
-        };
-        let doIt = () => {
-            let p = window.dataService.deleteResource("markets", market.id);
-            p.then( win );
-            p.catch(window.somethingWentWrong);
-        };
+    $scope.destroy = (market) => {
+        market.destroy().then(onDelete).catch(somethingWentWrong);
+    };
 
-        swal({
-            title: "Delete Market?",
-            text: "Are you sure? This can't be undone.",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, delete it!",
-            closeOnConfirm: false
-        }, doIt );
-    };
+    // $scope.createMarket         = function(){
+    //     let formData = parseNewMarketForm();
+    //     window.dataService.postResource("markets", {
+    //             name: formData.name,
+    //             bio: formData.bio,
+    //             address: formData.address
+    //         }).then(function(id){
+    //             console.info("res", id);
+    //             swal({
+    //                 title: "Success!",
+    //                 text: "'"+formData.name+"' has been created!",
+    //                 type: "success",
+    //             }, function(){
+    //                 init();
+    //             });
+    //         }).catch(function(err){
+    //             console.error("err", err);
+    //             sweetAlert("Oops...", "Something went wrong!", "error");
+    //         });
+    // };
+
+    // $scope.deleteMarket         = function(market){
+    //     let win = () => {
+    //
+    //     };
+    //     let doIt = () => {
+    //         let p = window.dataService.deleteResource("markets", market.id);
+    //         p.then( win );
+    //         p.catch(window.somethingWentWrong);
+    //     };
+    //
+    //     swal({
+    //         title: "Delete Market?",
+    //         text: "Are you sure? This can't be undone.",
+    //         type: "warning",
+    //         showCancelButton: true,
+    //         confirmButtonColor: "#DD6B55",
+    //         confirmButtonText: "Yes, delete it!",
+    //         closeOnConfirm: false
+    //     }, doIt );
+    // };
+
+    $scope.navService = window.navService;
+
     $scope.gotoEdit             = function(market){
         window.navService.goto("edit_market", {
             market_id: market.id,
@@ -80,29 +110,10 @@ function MarketsManageController( $scope ) {
         });
     };
 
-    function init(){
-        window.dataService.getMarketsManaged()
-            .then(function(markets){
-                $scope.markets = markets;
-                $scope.ready = true;
-                $scope.$apply();
-            }).catch(function(err){
-                console.error("err", err);
-                alert( "Something went wrong" );
-            });
+    function parseNewMarketForm() {
+        $scope.form['address'] = `${$scope.form.city}, ${$scope.form.state}`;
+        return $scope.form;
     }
+
     init();
-}
-
-function parseNewMarketForm() {
-    let form = document.forms.newMarketForm;
-    let name = form.name.value;
-    let address = form.city.value + ', ' + form.state.value;
-    let bio = "Edit this market to write a BIO and upload a banner!";
-
-    return {
-        name: name,
-        address: address,
-        bio: bio
-    }
 }

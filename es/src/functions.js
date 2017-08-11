@@ -1,7 +1,3 @@
-window.logout = function(){
-    window.authService.logout();
-    window.location.href = "index.php";
-};
 window.getQueryVariable = function(variable) {
     let query = window.location.search.substring(1);
     let vars = query.split('&');

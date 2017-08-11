@@ -34,18 +34,25 @@ module.exports = class BaseModel {
         });
     }
     save(){
-        return this.dataService.connection({
-            url: this.endpoint,
-            method: "POST",
-            data: qs.stringify(this.getData())
-        }).then((res)=>{
-            this.setId(res.data.id)
+        return new Promise((resolve, reject)=>{
+            this.dataService.connection({
+                url: this.endpoint,
+                method: "POST",
+                data: qs.stringify(this.getData())
+            }).then((res)=>{
+                this.setId(res.data.id);
+                resolve(this);
+            }).catch(reject);
         });
     }
     destroy(){
-        return this.dataService.connection({
-            url: this.endpoint+"/"+this.getId(),
-            method: "DELETE"
+        return new Promise((resolve, reject)=>{
+            this.dataService.connection({
+                url: this.endpoint+"/"+this.getId(),
+                method: "DELETE"
+            }).then((res)=>{
+                resolve(this);
+            }).catch(reject);
         });
     }
 

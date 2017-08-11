@@ -1,0 +1,22 @@
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Promo Code</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="row in rows">
+    <td>
+        <strong ng-bind="row.name"></strong>
+    </td>
+    <td ng-bind="row.address"></td>
+    <td>
+        <label ng-bind="row.promotion.code" class="label label-default txt-md"></label>
+    </td>
+    <td>
+        <button ng-click="edit(row)" class="btn btn-danger"><i class="icon-pencil"></i> Edit</button>
+    </td>
+</tr>
+</tbody>

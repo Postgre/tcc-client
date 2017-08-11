@@ -15,6 +15,12 @@ module.exports = class AuthService {
         this.user = null;
         this.jwtExpire = null;
 
+        /* Events */
+        this.events = {
+            'logout': [],
+            'expired': []
+        };
+
         /* Setting up refresh */
         if (this.jwt !== null) {
             let decoded = jwtDecode(this.jwt);
@@ -22,8 +28,8 @@ module.exports = class AuthService {
 
             /* Checking if already expired */
             if (decoded.exp < (new Date().getTime() / 1000)) {
+                this.trigger("expired");
                 this.logout();
-                this.navSerice.goto("home", { expired: true });
             }
         }
 
@@ -64,7 +70,7 @@ module.exports = class AuthService {
         return new Promise((resolve, reject) => {
 
             /* Making login request */
-            var p = this.connection({
+            this.connection({
                 url: '/auth/signup',
                 method: "POST",
                 data: qs.stringify({
@@ -72,8 +78,7 @@ module.exports = class AuthService {
                     email: email,
                     password: password
                 })
-            });
-            p.then(
+            }).then(
                 (res) => {
                     resolve("registered!");
                 },
@@ -89,6 +94,7 @@ module.exports = class AuthService {
         this.storage.removeItem('jwt');
         this.jwt = null;
         this.jwtExpire = null;
+        this.trigger("logout");
     }
 
     isLoggedIn(){
@@ -106,13 +112,14 @@ module.exports = class AuthService {
         if( this.isLoggedIn() ) return this.user.id;
     }
 
-    require( roles ){
-        var authorized = false;
-        roles.forEach((role)=>{
-            if(this.hasRole(role)) authorized = true;
+    subscribe(event_name, callback){
+        this.events[event_name].push(callback);
+    }
+
+    trigger(event_name, params){
+        if(!this.events[event_name]) return;
+        this.events[event_name].forEach((cb)=>{
+            cb(params);
         });
-        if(!authorized){
-            this.navSerice.goto('auth');
-        }
     }
 };
