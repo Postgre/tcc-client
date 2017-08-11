@@ -45,20 +45,6 @@ function BookingController($scope) {
             'start_time': '07/10/2018 12:00 PM',
             'end_time': '07/10/2018 2:00 PM'
         });
-        $scope.booking.promo_codes = [
-            {
-                name: "Promo One",
-                code: "ABC123",
-            },
-            {
-                name: "Promo Two",
-                code: "ABC123",
-            },
-            {
-                name: "Promo Three",
-                code: "ABC123",
-            }
-        ];
         console.log("CREATED", $scope.booking);
         // $scope.booking  = window.modelFactory.create("Booking");
         window.modelFactory.find("Market", window.navService.getNavParams().market_id).then((market)=>{
@@ -148,10 +134,9 @@ function BookingController($scope) {
                 tryIt(inputValue);
             });
     };
-    $scope.removePromoCode = (promo) => {
-        alert("fuck");
-        window.help = $scope.booking;
-        $scope.booking.removePromoCode(promo);
+    $scope.removePromo = (code) => {
+        $scope.booking.removePromoCode(code);
+        reloadInvoicePreview();
     };
 
     $scope.stepToTravel     = function () {

@@ -51,10 +51,8 @@ module.exports = class Booking extends BaseModel {
         });
     }
     removePromoCode(promoCode){
-        alert("fuuuuck");
         let ind = this.promo_codes.indexOf(promoCode);
-        alert(ind);
-        if(ind > 0) this.promo_codes.splice(ind, 1);
+        if(ind >= 0) this.promo_codes.splice(ind, 1);
     }
 
     /**
