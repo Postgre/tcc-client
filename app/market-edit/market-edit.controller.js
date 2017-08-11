@@ -25,7 +25,7 @@ function MarketEditController( $scope ) {
     };
 
     (function init(){
-        window.modelFactory.find("Market", navService.getNavParams().market_id).then((market)=>{
+        window.modelFactory.find("Market", navService.getNavParams().market_id, true).then((market)=>{
             $scope.market = market;
             console.log($scope.market.specialDates[0]);
             $scope.$apply();
