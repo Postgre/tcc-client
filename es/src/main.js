@@ -1,6 +1,5 @@
 /* Configuration */
 const site = require('../../config/site.json');
-const site_dev = require('../../config/site.dev.json');
 const nav = require('../../config/nav.json');
 const schema = require('../../config/schema.json');
 const modelClassMap = require('./modelClassMap');

@@ -1,5 +1,5 @@
 {
   "serverURL": "https://api.dev.thechristmascarolers.com",
-  "callback_save_quote": "http://dev.thechristmascarolers.com/event-book.html",
-  "callback_login": "http://dev.thechristmascarolers.com/login-register.html?v=v"
+  "callback_save_quote": "http://dev.thechristmascarolers.com/event-book.php",
+  "callback_login": "http://dev.thechristmascarolers.com/login-register.php?v=v"
 }
