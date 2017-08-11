@@ -8,6 +8,7 @@
   "edit_market": "market-edit.php",
   "market_page": "market-page.php",
   "manage_markets": "markets-manage.php",
+  "market_events": "market-events.php",
   "about": "about.php",
   "profile": "profile.php",
   "invites": "invite-users.php",

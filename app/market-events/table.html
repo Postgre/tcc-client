@@ -1,0 +1,26 @@
+<thead>
+<tr>
+    <th>Customer</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Date</th>
+    <th>Status</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="row in rows">
+    <td>
+        <strong ng-bind="row.user_name"></strong>
+    </td>
+    <td ng-bind="row.name"></td>
+    <td ng-bind="row.address"></td>
+    <td ng-bind="row.start_time"></td>
+    <td>
+        <label ng-bind="row.status" class="label label-primary"></label>
+    </td>
+    <td>
+        <button ng-click="view(row)" class="btn btn-default"><i class="icon-eye-open"></i> View</button>
+    </td>
+</tr>
+</tbody>

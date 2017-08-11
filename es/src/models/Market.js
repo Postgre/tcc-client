@@ -9,6 +9,7 @@ module.exports = class Market extends BaseModel {
         this.specialDates   =   [];
         this.mediaLinks     =   [];
         this.carolerConfigs =   new CarolerConfigs();
+        this.upcomingEvents = false;
     }
 
     load(promises){
@@ -75,5 +76,18 @@ module.exports = class Market extends BaseModel {
         let ind = this.mediaLinks.indexOf(url);
         if(ind === -1) return;
         this.mediaLinks.splice(ind,1);
+    }
+    
+    getUpcomingEvents(){
+        return new Promise((resolve, reject)=>{
+            if(this.upcomingEvents) resolve(this.upcomingEvents);
+            this.dataService.marketUpcomingEvents(this.id)
+                .then(
+                    (events)=>{
+                        this.upcomingEvents = events;
+                        resolve(this.upcomingEvents);
+                    }
+                ).catch(reject);
+        });
     }
 };
