@@ -11,7 +11,7 @@
   "market_events": "market-events.php",
   "about": "about.php",
   "profile": "profile.php",
-  "invites": "invite-users.php",
+  "market_carolers": "market-carolers.php",
   "my_events": "events-personal.php",
   "caroler_dashboard": "caroler-dashboard.php",
   "upcoming_events": "market-events.php"

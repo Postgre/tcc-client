@@ -188,11 +188,6 @@ module.exports = class DataService {
             }
         })
     }       // TODO: resolve
-    getMarket( id ){
-        return this.connection({
-            url: "markets/"+id
-        })
-    }                                           // TODO: use resource route
     getMarketsManaged(){
         return new Promise((resolve, reject)=>{
             this.connection({
@@ -206,11 +201,13 @@ module.exports = class DataService {
         });
     }
     getMarketCarolers(id){
-        return this.connection({
-            url: "markets/"+id+"/carolers",
-            method: "GET"
-        })
-    }                                   // TODO: resolve
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "markets/"+id+"/carolers",
+                method: "GET"
+            }).then((res)=>resolve(res.data), reject);
+        });
+    }
     putSpecialDates( market_id, specialDates ){
         return this.connection({
             url: "markets/"+market_id+"/special-dates",
@@ -274,12 +271,6 @@ module.exports = class DataService {
      * EVENTS
      * ==================
      */
-    getMarketEvents( market_id ){
-        return this.connection({
-            url: "markets/"+market_id+"/events",
-            method: "GET"
-        })
-    }    // TODO: resolve
     getMyEvents(){
         return this.connection({
             url: "users/events/booked",

@@ -1,33 +1,100 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html dir="ltr" lang="en-US">
 <head>
-    <?php require 'partials/head.htm' ?>
+    <?php require 'partials/head.htm'?>
 
-    <!-- CSS
-    ===================================== -->
     <!-- Bootstrap Data Table Plugin -->
     <link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css">
 
-    <!-- Angular -->
     <?php require 'partials/angular.html' ?>
 </head>
-<body class="stretched" ng-app="market-events" ng-controller="MarketEventsController">
+<body class="stretched" ng-app="market-carolers" ng-controller="MarketCarolersController">
 <div id="wrapper" class="clearfix">
-    <?php require 'partials/top-bar.htm' ?>
-    <?php require 'partials/header-2.php' ?>
-    <?php require 'app/customer-events/customer-events.html' ?>
-    <?php require 'partials/footer.htm' ?>
+    <?php require 'partials/header-2.php'?>
+    <section id="page-title" class="page-title-right">
+
+        <div class="container clearfix">
+            <h1>Invite Users</h1>
+            <span> Delegate Market Access </span>
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="javascript:navService.goto('manage_markets')">Markets</a></li>
+                <li class="active" ng-bind="market.name"></li>
+            </ol>
+        </div>
+
+    </section>
+    <section id="content">
+
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Active Carolers</h2>
+                        <div class="table-responsive">
+                            <table class="table" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="caroler in market.getCarolers()">
+                                    <td ng-bind="caroler.name"></td>
+                                    <td ng-bind="caroler.email"></td>
+                                    <td>
+                                        <button class="btn btn-success" title="Approve">
+                                            <i class="icon-thumbs-up2"></i>
+                                        </button>
+                                        <button class="btn btn-danger" title="Deny">
+                                            <i class="icon-thumbs-down2"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Invite Carolers</h2>
+                        <div class="col_full">
+                            <input ng-keyup="searchUsers()" ng-model="searchUsersInput" type="text" class="form-control"
+                                   placeholder="Start Typing..">
+                        </div>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="user in found" ng-click="selectedUser = user">
+                                <td ng-bind="user.name"></td>
+                                <td ng-bind="user.email"></td>
+                                <td>
+                                    <button ng-click="inviteCaroler(user)" class="btn btn-sm btn-primary">invite &gt;&gt;</button>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <?php require 'partials/footer.htm'?>
 </div>
 
 <!-- JAVASCRIPTS
-================================= -->
+========================== -->
+<?php require 'partials/javascripts.htm' ?>
 <!-- Bootstrap Data Table Plugin -->
 <script type="text/javascript" src="js/components/bs-datatable.js"></script>
-<script>
-    setTimeout(function () {
-        $("#events_table").dataTable();
-    }, 1000);    // must wait for angular to load the DOM
-</script>
-
 </body>
 </html>

@@ -66,12 +66,10 @@
                                     <li><a ng-click="destroy(market)" href=""><i class="icon-trash"></i>
                                         Delete Market</a></li>
                                     <li class="divider"></li>
-                                    <li><a ng-click="navService.goto('invites', {'market':market})" href="#"><i class="icon-email"></i>
-                                        Invite
+                                    <li><a ng-click="navService.goto('market_carolers', {'market_id':market.id})" href="#"><i class="icon-email"></i>
                                         Carolers</a></li>
                                     <li><a ng-click="" href="#"><i class="icon-share"></i>
-                                        Invite
-                                        Director</a></li>
+                                        Directors</a></li>
                                     <li class="divider"></li>
                                     <li><a ng-click="navService.goto('market_events', {'market_id':market.id})" href="#"><i
                                             class="icon-calendar"></i> Upcoming Events</a></li>
