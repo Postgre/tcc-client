@@ -29,13 +29,13 @@
 
                     <div ng-repeat="market in markets | filter : search" class="entry clearfix">
                         <div class="entry-image">
-                            <a ng-click="navService.goto('market_page', market)" href="#">
+                            <a ng-click="navService.goto('market_page', {'market':market})" href="#">
                                 <img ng-src="{{market.image}}" alt="{{market.name}}">
                             </a>
                         </div>
                         <div class="entry-c">
                             <div class="entry-title">
-                                <h2><a ng-bind="market.name" ng-click="navService.goto('market_page', market)" href="#">
+                                <h2><a ng-bind="market.name" ng-click="navService.goto('market_page', {'market':market})" href="#">
                                     <!-- Market Name -->
                                 </a></h2>
                             </div>
@@ -66,14 +66,14 @@
                                     <li><a ng-click="destroy(market)" href=""><i class="icon-trash"></i>
                                         Delete Market</a></li>
                                     <li class="divider"></li>
-                                    <li><a ng-click="navService.goto('invites', market)" href="#"><i class="icon-email"></i>
+                                    <li><a ng-click="navService.goto('invites', {'market':market})" href="#"><i class="icon-email"></i>
                                         Invite
                                         Carolers</a></li>
-                                    <li><a ng-click="navService.goto('invites', market)" href="#"><i class="icon-share"></i>
+                                    <li><a ng-click="navService.goto('invites', {'market':market})" href="#"><i class="icon-share"></i>
                                         Invite
                                         Director</a></li>
                                     <li class="divider"></li>
-                                    <li><a ng-click="navService.goto('market_events', market)" href="#"><i
+                                    <li><a ng-click="navService.goto('market_events', {'market':market})" href="#"><i
                                             class="icon-calendar"></i> Upcoming Events</a></li>
                                 </ul>
                             </div>
