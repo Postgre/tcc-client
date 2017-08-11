@@ -17,7 +17,7 @@ module.exports = class Market extends BaseModel {
             .then((res)=>{
                 let _dates = res.data;
                 _dates.forEach((_date)=>{
-                    this.addSpecialDate(_date);
+                    this.specialDates.push(_date);
                 });
             });
         // load media links
