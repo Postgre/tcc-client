@@ -120,6 +120,8 @@
 =========================== -->
 <?php require 'partials/javascripts.htm' ?>
 <script>
+    if(window.getQueryVariable('v')==='v') swal("You're all set!", "Your account has been validated", "success");
+
     function login() {
         let email = $("#login-form-username").val();
         let password = $("#login-form-password").val();

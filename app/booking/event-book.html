@@ -220,7 +220,9 @@
                         <div class="row clearfix">
                             <div class="col-md-6">
                                 <div class="table-responsive clearfix">
-                                    <h4>Event Summary</h4>
+                                    <div class="fancy-title title-double-border">
+                                        <h3>Event Summary</h3>
+                                    </div>
                                     <div class="panel panel-default events-meta">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Event Info:</h3>
@@ -257,15 +259,21 @@
                                                     <i class="icon-comment"></i>
                                                     <span ng-bind="booking.special_requests"></span>
                                                 </li>
-                                                <li ng-if="booking.promo_codes.length > 0">
-                                                    <hr>
-                                                </li>
-                                                <li ng-repeat="promo in booking.promo_codes">
-                                                    <i class="icon-gift"></i>
-                                                    Discount: {{promo.name}}
-                                                </li>
                                             </ul>
                                         </div>
+                                    </div>
+                                    <div class="fancy-title title-double-border">
+                                        <h3>Promos and Discounts</h3>
+                                    </div>
+                                    <div class="col_full">
+                                        <table class="table">
+                                            <tr ng-repeat="promo in booking.promo_codes">
+                                                <td><i class="fa-icon-gift"></i></td>
+                                                <td ng-bind="promo.name"></td>
+                                                <td><label ng-bind="promo.code" class="label"></label> </td>
+                                                <td><button class="btn btn-danger"><i class="close"></i></button></td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">

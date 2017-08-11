@@ -1,7 +1,7 @@
 module.exports = class NavService {
-    constructor(config) {
-        console.info('NavService Loading...');
-        this.activity_map = config.activity_map;
+    constructor(config, storage = localStorage) {
+        this.storage = storage;
+        this.activity_map = config;
     }
 
     goto( activity, params ){
@@ -10,9 +10,9 @@ module.exports = class NavService {
             return;
         }
         if( params ){
-            localStorage.setItem("nav_params", JSON.stringify(params));
+            this.storage.setItem("nav_params", JSON.stringify(params));
         }
-        window.location = this.activity_map[activity]['path'];
+        window.location = this.activity_map[activity];
     }
 
     getNavParam(name){
@@ -20,9 +20,9 @@ module.exports = class NavService {
         if( params ) return params[name];
     }
     getNavParams(){
-        if( localStorage.nav_params ) return JSON.parse(localStorage.getItem('nav_params'));
+        if( this.storage.nav_params ) return JSON.parse(this.storage.getItem('nav_params'));
     }
     resetNavParams(){
-        delete localStorage.nav_params;
+        delete this.storage.nav_params;
     }
 };

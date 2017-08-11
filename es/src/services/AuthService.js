@@ -76,7 +76,8 @@ module.exports = class AuthService {
                 data: qs.stringify({
                     name: name,
                     email: email,
-                    password: password
+                    password: password,
+                    callback: this.config['callback_login']
                 })
             }).then(
                 (res) => {

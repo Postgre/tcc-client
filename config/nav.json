@@ -1,0 +1,17 @@
+{
+  "home": "index.php",
+  "find_market": "market-search.php",
+  "faq": "faq.php",
+  "book_event": "event-book.php",
+  "contact": "contact.php",
+  "auth": "login-register.php",
+  "edit_market": "market-edit.php",
+  "market_page": "market-page.php",
+  "manage_markets": "markets-manage.php",
+  "about": "about.php",
+  "profile": "profile.php",
+  "invites": "invite-users.php",
+  "my_events": "events-personal.php",
+  "caroler_dashboard": "caroler-dashboard.php",
+  "upcoming_events": "market-events.php"
+}

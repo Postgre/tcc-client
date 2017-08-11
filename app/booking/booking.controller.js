@@ -30,6 +30,47 @@ function BookingController($scope) {
     ];
 
     /**
+     * Init
+     * ===============
+     */
+    (function init() {
+        initTabs();
+        initDatepicker($scope);
+        $scope.booking = window.modelFactory.create("Booking");
+        $scope.booking.setData({
+            'address': 'Martin Luther King Dr',
+            'state': 'NJ',
+            'city': 'Atlantic City',
+            'name': 'Caroling in NJ',
+            'start_time': '07/10/2018 12:00 PM',
+            'end_time': '07/10/2018 2:00 PM'
+        });
+        $scope.booking.promo_codes = [
+            {
+                name: "Promo One",
+                code: "ABC123",
+            },
+            {
+                name: "Promo Two",
+                code: "ABC123",
+            },
+            {
+                name: "Promo Three",
+                code: "ABC123",
+            }
+        ];
+        console.log("CREATED", $scope.booking);
+        // $scope.booking  = window.modelFactory.create("Booking");
+        window.modelFactory.find("Market", window.navService.getNavParams().market_id).then((market)=>{
+            console.log($scope.booking);
+            $scope.market = market;
+            $scope.booking.market_id = $scope.market.id;
+            $scope.$apply();
+        });
+        window.market   =   $scope.market;
+    })();
+
+    /**
      * Functions
      * ===============
      */
@@ -107,33 +148,6 @@ function BookingController($scope) {
                 tryIt(inputValue);
             });
     };
-
-    /**
-     * Init
-     * ===============
-     */
-    (function init() {
-        initTabs();
-        initDatepicker($scope);
-        $scope.booking = window.modelFactory.create("Booking");
-        $scope.booking.setData({
-            'address': 'Martin Luther King Dr',
-            'state': 'NJ',
-            'city': 'Atlantic City',
-            'name': 'Caroling in NJ',
-            'start_time': '07/10/2018 12:00 PM',
-            'end_time': '07/10/2018 2:00 PM'
-        });
-        console.log("CREATED", $scope.booking);
-        // $scope.booking  = window.modelFactory.create("Booking");
-        window.modelFactory.find("Market", window.navService.getNavParams().market_id).then((market)=>{
-            console.log($scope.booking);
-            $scope.market = market;
-            $scope.booking.market_id = $scope.market.id;
-            $scope.$apply();
-        });
-        window.market   =   $scope.market;
-    })();
 
     $scope.stepToTravel     = function () {
         // validate 'Event Details'

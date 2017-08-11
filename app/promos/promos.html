@@ -50,7 +50,7 @@
                             &nbsp;
                             <span ng-if="row.pricing_offset"
                                   class="label label-success txt-sm">
-                                $<b ng-bind="row.pricing_offset"></b>
+                                $<b ng-bind="row.pricing_offset * -1"></b>
                             </span>
                         </td>
                         <td>
@@ -107,7 +107,7 @@
 
                                     <div class="col_last col_half">
                                         <label>Pricing Offset</label>
-                                        <input ng-model="form.pricing_offset" ui-money-mask="0" type="text" class="form-control"/>
+                                        <input ng-model="form.pricing_offset" ui-money-mask="0" ui-negative-number type="text" class="form-control"/>
                                     </div>
 
                                     <div class="clear"></div>

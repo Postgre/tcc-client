@@ -1,6 +1,8 @@
 /* Configuration */
-const config = require('../../config.json');
-const schema = require('../../schema.json');
+const site = require('../../config/site.json');
+const site_dev = require('../../config/site.dev.json');
+const nav = require('../../config/nav.json');
+const schema = require('../../config/schema.json');
 const modelClassMap = require('./modelClassMap');
 
 /* Services */
@@ -10,8 +12,8 @@ const ApplicationService = require('./services/ApplicationService');
 const Bindings = require('./Bindings');
 const NavService = require('./services/NavService');
 
-let authService = new AuthService(config, window.localStorage);
-let dataService = new DataService(config, authService);
+let authService = new AuthService(site_dev, window.localStorage);
+let dataService = new DataService(site_dev, authService);
 
 /* ORM Models */
 const ModelFactory = require('./models/core/ModelFactory');
@@ -32,7 +34,7 @@ window.SpecialDate = SpecialDate;
 
 /* Document Functions */
 require('./functions');
-window.navService = new NavService(config);
+window.navService = new NavService(nav);
 window.appService = new ApplicationService();
 new Bindings(authService, appService).apply();
 const jQuery = require('jQuery');

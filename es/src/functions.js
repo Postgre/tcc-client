@@ -7,7 +7,6 @@ window.getQueryVariable = function(variable) {
             return decodeURIComponent(pair[1]);
         }
     }
-    console.log('Query variable %s not found', variable);
 };
 window.calcMarketPrice = function( nthHour, rate, hourlyDiscount ){
     if( nthHour === 1 ) return rate;
