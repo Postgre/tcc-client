@@ -49,6 +49,10 @@ module.exports = class Booking extends BaseModel {
                 })
         });
     }
+    removePromoCode(promoCode){
+        let ind = this.promo_codes.indexOf(promoCode);
+        if(ind > 0) this.promo_codes.splice(ind, 1);
+    }
 
     /**
      * Validators

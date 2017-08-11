@@ -268,10 +268,10 @@
                                     <div class="col_full">
                                         <table class="table">
                                             <tr ng-repeat="promo in booking.promo_codes">
-                                                <td><i class="fa-icon-gift"></i></td>
+                                                <td><i class="icon-checkmark"></i></td>
                                                 <td ng-bind="promo.name"></td>
-                                                <td><label ng-bind="promo.code" class="label"></label> </td>
-                                                <td><button class="btn btn-danger"><i class="close"></i></button></td>
+                                                <td><label ng-bind="promo.code" class="label label-success"></label> </td>
+                                                <td><a ng-click="booking.removePromoCode(promo)" href="javascript:void(0)">x</a></td>
                                             </tr>
                                         </table>
                                     </div>
