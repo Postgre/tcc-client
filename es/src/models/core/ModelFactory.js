@@ -27,7 +27,7 @@ module.exports = class ModelFactory {
                 }).catch(reject);
         });
         promises.push(resourcePromise);
-        if(eager === true) falseinstance.load(promises, resourcePromise);
+        if(eager === true) instance.load(promises, resourcePromise);
 
         return new Promise((resolve, reject)=>{
             Promise.all(promises).then((resolves)=>{
