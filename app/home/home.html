@@ -148,11 +148,11 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-12 bottommargin-sm">
                             <label style="display:block;">Address</label>
-                            <input name="address" type="text" class="form-control" placeholder="Address">
+                            <input ng-model="form.address" name="address" type="text" class="form-control" placeholder="Address">
                         </div>
                         <div class="col-md-3 col-sm-12 bottommargin-sm">
                             <label style="display:block;">City</label>
-                            <input name="city" type="text" class="form-control" placeholder="City">
+                            <input name="city" ng-model="form.city" type="text" class="form-control" placeholder="City">
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
                             <label>State</label>
@@ -160,7 +160,7 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
                             <label>Number of Singers</label>
-                            <select name="caroler_config" class="selectpicker form-control">
+                            <select ng-model="form.caroler_config" name="caroler_config" class="selectpicker form-control">
                                 <option value="quartet">Quartet (4)</option>
                                 <option value="trio_sab">Trio (3)</option>
                                 <option value="sixtet">Sixtets (6)</option>

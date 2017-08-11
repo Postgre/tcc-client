@@ -37,14 +37,12 @@ function BookingController($scope) {
         initTabs();
         initDatepicker($scope);
         $scope.booking = window.modelFactory.create("Booking");
-        $scope.booking.setData({
-            'address': 'Martin Luther King Dr',
-            'state': 'NJ',
-            'city': 'Atlantic City',
-            'name': 'Caroling in NJ',
-            'start_time': '07/10/2018 12:00 PM',
-            'end_time': '07/10/2018 2:00 PM'
-        });
+        /* load quote if exists */
+        if(navService.getNavParams().query){
+            $scope.booking.setData(navService.getNavParams().query);
+            console.log("query", navService.getNavParams().query);
+            console.log("booking", $scope.booking);
+        }
         console.log("CREATED", $scope.booking);
         // $scope.booking  = window.modelFactory.create("Booking");
         window.modelFactory.find("Market", window.navService.getNavParams().market_id).then((market)=>{

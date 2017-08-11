@@ -4,7 +4,9 @@ angular.module("home")
 function HomeController($scope) {
     $scope.daterange = null;
     $scope.quote = {};
-    $scope.form = {};
+    $scope.form = {
+        caroler_config: "quartet"
+    };
 
     let quoteRequest = null;
     $scope.handleGetQuote = () => {
@@ -68,7 +70,15 @@ function HomeController($scope) {
     $scope.handleBookNow = () => {
         window.navService.goto("book_event", {
             market_id: $scope.quote.market.id,
-            quote_id: $scope.quote.id
+            quote: $scope.quote,
+            query: {
+                start_time: getStartTime(),
+                end_time: getEndTime(),
+                state: $scope.form.state,
+                city: $scope.form.city,
+                address: $scope.form.address,
+                caroler_config: $scope.form.caroler_config
+            }
         });
     };
 
@@ -114,11 +124,18 @@ function HomeController($scope) {
     function parseQuoteRequest(daterange) {
         let form = document.forms.quoteForm;
         return {
-            start_time: daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm"),
-            end_time: daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm"),
+            start_time: getStartTime(),
+            end_time: getEndTime(),
             address: formatAddress(form.address.value, form.city.value, $scope.form.state,),
             caroler_config: form.caroler_config.value
         }
+    }
+
+    function getStartTime(){
+        return $scope.daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm")
+    }
+    function getEndTime(){
+        return $scope.daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm");
     }
 
     init();
