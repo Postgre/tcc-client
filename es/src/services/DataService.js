@@ -299,7 +299,7 @@ module.exports = class DataService {
                         duration: res.data.cost_travel_duration
                     },
                     metrics: {
-                        distance: res.data.distance,
+                        distance: res.data.travel_distance,
                         duration: res.data.duration * 60 // hours => minutes
                     }
                 };
