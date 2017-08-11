@@ -24,6 +24,21 @@ function HomeController($scope) {
             if (err.response.data.status === "BAD_ADDRESS") {
                 swal("Bad Address", "Address could not be resolved", "error")
             }
+            if (err.response.data.status === "INVALID_DISTANCE") {
+                swal("No Results", "No markets were found near you", "warning")
+            }
+            if (err.response.data.status === "DURATION_TOO_SHORT") {
+                swal("Invalid Duration", "The minimum duration for events is 1 hour", "warning")
+            }
+            if (err.response.data.status === "DURATION_TOO_LONG") {
+                swal("Invalid Duration", "The maximum duration for events is 10 hours", "warning")
+            }
+            if (err.response.data.status === "INVALID_DATE_START") {
+                swal("Wait a Minute!", "You can't book a past date", "warning")
+            }
+            if (err.response.data.status === "INVALID_DATE_END") {
+                swal("Wait a Minute!", "Your end date is before your start date", "warning")
+            }
         })
     };
     $scope.handleBookNow = () => {
