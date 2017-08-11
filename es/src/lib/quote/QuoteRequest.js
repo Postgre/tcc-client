@@ -10,4 +10,8 @@ module.exports = class QuoteRequest {
     submit(){
         return this.dataService.postQuote(this.address, this.start_time, this.end_time, this.caroler_config);
     }
+
+    save(email){
+        return this.dataService.postSaveQuote(this.id, email);
+    }
 };

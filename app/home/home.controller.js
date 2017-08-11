@@ -6,16 +6,17 @@ function HomeController($scope) {
     $scope.quote = {};
     $scope.form = {};
 
+    let quoteRequest = null;
     $scope.handleGetQuote = () => {
         let data = parseQuoteRequest($scope.daterange);
-        let quoteRequest = new QuoteRequest(data, dataService);
-        console.log(quoteRequest);
-        quoteRequest.submit().then((data) => {
+        let qr = new QuoteRequest(data, dataService);
+        qr.submit().then((data) => {
                 $scope.quote = data.quote;
                 $scope.quote.market = data.market;
                 $scope.$apply();
-                console.log($scope);
                 $("#quoteModal").modal("show");
+                quoteRequest = qr;
+                quoteRequest.id = $scope.quote.id;
         }).catch((reason) => {
             if (reason === "INVALID_DATE_TIME") {
                 swal("Oops..", "Invalid Date Time", "error");
@@ -39,6 +40,30 @@ function HomeController($scope) {
                 swal("Wait a Minute!", "Your end date is before your start date", "warning")
             }
         })
+    };
+    $scope.handleSaveQuote = () => {
+        $("#quoteModal").modal("hide");
+        swal({
+                title: "Send Quote to Email",
+                text: "You can book it later!",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "Your Email"
+            },
+            function(inputValue){
+                if (inputValue === false) return false;
+
+                if (inputValue === "") {
+                    swal.showInputError("You need to write something!");
+                    return false
+                }
+
+                quoteRequest.save(inputValue).then(()=>{
+                    swal("Done!", "We've sent the quote to your email", "success");
+                }).catch(somethingWentWrong);
+            });
     };
     $scope.handleBookNow = () => {
         window.navService.goto("book_event", {

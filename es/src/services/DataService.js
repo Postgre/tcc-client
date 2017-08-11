@@ -152,7 +152,7 @@ module.exports = class DataService {
                 callback: this.callback_save_quote
             })
         })
-    }                           // TODO: resolve
+    }
 
     /**
      * MARKETS
