@@ -48,6 +48,15 @@
     border-left: 1px solid #610000;
 }
 
+#header.sticky-header #header-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #800020;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 .txt-lg {
     font-size: large;
 }
