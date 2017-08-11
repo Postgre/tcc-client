@@ -209,13 +209,13 @@
                                 <tcc-date-range to="date.date_to" from="date.date_from"></tcc-date-range>
                             </div>
                             <div class="col-sm-3">
-                                <label>Available?</label>
+                                <label>Allow AutoBook</label>
                                 <select ng-model="date.available"
                                         ng-options="option.val as option.label for option in availOpts"
                                         class="sm-form-control">
                                 </select>
                             </div>
-                            <div ng-hide="date.available === false" class="col-sm-3">
+                            <div class="col-sm-3">
                                 <label>Price Scale:</label>
                                 <input ng-model="date.pricing_scale" type="number" class="sm-form-control"
                                        placeholder="0.5 = half price">
