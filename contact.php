@@ -120,7 +120,7 @@
                 ============================================= -->
                 <div class="row clear-bottommargin">
 
-                    <div class="col-md-3 col-sm-6 bottommargin clearfix">
+                    <div class="col-md-3 col-sm-6 col-sm-offset-1 bottommargin clearfix">
                         <div class="feature-box fbox-center fbox-bg fbox-plain">
                             <div class="fbox-icon">
                                 <a href="#"><i class="icon-map-marker2"></i></a>
@@ -134,7 +134,7 @@
                             <div class="fbox-icon">
                                 <a href="#"><i class="icon-phone3"></i></a>
                             </div>
-                            <h3>Speak to Us<span class="subtitle">(844) 922 7653</span></h3>
+                            <h3>Call Us<span class="subtitle">(800) 833-CAROLER</span></h3>
                         </div>
                     </div>
 
@@ -145,15 +145,6 @@
                                             class="icon-facebook2"></i></a>
                             </div>
                             <h3>Like on Facebook<span class="subtitle">@thechristmascarolers</span></h3>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 bottommargin clearfix">
-                        <div class="feature-box fbox-center fbox-bg fbox-plain">
-                            <div class="fbox-icon">
-                                <a href="#"><i class="icon-twitter2"></i></a>
-                            </div>
-                            <h3>Follow on Twitter<span class="subtitle">2.3M Followers</span></h3>
                         </div>
                     </div>
 
