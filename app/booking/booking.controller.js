@@ -86,9 +86,10 @@ function BookingController($scope) {
         }];
 
         // load into the map
-        const map = jQuery('#google-map-custom').gMap({address: 'United States',
+        const map = jQuery('#google-map-custom').gMap({
+            address: 'United States',
             maptype: 'ROADMAP',
-            zoom: 4,
+            zoom: 7,
             markers: pins,
             doubleclickzoom: false,
             controls: {
@@ -98,8 +99,33 @@ function BookingController($scope) {
                 scaleControl: false,
                 streetViewControl: false,
                 overviewMapControl: false
-            }
+            },
+            styles: [{
+                "featureType": "landscape.natural",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+            }, {
+                "featureType": "road",
+                "elementType": "labels",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{"visibility": "on"}, {"lightness": 700}]
+            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
         });
+        // jQuery('#google-map-custom').gMap('centerAt', {
+        //     address: pins[0].address,
+        //     zoom: 10
+        // });
     }
 
     $scope.applyPromo = function (){
