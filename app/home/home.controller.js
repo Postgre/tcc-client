@@ -11,15 +11,20 @@ function HomeController($scope) {
         let quoteRequest = new QuoteRequest(data, dataService);
         console.log(quoteRequest);
         quoteRequest.submit()
-            .then((data)=>{
+            .then((data) => {
                 $scope.quote = data.quote;
                 $scope.quote.market = data.market;
                 $scope.$apply();
                 console.log($scope);
                 $("#quoteModal").modal("show");
-            }).catch((err)=>{
-                swal("Bad Address", "Address could not be resolved", "error");
-            })
+            }).catch((err) => {
+            if (err.response.data.status === "INVALID_DATE_TIME") {
+                swal("Oops..", "Invalid Date Time", "error");
+            }
+            if (err.response.data.status === "BAD_ADDRESS") {
+                swal("Bad Address", "Address could not be resolved", "error")
+            }
+        })
     };
     $scope.handleBookNow = () => {
         window.navService.goto("book_event", {
@@ -28,7 +33,7 @@ function HomeController($scope) {
         });
     };
 
-    function init(){
+    function init() {
         let today = new Date();
         let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
         let nowHour = today.getHours();
@@ -66,16 +71,17 @@ function HomeController($scope) {
             }).catch(window.somethingWentWrong);
         });
     }
+
     init();
 }
 
 function parseQuoteRequest(daterange) {
     let form = document.forms.quoteForm;
     return {
-        start_time : daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm"),
-        end_time : daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm"),
-        address : formatAddress(form.address.value, form.city.value, form.state.value, ),
-        caroler_config : form.caroler_config.value
+        start_time: daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm"),
+        end_time: daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm"),
+        address: formatAddress(form.address.value, form.city.value, form.state.value,),
+        caroler_config: form.caroler_config.value
     }
 }
 
