@@ -272,11 +272,13 @@ module.exports = class DataService {
      * ==================
      */
     getMyEvents(){
-        return this.connection({
-            url: "users/events/booked",
-            method: "GET"
-        })
-    }                   // TODO: resolve
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "users/events/booked",
+                method: "GET"
+            }).then(res=>resolve(res.data), reject);
+        });
+    }
 
     /**
      * BOOKING
