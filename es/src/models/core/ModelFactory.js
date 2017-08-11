@@ -13,7 +13,7 @@ module.exports = class ModelFactory {
         this.schema = schema;
     }
 
-    find(ModelClass, id, eager = true){
+    find(ModelClass, id, eager){
         let instance = this.create(ModelClass);
         instance.setId(id);
 
