@@ -300,7 +300,7 @@ module.exports = class DataService {
                     },
                     metrics: {
                         distance: res.data.travel_distance,
-                        duration: res.data.duration * 60 // hours => minutes
+                        duration: Math.round( res.data.travel_duration * 60 )// hours => minutes
                     }
                 };
                 resolve(myFormat);
