@@ -37,20 +37,16 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="caroler in market.getCarolers()">
-                                    <td ng-bind="caroler.name"></td>
-                                    <td ng-bind="caroler.email"></td>
+                                <tr ng-repeat="caroler in carolers">
                                     <td>
-                                        <button class="btn btn-success" title="Approve">
-                                            <i class="icon-thumbs-up2"></i>
-                                        </button>
-                                        <button class="btn btn-danger" title="Deny">
-                                            <i class="icon-thumbs-down2"></i>
-                                        </button>
+                                        <img ng-src="{{caroler.image}}" /> &nbsp;
+                                        <strong ng-bind="caroler.name"></strong>
+                                    </td>
+                                    <td>
+                                        <a ng-href="mailto:{{caroler.email}}" ng-bind="caroler.email"></a>
                                     </td>
                                 </tr>
                                 </tbody>

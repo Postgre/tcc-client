@@ -94,11 +94,15 @@ module.exports = class Market extends BaseModel {
     getCarolers(){
         return new Promise((resolve, reject)=>{
             if(this.activeCarolers) resolve(this.activeCarolers);
-            this.dataService.getMarketCarolers(this.id).then(
-                (carolers)=>{
-                    this.activeCarolers = carolers;
-                }, reject
-            )
+            this.dataService.connection({
+                url: `markets/${this.id}/carolers`,
+                method: "GET",
+                params: {
+                    "with": "caroler_types"
+                }
+            }).then((res)=>{
+                resolve(res.data);
+            }, reject)
         });
     }
 };

@@ -2,10 +2,8 @@ angular.module('market-carolers')
     .controller("MarketCarolersController", MarketCarolersController);
 
 function MarketCarolersController($scope){
-    $scope.market = {
-        name: "Sample Market"
-    };
-    $scope.requests = [];
+    $scope.market = {};
+    $scope.carolers = [];
     $scope.found = [];
 
     /**
@@ -41,11 +39,14 @@ function MarketCarolersController($scope){
         modelFactory.find("Market", navService.getNavParam('market_id')).then(
             (mkt)=>{
                 market = mkt;
+                console.log("market loaded..");
                 market.getCarolers().then(
                     (carolers)=>{
                         $scope.market = market;
+                        $scope.carolers = carolers;
+                        console.log("carolers loaded..", carolers);
                         $scope.$apply();
-                    }
+                    }, somethingWentWrong
                 )
             }
         );
