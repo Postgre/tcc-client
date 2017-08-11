@@ -4,6 +4,7 @@ angular.module("home")
 function HomeController($scope) {
     $scope.daterange = null;
     $scope.quote = {};
+    $scope.form = {};
 
     $scope.handleGetQuote = () => {
         let data = parseQuoteRequest($scope.daterange);
@@ -53,7 +54,7 @@ function HomeController($scope) {
                 for (let i = 0; i < markets.length; i++) {
                     let mkt = markets[i];
                     markers.push({
-                        address: formatAddress(mkt.city, mkt.state, mkt.address),
+                        address: formatAddress(mkt.address, mkt.city, mkt.state),
                         icon: {
                             image: "images/icons/map-icon-red.png",
                             iconsize: [32, 39],
@@ -66,7 +67,6 @@ function HomeController($scope) {
         });
     }
     init();
-
 }
 
 function parseQuoteRequest(daterange) {
@@ -74,7 +74,7 @@ function parseQuoteRequest(daterange) {
     return {
         start_time : daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm"),
         end_time : daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm"),
-        address : formatAddress(form.city.value ,form.state.value ,form.address.value ),
+        address : formatAddress(form.address.value, form.city.value, form.state.value, ),
         caroler_config : form.caroler_config.value
     }
 }

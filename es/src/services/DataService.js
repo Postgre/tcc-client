@@ -410,6 +410,15 @@ module.exports = class DataService {
             })
         })
     }
+    subscribe(email){
+        return this.connection({
+            url: "subscribe",
+            method: "POST",
+            data: qs.stringify({
+                email: email
+            })
+        });
+    }
 
     /**
      * ADMINS

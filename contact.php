@@ -11,7 +11,7 @@
 <div id="wrapper" class="clearfix">
 
     <?php require 'partials/top-bar.htm' ?>
-<?php require 'partials/header-2.php' ?>
+    <?php require 'partials/header-2.php' ?>
 
     <!-- Page Title
     ============================================= -->
@@ -46,18 +46,13 @@
 
                     <div class="contact-widget">
 
-                        <div class="contact-form-result"></div>
-
-                        <form class="nobottommargin" id="template-contactform" name="template-contactform"
-                              action="include/sendemail.php" method="post">
-
-                            <div class="form-process"></div>
+                        <form class="nobottommargin" onsubmit="return window.sendContact(this)">
 
                             <div class="col_one_third">
                                 <label for="template-contactform-name">Name
                                     <small>*</small>
                                 </label>
-                                <input type="text" id="template-contactform-name" name="template-contactform-name"
+                                <input id="template-contactform-name" name="name"
                                        value="" class="sm-form-control required">
                             </div>
 
@@ -65,36 +60,24 @@
                                 <label for="template-contactform-email">Email
                                     <small>*</small>
                                 </label>
-                                <input type="email" id="template-contactform-email" name="template-contactform-email"
+                                <input type="email" id="template-contactform-email" name="email"
                                        value="" class="required email sm-form-control">
                             </div>
 
                             <div class="col_one_third col_last">
                                 <label for="template-contactform-phone">Phone</label>
-                                <input type="text" id="template-contactform-phone" name="template-contactform-phone"
+                                <input id="template-contactform-phone" name="phone"
                                        value="" class="sm-form-control">
                             </div>
 
                             <div class="clear"></div>
 
-                            <div class="col_two_third">
+                            <div class="col_full">
                                 <label for="template-contactform-subject">Subject
                                     <small>*</small>
                                 </label>
-                                <input type="text" id="template-contactform-subject" name="template-contactform-subject"
+                                <input id="template-contactform-subject" name="subject"
                                        value="" class="required sm-form-control">
-                            </div>
-
-                            <div class="col_one_third col_last">
-                                <label for="template-contactform-service">Services</label>
-                                <select id="template-contactform-service" name="template-contactform-service"
-                                        class="sm-form-control">
-                                    <option value="">-- Select One --</option>
-                                    <option value="Wordpress">Wordpress</option>
-                                    <option value="PHP / MySQL">PHP / MySQL</option>
-                                    <option value="HTML5 / CSS3">HTML5 / CSS3</option>
-                                    <option value="Graphic Design">Graphic Design</option>
-                                </select>
                             </div>
 
                             <div class="clear"></div>
@@ -104,11 +87,11 @@
                                     <small>*</small>
                                 </label>
                                 <textarea class="required sm-form-control" id="template-contactform-message"
-                                          name="template-contactform-message" rows="6" cols="30"></textarea>
+                                          name="message" rows="6" cols="30"></textarea>
                             </div>
 
                             <div class="col_full hidden">
-                                <input type="text" id="template-contactform-botcheck"
+                                <input id="template-contactform-botcheck"
                                        name="template-contactform-botcheck" value="" class="sm-form-control">
                             </div>
 
