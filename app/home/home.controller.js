@@ -10,33 +10,32 @@ function HomeController($scope) {
         let data = parseQuoteRequest($scope.daterange);
         let quoteRequest = new QuoteRequest(data, dataService);
         console.log(quoteRequest);
-        quoteRequest.submit()
-            .then((data) => {
+        quoteRequest.submit().then((data) => {
                 $scope.quote = data.quote;
                 $scope.quote.market = data.market;
                 $scope.$apply();
                 console.log($scope);
                 $("#quoteModal").modal("show");
-            }).catch((err) => {
-            if (err.response.data.status === "INVALID_DATE_TIME") {
+        }).catch((reason) => {
+            if (reason === "INVALID_DATE_TIME") {
                 swal("Oops..", "Invalid Date Time", "error");
             }
-            if (err.response.data.status === "BAD_ADDRESS") {
+            if (reason === "BAD_ADDRESS") {
                 swal("Bad Address", "Address could not be resolved", "error")
             }
-            if (err.response.data.status === "INVALID_DISTANCE") {
+            if (reason === "INVALID_DISTANCE") {
                 swal("No Results", "No markets were found near you", "warning")
             }
-            if (err.response.data.status === "DURATION_TOO_SHORT") {
+            if (reason === "DURATION_TOO_SHORT") {
                 swal("Invalid Duration", "The minimum duration for events is 1 hour", "warning")
             }
-            if (err.response.data.status === "DURATION_TOO_LONG") {
+            if (reason === "DURATION_TOO_LONG") {
                 swal("Invalid Duration", "The maximum duration for events is 10 hours", "warning")
             }
-            if (err.response.data.status === "INVALID_DATE_START") {
+            if (reason === "INVALID_DATE_START") {
                 swal("Wait a Minute!", "You can't book a past date", "warning")
             }
-            if (err.response.data.status === "INVALID_DATE_END") {
+            if (reason === "INVALID_DATE_END") {
                 swal("Wait a Minute!", "Your end date is before your start date", "warning")
             }
         })
@@ -87,18 +86,19 @@ function HomeController($scope) {
         });
     }
 
+    function parseQuoteRequest(daterange) {
+        let form = document.forms.quoteForm;
+        return {
+            start_time: daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm"),
+            end_time: daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm"),
+            address: formatAddress(form.address.value, form.city.value, $scope.form.state,),
+            caroler_config: form.caroler_config.value
+        }
+    }
+
     init();
 }
 
-function parseQuoteRequest(daterange) {
-    let form = document.forms.quoteForm;
-    return {
-        start_time: daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm"),
-        end_time: daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm"),
-        address: formatAddress(form.address.value, form.city.value, form.state.value,),
-        caroler_config: form.caroler_config.value
-    }
-}
 
 function renderMap(markers) {
     $('#popular-dest-map').gMap({

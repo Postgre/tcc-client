@@ -113,8 +113,9 @@ module.exports = class DataService {
                     quote: quote
                 });
             }).catch((err)=>{
-                if(err.response.data.status === "BAD_ADDRESS"){
-                    reject("BAD_ADDRESS");
+                console.log(err);
+                if(err.response.data.status){
+                    reject(err.response.data.status);
                 }
                 reject(err);
             })
