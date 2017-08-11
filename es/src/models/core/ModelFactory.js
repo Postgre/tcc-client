@@ -13,7 +13,7 @@ module.exports = class ModelFactory {
         this.schema = schema;
     }
 
-    find(ModelClass, id){
+    find(ModelClass, id, eager = true){
         let instance = this.create(ModelClass);
         instance.setId(id);
 
@@ -27,7 +27,7 @@ module.exports = class ModelFactory {
                 }).catch(reject);
         });
         promises.push(resourcePromise);
-        instance.load(promises, resourcePromise);
+        if(eager === true) falseinstance.load(promises, resourcePromise);
 
         return new Promise((resolve, reject)=>{
             Promise.all(promises).then((resolves)=>{

@@ -45,7 +45,7 @@ function BookingController($scope) {
         }
         console.log("CREATED", $scope.booking);
         // $scope.booking  = window.modelFactory.create("Booking");
-        window.modelFactory.find("Market", window.navService.getNavParams().market_id).then((market)=>{
+        window.modelFactory.find("Market", window.navService.getNavParams().market_id, false).then((market)=>{
             console.log($scope.booking);
             $scope.market = market;
             $scope.booking.market_id = $scope.market.id;
