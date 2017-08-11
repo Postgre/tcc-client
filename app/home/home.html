@@ -448,7 +448,7 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount">$<span ng-bind="quote.dates">loading..</span>
+                                            <span class="amount">$<span ng-bind="quote.dates*-1">loading..</span>
                                         </span></td>
                                     </tr>
                                     <tr class="cart_item">
@@ -457,7 +457,7 @@
                                         </td>
 
                                         <td class="cart-product-name">
-                                            <span class="amount"> - $<span ng-bind="quote.discounts">loading..</span>
+                                            <span class="amount">$<span ng-bind="quote.discounts*-1">loading..</span>
                                         </span></td>
                                     </tr>
                                     <tr class="cart_item">
