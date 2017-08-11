@@ -12,8 +12,8 @@ const ApplicationService = require('./services/ApplicationService');
 const Bindings = require('./Bindings');
 const NavService = require('./services/NavService');
 
-let authService = new AuthService(site_dev, window.localStorage);
-let dataService = new DataService(site_dev, authService);
+let authService = new AuthService(site, window.localStorage);
+let dataService = new DataService(site, authService);
 
 /* ORM Models */
 const ModelFactory = require('./models/core/ModelFactory');
