@@ -37,6 +37,7 @@ module.exports = class Booking extends BaseModel {
         console.log(postData);
         return this.dataService.postQuotePreview(postData, this.caroler_config, this.getPromoData());
     }
+
     applyPromoCode(code){
         return new Promise((resolve, reject)=>{
             this.dataService.validatePromo(code, this.start_time, this.end_time)
@@ -50,7 +51,9 @@ module.exports = class Booking extends BaseModel {
         });
     }
     removePromoCode(promoCode){
+        alert("fuuuuck");
         let ind = this.promo_codes.indexOf(promoCode);
+        alert(ind);
         if(ind > 0) this.promo_codes.splice(ind, 1);
     }
 

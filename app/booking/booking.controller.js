@@ -148,6 +148,11 @@ function BookingController($scope) {
                 tryIt(inputValue);
             });
     };
+    $scope.removePromoCode = (promo) => {
+        alert("fuck");
+        window.help = $scope.booking;
+        $scope.booking.removePromoCode(promo);
+    };
 
     $scope.stepToTravel     = function () {
         // validate 'Event Details'
