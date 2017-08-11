@@ -36,8 +36,7 @@ function MarketsManageController( $scope ) {
     $scope.create = () => {
         let market = modelFactory.create("Market", parseNewMarketForm());
         market.save().then(onCreate).catch((err)=>{
-            let s = err.response.data.status;
-            if(s === "BAD_ADDRESS"){
+            if(err.response.data.status === "BAD_ADDRESS"){
                 alertBadAddress();
                 return;
             }
