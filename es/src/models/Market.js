@@ -9,6 +9,7 @@ module.exports = class Market extends BaseModel {
         this.specialDates   =   [];
         this.mediaLinks     =   [];
         this.carolerConfigs =   new CarolerConfigs();
+        /* relations */
         this.upcomingEvents =   null;
         this.activeCarolers =   null;
     }
@@ -78,7 +79,8 @@ module.exports = class Market extends BaseModel {
         if(ind === -1) return;
         this.mediaLinks.splice(ind,1);
     }
-    
+
+    // TODO: rename get => load
     getUpcomingEvents(){
         return new Promise((resolve, reject)=>{
             if(this.upcomingEvents) resolve(this.upcomingEvents);
@@ -91,7 +93,7 @@ module.exports = class Market extends BaseModel {
                 ).catch(reject);
         });
     }
-    getCarolers(){
+    loadCarolers(){
         return new Promise((resolve, reject)=>{
             if(this.activeCarolers) resolve(this.activeCarolers);
             this.dataService.connection({
@@ -104,5 +106,9 @@ module.exports = class Market extends BaseModel {
                 resolve(res.data);
             }, reject)
         });
+    }
+
+    inviteCaroler(email){
+        return dataService.postDelegationsCaroler(this.id, email);
     }
 };

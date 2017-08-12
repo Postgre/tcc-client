@@ -1,0 +1,52 @@
+<section id="page-title" class="page-title-pattern">
+
+    <div class="container clearfix">
+        <h1>Manage Caroler Access</h1>
+        <span>Send Invites, Approve Requests, View Pending Invites</span>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="market-page.php" ng-bind="market.name"></a></li>
+            <li class="active">Carolers</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="title-block">
+                <h1 ng-bind="market.name"></h1>
+                <span ng-bind="market.address"></span>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading"><strong>NEW CAROLER REQUESTS</strong></div>
+                        <!-- Table -->
+                        <table ng-include="TABLE_REQUESTS" class="table">
+                            <!-- loaded from partial -->
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading"><strong>PENDING INVITATIONS</strong></div>
+                        <!-- Table -->
+                        <table ng-include="TABLE_INVITES" class="table">
+                            <!-- loaded from partial -->
+                        </table>
+                    </div>
+                    <div class="col_full">
+                        <button data-target="#modal" data-toggle="modal" class="btn btn-primary pull-right">Send New Invitation >></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-include="MODAL_INVITE" class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- loaded from partial -->
+    </div>
+</section>
