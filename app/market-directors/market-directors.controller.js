@@ -1,10 +1,10 @@
-angular.module('market-carolers')
-    .controller("MarketCarolersController", MarketCarolersController);
+angular.module('market-directors')
+    .controller("MarketDirectorsController", MarketDirectorsController);
 
-function MarketCarolersController($scope){
-    $scope.TABLE_INVITES = "app/market-carolers/table-invites.html";
-    $scope.TABLE_REQUESTS = "app/market-carolers/table-requests.html";
-    $scope.MODAL_INVITE = "app/market-carolers/modal-invite.html";
+function MarketDirectorsController($scope){
+    $scope.TABLE_INVITES = "app/market-directors/table-invites.html";
+    $scope.TABLE_REQUESTS = "app/market-directors/table-requests.html";
+    $scope.MODAL_INVITE = "app/market-directors/modal-invite.html";
 
     $scope.market = {
         name: "Birmingham Market",
@@ -16,13 +16,13 @@ function MarketCarolersController($scope){
 
     function init(){
         let market_id = window.getQueryVariable('market');
-        modelFactory.find("Market", market_id).then(
-            (market)=>{
-                console.log("market loaded..", market);
-                $scope.market = market;
-                $scope.$apply();
-            }
-        );
+        // modelFactory.find("Market", market_id).then(
+        //     (market)=>{
+        //         console.log("market loaded..", market);
+        //         $scope.market = market;
+        //         $scope.$apply();
+        //     }
+        // );
     }
 
     /**
@@ -53,13 +53,13 @@ function MarketCarolersController($scope){
         // dupes => swal("Wait a minute!", "That caroler already belongs to this market.", "warning");
         // fail => somethingWentWrong()
     }
-    function sendInvite(caroler){
-        $scope.market.inviteCaroler(caroler.email)
+    function sendInvite(user){
+        $scope.market.inviteDirector(user.email)
             .then(
-                (win) => swal("Done!", "Caroler has joined market", "success"),
+                (win) => swal("Done!", "Director has joined market", "success"),
                 (status) => {
                     if(status === "DUPLICATE"){
-                        swal("Wait a minute!", "That caroler already belongs to this market.", "warning");
+                        swal("Wait a minute!", "That director already belongs to this market.", "warning");
                         return;
                     }
                     somethingWentWrong();

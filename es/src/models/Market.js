@@ -111,4 +111,7 @@ module.exports = class Market extends BaseModel {
     inviteCaroler(email){
         return dataService.postDelegationsCaroler(this.id, email);
     }
+    inviteDirector(email){
+        return dataService.postDelegationsDirector(this.id, email);
+    }
 };

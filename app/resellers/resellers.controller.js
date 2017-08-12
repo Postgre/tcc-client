@@ -56,6 +56,7 @@ function ResellersController( $scope ){
      */
     $scope.create = function(){
         $scope.form = window.modelFactory.create(RESOURCE);
+
         modal();
     };
 
