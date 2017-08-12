@@ -50,12 +50,6 @@ function BookingController($scope) {
         });
         market.$promise.then(mkt => $scope.booking.market_id = mkt.id);
         $scope.market = market;
-
-        // window.market = market;
-        // window.modelFactory.find("Market", market_id, false).then((market)=>{
-        //     console.log($scope.booking);
-        //     $scope.booking.market_id = $scope.market.id;
-        // });
     })();
 
     /**

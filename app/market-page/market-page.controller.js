@@ -4,22 +4,29 @@ angular.module('market-page')
 function MarketPageController( $scope ) {
     $scope.market = {};
 
-    $scope.handleBookNow = function(){
-        window.navService.goto("book_event", {
-            market_id: $scope.market.id
-        });
-    };
-
     /**
      * Functions
      * ===============
      */
     function init(){
-        modelFactory.find("Market", navService.getNavParam('market_id')).then((market)=>{
-            $scope.market = market;
+        let market_id = navService.getNavParam('market_id');
+        if(getQueryVariable('market')) market_id = getQueryVariable('market');
+
+        let market = modelFactory.get("Market", market_id);
+        market.subscribe("async", function(){
             $scope.$apply();
-            loadMap($scope.market.getFormattedAddress());
         });
+        market.$promise.then(()=>loadMap(market.getFormattedAddress()));
+        $scope.market = market;
+
+        /* Older */
+        // modelFactory.find("Market", market_id).then((market)=>{
+        //     $scope.market = market;
+        //     $scope.$apply();
+        //     loadMap($scope.market.getFormattedAddress());
+        // });
+
+        /* Oldest */
         // var promise = window.dataService.getMarket( navService.getNavParams().market_id );
         // promise.then(function(res){
         //     console.log("res", res);
