@@ -18,10 +18,8 @@ const qs = require('qs');
 module.exports = class BaseModel {
     /**
      * TODO:
-     * + observer pattern and map events
      * + lazy/eager loaded relationships
      * + relationships eloquent style
-     * + return empty model - set promise attribute
      */
 
     init(){
@@ -31,13 +29,14 @@ module.exports = class BaseModel {
             this[prop] = null;
         });
         Object.assign(this, this.defaults);
-        this.$promise = Promise.resolve();
+        this.$promise = null;
         this.observers = {
             "async": []
         }
     }
     load(promises, resourcePromise){
         // NOOP
+        // Override to for eager loading
     }
     update(){
         return this.dataService.connection({
@@ -96,6 +95,7 @@ module.exports = class BaseModel {
         this.id = id;
     }
 
+    /* observer */ // useful for triggering AngularJS digest cycle
     subscribe(event, callback){
         if(typeof this.observers[event] === 'undefined') this.observers[event] = [];
         this.observers[event].push(callback);

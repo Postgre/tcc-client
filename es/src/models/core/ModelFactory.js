@@ -13,6 +13,7 @@ module.exports = class ModelFactory {
         this.schema = schema;
     }
 
+    /* Soon to be Deprecated. Use 'get' instead. */
     find(ModelClass, id, eager){
         let instance = this.create(ModelClass);
         instance.setId(id);
@@ -36,6 +37,7 @@ module.exports = class ModelFactory {
         });
     }
     get(ModelClass, id){
+        this.validate(ModelClass);
         let instance = this.create(ModelClass);
         instance.setId(id);
         instance.$promise = new Promise((resolve, reject) => {
