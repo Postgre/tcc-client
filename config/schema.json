@@ -78,7 +78,25 @@
   },
   "Resellers": {
     "endpoint": "resellers",
-    "required": [ "name", "address" ],
-    "optional": [ "code" ]
+    "required": [
+      "name",
+      "address"
+    ],
+    "optional": [
+      "code"
+    ]
+  },
+  "User": {
+    "endpoint": "users",
+    "required": [
+      "name",
+      "email",
+      "phone",
+      "state",
+      "city",
+      "address",
+      "image",
+      "bio"
+    ]
   }
 }

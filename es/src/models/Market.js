@@ -14,35 +14,6 @@ module.exports = class Market extends BaseModel {
         this.activeCarolers =   null;
     }
 
-    load(promises){
-        // load special dates
-        let specialDatesPromise = this.dataService.getSpecialDates(this.id)
-            .then((res)=>{
-                let _dates = res.data;
-                _dates.forEach((_date)=>{
-                    this.specialDates.push(_date);
-                });
-            });
-        // load media links
-        let mediaLinksPromise = this.dataService.getMedia(this.id)
-            .then((res)=>{
-                let _links = res.data;
-                _links.forEach((_link)=>{
-                    this.addMediaLink({
-                        id: _link.id,
-                        url: _link.url
-                    });
-                });
-            });
-        // load caroler configs
-        let carolerConfigsPromise = this.dataService.getCarolerConfigs(this.id)
-            .then((_configs)=>{
-                this.carolerConfigs = new CarolerConfigs(_configs);
-            });
-        promises.push(specialDatesPromise);
-        promises.push(mediaLinksPromise);
-        promises.push(carolerConfigsPromise);
-    }
     update(){
         let p = super.update();
         // update special dates
@@ -57,6 +28,37 @@ module.exports = class Market extends BaseModel {
         this.dataService.putCarolerConfigs(this.id, this.carolerConfigs);
 
         return p;
+    }
+
+    loadGallery(){
+        this.dataService.getMedia(this.id)
+            .then((res)=>{
+                let _links = res.data;
+                _links.forEach((_link)=>{
+                    this.addMediaLink({
+                        id: _link.id,
+                        url: _link.url
+                    });
+                });
+                this.notify("async");
+            });
+    }
+    loadSpecialDates(){
+        this.dataService.getSpecialDates(this.id)
+            .then((res)=>{
+                let _dates = res.data;
+                _dates.forEach((_date)=>{
+                    this.specialDates.push(_date);
+                });
+                this.notify("async");
+            });
+    }
+    loadCarolerConfigs(){
+        this.dataService.getCarolerConfigs(this.id)
+            .then((_configs)=>{
+                this.carolerConfigs = new CarolerConfigs(_configs);
+                this.notify("async");
+            });
     }
 
     getFormattedAddress(){
@@ -113,5 +115,11 @@ module.exports = class Market extends BaseModel {
     }
     inviteDirector(email){
         return dataService.postDelegationsDirector(this.id, email);
+    }
+
+    callAsync(){
+        setTimeout(()=>{
+            this.notify("async", "fooe");
+        }, 3000);
     }
 };

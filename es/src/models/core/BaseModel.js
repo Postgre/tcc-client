@@ -16,12 +16,25 @@ const qs = require('qs');
  *  [+] destroy()   :   calls DELETE /<endpoint>/id
  */
 module.exports = class BaseModel {
+    /**
+     * TODO:
+     * + observer pattern and map events
+     * + lazy/eager loaded relationships
+     * + relationships eloquent style
+     * + return empty model - set promise attribute
+     */
 
     init(){
+        // TODO:
+        // required && optional => fillable
         this.required.forEach((prop)=>{
             this[prop] = null;
         });
         Object.assign(this, this.defaults);
+        this.$promise = Promise.resolve();
+        this.observers = {
+            "async": []
+        }
     }
     load(promises, resourcePromise){
         // NOOP
@@ -81,5 +94,12 @@ module.exports = class BaseModel {
     }
     setId(id){
         this.id = id;
+    }
+
+    subscribe(event, callback){
+        this.observers[event].push(callback);
+    }
+    notify(event, params){
+        this.observers[event].forEach( callback => callback(params) );
     }
 };

@@ -35,6 +35,19 @@ module.exports = class ModelFactory {
             })
         });
     }
+    get(ModelClass, id){
+        let instance = this.create(ModelClass);
+        instance.setId(id);
+        instance.$promise = new Promise((resolve, reject) => {
+            this.dataService.getResource(this.schema[ModelClass].endpoint, id)
+                .then((_model) => {
+                    instance.setData(_model);
+                    instance.notify("async");
+                    resolve(instance);
+                }).catch(reject);
+        });
+        return instance;
+    }
     create(ModelClass, data){
         let schema = this.schema[ModelClass];
         let depends = {
