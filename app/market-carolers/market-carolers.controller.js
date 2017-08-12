@@ -39,7 +39,31 @@ function MarketCarolersController($scope){
      * Functions
      * ====================
      */
-    $scope.inviteCaroler = (caroler) => {
+
+    /* handlers */
+    function handleApprove(row){
+
+    }
+    function handleReject(row){
+
+    }
+    function handleResend(row){
+
+    }
+    function handleCancel(row){
+
+    }
+    function handleForm(form){
+
+    }
+
+    /* business logic */
+    function approveRequest(request){
+        // win => swal("Success!", "caroler has been granted access", "success"),
+        // dupes => swal("Wait a minute!", "That caroler already belongs to this market.", "warning");
+        // fail => somethingWentWrong()
+    }
+    function sendInvite(caroler){
         $scope.market.inviteCaroler(caroler.email)
             .then(
                 (win) => swal("Done!", "Caroler has joined market", "success"),
@@ -51,16 +75,6 @@ function MarketCarolersController($scope){
                     somethingWentWrong();
                 }
             );
-    };
-
-    function sendInvite(caroler_email){
-        // TODO
-    }
-    function approveRequest(request){
-        // TODO
-        // win => swal("Success!", "caroler has been granted access", "success"),
-        // dupes => swal("Wait a minute!", "That caroler already belongs to this market.", "warning");
-        // fail => somethingWentWrong()
     }
 
     init();

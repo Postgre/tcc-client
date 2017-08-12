@@ -8,7 +8,25 @@
                 <h4 class="modal-title" id="myModalLabel">Invite a Caroler</h4>
             </div>
             <div class="modal-body">
-                testing
+                <form class="nobottommargin">
+                    <div class="col_half">
+                        <label>Name</label>
+                        <input ng-model="form.one" class="sm-form-control required">
+                    </div>
+
+                    <div class="col_half col_last">
+                        <label>Text Field</label>
+                        <input ng-model="form.two" class="sm-form-control required">
+                    </div>
+
+                    <div class="col_full">
+                        <label> Text Field </label>
+                        <input ng-model="form.three" class="sm-form-control required">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="handleForm(form)" class="btn btn-primary pull-right">Send >></button>
             </div>
         </div>
     </div>
