@@ -6,9 +6,9 @@ function BookingController($scope) {
      * Models
      * ===============
      */
-    $scope.market       = {};
-    $scope.booking      = {};
-    $scope.invoice      = {};
+    $scope.market = {};
+    $scope.booking = {};
+    $scope.invoice = {};
     $scope.travelPreview = {
         costs: {},
         metrics: {}
@@ -34,24 +34,28 @@ function BookingController($scope) {
      * ===============
      */
     (function init() {
+        let market_id = getQueryVariable('market');
+        if(!market_id) alert("No market set!");
+
         initTabs();
-        initDatepicker($scope);
+        initDatepicker();
         $scope.booking = window.modelFactory.create("Booking");
         /* load quote if exists */
-        if(navService.getNavParams().query){
+        if (navService.getNavParams().query) {
             $scope.booking.setData(navService.getNavParams().query);
-            console.log("query", navService.getNavParams().query);
-            console.log("booking", $scope.booking);
         }
-        console.log("CREATED", $scope.booking);
-        // $scope.booking  = window.modelFactory.create("Booking");
-        window.modelFactory.find("Market", window.navService.getNavParams().market_id, false).then((market)=>{
-            console.log($scope.booking);
-            $scope.market = market;
-            $scope.booking.market_id = $scope.market.id;
+        let market = modelFactory.get("Market", market_id);
+        market.subscribe("async", function () {
             $scope.$apply();
         });
-        window.market   =   $scope.market;
+        market.$promise.then(mkt => $scope.booking.market_id = mkt.id);
+        $scope.market = market;
+
+        // window.market = market;
+        // window.modelFactory.find("Market", market_id, false).then((market)=>{
+        //     console.log($scope.booking);
+        //     $scope.booking.market_id = $scope.market.id;
+        // });
     })();
 
     /**
@@ -61,17 +65,18 @@ function BookingController($scope) {
     $scope.previewTravelCosts = function previewTravelCosts() {
         updateMap();
         $scope.booking.getTravelPreview($scope.market.id)
-            .then((report)=>{
+            .then((report) => {
                 console.log("Travel Preview", report);
                 $scope.travelPreview = report;
                 $scope.$apply();
-            }).catch((err)=>{
-                let r = err.response.data.status;
-                alert(r);
-            });
+            }).catch((err) => {
+            let r = err.response.data.status;
+            alert(r);
+        });
     };
-    function updateMap(){
-        if(!$scope.booking.validateAddress()){
+
+    function updateMap() {
+        if (!$scope.booking.validateAddress()) {
             alert("Invalid Address");
             return;
         }
@@ -122,50 +127,44 @@ function BookingController($scope) {
                 "stylers": [{"visibility": "on"}, {"lightness": 700}]
             }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
         });
-        // jQuery('#google-map-custom').gMap('centerAt', {
-        //     address: pins[0].address,
-        //     zoom: 10
-        // });
     }
 
-    $scope.applyPromo = function (){
+    $scope.applyPromo = function () {
         let tryIt = (code) => {
             console.log("Trying..");
-            $scope.booking.applyPromoCode(code).then((promo)=>{
+            $scope.booking.applyPromoCode(code).then((promo) => {
                 swal("Success!", `Promo '${promo.name}' has been applied`, "success");
                 reloadInvoicePreview();
-            }).catch((err)=>{
+            }).catch((err) => {
                 swal("Hmm..", "We couldn't find that code", "warning");
             });
         };
         swal({
-                title: "Enter Your Code:",
-                text: "",
-                type: "input",
-                showCancelButton: true,
-                closeOnConfirm: false,
-                animation: "slide-from-top",
-                inputPlaceholder: "Ex: XMAS2017"
-            },
-            function(inputValue){
-                if (inputValue === false) return false;
-
-                if (inputValue === "") {
-                    swal.showInputError("You need to write something!");
-                    return false
-                }
-
-                tryIt(inputValue);
-            });
+            title: "Enter Your Code:",
+            text: "",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: "slide-from-top",
+            inputPlaceholder: "Ex: XMAS2017"
+        },
+        function (inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("You need to write something!");
+                return false
+            }
+            tryIt(inputValue);
+        });
     };
     $scope.removePromo = (code) => {
         $scope.booking.removePromoCode(code);
         reloadInvoicePreview();
     };
 
-    $scope.stepToTravel     = function () {
+    $scope.stepToTravel = function () {
         // validate 'Event Details'
-        if( !$scope.booking.validateDetails()){
+        if (!$scope.booking.validateDetails()) {
             alert("Please fill out all event details");
             return;
         }
@@ -173,13 +172,13 @@ function BookingController($scope) {
         process_tabs.tabs("enable", 1);
         $scope.stepTo(1);
     };
-    $scope.stepToReview     = function () {
-        if(!$scope.booking.validateAddress()){
+    $scope.stepToReview = function () {
+        if (!$scope.booking.validateAddress()) {
             swal("Invalid Address", "Please check the provided location", "error");
             return;
         }
         $scope.booking.getInvoicePreview()
-            .then((invoice)=>{
+            .then((invoice) => {
                 $scope.invoice = invoice;
                 $scope.$apply();
 
@@ -187,50 +186,51 @@ function BookingController($scope) {
                 $scope.stepTo(2);
             }).catch(somethingWentWrong);
     };
-    $scope.stepToConfirm    = function () {
+    $scope.stepToConfirm = function () {
         $scope.booking.submit()
-            .then(()=>{
+            .then(() => {
                 process_tabs.tabs("enable", 3);
                 $scope.stepTo(3);
             }).catch(somethingWentWrong);
     };
-    $scope.stepTo           = function (tab_number) {
+    $scope.stepTo = function (tab_number) {
         process_tabs.tabs("option", "active", tab_number);
     };
 
-    function reloadInvoicePreview(){
+    function reloadInvoicePreview() {
         $scope.booking.getInvoicePreview()
-            .then((invoice)=> {
+            .then((invoice) => {
                 $scope.invoice = invoice;
                 $scope.$apply();
             }).catch(somethingWentWrong);
     }
+
+
+    function initDatepicker() {
+        $(".daterange").daterangepicker({
+            "opens": "center",
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY h:mm A'
+            },
+            "buttonClasses": "button button-rounded button-mini nomargin",
+            "applyClass": "button-color",
+            "cancelClass": "button-light"
+        }).on('apply.daterangepicker', function (ev, picker) {
+            $scope.$apply(function () {
+                $scope.booking.start_time = picker.startDate.format("MM/DD/YYYY h:mm A");
+                $scope.booking.end_time = picker.endDate.format("MM/DD/YYYY h:mm A");
+            });
+        });
+    }
 }
 
 window.process_tabs = null;
-function initTabs(){
+
+function initTabs() {
     process_tabs = $("#processTabs").tabs({
         show: {effect: "fade", duration: 400},
         disabled: [1, 2, 3]
-    });
-}
-
-const selector_daterange = ".daterange";
-function initDatepicker($scope){
-    $(selector_daterange).daterangepicker({
-        "opens": "center",
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-            format: 'MM/DD/YYYY h:mm A'
-        },
-        "buttonClasses": "button button-rounded button-mini nomargin",
-        "applyClass": "button-color",
-        "cancelClass": "button-light"
-    }).on('apply.daterangepicker', function (ev, picker) {
-        $scope.$apply(function () {
-            $scope.booking.start_time = picker.startDate.format("MM/DD/YYYY h:mm A");
-            $scope.booking.end_time = picker.endDate.format("MM/DD/YYYY h:mm A");
-        });
     });
 }
