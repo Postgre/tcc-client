@@ -97,9 +97,11 @@ module.exports = class BaseModel {
     }
 
     subscribe(event, callback){
+        if(typeof this.observers[event] === 'undefined') this.observers[event] = [];
         this.observers[event].push(callback);
     }
     notify(event, params){
+        if(typeof this.observers[event] === 'undefined') this.observers[event] = [];
         this.observers[event].forEach( callback => callback(params) );
     }
 };
