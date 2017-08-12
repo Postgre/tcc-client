@@ -9,10 +9,10 @@
 <!--    <link href="css/custom.css" rel="stylesheet" />-->
 </head>
 <body class="stretched">
-<div id="wrapper" class="clearfix">
+<div id="wrapper" class="clearfix" ng-app="invite-redeem" ng-controller="InviteRedeemController">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>
-    <?php require 'app/redeem-invite/redeem-invite.html' ?>
+    <?php require 'app/invite-redeem/invite-redeem.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>
 

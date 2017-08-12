@@ -396,6 +396,20 @@ module.exports = class DataService {
             })
         })
     } // TODO: implement
+    redeemCarolerInvite(code){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "caroler-invites/redeem/"+code,
+                method: "GET"
+            }).then(
+                (res) => resolve(res),
+                (err) => {
+                    if(err.response) reject(err.response.data.status);
+                    reject(err);
+                }
+            )
+        });
+    }
 
     /**
      * CONTACT

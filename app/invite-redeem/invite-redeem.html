@@ -36,14 +36,14 @@
                     <span>Enter your caroler registration code here to join the <strong>Birmingham Market</strong></span>
                 </div>
 
-                <form class="nobottommargin">
+                <div class="nobottommargin" onsubmit="return false">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="Caroler Registration Access Code..">
+                        <input ng-model="code" class="form-control" placeholder="Caroler Registration Access Code..">
                         <span class="input-group-btn">
-									<button class="btn btn-danger" type="button">Submit</button>
-								</span>
+                            <button ng-click="handleSubmit(code)" class="btn btn-danger">Submit</button>
+                        </span>
                     </div>
-                </form>
+                </div>
 
                 <div class="col_full widget_links topmargin nobottommargin">
                     <b>* Note: </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget leo ut nisi eleifend consectetur. Nam molestie, ligula nec maximus.
