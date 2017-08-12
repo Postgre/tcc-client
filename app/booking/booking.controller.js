@@ -57,7 +57,11 @@ function BookingController($scope) {
      * ===============
      */
     $scope.previewTravelCosts = function previewTravelCosts() {
-        updateMap();
+        if (!$scope.booking.validateAddress()) {
+            alert("Invalid Address");
+            return;
+        }
+        googleMap($scope.booking.getFormattedAddress());
         $scope.booking.getTravelPreview($scope.market.id)
             .then((report) => {
                 console.log("Travel Preview", report);
@@ -68,60 +72,6 @@ function BookingController($scope) {
             alert(r);
         });
     };
-
-    function updateMap() {
-        if (!$scope.booking.validateAddress()) {
-            alert("Invalid Address");
-            return;
-        }
-
-        let pins = [{
-            address: $scope.booking.getFormattedAddress(),
-            icon: {
-                image: "images/icons/map-icon-red.png",
-                iconsize: [32, 39],
-                iconanchor: [16, 36]
-            }
-        }];
-
-        // load into the map
-        const map = jQuery('#google-map-custom').gMap({
-            address: 'United States',
-            maptype: 'ROADMAP',
-            zoom: 7,
-            markers: pins,
-            doubleclickzoom: false,
-            controls: {
-                panControl: false,
-                zoomControl: true,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false
-            },
-            styles: [{
-                "featureType": "landscape.natural",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-            }, {
-                "featureType": "poi",
-                "elementType": "geometry.fill",
-                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-            }, {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-            }, {
-                "featureType": "road",
-                "elementType": "labels",
-                "stylers": [{"visibility": "off"}]
-            }, {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [{"visibility": "on"}, {"lightness": 700}]
-            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
-        });
-    }
 
     $scope.applyPromo = function () {
         let tryIt = (code) => {
@@ -226,5 +176,27 @@ function initTabs() {
     process_tabs = $("#processTabs").tabs({
         show: {effect: "fade", duration: 400},
         disabled: [1, 2, 3]
+    });
+}
+
+function googleMap(address) {
+    jQuery('#google-map-custom').gMap({
+        address: address,
+        maptype: 'ROADMAP',
+        zoom: 8,
+        markers: [
+            {
+                address: address
+            }
+        ],
+        doubleclickzoom: false,
+        controls: {
+            panControl: true,
+            zoomControl: true,
+            mapTypeControl: true,
+            scaleControl: false,
+            streetViewControl: false,
+            overviewMapControl: false
+        }
     });
 }
