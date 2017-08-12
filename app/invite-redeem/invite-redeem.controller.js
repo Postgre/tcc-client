@@ -4,6 +4,10 @@ angular.module("invite-redeem")
 function InviteRedeemController( $scope ){
 
     $scope.handleSubmit = function (code){
+        if(!code.match(/\w{6}/)){
+            swal("Invalid Format", "Please review your code", "error");
+            return;
+        }
         dataService.redeemCarolerInvite(code)
             .then(
                 onWin,
