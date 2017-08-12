@@ -10,6 +10,7 @@
 </head>
 <body class="stretched" ng-app="market-carolers" ng-controller="MarketCarolersController">
 <div id="wrapper" class="clearfix">
+    <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php'?>
     <?php require 'app/market-carolers/market-carolers.html' ?>
     <?php require 'partials/footer.htm'?>

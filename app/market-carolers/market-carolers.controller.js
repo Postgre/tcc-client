@@ -16,21 +16,11 @@ function MarketCarolersController($scope){
 
     function init(){
         let market_id = window.getQueryVariable('market');
-
-        let next=(market)=>{
-            market.loadCarolers().then(
-                (carolers)=>{
-                    $scope.market = market;
-                    $scope.carolers = carolers;
-                    console.log("carolers loaded..", carolers);
-                    $scope.$apply();
-                }, somethingWentWrong
-            )
-        };
         modelFactory.find("Market", market_id).then(
             (market)=>{
                 console.log("market loaded..", market);
-                next(market);
+                $scope.market = market;
+                $scope.$apply();
             }
         );
     }
