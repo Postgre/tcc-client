@@ -4,7 +4,7 @@ const nav = require('../../config/nav.json');
 const schema = require('../../config/schema.json');
 const modelClassMap = require('./modelClassMap');
 
-if(localStorage.api) site.serverURL = localStorage.api;
+if(localStorage.hostOverride) site.serverURL = localStorage.hostOverride;
 
 /* Services */
 const AuthService = require('./services/AuthService');
