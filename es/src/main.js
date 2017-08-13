@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 /* Configuration */
 const site = require('../../config/site.json');
 const nav = require('../../config/nav.json');
@@ -29,13 +31,21 @@ const DataService = require('./services/DataService');
 const ApplicationService = require('./services/ApplicationService');
 const Bindings = require('./Bindings');
 const NavService = require('./services/NavService');
-
 let authService = new AuthService(site, window.localStorage);
-let dataService = new DataService(site, authService);
+let connection = axios.create({
+    baseURL: site.serverURL,
+    headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer ' + authService.jwt
+    }
+});
+let dataService = new DataService(connection, site);
 
 /* ORM Models */
+const AxiosDriver = require('./models/core/drivers/AxiosDriver');
 const ModelFactory = require('./models/core/ModelFactory');
-let modelFactory = new ModelFactory(dataService, modelClassMap, schema);
+let axiosDriver = new AxiosDriver(connection);
+let modelFactory = new ModelFactory(axiosDriver, modelClassMap, schema, dataService);
 
 /* Libraries */
 const QuoteRequest = require('./lib/quote/QuoteRequest');

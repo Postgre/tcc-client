@@ -22,10 +22,6 @@ module.exports = class BaseModel {
      * + relationships eloquent style
      */
 
-    constructor(){
-        this.ajaxDriver = null;
-    }
-
     init(){
         Object.assign(this, this.defaults);
         this.$promise = null;
@@ -38,32 +34,32 @@ module.exports = class BaseModel {
         // Override to for eager loading
     }
     update(){
-        return this.dataService.connection({
-            url: this.endpoint+"/"+this.getId(),
+        return this.ajax({
+            url: this.endpoint+"/"+this.id,
             method: "PUT",
-            data: qs.stringify(this.getData())
+            data: this.getData()
         });
     }
     save(){
         return new Promise((resolve, reject)=>{
-            this.dataService.connection({
+            this.ajax({
                 url: this.endpoint,
                 method: "POST",
-                data: qs.stringify(this.getData())
+                data: this.getData()
             }).then((res)=>{
-                this.setId(res.data.id);
+                this.id = res.data.id;
                 resolve(this);
-            }).catch(reject);
+            }, reject);
         });
     }
     destroy(){
         return new Promise((resolve, reject)=>{
-            this.dataService.connection({
-                url: this.endpoint+"/"+this.getId(),
+            this.ajax({
+                url: this.endpoint+"/"+this.id,
                 method: "DELETE"
-            }).then((res)=>{
+            }).then(()=>{
                 resolve(this);
-            }).catch(reject);
+            }, reject);
         });
     }
 
@@ -79,13 +75,6 @@ module.exports = class BaseModel {
         return data;
     }
 
-    getId(){
-        if(this.id) return this.id;
-    }
-    setId(id){
-        this.id = id;
-    }
-
     /**
      * Ajax wrapper for compatibility with other drivers and middleware
      * @param request.url
@@ -95,7 +84,7 @@ module.exports = class BaseModel {
      */
     ajax(request){
         // pre-request hooks
-        let p = this.ajaxDriver(request.url, request.method, request.data, request.params);
+        let p = this.ajaxDriver.execute(request);
         // post-resquest hooks
         return p;
     }

@@ -30,37 +30,6 @@ module.exports = class Market extends BaseModel {
         return p;
     }
 
-    loadGallery(){
-        this.dataService.getMedia(this.id)
-            .then((res)=>{
-                let _links = res.data;
-                _links.forEach((_link)=>{
-                    this.addMediaLink({
-                        id: _link.id,
-                        url: _link.url
-                    });
-                });
-                this.notify("async");
-            });
-    }
-    loadSpecialDates(){
-        this.dataService.getSpecialDates(this.id)
-            .then((res)=>{
-                let _dates = res.data;
-                _dates.forEach((_date)=>{
-                    this.specialDates.push(_date);
-                });
-                this.notify("async");
-            });
-    }
-    loadCarolerConfigs(){
-        this.dataService.getCarolerConfigs(this.id)
-            .then((_configs)=>{
-                this.carolerConfigs = new CarolerConfigs(_configs);
-                this.notify("async");
-            });
-    }
-
     getFormattedAddress(){
         return this.city+", "+this.state+", "+this.address;
     }
@@ -117,9 +86,38 @@ module.exports = class Market extends BaseModel {
         return dataService.postDelegationsDirector(this.id, email);
     }
 
-    callAsync(){
-        setTimeout(()=>{
-            this.notify("async", "fooe");
-        }, 3000);
+    /**
+     * RELATIONSHIPS
+     * ====================
+     */
+    loadGallery(){
+        this.dataService.getMedia(this.id)
+            .then((res)=>{
+                let _links = res.data;
+                _links.forEach((_link)=>{
+                    this.addMediaLink({
+                        id: _link.id,
+                        url: _link.url
+                    });
+                });
+                this.notify("async");
+            });
+    }
+    loadSpecialDates(){
+        this.dataService.getSpecialDates(this.id)
+            .then((res)=>{
+                let _dates = res.data;
+                _dates.forEach((_date)=>{
+                    this.specialDates.push(_date);
+                });
+                this.notify("async");
+            });
+    }
+    loadCarolerConfigs(){
+        this.dataService.getCarolerConfigs(this.id)
+            .then((_configs)=>{
+                this.carolerConfigs = new CarolerConfigs(_configs);
+                this.notify("async");
+            });
     }
 };

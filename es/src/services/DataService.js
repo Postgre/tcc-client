@@ -4,18 +4,9 @@ const qs = require('qs');
 /* Data Service */
 module.exports = class DataService {
 
-    constructor(config, authService) {
-        this.callback_save_quote = config.callback_save_quote;
-        this.authService = authService;
-
-        /* Connection to server */
-        this.connection = axios.create({
-            baseURL: config.serverURL,
-            headers: {
-                'Content-type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Bearer ' + authService.jwt
-            }
-        })
+    constructor(connection, config) {
+        this.config = config;
+        this.connection = connection
     }
 
     postResource( resourceName, body ){
@@ -149,7 +140,7 @@ module.exports = class DataService {
             method: "POST",
             data: qs.stringify({
                 email: email,
-                callback: this.callback_save_quote
+                callback: this.config.callback_save_quote
             })
         })
     }
