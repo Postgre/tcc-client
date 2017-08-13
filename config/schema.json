@@ -1,7 +1,7 @@
 {
   "Market": {
     "endpoint": "markets",
-    "required": [
+    "fillable": [
       "published",
       "rate_caroler_base",
       "rate_caroler_discount",
@@ -31,17 +31,15 @@
   },
   "Reseller": {
     "endpoint": "resellers",
-    "required": [
+    "fillable": [
       "name",
-      "address"
-    ],
-    "optional": [
+      "address",
       "promotion_id"
     ]
   },
   "Booking": {
     "endpoint": "events",
-    "required": [
+    "fillable": [
       "name",
       "market_id",
       "start_time",
@@ -59,15 +57,13 @@
   },
   "PromoCode": {
     "endpoint": "promotions",
-    "required": [
+    "fillable": [
       "name",
       "description",
       "pricing_scale",
       "pricing_offset",
       "start_time",
-      "end_time"
-    ],
-    "optional": [
+      "end_time",
       "code",
       "active"
     ],
@@ -78,7 +74,7 @@
   },
   "Resellers": {
     "endpoint": "resellers",
-    "required": [
+    "fillable": [
       "name",
       "address"
     ],
@@ -88,7 +84,7 @@
   },
   "User": {
     "endpoint": "users",
-    "required": [
+    "fillable": [
       "name",
       "email",
       "phone",

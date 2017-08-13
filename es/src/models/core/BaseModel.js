@@ -23,11 +23,6 @@ module.exports = class BaseModel {
      */
 
     init(){
-        // TODO:
-        // required && optional => fillable
-        this.required.forEach((prop)=>{
-            this[prop] = null;
-        });
         Object.assign(this, this.defaults);
         this.$promise = null;
         this.observers = {
@@ -68,24 +63,16 @@ module.exports = class BaseModel {
         });
     }
 
-    getData(){
-        let data = {};
-        // extract required properties
-        if(this.required){
-            this.required.forEach((prop)=>{
-                data[prop] = this[prop];
-            });
-        }
-        // extract optional properties
-        if(this.optional){
-            this.optional.forEach((prop)=>{
-                if(typeof this[prop] !== 'undefined') data[prop] = this[prop];
-            });
-        }
-        return data;
-    }
     setData(data){
         Object.assign(this, data);
+    }
+    getData(){
+        let data = {};
+        if(!this.fillable) return data;
+        this.fillable.forEach((prop)=>{
+            if(typeof this[prop] !== 'undefined') data[prop] = this[prop];
+        });
+        return data;
     }
 
     getId(){
