@@ -22,6 +22,10 @@ module.exports = class BaseModel {
      * + relationships eloquent style
      */
 
+    constructor(){
+        this.ajaxDriver = null;
+    }
+
     init(){
         Object.assign(this, this.defaults);
         this.$promise = null;
@@ -80,6 +84,20 @@ module.exports = class BaseModel {
     }
     setId(id){
         this.id = id;
+    }
+
+    /**
+     * Ajax wrapper for compatibility with other drivers and middleware
+     * @param request.url
+     * @param request.method
+     * @param request.data
+     * @param request.params
+     */
+    ajax(request){
+        // pre-request hooks
+        let p = this.ajaxDriver(request.url, request.method, request.data, request.params);
+        // post-resquest hooks
+        return p;
     }
 
     /* observer */ // useful for triggering AngularJS digest cycle
