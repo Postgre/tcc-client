@@ -16,13 +16,15 @@ and implement `execute(request)`
 ```
 $ npm install eloscript
 ```
-1. Defining the Schema
-2. Opening a Connection
-3. Creating Resource Models
-4. Resolving Models
-5. Wiring it Together
 
-#### Defining the Schema
+## Table of Contents
+1. [Defining the Schema](#schema)
+2. [Opening a Connection](#connecting)
+3. [Creating Resource Models](#modeling)
+4. [Resolving Models](#resolving)
+5. [Wiring it Together](#main)
+
+#### <a name="schema"></a> Defining the Schema
 Your schema will map model classes to their REST endpoints, define which properties
 should be included in requests, and any default properties
 
@@ -42,7 +44,7 @@ A schema looks like this:
 }
 ```
 
-#### Creating Resource Models
+#### <a name="modeling"></a> Creating Resource Models
 `Hero` in the above example is the name of a class extending `BaseModel`
 ```javascript
 const BaseModel = require('./../node_modules/eloscript/core/BaseModel');
@@ -51,7 +53,7 @@ module.exports = class Hero extends BaseModel{
 }
 ```
 
-#### Resolving Models
+#### <a name="resolving"></a> Resolving Models 
 EloScript does not force a directory structure. To resolve resource models, you must
 create a class map object that maps the class names to their object.
 ```
@@ -69,7 +71,7 @@ const Hero = require('./Hero');
 module.exports = { Hero }; // short for { "Hero": Hero }
 ```
 
-#### Wiring it all Together
+#### <a name="main"></a> Wiring it all Together
 So far, we have created three files: `schema.json`, `Hero.js`, `modelClassMap.js`
 
 All that's left is to open a connection with your API, and create an instance of `ModelFactory`.
