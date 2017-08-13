@@ -4,7 +4,24 @@ const nav = require('../../config/nav.json');
 const schema = require('../../config/schema.json');
 const modelClassMap = require('./modelClassMap');
 
-if(localStorage.hostOverride) site.serverURL = localStorage.hostOverride;
+if(localStorage.hostOverride){
+    site.serverURL = localStorage.hostOverride;
+    console.log("Using server URL: ", localStorage.hostOverride);
+}
+window.api = function(url){
+    localStorage.hostOverride = url;
+    console.log("Changed Server URL to: ", localStorage.hostOverride);
+    console.log("Reload page for changes to take effect");
+};
+window.reset = function(){
+    if(typeof localStorage.hostOverride === 'undefined'){
+        console.log("Already using default host: ", site.serverURL);
+        return;
+    }
+    delete localStorage.hostOverride;
+    console.log("Server URL reset.");
+    console.log("Reload page for changes to take effect");
+};
 
 /* Services */
 const AuthService = require('./services/AuthService');
