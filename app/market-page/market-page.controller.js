@@ -4,10 +4,6 @@ angular.module('market-page')
 function MarketPageController( $scope ) {
     $scope.market = {};
 
-    /**
-     * Functions
-     * ===============
-     */
     function init(){
         let market_id = navService.getNavParam('market_id');
         if(getQueryVariable('market')) market_id = getQueryVariable('market');
@@ -42,6 +38,27 @@ function MarketPageController( $scope ) {
         //     alert("something went wrong");
         // });
     }
+
+    function handleBecomeCaroler(){
+        if(!authService.isLoggedIn()){
+            swal("Become a Caroler!", "Before requesting market access, you need to <a href='login-register.php'></a>", "info");
+            return;
+        }
+    }
+
+    $scope.sendCarolerRequest = function sendCarolerRequest(){
+        dataService.sendCarolerRequest($scope.market.id)
+            .then(
+                win => notifyRequestSent(),
+                status => {
+                    switch (status){
+                        case 409: notifyDupes(); break;
+                        default: somethingWentWrong();
+                    }
+                }
+            );
+    };
+
     init();
 }
 
@@ -65,4 +82,11 @@ function loadMap(address) {
             overviewMapControl: false
         }
     });
+}
+
+function notifyRequestSent(){
+    swal("Success!", "Your request has been sent to the city director", "success");
+}
+function notifyDupes(){
+    swal("Wait a Minute!", "You're already a part of this market", "warning");
 }

@@ -20,7 +20,7 @@ function InviteRedeemController( $scope ){
             .then(
                 onWin,
                 reason => {
-                    if(reason === "DUPLICATE") {
+                    if(reason === "INVITE_ALREADY_REDEEMED") {
                         onDupes();
                         return;
                     }

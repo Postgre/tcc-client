@@ -402,7 +402,7 @@ module.exports = class DataService {
     redeemCarolerInvite(code){
         return new Promise((resolve, reject)=>{
             this.connection({
-                url: "caroler-invites/redeem/"+code,
+                url: "invites/caroler/redeem/"+code,
                 method: "GET"
             }).then(
                 (res) => resolve(res),
@@ -427,6 +427,11 @@ module.exports = class DataService {
                 (err) => reject(err)
             );
         });
+    }
+    sendCarolerRequest(market_id){
+        return new Promise((resolve, reject)=>{
+            setTimeout(resolve, 3000);
+        })
     }
 
     /**
