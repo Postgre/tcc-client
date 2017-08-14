@@ -35,13 +35,15 @@ function MarketsManageController( $scope ) {
      */
     $scope.create = () => {
         let market = modelFactory.create("Market", parseNewMarketForm());
-        market.save().then(onCreate).catch((err)=>{
-            if(err.response.data.status === "BAD_ADDRESS"){
-                alertBadAddress();
-                return;
-            }
-            somethingWentWrong();
-        });
+        market.save().then(
+            onCreate,
+            err =>{
+                if(err.response.data.status === "BAD_ADDRESS"){
+                    alertBadAddress();
+                    return;
+                }
+                somethingWentWrong();
+            });
     };
     $scope.destroy = (market) => {
         market.destroy().then(onDelete).catch(somethingWentWrong);

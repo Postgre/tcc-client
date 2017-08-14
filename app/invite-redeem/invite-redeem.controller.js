@@ -3,6 +3,14 @@ angular.module("invite-redeem")
 
 function InviteRedeemController( $scope ){
 
+    $scope.code = "";
+
+    function init(){
+        if(rac = getQueryVariable('code')){
+            $scope.code = rac;
+        }
+    }
+
     $scope.handleSubmit = function (code){
         if(!code.match(/\w{6}/)){
             swal("Invalid Format", "Please review your code", "error");
@@ -23,15 +31,17 @@ function InviteRedeemController( $scope ){
                     somethingWentWrong()
                 }
             );
-    }
+    };
 
-    function onWin(){
-        swal("Success!", "You have joined this market!", "success");
-    }
-    function onDupes(){
-        swal("Wait a Minute!", "You're already in this market", "warning");
-    }
-    function onFail(){
-        swal("Hmm..", "We don't recognize that code", "error");
-    }
+    init();
+}
+
+function onWin(){
+    swal("Success!", "You have joined this market!", "success");
+}
+function onDupes(){
+    swal("Wait a Minute!", "You're already in this market", "warning");
+}
+function onFail(){
+    swal("Hmm..", "We don't recognize that code", "error");
 }
