@@ -117,7 +117,7 @@ We will do this in `main.js`
                 AxiosDriver.js
 ```
 **main.js**
-```javascript
+```
 /* config files */
 const schema = require('./config/schema.json');
 const Models = require('./dao/modelClassMap');
@@ -133,7 +133,7 @@ let connection = axios.create({
     }
 });
 let axiosDriver = new AxiosDriver(connection);  // you may use your own driver and connection strategy
-let modelFactory = new ModelFactory(axiosDriver, schema, Models);
+let modelFactory = new ModelFactory(axiosDriver, schema, Models);;
 )
 ```
 #### You're All Set!
