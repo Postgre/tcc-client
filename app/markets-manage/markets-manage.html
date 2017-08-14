@@ -53,7 +53,7 @@
                             <div class="entry-content">
                                 <p ng-bind="market.html"></p>
                             </div>
-                            <a ng-click="navService.goto('edit_market', {'market_id':market.id})" href="#" class="btn btn-warning"><i
+                            <a ng-href="market-edit.php?market={{market.id}}" class="btn btn-warning"><i
                                     class="icon-edit"></i> &nbsp; Edit</a>
                             <div class="btn-group dropup">
                                 <button type="button" class="btn btn-primary">Actions</button>

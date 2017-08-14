@@ -7,6 +7,9 @@ module.exports = class AxiosDriver {
     }
 
     execute(request){
+        if(request.data){
+            request.data = qs.stringify(request.data);
+        }
         return this.axiosConnection(request);
     }
 

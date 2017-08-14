@@ -25,8 +25,8 @@ function MarketEditController($scope) {
     };
 
     (function init() {
-        let market_id = navService.getNavParams().market_id;
-        // let market_id = window.getQueryVariable('market');
+        let market_id = window.getQueryVariable('market');
+        // let market_id = navService.getNavParams().market_id;
 
         // window.modelFactory.find("Market", market_id, true).then((market)=>{
         //     $scope.market = market;
@@ -97,7 +97,6 @@ function MarketEditController($scope) {
         $scope.market.removeMediaLink(media);
     };
     $scope.addGalleryImage = function () {
-        // TODO: wrap media links into a /lib class
         $scope.market.addMediaLink({
             url: "http://www.privatetoursinegypt.com/uploads/229/Egyptian-Christmas-Offer..jpg"
         });
@@ -107,6 +106,6 @@ function MarketEditController($scope) {
             swal("Success!",
                 "Your changes have been saved",
                 "success");
-        });
+        }, somethingWentWrong);
     };
 }
