@@ -11,6 +11,7 @@ function AuthController( $scope ){
     }
 
     $scope.handleLogin = function handleLogin(loginForm){
+        if(!validateLoginForm(loginForm)) return;
         authService.login(loginForm.email, loginForm.password)
             .then(
                 win => window.location = "index.php",
@@ -24,6 +25,7 @@ function AuthController( $scope ){
             );
     };
     $scope.handleRegister = function handleRegister(registerForm){
+        if(!validateRegisterForm(registerForm)) return;
         authService.register(registerForm.name, registerForm.email, registerForm.password)
             .then(
                 win => notifyRegistered(),
@@ -50,6 +52,21 @@ function notifyAlreadyRegistered(){
     swal("Wait a Minute!", "There's already an account with that email", "warning");
 }
 
-function validate() {
+function validateRegisterForm(registerForm) {
+    let passCheck = (registerForm.password === registerForm.passwordConfirm);
+    let emailCheck = (/(.+)@(.+){2,}\.(.+){2,}/.test(registerForm.email));
 
+    if(!passCheck){
+        alert("Passwords do not match");
+        return false;
+    }
+    if(!emailCheck){
+        alert("Invalid email");
+        return false;
+    }
+    return true;
+}
+
+function validateLoginForm(loginForm){
+    return true;
 }
