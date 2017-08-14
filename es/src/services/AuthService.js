@@ -61,6 +61,9 @@ module.exports = class AuthService {
 
                 resolve('Logged in');
             }).catch((error) => {
+                if(error.response){
+                    reject(error.response.status);
+                }
                 reject(error);
             });
         })
@@ -68,8 +71,6 @@ module.exports = class AuthService {
 
     register(name, email, password) {
         return new Promise((resolve, reject) => {
-
-            /* Making login request */
             this.connection({
                 url: '/auth/signup',
                 method: "POST",
@@ -84,6 +85,9 @@ module.exports = class AuthService {
                     resolve("registered!");
                 },
                 (error) => {
+                    if(error.response){
+                        reject(error.response.status);
+                    }
                     reject(error);
                 }
             );

@@ -401,6 +401,19 @@ module.exports = class DataService {
             )
         });
     }
+    sendCarolerInvite(market_id, caroler_email){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "caroler-invites",
+                method: "POST",
+                data: qs.stringify({
+                    market_id: market_id,
+                    caroler_email: caroler_email,
+                    callback: this.config['callback_caroler_invite']
+                })
+            }).then(resolve, reject);
+        });
+    }
 
     /**
      * CONTACT
