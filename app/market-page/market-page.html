@@ -5,8 +5,8 @@
     <div class="container clearfix">
         <h1 ng-bind="market.name"><!-- Market Name --></h1>
         <ol class="breadcrumb">
-            <li><a href="javascript:navService.goto('home')">Home</a></li>
-            <li><a href="javascript:navService.goto('find_market')">Markets</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="market-search.php">Markets</a></li>
             <li class="active" ng-bind="market.name"><!--Market Name--></li>
         </ol>
     </div>
@@ -59,21 +59,19 @@
                                 </p>
                             </div>
                             <div class="entry-content">
-                                <a class="pull-right" href>Become a Caroler ></a>
+                                <a ng-click="handleBecomeCaroler()" class="pull-right" href>Become a Caroler ></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-4 center">
                         <div class="hotel-price">
                             <i class="icon-dollar"></i>
-                            <span ng-bind="market.rate_caroler_fourth">
-										<!-- Market Base Rate -->
-									</span>
+                            <span ng-bind="base_rate"></span>
                         </div>
-                        <small><em>Base hourly rate*</em></small>
+                        <small><em>Base rate*</em></small>
                         <br>
-                        <a ng-href="event-book.php?market={{market.id}}" class="button button-rounded topmargin-sm">Book
-                            Now</a>
+                        <a ng-href="event-book.php?market={{market.id}}" class="button button-rounded topmargin-sm">
+                            Book Now</a>
                     </div>
                 </div>
             </div>

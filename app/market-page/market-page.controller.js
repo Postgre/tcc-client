@@ -3,6 +3,7 @@ angular.module('market-page')
 
 function MarketPageController( $scope ) {
     $scope.market = {};
+    $scope.base_rate = -1; // this is how much it costs to book a 1 hour event with 4 carolers
 
     function init(){
         let market_id = navService.getNavParam('market_id');
@@ -12,7 +13,15 @@ function MarketPageController( $scope ) {
         market.subscribe("async", function(){
             $scope.$apply();
         });
-        market.$promise.then(()=>loadMap(market.getFormattedAddress()));
+        market.$promise.then(()=>{
+            loadMap(market.getFormattedAddress());
+            $scope.base_rate =
+                market.rate_caroler_first +
+                market.rate_caroler_second +
+                market.rate_caroler_third +
+                market.rate_caroler_fourth;
+            $scope.$apply();
+        });
         $scope.market = market;
 
         /* Older */
@@ -39,14 +48,30 @@ function MarketPageController( $scope ) {
         // });
     }
 
-    function handleBecomeCaroler(){
+    $scope.handleBecomeCaroler = function handleBecomeCaroler(){
         if(!authService.isLoggedIn()){
-            swal("Become a Caroler!", "Before requesting market access, you need to <a href='login-register.php'></a>", "info");
+            swal({
+                title: "Become a Caroler",
+                text: "Before requesting market access, you need to <a href='login-register.php'>create an account</a>",
+                html: true
+            });
             return;
         }
-    }
+        swal({
+            title: "Become a Caroler!",
+            text: "We can send a caroler request to this city director on your behalf. Would you like to proceed?",
+            type: "info",
+            showCancelButton: true,
+            confirmButtonText: "Yes, request access!",
+            showLoaderOnConfirm: true,
+            closeOnConfirm: false
+        },
+        function(){
+            sendCarolerRequest();
+        });
+    };
 
-    $scope.sendCarolerRequest = function sendCarolerRequest(){
+    function sendCarolerRequest(){
         dataService.sendCarolerRequest($scope.market.id)
             .then(
                 win => notifyRequestSent(),
@@ -57,7 +82,7 @@ function MarketPageController( $scope ) {
                     }
                 }
             );
-    };
+    }
 
     init();
 }

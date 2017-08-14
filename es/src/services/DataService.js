@@ -429,6 +429,7 @@ module.exports = class DataService {
         });
     }
     sendCarolerRequest(market_id){
+        // callback: this.config['callback_caroler_request']
         return new Promise((resolve, reject)=>{
             setTimeout(resolve, 3000);
         })
