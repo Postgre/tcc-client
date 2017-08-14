@@ -65,20 +65,21 @@ function MarketCarolersController($scope){
 
     /* handlers */
     function handleApprove(row){
-
+        console.log("approving...", row);
     }
     function handleReject(row){
-
+        console.log("rejecting...", row);
     }
     function handleResend(row){
-
+        console.log("resending...", row);
     }
     function handleCancel(row){
-        
+        console.log("approving...", row);
     }
-    function handleForm(form){
-
-    }
+    $scope.handleForm = function handleForm(form){
+        console.log("sending...", form);
+        sendInvite(form.email);
+    };
 
     /* business logic */
     function approveRequest(request){
@@ -86,10 +87,10 @@ function MarketCarolersController($scope){
         // dupes => swal("Wait a minute!", "That caroler already belongs to this market.", "warning");
         // fail => somethingWentWrong()
     }
-    function sendInvite(caroler){
-        $scope.market.inviteCaroler(caroler.email)
+    function sendInvite(to_email){
+        dataService.sendCarolerInvite($scope.market.id, to_email)
             .then(
-                (win) => swal("Done!", "Caroler has joined market", "success"),
+                (win) => swal("Done!", "Invite has been sent", "success"),
                 (status) => {
                     if(status === "DUPLICATE"){
                         swal("Wait a minute!", "That caroler already belongs to this market.", "warning");

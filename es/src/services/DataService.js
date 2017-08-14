@@ -397,7 +397,7 @@ module.exports = class DataService {
     getCarolerRequests(market_id){
         return new Promise((resolve, reject)=>{
             setTimeout(resolve("requests"), 2000);
-        })
+        });
     }
     redeemCarolerInvite(code){
         return new Promise((resolve, reject)=>{
@@ -416,14 +416,16 @@ module.exports = class DataService {
     sendCarolerInvite(market_id, caroler_email){
         return new Promise((resolve, reject)=>{
             this.connection({
-                url: "caroler-invites",
-                method: "POST",
-                data: qs.stringify({
-                    market_id: market_id,
-                    caroler_email: caroler_email,
+                url: `markets/${market_id}/invite-caroler`,
+                method: "GET",
+                params: {
+                    to: caroler_email,
                     callback: this.config['callback_caroler_invite']
-                })
-            }).then(resolve, reject);
+                }
+            }).then(
+                (res) => resolve(res),
+                (err) => reject(err)
+            );
         });
     }
 
