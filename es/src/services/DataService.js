@@ -357,38 +357,6 @@ module.exports = class DataService {
      * DELEGATIONS
      * ====================
      */
-    /* to be deprecated */
-    postDelegationsCaroler(market_id, caroler_email){
-        return new Promise((resolve, reject)=>{
-            this.connection({
-                url: "delegations/caroler",
-                method: "POST",
-                data: qs.stringify({
-                    marketID: market_id,
-                    email: caroler_email
-                })
-            }).then(()=>{
-                resolve();
-            }).catch((err)=>{
-                switch(err.response.status){
-                    case 422:
-                        reject("DUPLICATE")
-                }
-                reject();
-            })
-        })
-    }
-    postDelegationsDirector(market_id, director_email){
-        return this.connection({
-            url: "delegations/director",
-            method: "POST",
-            data: qs.stringify({
-                marketID: market_id,
-                email: director_email
-            })
-        })
-    } // TODO: implement
-    /* end to be deprecated */
     getCarolerInvites(market_id){
         return new Promise((resolve, reject)=>{
             setTimeout(resolve("invites"), 3000);
@@ -413,6 +381,18 @@ module.exports = class DataService {
             )
         });
     }
+    // TODO
+    approveCarolerRequest(request_id){
+        return new Promise((resolve, reject)=>{
+            setTimeout(resolve, 2000);
+        });
+    }
+    // TODO
+    rejectCarolerRequest(request_id){
+        return new Promise((resolve, reject)=>{
+            setTimeout(resolve, 2000);
+        });
+    }
     sendCarolerInvite(market_id, caroler_email){
         return new Promise((resolve, reject)=>{
             this.connection({
@@ -427,6 +407,11 @@ module.exports = class DataService {
                 (err) => reject(err)
             );
         });
+    }
+    cancelCarolerInvite(invite_id){
+        return new Promise((resolve, reject)=>{
+            setTimeout(resolve, 2000);
+        })
     }
     sendCarolerRequest(market_id){
         // callback: this.config['callback_caroler_request']

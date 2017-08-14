@@ -25,7 +25,7 @@ function MarketCarolersController($scope){
     $scope.invites = [
         {
             status: "delivered",
-            email: "sandor.clegane@thewall.com",
+            to: "sandor.clegane@thewall.com",
             sent: new Date().toDateString()
         }
     ];
@@ -63,19 +63,79 @@ function MarketCarolersController($scope){
      * ====================
      */
 
-    /* handlers */
-    function handleApprove(row){
+    $scope.handleApprove = function handleApprove(row){
         console.log("approving...", row);
-    }
-    function handleReject(row){
+        swal({
+            title: `Approve ${row.name}?`,
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+        function(){
+            dataService.approveCarolerRequest(row.id)
+                .then(
+                    win => {
+                        swal("Approved!", `${row.name} is now a caroler of ${$scope.market.name}`, "success");
+                        init();
+                    }, somethingWentWrong
+                );
+        });
+    };
+    $scope.handleReject = function handleReject(row){
         console.log("rejecting...", row);
-    }
-    function handleResend(row){
+        swal({
+            title: `Reject ${row.name}?`,
+            type: "error",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes!",
+            cancelButtonText: "No, I didn't mean it!",
+            showLoaderOnConfirm: true,
+        },
+        function(){
+            dataService.rejectCarolerRequest(row.id)
+                .then(
+                    win => {
+                        swal("Ouch!", `${row.to} just got rejected!\n(We wont tell him it was you)`, "info");
+                        init();
+                    },
+                    somethingWentWrong
+                )
+        });
+    };
+    $scope.handleResend = function handleResend(row){
         console.log("resending...", row);
-    }
-    function handleCancel(row){
-        console.log("approving...", row);
-    }
+        swal({
+            title: "Resend Invite?",
+            type: "info",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+        function(){
+            setTimeout(function(){
+                swal("Done!", "We re-sent the invite email", "success");
+            }, 2000);
+        });
+    };
+    $scope.handleCancel = function handleCancel(row){
+        swal({
+            title: "Cancel Invite?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+        function(){
+            dataService.cancelCarolerInvite(row.id)
+                .then(
+                    win => swal("Done!", "We've canceled the invite to "+row.name, "success"),
+                    somethingWentWrong
+                )
+        });
+    };
     $scope.handleForm = function handleForm(form){
         console.log("sending...", form);
         sendInvite(form.email);
