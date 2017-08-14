@@ -10,19 +10,52 @@ function MarketCarolersController($scope){
         name: "Birmingham Market",
         address: "1500 1st Avenue N, Birmingham, AL"
     };
-    $scope.requests = [];
-    $scope.invites = [];
+    $scope.requests = [
+        {
+            sent: new Date().toDateString(),
+            name: "Beric Dondarion",
+            email: "beric.dondarion@thewall.com"
+        },
+        {
+            sent: new Date().toDateString(),
+            name: "Jon Snow",
+            email: "jon.snow@gmail.com"
+        }
+    ];
+    $scope.invites = [
+        {
+            status: "delivered",
+            email: "sandor.clegane@thewall.com",
+            sent: new Date().toDateString()
+        }
+    ];
     $scope.form = {};
 
     function init(){
+        /* load market */
         let market_id = window.getQueryVariable('market');
-        modelFactory.find("Market", market_id).then(
-            (market)=>{
-                console.log("market loaded..", market);
-                $scope.market = market;
-                $scope.$apply();
-            }
+        let market = modelFactory.get("Market", market_id);
+        market.$promise.then(function(){
+            console.log("market loaded..", market);
+            $scope.$apply();
+        });
+        $scope.market = market;
+        /* load caroler requests */
+        dataService.getCarolerRequests(market_id).then(
+            (requests) => {
+                console.info("loaded requests", requests);
+                // $scope.requests = requests;
+                // $scope.$apply();
+            }, somethingWentWrong
         );
+        /* load caroler invites */
+        dataService.getCarolerInvites(market_id).then(
+            (invites) => {
+                console.info("loaded invites", invites);
+                // $scope.invites = invites;
+                // $scope.$apply();
+            }, somethingWentWrong
+        )
     }
 
     /**

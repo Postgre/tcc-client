@@ -357,6 +357,7 @@ module.exports = class DataService {
      * DELEGATIONS
      * ====================
      */
+    /* to be deprecated */
     postDelegationsCaroler(market_id, caroler_email){
         return new Promise((resolve, reject)=>{
             this.connection({
@@ -387,6 +388,17 @@ module.exports = class DataService {
             })
         })
     } // TODO: implement
+    /* end to be deprecated */
+    getCarolerInvites(market_id){
+        return new Promise((resolve, reject)=>{
+            setTimeout(resolve("invites"), 3000);
+        })
+    }
+    getCarolerRequests(market_id){
+        return new Promise((resolve, reject)=>{
+            setTimeout(resolve("requests"), 2000);
+        })
+    }
     redeemCarolerInvite(code){
         return new Promise((resolve, reject)=>{
             this.connection({

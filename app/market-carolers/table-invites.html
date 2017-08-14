@@ -7,28 +7,10 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-    <td><label class="label label-success">delivered</label> </td>
-    <td>markotto@gmail.com</td>
-    <td>8/11/2017</td>
-    <td>
-        <button class="btn btn-primary btn-sm" title="Resend"><i class="icon-refresh2"  ></i> </button>
-        <button class="btn btn-danger btn-sm"  title="Reject"><i class="icon-remove"    ></i> </button>
-    </td>
-</tr>
-<tr>
-    <td><label class="label label-success">delivered</label> </td>
-    <td>caleb.falcione@gmail.com</td>
-    <td>8/11/2017</td>
-    <td>
-        <button class="btn btn-primary btn-sm" title="Resend"><i class="icon-refresh2"  ></i> </button>
-        <button class="btn btn-danger btn-sm"  title="Reject"><i class="icon-remove"    ></i> </button>
-    </td>
-</tr>
-<tr>
-    <td><label class="label label-success">delivered</label> </td>
-    <td>chris.rocco7@gmail.com</td>
-    <td>8/11/2017</td>
+<tr ng-repeat="inv in invites">
+    <td><label ng-bind="inv.status" class="label label-success">delivered</label> </td>
+    <td ng-bind="inv.email">markotto@gmail.com</td>
+    <td ng-bind="inv.sent">8/11/2017</td>
     <td>
         <button class="btn btn-primary btn-sm" title="Resend"><i class="icon-refresh2"  ></i> </button>
         <button class="btn btn-danger btn-sm"  title="Reject"><i class="icon-remove"    ></i> </button>
