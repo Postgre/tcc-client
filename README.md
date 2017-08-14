@@ -57,7 +57,8 @@ A schema looks like this:
     "fillable": [
       "name",
       "location",
-      
+      "name",
+      "family"
     ]
   },
   ...
@@ -65,10 +66,12 @@ A schema looks like this:
 ```
 
 ### <a name="modeling"></a> Creating Resource Models
-`Hero` in the above example is the name of a class extending `BaseModel`
+`Character` in the above example is the name of a class extending `BaseModel`.
+
+`fillable` determines which model attributes will be serialized and sent in API requests
 ```javascript
 const BaseModel = require('./../node_modules/eloscript/core/BaseModel');
-module.exports = class Hero extends BaseModel{
+module.exports = class Character extends BaseModel{
     // your methods here
 }
 ```
@@ -81,18 +84,18 @@ create a class map object that maps the class names to their object.
     /src
         /dao
            modelClassMap.js
-           Hero.js
+           Character.js
         /config
            schema.json
 ```
 **modelClassMap.js**
 ```javascript
-const Hero = require('./Hero');
-module.exports = { Hero }; // short for { "Hero": Hero }
+const Character = require('./Character');
+module.exports = { Character }; // short for { "Hero": Hero }
 ```
 
 ### <a name="main"></a> Wiring it all Together
-So far, we have created three files: `schema.json`, `Hero.js`, `modelClassMap.js`
+So far, we have created three files: `schema.json`, `Character.js`, `modelClassMap.js`
 
 All that's left is to open a connection with your API, and create an instance of `ModelFactory`.
 We will do this in `main.js`
@@ -102,7 +105,7 @@ We will do this in `main.js`
         main.js
         /dao
             modelClassMap.js
-            Hero.js
+            Character.js
         /config
             schema.json
     /node_modules
@@ -147,40 +150,38 @@ Still interested? [See usage](#usage).
 ### Basic CRUD
 #### Create a Model
 ```javascript
-let hero = modelFactory.create("Hero");
-hero.name = "Jon Snow";
-hero.wears_cape = true;
-hero.color = "black";
-hero.superpower = "Can't Die";
-hero.save();
+let euron = modelFactory.create("Character");
+euron.name = "Euron";
+euron.family = "Greyjoy";
+euron.location = "King's Landing";
+euron.save();
 ```
-Yup, its that easy!
+#### Load an Existing Model
+```javascript
+let jaqenHghar = modelFactory.find("Character", 3);
+jaqenHghar.$promise.then((model)=>{
+    console.info("I thought you said there was no Jaqen H'ghar here?");
+}).catch(()=>{
+    console.error("No one here by that name");
+})
+```
 #### Update an Existing Model
 ```javascript
-let jonSnow = modelFactory.find("Hero", 1);
+let jonSnow = modelFactory.find("Character", 1);
 jonSnow.$promise.then(()=>{
-    jonSnow.wears_cape = false;
+    jonSnow.location = "Dragonstone";
     jonSnow.update();
 });
 ```
 #### Delete an Existing Model
 ```javascript
-let nedStark = modelFactory.find("Hero", 2);
+let nedStark = modelFactory.find("Character", 2);
 nedStark.$promise.then(()=>{
     nedStark.destroy();
 })
 ```
-#### Load an Existing Model
-```javascript
-let jaquenHagar = modelFactory.find("Hero", 3);
-jaquenHagar.$promise.then((model)=>{
-    console.info("I thought you said there was no jaquen hagar here?");
-}).catch(()=>{
-    console.error("No one here by that name");
-})
-```
 It is important to note that `modelFactory.find()` is returning an empty model, which is often
-useful if you are using some sort of MVC framework. (AngularJS)
+useful if you are using some sort of MVC framework to model your views. (AngularJS)
 
 In addition, the `$promise` attribute of the model is set upon calling modelFactory.find().
-This promise will resolve with the model instance after all properties have been loaded.
+This promise will resolve with the model instance when the request is complete.
