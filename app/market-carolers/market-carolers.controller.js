@@ -10,25 +10,8 @@ function MarketCarolersController($scope){
         name: "Birmingham Market",
         address: "1500 1st Avenue N, Birmingham, AL"
     };
-    $scope.requests = [
-        {
-            sent: new Date().toDateString(),
-            name: "Beric Dondarion",
-            email: "beric.dondarion@thewall.com"
-        },
-        {
-            sent: new Date().toDateString(),
-            name: "Jon Snow",
-            email: "jon.snow@gmail.com"
-        }
-    ];
-    $scope.invites = [
-        {
-            status: "delivered",
-            to: "sandor.clegane@thewall.com",
-            sent: new Date().toDateString()
-        }
-    ];
+    $scope.requests = [];
+    $scope.invites = [];
     $scope.form = {};
 
     function init(){
@@ -75,7 +58,7 @@ function MarketCarolersController($scope){
         function(){
             dataService.approveCarolerRequest(row.id)
                 .then(
-                    win => {
+                    () => {
                         swal("Approved!", `${row.name} is now a caroler of ${$scope.market.name}`, "success");
                         init();
                     }, somethingWentWrong
@@ -97,7 +80,7 @@ function MarketCarolersController($scope){
         function(){
             dataService.rejectCarolerRequest(row.id)
                 .then(
-                    win => {
+                    () => {
                         swal("Ouch!", `${row.to} just got rejected!\n(We wont tell him it was you)`, "info");
                         init();
                     },
@@ -142,11 +125,6 @@ function MarketCarolersController($scope){
     };
 
     /* business logic */
-    function approveRequest(request){
-        // win => swal("Success!", "caroler has been granted access", "success"),
-        // dupes => swal("Wait a minute!", "That caroler already belongs to this market.", "warning");
-        // fail => somethingWentWrong()
-    }
     function sendInvite(to_email){
         dataService.sendCarolerInvite($scope.market.id, to_email)
             .then(
