@@ -1,1 +1,1 @@
-angular.module("market-search", []);
+angular.module("market-search", ['plugins']);

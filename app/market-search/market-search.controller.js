@@ -3,24 +3,31 @@ angular.module('market-search')
 
 function MarketSearchController($scope) {
     $scope.markets = [];
-    $scope.search = {};
+    $scope.form = {
+        radius: false,
+    };
 
-    $scope.search = function (address, radius, limit, offset) {
-        var search_state = $("#search_state").val();
-        if (!address) address = $scope.search.city + ", " + search_state;
-        if (radius === 'undefined') radius = $scope.search.radius;
-        if (!limit) limit = null;
-        if (!offset) offset = null;
-        var p = window.dataService.searchMarketsGeo(address, radius, limit, offset);
-        p.then(function (res) {
-            console.info("res", res);
-            $scope.$apply(function () {
-                $scope.markets = res.data.markets;
-            });
-        });
-        p.catch(function (err) {
-            console.error("err", err);
-        });
+    $scope.search = function (form) {
+        params = {
+            address: form.city + ", " + form.state,
+            published: true
+        };
+        Object.assign(params, form);
+        dataService.searchMarketsGeo(params)
+            .then((_markets) => {
+                console.log(_markets);
+                _markets.forEach(
+                    _market => _market.base_rate =
+                        _market.rate_caroler_first +
+                        _market.rate_caroler_second +
+                        _market.rate_caroler_third +
+                        _market.rate_caroler_fourth +
+                        _market.rate_caroler_fifth);
+                $scope.markets = _markets;
+                $scope.$apply();
+            },
+            (err) => console.log(err)
+        );
     };
     $scope.openMap = function (market) {
         window.open("https://maps.google.com/maps?q=" + market.city + ',+' + market.state);
@@ -40,11 +47,6 @@ function MarketSearchController($scope) {
     };
 
     (function init() {
-        window.dataService.getResourceAll("markets", {
-            published: true
-        }).then((markets) => {
-            $scope.markets = markets;
-            $scope.$apply();
-        }).catch(window.somethingWentWrong);
+        $scope.search($scope.form);
     })();
 }
