@@ -8,7 +8,7 @@ function AuthController( $scope ){
     $scope.registerForm = {};
 
     function init(){
-        if(window.getQueryVariable("v")==="v") swal("You're all set!", "Your account has been validated", "success");
+        if(window.getQueryVariable("action")==="verified") swal("You're all set!", "Your account has been validated", "success");
         if(code = window.getQueryVariable('invite_code')){
             let redeem_page = "invite-redeem.php?code="+code;
             if(authService.isLoggedIn()) window.location = redeem_page;
