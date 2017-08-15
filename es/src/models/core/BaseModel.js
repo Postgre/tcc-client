@@ -84,6 +84,7 @@ module.exports = class BaseModel {
      * @param request.method
      * @param request.data
      * @param request.params
+     * @param request.config.headers
      */
     ajax(request){
         // pre-request hooks

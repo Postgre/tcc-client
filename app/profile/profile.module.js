@@ -1,1 +1,1 @@
-angular.module("profile", []);
+angular.module("profile", ['plugins']);

@@ -21,6 +21,7 @@ function ProfileController($scope) {
             $scope.$apply();
         }
         $scope.userProfile = modelFactory.get("MyUserProfile", "");
+
         $scope.userProfile.subscribe("ready", onReady);
         if(authService.hasRole('customer')){
             $scope.carolerProfile = modelFactory.get("MyCustomerProfile", "");
@@ -47,7 +48,12 @@ function ProfileController($scope) {
         if(ca = $scope.carolerProfile) updates.push(ca.update());
         if(cu = $scope.customerProfile) updates.push(cu.update());
         Promise.all(updates).then(() => swal("Saved!", "Your info has been updated", "success"));
+        doUploadW9();
     };
+
+    function doUploadW9(){
+        console.log("file", $scope.myFile);
+    }
 
     init();
 }
