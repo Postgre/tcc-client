@@ -10,20 +10,6 @@ function ProfileController($scope) {
 
     function init() {
         let id = window.getQueryVariable('id');
-        // modelFactory.find("User", id)
-        //     .then(
-        //         (user) => {
-        //             Promise.all(
-        //                 user.loadCarolerProfile(),
-        //                 user.loadDirectorProfile(),
-        //                 user.loadCustomerProfile()
-        //             ).then(() => {
-        //                 $scope.user = user;
-        //                 $scope.$apply()
-        //             });
-        //         },
-        //         somethingWentWrong
-        //     );
 
         /* TODO: soon.. */
         let user = modelFactory.find("User", id);

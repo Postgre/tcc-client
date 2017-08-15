@@ -31,7 +31,34 @@ const DataService = require('./services/DataService');
 const ApplicationService = require('./services/ApplicationService');
 const Bindings = require('./Bindings');
 const NavService = require('./services/NavService');
-let authService = new AuthService(site, window.localStorage);
+
+let observers = [
+    {
+        event: "expired",
+        callback: function(){
+            swal({
+                title: "Your Session has Expired",
+                text: "Please <a href='login-register.html'>Login</a> Again to Continue",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Ok",
+                html: true,
+                closeOnConfirm: false
+            },
+            function(){
+                window.location = "index.php";
+            });
+        }
+    },
+    {
+        event: "logout",
+        callback: function(){
+            window.location = "login-register.php";
+        }
+    }
+];
+
+let authService = new AuthService(site, window.localStorage, observers);
 let connection = axios.create({
     baseURL: site.serverURL,
     headers: {
@@ -68,12 +95,4 @@ new Bindings(authService, appService).apply();
 const jQuery = require('jQuery');
 jQuery(document).ready(function () {
     appService.renderSession();
-});
-/* Subscribe to Auth Events */
-authService.subscribe('expired', function(e){
-    swal("Your Session has expired", "Please log in again", "waring");
-    window.navService.goto('home');
-});
-authService.subscribe('logout', function(e){
-    window.navService.goto('home');
 });

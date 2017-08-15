@@ -5,7 +5,19 @@ const jwtDecode = require('jwt-decode');
 
 /* Auth Service */
 module.exports = class AuthService {
-    constructor(config, storage) {
+    constructor(config, storage, observers) {
+        /* Events */
+        this.events = {
+            'logout': [],
+            'expired': []
+        };
+        /* Register Observers */
+        if(observers){
+            observers.forEach((observer)=>{
+                this.subscribe(observer.event, observer.callback);
+            })
+        }
+
         /* Saving Config */
         this.config = config;
         this.storage = storage;
@@ -14,12 +26,6 @@ module.exports = class AuthService {
         this.jwt = this.storage.getItem('jwt');
         this.user = null;
         this.jwtExpire = null;
-
-        /* Events */
-        this.events = {
-            'logout': [],
-            'expired': []
-        };
 
         /* Setting up refresh */
         if (this.jwt !== null) {
