@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
+    <!-- Bootstrap File Upload CSS -->
+    <link rel="stylesheet" href="css/components/bs-filestyle.css" type="text/css" />
 
     <!-- Angular
     ============================================= -->
@@ -30,5 +32,8 @@
 <?php require 'partials/javascripts.htm' ?>
 <!-- Bootstrap Select Plugin -->
 <script type="text/javascript" src="js/components/bs-select.js"></script>
+<!-- Bootstrap File Upload Plugin -->
+<script type="text/javascript" src="js/components/bs-filestyle.js"></script>
+
 </body>
 </html>

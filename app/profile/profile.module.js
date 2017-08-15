@@ -1,1 +1,1 @@
-angular.module("profile", ['plugins']);
+angular.module("profile", ['plugins', 'file-model']);

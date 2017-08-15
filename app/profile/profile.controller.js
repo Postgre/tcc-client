@@ -2,6 +2,7 @@ angular.module('profile')
     .controller('ProfileController', ProfileController);
 
 function ProfileController($scope) {
+
     /**
      * Models
      * ===============
@@ -24,11 +25,11 @@ function ProfileController($scope) {
 
         $scope.userProfile.subscribe("ready", onReady);
         if(authService.hasRole('customer')){
-            $scope.carolerProfile = modelFactory.get("MyCustomerProfile", "");
+            $scope.carolerProfile = modelFactory.get("MyCarolerProfile", "");
             $scope.carolerProfile.subscribe("ready", onReady);
         }
         if(authService.hasRole('caroler')){
-            $scope.customerProfile = modelFactory.get("MyCarolerProfile", "");
+            $scope.customerProfile = modelFactory.get("MyCustomerProfile", "");
             $scope.customerProfile.subscribe("ready", onReady);
         }
         if(authService.hasRole('director')){
@@ -48,12 +49,10 @@ function ProfileController($scope) {
         if(ca = $scope.carolerProfile) updates.push(ca.update());
         if(cu = $scope.customerProfile) updates.push(cu.update());
         Promise.all(updates).then(() => swal("Saved!", "Your info has been updated", "success"));
-        doUploadW9();
+        /* upload files if set */
+        if($scope.carolerProfile.file_w9) $scope.carolerProfile.uploadW9();
+        if($scope.carolerProfile.file_performance_agreement) $scope.carolerProfile.uploadPerformanceAgreement();
     };
-
-    function doUploadW9(){
-        console.log("file", $scope.myFile);
-    }
 
     init();
 }

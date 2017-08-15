@@ -38,6 +38,7 @@ module.exports = class ModelFactory {
     create(ModelClass, data){
         let schema = this.schema[ModelClass];
         let instance = new this.classMap[ModelClass]();
+        console.log("created", instance);
         Object.assign(instance, this.dependencies, schema);
         instance.init();
         if(data) Object.assign(instance, data);
