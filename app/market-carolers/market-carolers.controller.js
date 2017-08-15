@@ -44,16 +44,16 @@ function MarketCarolersController($scope){
         dataService.getCarolerRequests(market_id).then(
             (requests) => {
                 console.info("loaded requests", requests);
-                // $scope.requests = requests;
-                // $scope.$apply();
+                $scope.requests = requests;
+                $scope.$apply();
             }, somethingWentWrong
         );
         /* load caroler invites */
         dataService.getCarolerInvites(market_id).then(
             (invites) => {
                 console.info("loaded invites", invites);
-                // $scope.invites = invites;
-                // $scope.$apply();
+                $scope.invites = invites;
+                $scope.$apply();
             }, somethingWentWrong
         )
     }

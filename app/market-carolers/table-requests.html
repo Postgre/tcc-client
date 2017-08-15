@@ -8,7 +8,7 @@
 </thead>
 <tbody>
     <tr ng-repeat="req in requests track by req.email">
-        <td><label ng-bind="req.sent" class="label label-default"></label> </td>
+        <td><label ng-bind="req.created_at" class="label label-default"></label> </td>
         <td ng-bind="req.name"></td>
         <td ng-bind="req.email"></td>
         <td>

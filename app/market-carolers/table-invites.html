@@ -8,9 +8,9 @@
 </thead>
 <tbody>
 <tr ng-repeat="inv in invites">
-    <td><label ng-bind="inv.status" class="label label-success">delivered</label> </td>
+    <td><label ng-if="inv.redeemed==='false'" class="label label-success">delivered</label> </td>
     <td ng-bind="inv.to">markotto@gmail.com</td>
-    <td ng-bind="inv.sent">8/11/2017</td>
+    <td ng-bind="inv.created_at">8/11/2017</td>
     <td>
         <button ng-click="handleResend(inv)" class="btn btn-primary btn-sm" title="Resend"><i class="icon-refresh2"  ></i> </button>
         <button ng-click="handleCancel(inv)" class="btn btn-danger btn-sm"  title="Reject"><i class="icon-remove"    ></i> </button>

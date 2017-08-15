@@ -356,12 +356,33 @@ module.exports = class DataService {
      */
     getCarolerInvites(market_id){
         return new Promise((resolve, reject)=>{
-            setTimeout(resolve("invites"), 3000);
-        })
+            this.connection({
+                url: "invites/caroler",
+                method: "GET",
+                params: {
+                    market_id: market_id,
+                    redeemed: false,
+                    expired: false,
+                    status: "pending"
+                }
+            }).then(
+                res => resolve(res.data),
+                reject
+            )
+        });
     }
     getCarolerRequests(market_id){
         return new Promise((resolve, reject)=>{
-            setTimeout(resolve("requests"), 2000);
+            this.connection({
+                url: "requests/caroler",
+                method: "GET",
+                params: {
+                    status: "pending"
+                }
+            }).then(
+                (res) => resolve(res.data),
+                reject
+            )
         });
     }
     redeemCarolerInvite(code){
@@ -378,16 +399,26 @@ module.exports = class DataService {
             )
         });
     }
-    // TODO
     approveCarolerRequest(request_id){
         return new Promise((resolve, reject)=>{
-            setTimeout(resolve, 2000);
+            this.connection({
+                url: `requests/caroler/${request_id}/approve`,
+                method: "GET",
+                params: {
+                    callback: ""
+                }
+            }).then(resolve, reject);
         });
     }
-    // TODO
     rejectCarolerRequest(request_id){
         return new Promise((resolve, reject)=>{
-            setTimeout(resolve, 2000);
+            this.connection({
+                url: `requests/caroler/${request_id}/reject`,
+                method: "POST",
+                params: {
+                    callback: ""
+                }
+            }).then(resolve, reject);
         });
     }
     sendCarolerInvite(market_id, caroler_email){
