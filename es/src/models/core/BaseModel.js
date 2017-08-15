@@ -35,7 +35,7 @@ module.exports = class BaseModel {
     }
     update(){
         return this.ajax({
-            url: this.endpoint+"/"+this.id,
+            url: this.url(),
             method: "PUT",
             data: this.getData()
         });
@@ -55,7 +55,7 @@ module.exports = class BaseModel {
     destroy(){
         return new Promise((resolve, reject)=>{
             this.ajax({
-                url: this.endpoint+"/"+this.id,
+                url: this.url(),
                 method: "DELETE"
             }).then(()=>{
                 resolve(this);
@@ -73,6 +73,9 @@ module.exports = class BaseModel {
             if(typeof this[prop] !== 'undefined') data[prop] = this[prop];
         });
         return data;
+    }
+    url(){
+        return this.endpoint+"/"+this.id;
     }
 
     /**

@@ -16,47 +16,19 @@
 
 </head>
 <body class="stretched" ng-app="profile" ng-controller="ProfileController">
-
-<!-- Document Wrapper
-============================================= -->
 <div id="wrapper" class="clearfix">
 
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>
-
     <?php require 'app/profile/profile.html' ?>
-
     <?php require 'partials/footer.htm' ?>
 
-</div><!-- #wrapper end -->
+</div>
 
+<!-- JAVASCRIPTS
+========================= -->
 <?php require 'partials/javascripts.htm' ?>
-
 <!-- Bootstrap Select Plugin -->
 <script type="text/javascript" src="js/components/bs-select.js"></script>
-<script>
-    jQuery("#tabs-profile").on("tabsactivate", function (event, ui) {
-        jQuery('.flexslider .slide').resize();
-    });
-</script>
-
-<!-- Footer Scripts
-============================================= -->
-
-<script>
-    function notifySuccess() {
-        swal({
-            title: "Success!",
-            text: "Your profile has been updated",
-            type: "success",
-            showCancelButton: false,
-            confirmButtonClass: "btn-success",
-            confirmButtonText: 'OK',
-            closeOnConfirm: false
-        });
-    }
-</script>
-
-
 </body>
 </html>

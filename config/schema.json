@@ -82,8 +82,8 @@
       "code"
     ]
   },
-  "User": {
-    "endpoint": "users",
+  "MyUserProfile": {
+    "endpoint": "users/profile",
     "fillable": [
       "name",
       "email",
@@ -93,6 +93,24 @@
       "address",
       "image",
       "bio"
+    ]
+  },
+  "MyCarolerProfile": {
+    "endpoint": "users/profile/caroler",
+    "fillable": [
+      "square_cash",
+      "w9",
+      "perf_agreement"
+    ]
+  },
+  "MyDirectorProfile": {
+    "endpoint": "users/profile/director",
+    "fillable": []
+  },
+  "MyCustomerProfile": {
+    "endpoint": "users/profile/customer",
+    "fillable": [
+      "is_customer"
     ]
   }
 }

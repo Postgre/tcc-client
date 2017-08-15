@@ -23,12 +23,13 @@ module.exports = class ModelFactory {
         this.validate(ModelClass);
         let instance = this.create(ModelClass);
         instance.id = id;
+        let url = instance.url();
         instance.$promise = new Promise((resolve, reject) => {
-            this.ajaxDriver.execute({ url: this.schema[ModelClass].endpoint+"/"+id })
+            this.ajaxDriver.execute({ url: url, method: "GET" })
                 .then((response)=>{
                     let _model = response.data;
                     instance.setData(_model);
-                    instance.notify("async");
+                    instance.notify("ready");
                     resolve(instance);
                 }, reject);
         });
@@ -79,9 +80,6 @@ module.exports = class ModelFactory {
         this.validate(ModelClass);
         return this.schema[ModelClass];
     }
-
-
-
 
     /* SCHEDULED FOR DEPRECATION */
     find(ModelClass, id, eager){

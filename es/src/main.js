@@ -36,18 +36,7 @@ let observers = [
     {
         event: "expired",
         callback: function(){
-            swal({
-                title: "Your Session has Expired",
-                text: "Please <a href='login-register.html'>Login</a> Again to Continue",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Ok",
-                html: true,
-                closeOnConfirm: false
-            },
-            function(){
-                window.location = "index.php";
-            });
+            alert("Your session has expired. Please login again.");
         }
     },
     {

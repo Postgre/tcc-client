@@ -6,40 +6,48 @@ function ProfileController($scope) {
      * Models
      * ===============
      */
-    $scope.user = {};
+    $scope.userProfile = {};
+    $scope.carolerProfile = null;
+    $scope.customerProfile = null;
+    $scope.directorProfile = null;
 
     function init() {
-        let id = window.getQueryVariable('id');
-
-        /* TODO: soon.. */
-        let user = modelFactory.find("User", id);
-        $scope.user.subscribe("resolve", (data) => {
-            alert("Resolved! " + user.name);
+        /* jquery plugin */
+        $("#tabs-profile").on("tabsactivate", function (event, ui) {
+            $('.flexslider .slide').resize();
         });
-        user.loadCustomerProfile();
+
+        function onReady(){
+            $scope.$apply();
+        }
+        $scope.userProfile = modelFactory.get("MyUserProfile", "");
+        $scope.userProfile.subscribe("ready", onReady);
+        if(authService.hasRole('customer')){
+            $scope.carolerProfile = modelFactory.get("MyCustomerProfile", "");
+            $scope.carolerProfile.subscribe("ready", onReady);
+        }
+        if(authService.hasRole('caroler')){
+            $scope.customerProfile = modelFactory.get("MyCarolerProfile", "");
+            $scope.customerProfile.subscribe("ready", onReady);
+        }
+        if(authService.hasRole('director')){
+            $scope.directorProfile = modelFactory.get("MyDirectorProfile", "");
+            $scope.directorProfile.subscribe("ready", onReady);
+        }
     }
 
     /**
      * Functions
      * ===============
      */
-    $scope.updateProfile = updateProfile;
-
-    function updateProfile() {
-        let putData = {
-            user_profile: $scope.profile.user,
-            caroler_profile: $scope.caroler_profile
-        };
-        console.log("req", putData);
-        let promise = window.dataService.putProfile(putData);
-        promise.then(function (res) {
-            console.log("res", res);
-            notifySuccess();
-        });
-        promise.catch(function (err) {
-            console.log("err", err);
-        });
-    }
+    $scope.handleUpdateProfile = function handleUpdateProfile() {
+        let updates = [];
+        if(u = $scope.userProfile) updates.push(u.update());
+        if(d = $scope.directorProfile) updates.push(d.update());
+        if(ca = $scope.carolerProfile) updates.push(ca.update());
+        if(cu = $scope.customerProfile) updates.push(cu.update());
+        Promise.all(updates).then(() => swal("Saved!", "Your info has been updated", "success"));
+    };
 
     init();
 }
