@@ -22,11 +22,25 @@ function CarolerDashboardController($scope) {
             showCancelButton: true,
             confirmButtonText: "Yes, claim event!",
             closeOnConfirm: false,
-            showLoaderOnConfirm: true
+            showLoaderOnConfirm: false
         },
         function(){
-            dataService.claimEvent(event.id)
-                .then(() => swal("Success!", "You are now registered for "+event.name, "success"));
+            swal({
+                    title: "Are you willing to be the lead caroler?",
+                    text: "A lead caroler is responsible for communicating with the customer. (And they get paid more!)",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes, I am!",
+                    cancelButtonText: "I'll Pass",
+                    closeOnConfirm: false,
+                    closeOnCancel: false,
+                    showLoaderOnConfirm: true
+                },
+                function(choice){
+                    console.log("lead?", choice);
+                    dataService.claimEvent(event.id)
+                        .then(() => swal("Success!", "You are now registered for "+event.name, "success"));
+                });
         });
     };
     $scope.handleWithdraw = function handleWithdraw(event){
