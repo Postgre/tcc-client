@@ -19,91 +19,111 @@
     <div class="content-wrap">
 
         <div class="container clearfix">
-
-            <div class="table-responsive">
-                <div class="heading-block highlight-me">
-                    <h2>Available Events</h2>
-                    <span>Showing Events you are Eligible for</span>
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#available_events"><strong>AVAILABLE EVENTS</strong></a></li>
+                    <li><a data-toggle="tab" href="#booked_events"><b>BOOKED EVENTS</b></a></li>
+                    <li><a data-toggle="tab" href="#completed_events"><b>COMPLETED EVENTS</b></a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="available_events" class="tab-pane fade in active">
+                        <div class="panel panel-default">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th ng-click="s='customer';r=!r"><a href>Customer</a></th>
+                                    <th ng-click="s='date';r=!r"><a href>Date</a></th>
+                                    <th ng-click="s='time';r=!r"><a href>Time</a></th>
+                                    <th ng-click="s='status';r=!r"><a href>Status</a></th>
+                                    <th ng-click="s='parts';r=!r"><a href>Available Parts</a></th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in available | orderBy:s:r">
+                                    <td></td>
+                                    <td>{{row.customer}}</td>
+                                    <td><strong>{{row.date}}</strong></td>
+                                    <td><label class="label label-primary" ng-bind="row.time"></label> </td>
+                                    <td><label class="label label-default">{{row.status}}</label></td>
+                                    <td>
+                                        <label ng-repeat="part in row.parts" class="label label-success mr10" >{{part.name}}</label>
+                                    </td>
+                                    <td>
+                                        <button ng-click="handleClaim(row)" class="btn btn-primary">Claim</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="booked_events" class="tab-pane fade">
+                        <div class="panel panel-default">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th ng-click="s='customer';r=!r"><a href>Customer</a></th>
+                                    <th ng-click="s='date';r=!r"><a href>Date</a></th>
+                                    <th ng-click="s='time';r=!r"><a href>Time</a></th>
+                                    <th ng-click="s='status';r=!r"><a href>Status</a></th>
+                                    <th ng-click="s='parts';r=!r"><a href>Available Parts</a></th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in booked | orderBy:s:r">
+                                    <td></td>
+                                    <td>{{row.customer}}</td>
+                                    <td><strong>{{row.date}}</strong></td>
+                                    <td><label class="label label-primary" ng-bind="row.time"></label> </td>
+                                    <td><label class="label label-default">{{row.status}}</label></td>
+                                    <td>
+                                        <label ng-repeat="part in row.parts" class="label label-success mr10" >{{part.name}}</label>
+                                    </td>
+                                    <td>
+                                        <button ng-click="handleWithdraw(row)" class="btn btn-danger">Withdraw</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="completed_events" class="tab-pane fade">
+                        <div class="panel panel-default">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th ng-click="s='customer';r=!r"><a href>Customer</a></th>
+                                    <th ng-click="s='date';r=!r"><a href>Date</a></th>
+                                    <th ng-click="s='time';r=!r"><a href>Time</a></th>
+                                    <th ng-click="s='status';r=!r"><a href>Status</a></th>
+                                    <th ng-click="s='parts';r=!r"><a href>Available Parts</a></th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in past | orderBy:s:r">
+                                    <td></td>
+                                    <td>{{row.customer}}</td>
+                                    <td><strong>{{row.date}}</strong></td>
+                                    <td><label class="label label-primary" ng-bind="row.time"></label> </td>
+                                    <td><label class="label label-default">{{row.status}}</label></td>
+                                    <td>
+                                        <label ng-repeat="part in row.parts" class="label label-success mr10" >{{part.name}}</label>
+                                    </td>
+                                    <td>
+                                        <button ng-click="handleWithdraw(row)" class="btn btn-danger">Withdraw</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <table id="datatable" class="table" cellspacing="0" width="100%">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Date &amp; Time</th>
-                        <th>Status</th>
-                        <th>Available Parts</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="avail in available_events">
-                        <td ng-bind="avail.customer" class="col-cust"></td>
-                        <td ng-bind="avail.date_time"></td>
-                        <td>
-                            <span class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === 'booked'"
-                                  class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === 'pending'"
-                                  class="label label-warning">Pending</span>
-                        </td>
-                        <td>
-                                <span ng-repeat="part in avail.parts" ng-bind="part" class="label label-success"
-                                      style="margin-right: 10px">
-                                    <!-- Available parts show here -->
-                                </span>
-                        </td>
-                        <td>
-                            <a ng-click="handleClaimEvent(event)" href="#"
-                               class="button button-rounded button-green button-small button-reveal button-border tright"><i
-                                    class="icon-play"></i><span>Claim Event</span></a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
             </div>
-
-            <div class="table-responsive">
-                <div class="heading-block highlight-me">
-                    <h2>Registered Events</h2>
-                    <span>Events you are Registered for</span>
-                </div>
-                <table id="datatable2" class="table" cellspacing="0" width="100%">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Date &amp; Time</th>
-                        <th>Status</th>
-                        <th>Available Parts</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="avail in available_events">
-                        <td ng-bind="avail.customer" class="col-cust"></td>
-                        <td ng-bind="avail.date_time"></td>
-                        <td>
-                            <span class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === 'booked'"
-                                  class="label label-primary">Booked</span>
-                            <span ng-if="avail.status === 'pending'"
-                                  class="label label-warning">Pending</span>
-                        </td>
-                        <td>
-                                <span ng-repeat="part in avail.parts" ng-bind="part" class="label label-success"
-                                      style="margin-right: 10px">
-                                    <!-- Available parts show here -->
-                                </span>
-                        </td>
-                        <td>
-                            <a ng-click="handleClaimEvent(event)" href="#"
-                               class="button button-rounded button-green button-small button-reveal button-border tright"><i
-                                    class="icon-play"></i><span>Claim Event</span></a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
         </div>
 
     </div>

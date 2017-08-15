@@ -12,6 +12,12 @@
             font-size: 16px;
             padding-left: 15px;
         }
+        .mr10 {
+            margin-right: 10px;
+        }
+        a {
+            color: initial;
+        }
     </style>
 
     <!-- Angular
@@ -21,7 +27,7 @@
 <body class="stretched" ng-app="caroler-dashboard" ng-controller="CarolerDashboardController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
-<?php require 'partials/header-2.php' ?>
+    <?php require 'partials/header-2.php' ?>
     <?php require 'app/caroler-dashboard/caroler-dashboard.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div><!-- #wrapper end -->
@@ -31,28 +37,6 @@
 <?php require 'partials/javascripts.htm' ?>
 <!-- Bootstrap Data Table Plugin -->
 <script type="text/javascript" src="js/components/bs-datatable.js"></script>
-<script>
-    function promptClaimConfirm(cb) {
-        swal({
-            title: "Are you sure?",
-            text: "You'll be expected to show!",
-            type: "info",
-            showCancelButton: true,
-            confirmButtonColor: "#337ab7",
-            confirmButtonText: "Yes, claim event!",
-            closeOnConfirm: false
-        }, cb);
-    }
-
-    function notifyClaimed() {
-        swal("Done!", "The position is yours!", "success")
-    }
-
-    function initDataTable() {
-        $('#datatable').dataTable();
-        $('#datatable2').dataTable();
-    }
-</script>
-
+<script type="text/javascript" src="js/components/moment.js"></script>
 </body>
 </html>

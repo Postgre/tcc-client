@@ -422,7 +422,7 @@ module.exports = class DataService {
                     callback: this.config['callback_caroler_request']
                 }
             }).then(resolve, reject);
-        })
+        });
     }
 
     /**
