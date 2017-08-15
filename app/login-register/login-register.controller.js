@@ -8,8 +8,8 @@ function AuthController( $scope ){
     $scope.registerForm = {};
 
     function init(){
-        if(window.getQueryVariable('v')==='v') swal("You're all set!", "Your account has been validated", "success");
-        if(code = window.getQueryVariable('code')){
+        if(window.getQueryVariable("v")==="v") swal("You're all set!", "Your account has been validated", "success");
+        if(code = window.getQueryVariable('invite_code')){
             let redeem_page = "invite-redeem.php?code="+code;
             if(authService.isLoggedIn()) window.location = redeem_page;
             swal("Login or Create Account", "To redeem your invite, please login. You will be redirected. If you don't have an account yet, please create one, then click the invite link in your email again", "info");
@@ -21,7 +21,7 @@ function AuthController( $scope ){
         if(!validateLoginForm(loginForm)) return;
         authService.login(loginForm.email, loginForm.password)
             .then(
-                win => {
+                () => {
                     if(after_login){
                         window.location = after_login;
                     }
@@ -47,7 +47,7 @@ function AuthController( $scope ){
                     }
                 }
             );
-    }
+    };
 
     init();
 }

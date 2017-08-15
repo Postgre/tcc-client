@@ -48,7 +48,7 @@ function MarketCarolersController($scope){
     $scope.handleApprove = function handleApprove(row){
         console.log("approving...", row);
         swal({
-            title: `Approve ${row.name}?`,
+            title: `Approve ${row.user.name}?`,
             type: "warning",
             showCancelButton: true,
             closeOnConfirm: false,
@@ -58,7 +58,7 @@ function MarketCarolersController($scope){
             dataService.approveCarolerRequest(row.id)
                 .then(
                     () => {
-                        swal("Approved!", `${row.name} is now a caroler of ${$scope.market.name}`, "success");
+                        swal("Approved!", `${row.user.name} is now a caroler of ${$scope.market.name}`, "success");
                         init();
                     }, somethingWentWrong
                 );
@@ -113,7 +113,7 @@ function MarketCarolersController($scope){
         function(){
             dataService.cancelCarolerInvite(row.id)
                 .then(
-                    win => {
+                    () => {
                         swal("Done!", "We've canceled the invite to "+row.name, "success");
                         init();
                     },
