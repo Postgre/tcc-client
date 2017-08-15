@@ -377,7 +377,9 @@ module.exports = class DataService {
                 url: "requests/caroler",
                 method: "GET",
                 params: {
-                    status: "pending"
+                    to: market_id,
+                    status: "pending",
+                    with: ['user']
                 }
             }).then(
                 (res) => resolve(res.data),
@@ -405,7 +407,7 @@ module.exports = class DataService {
                 url: `requests/caroler/${request_id}/approve`,
                 method: "GET",
                 params: {
-                    callback: ""
+                    callback: this.config['callback_caroler_approved']
                 }
             }).then(resolve, reject);
         });
@@ -414,10 +416,7 @@ module.exports = class DataService {
         return new Promise((resolve, reject)=>{
             this.connection({
                 url: `requests/caroler/${request_id}/reject`,
-                method: "POST",
-                params: {
-                    callback: ""
-                }
+                method: "GET"
             }).then(resolve, reject);
         });
     }
@@ -437,8 +436,9 @@ module.exports = class DataService {
         });
     }
     cancelCarolerInvite(invite_id){
-        return new Promise((resolve, reject)=>{
-            setTimeout(resolve, 2000);
+        return this.connection({
+            url: "invites/caroler/"+invite_id,
+            method: "DELETE"
         })
     }
     sendCarolerRequest(market_id){

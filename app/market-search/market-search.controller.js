@@ -21,8 +21,7 @@ function MarketSearchController($scope) {
                         _market.rate_caroler_first +
                         _market.rate_caroler_second +
                         _market.rate_caroler_third +
-                        _market.rate_caroler_fourth +
-                        _market.rate_caroler_fifth);
+                        _market.rate_caroler_fourth);
                 $scope.markets = _markets;
                 $scope.$apply();
             },

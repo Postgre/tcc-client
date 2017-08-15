@@ -9,8 +9,8 @@
 <tbody>
     <tr ng-repeat="req in requests track by req.email">
         <td><label ng-bind="req.created_at" class="label label-default"></label> </td>
-        <td ng-bind="req.name"></td>
-        <td ng-bind="req.email"></td>
+        <td ng-bind="req.user.name"></td>
+        <td ng-bind="req.user.email"></td>
         <td>
             <button ng-click="handleApprove(req)" class="btn btn-success btn-sm" title="Approve"><i class="icon-thumbs-up2"></i> </button>
             <button ng-click="handleReject(req)" class="btn btn-danger btn-sm"  title="Reject" ><i class="icon-thumbs-down2"></i> </button>

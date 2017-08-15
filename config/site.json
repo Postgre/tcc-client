@@ -3,5 +3,6 @@
   "callback_save_quote": "http://dev.thechristmascarolers.com/event-book.php",
   "callback_login": "http://dev.thechristmascarolers.com/login-register.php?v=v",
   "callback_caroler_invite": "http://dev.thechristmascarolers.com/login-register.php?action=redeem",
-  "callback_caroler_request": "http://dev.thechristmascarolers.com/market-carolers.php"
+  "callback_caroler_request": "http://dev.thechristmascarolers.com/market-carolers.php",
+  "callback_caroler_approved": "http://dev.thechristmascarolers.com/login-register.php?action=approved"
 }
