@@ -80,9 +80,19 @@
 
                     <div class="col_full">
 
-                        <h4>Location</h4>
+                        <h3>Location</h3>
 
                         <section id="event-location" class="gmap" style="height: 300px;"></section>
+
+                    </div>
+
+                    <div class="col_full clearfix">
+
+                        <h3>Gallery</h3>
+
+                        <div class="masonry-thumbs col-5" data-big="1" data-lightbox="gallery">
+                            <a ng-repeat="item in market.mediaLinks" href="{{item.url}}" data-lightbox="gallery-item"><img class="image_fade" ng-src="{{item.url}}"></a>
+                        </div>
 
                     </div>
 
@@ -94,24 +104,24 @@
 
                     <div class="widget clearfix">
 
-                        <h4>Gallery</h4>
+                        <h4>---</h4>
                         <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1"
                              data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
 
-                            <div ng-repeat="item in market.mediaLinks" class="oc-item">
+                            <div class="oc-item">
                                 <div class="iportfolio">
                                     <div class="portfolio-image">
                                         <a href="#">
-                                            <img ng-src="{{item.url}}" alt="">
+                                            <img ng-src="{{}}" alt="">
                                         </a>
                                         <div class="portfolio-overlay">
-                                            <a href="{{item.url}}" class="center-icon" data-lightbox="iframe"><i
+                                            <a href="{{}}" class="center-icon" data-lightbox="iframe"><i
                                                     class="icon-line-plus"></i></a>
                                         </div>
                                     </div>
                                     <div class="portfolio-desc center nobottompadding">
-                                        <h3><a href="#" ng-bind="item.caption"></a></h3>
-                                        <span><a href="#" ng-bind="item.tag"></a></span>
+                                        <h3><a href="#" ng-bind=""></a></h3>
+                                        <span><a href="#" ng-bind=""></a></span>
                                     </div>
                                 </div>
                             </div>

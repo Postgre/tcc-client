@@ -65,21 +65,21 @@ function CarolerDashboardController($scope) {
      * ===============
      */
     (function init() {
-        dataService.getCarolerEvents()
+        dataService.getAvailableEvents()
             .then(
                 (_events) => {
                     $scope.available = _events;
                     $scope.$apply()
                 }
             );
-        dataService.getCarolerEvents()
+        dataService.getBookedEvents()
             .then(
                 (_events) => {
                     $scope.booked = _events;
                     $scope.$apply()
                 }
             );
-        dataService.getCarolerEvents()
+        dataService.getPastEvents()
             .then(
                 (_events) => {
                     $scope.past = _events;

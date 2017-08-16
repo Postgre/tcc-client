@@ -501,7 +501,37 @@ module.exports = class DataService {
     }
 
     /* caroler-dashboard.php */
-    getCarolerEvents(){
+    getAvailableEvents(){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "events/enrollments/available",
+                method: "GET"
+            }).then((res)=>{
+                resolve(res.data);
+            }, reject);
+        });
+    }
+    getBookedEvents(){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "events/enrollments/booked",
+                method: "GET"
+            }).then((res)=>{
+                resolve(res.data);
+            }, reject);
+        });
+    }
+    getPastEvents(){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "events/enrollments/completed",
+                method: "GET"
+            }).then((res)=>{
+                resolve(res.data);
+            }, reject);
+        });
+    }
+    mockGetCarolerEvents(){
         return new Promise((resolve, reject)=>{
             function getRandomInt(min, max) {
                 min = Math.ceil(min);
@@ -540,13 +570,15 @@ module.exports = class DataService {
         })
     }
     claimEvent(event_id){
-        return new Promise((resolve, reject)=>{
-            setTimeout(resolve, 2000);
+        return this.connection({
+            url: `events/enrollments/${event_id}/claim`,
+            method: "POST"
         });
     }
     withdrawEvent(event_id){
-        return new Promise((resolve, reject)=>{
-            setTimeout(resolve, 2000);
-        })
+        return this.connection({
+            url: `events/enrollments/${event_id}/withdraw`,
+            method: "POST"
+        });
     }
 };

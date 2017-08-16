@@ -95,8 +95,15 @@ module.exports = class BaseModel {
 
     /* observer */ // useful for triggering AngularJS digest cycle
     subscribe(event, callback){
-        if(typeof this.observers[event] === 'undefined') this.observers[event] = [];
-        this.observers[event].push(callback);
+        let events = [event];
+        if(Array.isArray(event)){
+            events = event;
+        }
+        for (let i = 0; i < events.length; i++) {
+            let ev = events[i];
+            if(typeof this.observers[ev] === 'undefined') this.observers[ev] = [];
+            this.observers[ev].push(callback);
+        }
     }
     notify(event, params){
         if(typeof this.observers[event] === 'undefined') this.observers[event] = [];

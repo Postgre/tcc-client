@@ -15,13 +15,7 @@ function MarketSearchController($scope) {
         Object.assign(params, form);
         dataService.searchMarketsGeo(params)
             .then((_markets) => {
-                console.log(_markets);
-                _markets.forEach(
-                    _market => _market.base_rate =
-                        _market.rate_caroler_first +
-                        _market.rate_caroler_second +
-                        _market.rate_caroler_third +
-                        _market.rate_caroler_fourth);
+                _markets.forEach( _market => _market.base_rate = _market.rate_caroler_first * 4 );
                 $scope.markets = _markets;
                 $scope.$apply();
             },

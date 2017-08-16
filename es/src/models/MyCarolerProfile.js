@@ -5,6 +5,8 @@ module.exports = class MyCarolerProfile extends BaseModel {
     uploadW9(){
         let formData = new FormData();
         formData.append("w9", this.file_w9, this.file_w9.name);
+        alert(this.file_w9);
+        console.log(formData);
         return this.ajax({
             url: "users/profile/caroler/w9",
             method: "POST",
@@ -20,7 +22,7 @@ module.exports = class MyCarolerProfile extends BaseModel {
         let formData = new FormData();
         formData.append("performance_agreement", this.file_performance_agreement, this.file_performance_agreement.name);
         return this.ajax({
-            url: "users/profile/caroler/performance_agreement",
+            url: "users/profile/caroler/performance-agreement",
             method: "POST",
             data: formData,
             config: {

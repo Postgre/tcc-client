@@ -50,6 +50,7 @@ function ProfileController($scope) {
         if(cu = $scope.customerProfile) updates.push(cu.update());
         Promise.all(updates).then(() => swal("Saved!", "Your info has been updated", "success"));
         /* upload files if set */
+        console.log($scope.carolerProfile.file_w9);
         if($scope.carolerProfile.file_w9) $scope.carolerProfile.uploadW9();
         if($scope.carolerProfile.file_performance_agreement) $scope.carolerProfile.uploadPerformanceAgreement();
     };
