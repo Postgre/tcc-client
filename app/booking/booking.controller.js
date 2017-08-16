@@ -40,15 +40,11 @@ function BookingController($scope) {
         initTabs();
         initDatepicker();
         $scope.booking = window.modelFactory.create("Booking");
-        /* load quote if exists */
-        if (navService.getNavParams().query) {
-            $scope.booking.setData(navService.getNavParams().query);
-        }
         let market = modelFactory.get("Market", market_id);
-        market.subscribe("async", function () {
+        market.subscribe("ready", function () {
+            $scope.booking.market_id = market.id;
             $scope.$apply();
         });
-        market.$promise.then(mkt => $scope.booking.market_id = mkt.id);
         $scope.market = market;
     })();
 

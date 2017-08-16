@@ -15,6 +15,27 @@ function ProfileController($scope) {
         w9: false,
         performance_agreement: false
     };
+    $scope.caroler_options = [
+        {
+            val: "soprano",
+            name: "soprano"
+        },
+        {
+            val: "alto",
+            name: "alto"
+        },
+        {
+            val: "tenor",
+            name: "tenor"
+        },
+        {
+            val: "bass",
+            name: "bass"
+        }
+    ];
+    $scope.form = {
+        part: "alto"
+    };
 
     function init() {
         /* jquery plugin */
@@ -26,13 +47,13 @@ function ProfileController($scope) {
             $scope.$apply();
         }
         $scope.userProfile = modelFactory.get("MyUserProfile", "");
-
         $scope.userProfile.subscribe("ready", onReady);
-        if(authService.hasRole('customer')){
-            $scope.carolerProfile = modelFactory.get("MyCarolerProfile", "");
-            $scope.carolerProfile.subscribe("ready", onReady);
-        }
         if(authService.hasRole('caroler')){
+            $scope.carolerProfile = modelFactory.get("MyCarolerProfile", "");
+            $scope.carolerProfile.loadCarolerTypes();
+            $scope.carolerProfile.subscribe(["ready", "async"], onReady);
+        }
+        if(authService.hasRole('customer')){
             $scope.customerProfile = modelFactory.get("MyCustomerProfile", "");
             $scope.customerProfile.subscribe("ready", onReady);
         }
@@ -61,6 +82,27 @@ function ProfileController($scope) {
         if(!$scope.carolerProfile.performance_agreement && $scope.files.performance_agreement){
             $scope.carolerProfile.uploadPerformanceAgreement($scope.files.performance_agreement);
         }
+    };
+
+    $scope.handleAddPart = function handleAddPart(name){
+        $scope.carolerProfile.addType(name)
+            .then(
+                () => { swal("Success!", "We've added your part", "success") },
+                (err) => {
+                    if(err === 409){
+                        swal("Wait A minute!", "You already have that part", "warning");
+                        return;
+                    }
+                    somethingWentWrong(err);
+                }
+            )
+    };
+    $scope.handleRemovePart = function handleRemovePart(part){
+        $scope.carolerProfile.removeType(part)
+            .then(
+                () => { swal("Success!", "We've removed your part", "success") },
+                somethingWentWrong
+            )
     };
 
     init();

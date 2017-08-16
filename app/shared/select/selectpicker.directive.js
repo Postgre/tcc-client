@@ -13,6 +13,7 @@ function selectPicker(){
     };
 
     function link(scope, el, attr){
+        console.log("tcc-select-picker scope", scope);
         scope.$watch('bind', function(){
             console.log("bind", scope.bind);
         });
@@ -22,6 +23,7 @@ function selectPicker(){
             $(el).selectpicker('val', scope.bind);
             $(el).on('changed.bs.select', function () {
                 scope.$apply(function(){
+                    console.log($(el).selectpicker('val'))
                     scope.bind = $(el).selectpicker('val');
                 });
             });

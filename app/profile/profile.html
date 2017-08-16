@@ -111,6 +111,27 @@
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                             </div>
                                         </div>
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Part</th>
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="part in carolerProfile.types">
+                                                        <td><label class="label label-default" ng-bind="part.name"></label> </td>
+                                                        <td ng-click="handleRemovePart(part)"><button class="btn btn-danger pull-right"><i class="icon-trash"></i> </button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <br/>
+                                            <tcc-select-picker bind="selectedPart" options="caroler_options"></tcc-select-picker>
+                                            <br/>
+                                            <br/>
+                                            <button ng-click="handleAddPart(selectedPart)" class="btn btn-success pull-right">Add Part</button>
+                                        </div>
                                     </div>
                                     <div ng-if="directorProfile" class="tab-content clearfix" id="tab-director-profile">
                                         <!-- Director-specific Fields -->
