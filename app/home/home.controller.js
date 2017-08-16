@@ -10,7 +10,7 @@ function HomeController($scope) {
 
     let quoteRequest = null;
     $scope.handleGetQuote = () => {
-        let data = parseQuoteRequest($scope.daterange);
+        let data = parseQuoteRequest();
         let qr = new QuoteRequest(data, dataService);
         qr.submit().then((data) => {
                 $scope.quote = data.quote;
@@ -87,17 +87,14 @@ function HomeController($scope) {
         let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
         let nowHour = today.getHours();
         $scope.daterange = $(".daterange").daterangepicker({
-            "opens": "center",
-            timePicker: true,
-            timePickerIncrement: 60,
-            startDate: date + " " + (nowHour + 1) + ":00",
-            endDate: date + " " + (nowHour + 2) + ":00",
-            locale: {
-                format: 'MM-DD hh:mm'
+            "showWeekNumbers": true,
+            "timePicker": true,
+            "timePicker24Hour": true,
+            "dateLimit": {
+                "days": 1
             },
-            "buttonClasses": "button button-rounded button-mini nomargin",
-            "applyClass": "button-color",
-            "cancelClass": "button-light"
+            "startDate": "08/10/2017",
+            "endDate": "08/16/2017"
         });
 
         $(window).load(function () {
@@ -121,7 +118,7 @@ function HomeController($scope) {
         });
     }
 
-    function parseQuoteRequest(daterange) {
+    function parseQuoteRequest() {
         let form = document.forms.quoteForm;
         return {
             start_time: getStartTime(),
@@ -132,10 +129,10 @@ function HomeController($scope) {
     }
 
     function getStartTime(){
-        return $scope.daterange.data('daterangepicker').startDate.format("YYYY-MM-DD hh:mm")
+        return $scope.daterange.data('daterangepicker').startDate.format("YYYY-MM-DD HH:MM")
     }
     function getEndTime(){
-        return $scope.daterange.data('daterangepicker').endDate.format("YYYY-MM-DD hh:mm");
+        return $scope.daterange.data('daterangepicker').endDate.format("YYYY-MM-DD HH:MM");
     }
 
     init();

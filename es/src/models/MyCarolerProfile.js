@@ -10,25 +10,17 @@ module.exports = class MyCarolerProfile extends BaseModel {
             url: "users/profile/caroler/w9",
             method: "POST",
             data: formData,
-            config: {
-                headers: {
-                    'content-type': 'multipart/form-data'
-                }
-            }
+            noStringify: true
         });
     }
     uploadPerformanceAgreement(file){
         let formData = new FormData();
-        formData.append("performance_agreement", file);
+        formData.set("performance_agreement", file);
         return this.ajax({
             url: "users/profile/caroler/performance-agreement",
             method: "POST",
             data: formData,
-            config: {
-                headers: {
-                    'content-type': 'multipart/form-data'
-                }
-            }
+            noStringify: true
         });
     }
 };

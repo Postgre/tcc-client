@@ -51,7 +51,7 @@ let authService = new AuthService(site, window.localStorage, observers);
 let connection = axios.create({
     baseURL: site.serverURL,
     headers: {
-        // 'Content-type': 'application/x-www-form-urlencoded',
+        // 'Content-type': 'multipart/form-data',
         'Authorization': 'Bearer ' + authService.jwt
     }
 });

@@ -7,7 +7,7 @@ module.exports = class AxiosDriver {
     }
 
     execute(request){
-        if(request.data){
+        if(request.data && !request.noStringify){
             request.data = qs.stringify(request.data);
         }
         return this.axiosConnection(request);
