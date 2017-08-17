@@ -10,11 +10,13 @@ function CarolerDashboardController($scope) {
     $scope.booked = [];
     $scope.past = [];
 
+    $scope.markets = []; // markets i perform in
+
     /**
      * Functions
      * ===============
      */
-    $scope.handleClaim = function handleClaim(event){
+    $scope.handleClaim = function handleClaim(event, enrollment){
         swal({
             title: "Are you sure?",
             text: "We'll expect you to show!",
@@ -38,12 +40,15 @@ function CarolerDashboardController($scope) {
                 },
                 function(choice){
                     console.log("lead?", choice);
-                    dataService.claimEvent(event.id)
-                        .then(() => swal("Success!", "You are now registered for "+event.name, "success"));
+                    dataService.claimEvent(enrollment.id)
+                        .then(() => {
+                            swal("Success!", "You are now registered for "+event.name, "success");
+                            init();
+                        });
                 });
         });
     };
-    $scope.handleWithdraw = function handleWithdraw(event){
+    $scope.handleWithdraw = function handleWithdraw(enrollment_id){
         swal({
                 title: "Aw Man..",
                 text: "Your fellow carolers won't like this",
@@ -55,8 +60,11 @@ function CarolerDashboardController($scope) {
                 showLoaderOnConfirm: true
             },
             function(){
-                dataService.withdrawEvent(event.id)
-                    .then(() => swal("Done", "You have been withdrawn from "+event.name, "success"));
+                dataService.withdrawEvent(enrollment_id)
+                    .then(() => {
+                        swal("Done", "You have been withdrawn", "success");
+                        init();
+                    });
             });
     };
 
@@ -64,10 +72,17 @@ function CarolerDashboardController($scope) {
      * Init
      * ===============
      */
-    (function init() {
+    function init() {
+        dataService.marketsICarolIn().then(
+            (_markets) => {
+                $scope.markets = _markets;
+                $scope.$apply();
+            }
+        );
         dataService.getAvailableEvents()
             .then(
                 (_events) => {
+                    toTableRows(_events);
                     $scope.available = _events;
                     $scope.$apply()
                 }
@@ -75,6 +90,7 @@ function CarolerDashboardController($scope) {
         dataService.getBookedEvents()
             .then(
                 (_events) => {
+                    toTableRows(_events);
                     $scope.booked = _events;
                     $scope.$apply()
                 }
@@ -82,9 +98,20 @@ function CarolerDashboardController($scope) {
         dataService.getPastEvents()
             .then(
                 (_events) => {
+                    toTableRows(_events);
                     $scope.past = _events;
                     $scope.$apply()
                 }
             );
-    })();
+    }
+    init();
+}
+
+function toTableRows(_events){
+    _events.forEach((_event)=>{
+        Object.assign(_event, {
+            date: moment(_event.start_time).format("MM-DD-YYYY"),
+            time: moment(_event.start_time).format("HH:MM")
+        });
+    })
 }

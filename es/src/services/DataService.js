@@ -569,15 +569,15 @@ module.exports = class DataService {
             setTimeout(resolve(out), 2000);
         })
     }
-    claimEvent(event_id){
+    claimEvent(enrollment_id){
         return this.connection({
-            url: `events/enrollments/${event_id}/claim`,
+            url: `events/enrollments/${enrollment_id}/claim`,
             method: "POST"
         });
     }
-    withdrawEvent(event_id){
+    withdrawEvent(enrollment_id){
         return this.connection({
-            url: `events/enrollments/${event_id}/withdraw`,
+            url: `events/enrollments/${enrollment_id}/withdraw`,
             method: "POST"
         });
     }
@@ -588,6 +588,17 @@ module.exports = class DataService {
             this.connection({
                 url: "caroler-types"
             }).then((res)=>resolve(res.data), reject);
+        });
+    }
+    marketsICarolIn(){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "/markets/enrolled",
+                method: "GET"
+            }).then(
+                (res) => resolve(res.data),
+                reject
+            )
         });
     }
 };

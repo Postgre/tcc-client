@@ -18,6 +18,9 @@
         a {
             color: initial;
         }
+        table label.part-label:hover {
+            background-color: #00A0D1;
+        }
     </style>
 
     <!-- Angular
