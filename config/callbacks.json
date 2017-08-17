@@ -1,0 +1,8 @@
+{
+
+  "save_quote": "http://dev.thechristmascarolers.com/event-book.php",
+  "login": "http://dev.thechristmascarolers.com/login-register.php?action=verified",
+  "caroler_invite": "http://dev.thechristmascarolers.com/login-register.php?action=redeem",
+  "caroler_request": "http://dev.thechristmascarolers.com/market-carolers.php",
+  "caroler_approved": "http://dev.thechristmascarolers.com/login-register.php?action=approved"
+}
