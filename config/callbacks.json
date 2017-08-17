@@ -3,6 +3,7 @@
   "save_quote": "http://dev.thechristmascarolers.com/event-book.php",
   "login": "http://dev.thechristmascarolers.com/login-register.php?action=verified",
   "caroler_invite": "http://dev.thechristmascarolers.com/login-register.php?action=redeem",
+  "director_invite": "http://dev.thechristmascarolers.com/login-register.php?action=redeemDirector",
   "caroler_request": "http://dev.thechristmascarolers.com/market-carolers.php",
   "caroler_approved": "http://dev.thechristmascarolers.com/login-register.php?action=approved",
   "invite_request": "http://dev.thechristmascarolers.com/market-carolers.php?action=invite"

@@ -2,7 +2,6 @@
 <html dir="ltr" lang="en-US">
 <head>
     <?php require 'partials/head.htm'?>
-
     <!-- Bootstrap Data Table Plugin -->
     <link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css">
 

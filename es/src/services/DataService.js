@@ -464,6 +464,45 @@ module.exports = class DataService {
             }
         })
     }
+    getDirectorInvites(market_id){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "invites/director",
+                method: "GET",
+                params: {
+                    market_id: market_id,
+                    redeemed: false,
+                    expired: false,
+                    status: "pending"
+                }
+            }).then(
+                res => resolve(res.data),
+                reject
+            )
+        });
+    }
+    sendDirectorInvite(market_id, director_email){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: `markets/${market_id}/invite-director`,
+                method: "GET",
+                params: {
+                    to: director_email,
+                    callback: this.config.callbacks.director_invite
+                }
+            }).then(
+                (res) => resolve(res),
+                (err) => reject(err)
+            );
+        });
+    }
+    cancelDirectorInvite(invite_id){
+        return this.connection({
+            url: "invites/director/"+invite_id,
+            method: "DELETE"
+        })
+    }
+
 
     /**
      * CONTACT

@@ -4,10 +4,14 @@ angular.module("invite-redeem")
 function InviteRedeemController( $scope ){
 
     $scope.code = "";
+    $scope.role = "caroler";
 
     function init(){
         if(rac = getQueryVariable('code')){
             $scope.code = rac;
+        }
+        if(role = getQueryVariable("role")){
+            if(role === "d") $scope.role = "director";
         }
     }
 

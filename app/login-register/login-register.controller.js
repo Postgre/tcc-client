@@ -8,12 +8,24 @@ function AuthController( $scope ){
     $scope.registerForm = {};
 
     function init(){
-        if(window.getQueryVariable("action")==="verified") swal("You're all set!", "Your account has been validated", "success");
-        if(code = window.getQueryVariable('invite_code')){
-            let redeem_page = "invite-redeem.php?code="+code;
-            if(authService.isLoggedIn()) window.location = redeem_page;
-            swal("Login or Create Account", "To redeem your invite, please login. You will be redirected. If you don't have an account yet, please create one, then click the invite link in your email again", "info");
-            after_login = redeem_page;
+        let action = getQueryVariable("action");
+        switch (action){
+            case "verified":
+                swal("You're all set!", "Your account has been validated", "success"); break;
+            case "redeem":
+                let code = getQueryVariable("invite_code");
+                let after_login = `invite-redeem.php?code=${code}`;
+                if(authService.isLoggedIn()) window.location = redeem_page;
+                swal("Login or Create Account", "To redeem your invite, please login. You will be redirected. If you don't have an account yet, please create one, then click the invite link in your email again", "info");
+                break;
+            case "redeemDirector":
+                let codeDirector = getQueryVariable("invite_code");
+                after_login = `invite-redeem.php?code=${codeDirector}&role=d`;
+                if(authService.isLoggedIn()) window.location = after_login;
+                swal("Login or Create Account", "To redeem your invite, please login. You will be redirected. If you don't have an account yet, please create one, then click the invite link in your email again", "info");
+                break;
+            default:
+                alert("unknown action");
         }
     }
 
