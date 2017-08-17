@@ -33,11 +33,13 @@ module.exports = class MyCarolerProfile extends BaseModel {
             }
         )
     }
-    removeType(typeObject){
+    removeType(type){
         return this.ajax({
-            url: "users/caroler-types/"+typeObject.name,
+            url: "users/caroler-types/"+type,
             method: "DELETE"
-        }).then( ()=>{ this.types.splice(this.types.indexOf(typeObject), 1); } )
+        }).then(()=>{
+            this.types.splice(this.types.indexOf(type), 1);
+        })
     }
 
     uploadW9(file){

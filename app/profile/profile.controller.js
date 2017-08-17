@@ -76,10 +76,10 @@ function ProfileController($scope) {
         Promise.all(updates).then(() => swal("Saved!", "Your info has been updated", "success"));
         /* upload files if set */
         console.log($scope.files);
-        if(!$scope.carolerProfile.w9 && $scope.files.w9){
+        if($scope.files.w9){
             $scope.carolerProfile.uploadW9($scope.files.w9);
         }
-        if(!$scope.carolerProfile.performance_agreement && $scope.files.performance_agreement){
+        if($scope.files.performance_agreement){
             $scope.carolerProfile.uploadPerformanceAgreement($scope.files.performance_agreement);
         }
     };
@@ -98,9 +98,13 @@ function ProfileController($scope) {
             )
     };
     $scope.handleRemovePart = function handleRemovePart(part){
+        console.log("part", part);
         $scope.carolerProfile.removeType(part)
             .then(
-                () => { swal("Success!", "We've removed your part", "success") },
+                () => {
+                    $scope.$apply();
+                    swal("Success!", "We've removed your part", "success")
+                },
                 somethingWentWrong
             )
     };
