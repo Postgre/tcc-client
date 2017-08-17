@@ -140,7 +140,7 @@ module.exports = class DataService {
             method: "POST",
             data: qs.stringify({
                 email: email,
-                callback: this.config.callback_save_quote
+                callback: this.config.callbacks.save_quote
             })
         })
     }
@@ -407,7 +407,7 @@ module.exports = class DataService {
                 url: `requests/caroler/${request_id}/approve`,
                 method: "GET",
                 params: {
-                    callback: this.config['callback_caroler_approved']
+                    callback: this.config.callbacks.caroler_approved
                 }
             }).then(resolve, reject);
         });
@@ -427,7 +427,7 @@ module.exports = class DataService {
                 method: "GET",
                 params: {
                     to: caroler_email,
-                    callback: this.config['callback_caroler_invite']
+                    callback: this.config.callbacks.caroler_invite
                 }
             }).then(
                 (res) => resolve(res),
@@ -447,7 +447,7 @@ module.exports = class DataService {
                 url: `markets/${market_id}/request-caroler`,
                 method: "GET",
                 params: {
-                    callback: this.config['callback_caroler_request']
+                    callback: this.config.callbacks.caroler_request
                 }
             }).then(resolve, reject);
         });

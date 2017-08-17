@@ -3,12 +3,12 @@ const axios = require('axios');
 /* Configuration */
 const site = require('../../config/site.json');
 const callbacks = require('../../config/callbacks.json');
-Object.assign(site, callbacks);
+Object.assign(site, {callbacks: callbacks});
 const nav = require('../../config/nav.json');
 const schema = require('../../config/schema.json');
 const modelClassMap = require('./modelClassMap');
 
-
+/* allow Caleb to point at his local server */
 if(localStorage.hostOverride){
     site.serverURL = localStorage.hostOverride;
     console.log("Using server URL: ", localStorage.hostOverride);

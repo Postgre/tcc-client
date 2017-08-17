@@ -84,7 +84,7 @@ module.exports = class AuthService {
                     name: name,
                     email: email,
                     password: password,
-                    callback: this.config['callback_login']
+                    callback: this.config.callbacks.login
                 })
             }).then(
                 (res) => {
