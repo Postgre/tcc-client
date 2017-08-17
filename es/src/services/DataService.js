@@ -452,6 +452,11 @@ module.exports = class DataService {
             }).then(resolve, reject);
         });
     }
+    requestInvite(market_id, your_email){
+        return new Promise((resolve, reject)=>{
+            setTimeout(resolve, 2000);
+        });
+    }
 
     /**
      * CONTACT

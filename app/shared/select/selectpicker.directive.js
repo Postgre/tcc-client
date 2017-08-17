@@ -23,10 +23,17 @@ function selectPicker(){
             $(el).selectpicker('val', scope.bind);
             $(el).on('changed.bs.select', function () {
                 scope.$apply(function(){
-                    console.log($(el).selectpicker('val'))
                     scope.bind = $(el).selectpicker('val');
                 });
             });
         }, 0);
     }
 }
+
+/*
+* DEPENDS:
+<!-- Bootstrap Select CSS -->
+<link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
+<!-- Bootstrap Select Plugin -->
+<script type="text/javascript" src="js/components/bs-select.js"></script>
+* */
