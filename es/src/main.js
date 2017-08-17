@@ -70,6 +70,7 @@ let modelFactory = new ModelFactory(axiosDriver, modelClassMap, schema, dataServ
 const QuoteRequest = require('./lib/quote/QuoteRequest');
 const CarolerConfigs = require('./lib/caroler_configs/CarolerConfigs');
 const SpecialDate = require('./lib/special_date/SpecialDate');
+const Intuit = require('./lib/intuit/Intuit');
 
 /* Escaping Webpack */
 window.authService = authService;
@@ -83,6 +84,7 @@ window.SpecialDate = SpecialDate;
 require('./functions');
 window.navService = new NavService(nav);
 window.appService = new ApplicationService();
+window.tccIntuit = new Intuit(site);
 new Bindings(authService, appService).apply();
 const jQuery = require('jQuery');
 jQuery(document).ready(function () {

@@ -1,37 +1,19 @@
 <thead>
     <tr>
-        <th></th>
+        <th>Sent</th>
         <th>From</th>
         <th>Email</th>
         <th>Actions</th>
     </tr>
 </thead>
 <tbody>
-    <tr>
-        <td>1</td>
-        <td>Mark Otto</td>
-        <td>markotto@gmail.com</td>
+    <tr ng-repeat="req in requests track by req.id">
+        <td><label ng-bind="req.created_at" class="label label-default"></label> </td>
+        <td ng-bind="req.user.name"></td>
+        <td ng-bind="req.user.email"></td>
         <td>
-            <button class="btn btn-success btn-sm" title="Approve"><i class="icon-thumbs-up2"></i> </button>
-            <button class="btn btn-danger btn-sm"  title="Reject" ><i class="icon-thumbs-down2"></i> </button>
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Jacob Thornton</td>
-        <td>jacobthornton@gmail.com</td>
-        <td>
-            <button class="btn btn-success btn-sm" title="Approve"><i class="icon-thumbs-up2"></i> </button>
-            <button class="btn btn-danger btn-sm"  title="Reject" ><i class="icon-thumbs-down2"></i> </button>
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Larry Bird</td>
-        <td>larrybird@gmail.com</td>
-        <td>
-            <button class="btn btn-success btn-sm" title="Approve"><i class="icon-thumbs-up2"></i> </button>
-            <button class="btn btn-danger btn-sm"  title="Reject" ><i class="icon-thumbs-down2"></i> </button>
+            <button ng-click="handleApprove(req)" class="btn btn-success btn-sm" title="Approve"><i class="icon-thumbs-up2"></i> </button>
+            <button ng-click="handleReject(req)" class="btn btn-danger btn-sm"  title="Reject" ><i class="icon-thumbs-down2"></i> </button>
         </td>
     </tr>
 </tbody>

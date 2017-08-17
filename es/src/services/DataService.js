@@ -453,9 +453,16 @@ module.exports = class DataService {
         });
     }
     requestInvite(market_id, your_email){
-        return new Promise((resolve, reject)=>{
-            setTimeout(resolve, 2000);
-        });
+        return this.connection({
+            url: `markets/${market_id}/request-caroler-invite`,
+            method: "POST",
+            data: qs.stringify({
+                email: your_email
+            }),
+            params: {
+                callback: this.config.callbacks.invite_request+"?email="+your_email
+            }
+        })
     }
 
     /**
