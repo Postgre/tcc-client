@@ -73,15 +73,18 @@
                         </ul>
                         <div class="entry-content">
                             <p>
-                                <b>Caroler Registration Status: </b>
+                                <b>Balance Due:</b>
                                 <!-- TODO -->
-                                <!--<label class="label label-success" title="Filled!">soprano</label>-->
-                                <!--<label class="label label-danger" title="Searching for an Alto..">alto</label>-->
-                                <!--<label class="label label-success" title="Filled!">tenor</label>-->
-                                <!--<label class="label label-success" title="Filled!">bass</label>-->
+                                <label class="label label-success" title="Booked!">$0</label>
+                                <label class="label label-danger" title="Overdue">$400</label>
+                                <label class="label label-primary" title="Filled!">$400</label>
                             </p>
-                            <!--<a href="#" class="btn btn-primary"> Pay Now </a>-->
-                            <a href="#" class="btn btn-danger"> Cancel Event </a>
+                            <p>
+                                <em>Please pay or make deposit by <label class="label label-default">8/18/2017</label></em>
+                            </p>
+                            <a ng-href="payments.php?event={{event.id}}&mode=full" class="btn btn-primary"> Pay Now </a>
+                            <a ng-href="payments.php?event={{event.id}}&mode=half" class="btn btn-primary"> Make Deposit </a>
+                            <a ng-click="handleCancel(event)" class="btn btn-danger"> Cancel Event </a>
                         </div>
                     </div>
                 </div>

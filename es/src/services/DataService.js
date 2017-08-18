@@ -309,7 +309,7 @@ module.exports = class DataService {
                 method: "POST",
                 data: qs.stringify(event)
             }).then((res)=>{
-                resolve(res)
+                resolve(res.data)
             }).catch((err)=>{
                 reject(err);
             })
@@ -501,6 +501,20 @@ module.exports = class DataService {
             url: "invites/director/"+invite_id,
             method: "DELETE"
         })
+    }
+    redeemDirectorInvite(code){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "invites/director/redeem/"+code,
+                method: "GET"
+            }).then(
+                (res) => resolve(res),
+                (err) => {
+                    if(err.response) reject(err.response.data.status);
+                    reject(err);
+                }
+            )
+        });
     }
 
 

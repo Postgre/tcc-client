@@ -40,6 +40,7 @@ function BookingController($scope) {
         initTabs();
         initDatepicker();
         $scope.booking = window.modelFactory.create("Booking");
+        Object.assign($scope.booking, DEFAULT);
         let market = modelFactory.get("Market", market_id);
         market.subscribe("ready", function () {
             $scope.booking.market_id = market.id;
@@ -128,9 +129,11 @@ function BookingController($scope) {
     };
     $scope.stepToConfirm = function () {
         $scope.booking.submit()
-            .then(() => {
+            .then((data) => {
+                $scope.booking.id = data;
                 process_tabs.tabs("enable", 3);
                 $scope.stepTo(3);
+                $scope.$apply();
             }).catch(somethingWentWrong);
     };
     $scope.stepTo = function (tab_number) {
@@ -196,3 +199,12 @@ function googleMap(address) {
         }
     });
 }
+
+const DEFAULT = {
+    name: "Test Event",
+    start_time: "8/19/2017 8:00PM",
+    end_time: "8/19/2017 10:00PM",
+    state: "NJ",
+    city: "Atlantic City",
+    address: "Martin Luther King Dr."
+};

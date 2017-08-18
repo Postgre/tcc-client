@@ -91,57 +91,69 @@
                                     </div>
                                     <div ng-if="carolerProfile" class="tab-content clearfix" id="tab-caroler-profile">
                                         <!-- Caroler-specific Fields -->
-                                        <div class="col-md-6">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h2 class="panel-title">My Parts</h2>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h2 class="panel-title">My Parts</h2>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <table class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Part</th>
+                                                                <th>Delete</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr ng-repeat="part in carolerProfile.types">
+                                                                <td><label class="label label-default" ng-bind="part"></label> </td>
+                                                                <td ng-click="handleRemovePart(part)"><button class="btn btn-danger pull-right"><i class="icon-trash"></i> </button></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <br/>
+                                                        <tcc-select-picker bind="selectedPart" options="caroler_options"></tcc-select-picker>
+                                                        <br/>
+                                                        <br/>
+                                                        <button ng-click="handleAddPart(selectedPart)" class="btn btn-success pull-right">Add Part</button>
+                                                    </div>
                                                 </div>
-                                                <div class="panel-body">
-                                                    <table class="table">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>Part</th>
-                                                            <th>Delete</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr ng-repeat="part in carolerProfile.types">
-                                                            <td><label class="label label-default" ng-bind="part"></label> </td>
-                                                            <td ng-click="handleRemovePart(part)"><button class="btn btn-danger pull-right"><i class="icon-trash"></i> </button></td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <br/>
-                                                    <tcc-select-picker bind="selectedPart" options="caroler_options"></tcc-select-picker>
-                                                    <br/>
-                                                    <br/>
-                                                    <button ng-click="handleAddPart(selectedPart)" class="btn btn-success pull-right">Add Part</button>
+                                            </div>
+                                            <div class="col-md-6 bottommargin">
+                                                <div ng-hide="carolerProfile.w9">
+                                                    <label>Upload a W9</label><br>
+                                                    <input file-model='files.w9' type="file" class="file">
+                                                    <a href="https://www.irs.gov/pub/irs-pdf/fw9.pdf">download here</a>
+                                                </div>
+                                                <div ng-show="carolerProfile.w9" class="style-msg successmsg">
+                                                    <div class="sb-msg"><i class="icon-thumbs-up"></i><strong>All Good!</strong> We have your W9 on file.
+                                                        <br/><br/>
+                                                        <a href ng-click="carolerProfile.w9=false"><b>resubmit</b></a>
+                                                    </div>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                </div>
+                                                <hr/>
+                                                <div ng-hide="carolerProfile.performance_agreement">
+                                                    <label>Signed Performance Agreement</label><br>
+                                                    <input file-model='files.performance_agreement' type="file" class="file">
+                                                    <p>Sign and Upload</p>
+                                                </div>
+                                                <div ng-show="carolerProfile.performance_agreement" class="style-msg successmsg">
+                                                    <div class="sb-msg"><i class="icon-thumbs-up"></i><strong>All Good!</strong>  We have your performance agreement on file.
+                                                        <br/><br/>
+                                                        <a href ng-click="carolerProfile.performance_agreement=false"><b>resubmit</b></a>
+                                                    </div>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 bottommargin">
-                                            <div ng-hide="carolerProfile.w9">
-                                                <label>Upload a W9</label><br>
-                                                <input file-model='files.w9' type="file" class="file">
-                                            </div>
-                                            <div ng-show="carolerProfile.w9" class="style-msg successmsg">
-                                                <div class="sb-msg"><i class="icon-thumbs-up"></i><strong>All Good!</strong> We have your W9 on file.
-                                                    <br/><br/>
-                                                    <a href ng-click="carolerProfile.w9=false"><b>resubmit</b></a>
+                                        <div class="row">
+                                            <div class="col_md-12">
+                                                <div class="input-group">
+                                                    <label>Square Cash ID</label>
+                                                    <input ng-model="carolerProfile.square_cash" class="form-control" type="text" placeholder="$ExampleID">
                                                 </div>
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                            </div>
-                                            <hr/>
-                                            <div ng-hide="carolerProfile.performance_agreement">
-                                                <label>Signed Performance Agreement</label><br>
-                                                <input file-model='files.performance_agreement' type="file" class="file">
-                                            </div>
-                                            <div ng-show="carolerProfile.performance_agreement" class="style-msg successmsg">
-                                                <div class="sb-msg"><i class="icon-thumbs-up"></i><strong>All Good!</strong>  We have your performance agreement on file.
-                                                    <br/><br/>
-                                                    <a href ng-click="carolerProfile.performance_agreement=false"><b>resubmit</b></a>
-                                                </div>
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                             </div>
                                         </div>
                                     </div>

@@ -67,10 +67,11 @@ let axiosDriver = new AxiosDriver(connection);
 let modelFactory = new ModelFactory(axiosDriver, modelClassMap, schema, dataService);
 
 /* Libraries */
+const tcc = {};
 const QuoteRequest = require('./lib/quote/QuoteRequest');
 const CarolerConfigs = require('./lib/caroler_configs/CarolerConfigs');
 const SpecialDate = require('./lib/special_date/SpecialDate');
-const Intuit = require('./lib/intuit/Intuit');
+tcc.Braintree = require("./lib/braintree/Braintree");
 
 /* Escaping Webpack */
 window.authService = authService;
@@ -79,12 +80,12 @@ window.modelFactory = modelFactory;
 window.QuoteRequest = QuoteRequest;
 window.CarolerConfigs = CarolerConfigs;
 window.SpecialDate = SpecialDate;
+window.tcc = tcc;
 
 /* Document Functions */
 require('./functions');
 window.navService = new NavService(nav);
 window.appService = new ApplicationService();
-window.tccIntuit = new Intuit(site);
 new Bindings(authService, appService).apply();
 const jQuery = require('jQuery');
 jQuery(document).ready(function () {

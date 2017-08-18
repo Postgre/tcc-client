@@ -24,6 +24,14 @@ module.exports = class Booking extends BaseModel {
         return _promos;
     }
 
+    loadPrettyDates(moment){
+        Object.assign(this, {
+            date: moment(this.start_time).format("MM-DD-YYYY"),
+            start: moment(this.start_time).format("HH:MM"),
+            end: moment(this.end_time).format("HH:MM")
+        });
+    }
+
     /**
      * Previews
      * ==================

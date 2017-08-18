@@ -377,7 +377,8 @@
                             prior to the booking.
                         </div>
                         <h3>What Now?</h3>
-                        <button type="button" class="btn btn-outline btn-info"> Pay Now</button>
+                        <button type="button" class="btn btn-outline btn-info"><a ng-href="payments.php?event={{booking.id}}&mode=full">Pay Now</a></button>
+                        <button type="button" class="btn btn-outline btn-info" ><a ng-href="payments.php?event={{booking.id}}&mode=half">Make Deposit</a></button>
                         <a href="events-personal.php" type="button" class="btn btn-outline btn-info"> Go to My
                             Events </a>
                     </div>

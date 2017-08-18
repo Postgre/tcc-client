@@ -5,13 +5,18 @@ function InviteRedeemController( $scope ){
 
     $scope.code = "";
     $scope.role = "caroler";
+    let doInvite;
 
     function init(){
+        doInvite = dataService.redeemCarolerInvite;
         if(rac = getQueryVariable('code')){
             $scope.code = rac;
         }
         if(role = getQueryVariable("role")){
-            if(role === "d") $scope.role = "director";
+            if(role === "d"){
+                $scope.role = "director";
+                doInvite = dataService.redeemDirectorInvite;
+            }
         }
     }
 
@@ -20,7 +25,7 @@ function InviteRedeemController( $scope ){
             swal("Invalid Format", "Please review your code", "error");
             return;
         }
-        dataService.redeemCarolerInvite(code)
+        doInvite(code)
             .then(
                 onWin,
                 reason => {
