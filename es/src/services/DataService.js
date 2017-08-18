@@ -517,7 +517,6 @@ module.exports = class DataService {
         });
     }
 
-
     /**
      * CONTACT
      * =========================
@@ -665,5 +664,28 @@ module.exports = class DataService {
                 reject
             )
         });
+    }
+    
+    /* login-register */
+    recoverPassword(email){
+        return this.connection({
+            url: "auth/recovery",
+            method: "POST",
+            data: qs.stringify({
+                email: email,
+                callback: this.config.callbacks.recover+"?email="+email
+            })
+        });
+    }
+    resetPassword(email, newPassword, token){
+        return this.connection({
+            url: "auth/reset",
+            method: "POST",
+            data: qs.stringify({
+                email: email,
+                password: newPassword,
+                token: token
+            })
+        })
     }
 };

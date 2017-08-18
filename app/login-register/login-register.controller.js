@@ -62,6 +62,17 @@ function AuthController( $scope ){
                 }
             );
     };
+    $scope.handleRecover = function handleRecover(resetForm){
+        dataService.recoverPassword(resetForm.email)
+            .then(
+                (win) => {
+                    swal("Done!", "We've sent a recovery link to your inbox", "success")
+                },
+                (fail) => {
+                    swal("Hmm..", "We don't have that email in our database", "error");
+                }
+            );
+    };
 
     init();
 }

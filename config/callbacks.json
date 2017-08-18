@@ -6,5 +6,6 @@
   "director_invite": "http://dev.thechristmascarolers.com/login-register.php?action=redeemDirector",
   "caroler_request": "http://dev.thechristmascarolers.com/market-carolers.php",
   "caroler_approved": "http://dev.thechristmascarolers.com/login-register.php?action=approved",
-  "invite_request": "http://dev.thechristmascarolers.com/market-carolers.php?action=invite"
+  "invite_request": "http://dev.thechristmascarolers.com/market-carolers.php?action=invite",
+  "recover": "http://dev.thechristmascarolers.com/reset-password.php"
 }
