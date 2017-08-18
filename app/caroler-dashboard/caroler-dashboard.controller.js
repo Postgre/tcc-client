@@ -73,13 +73,13 @@ function CarolerDashboardController($scope) {
      * ===============
      */
     function init() {
-        dataService.marketsICarolIn().then(
+        let p1 = dataService.marketsICarolIn().then(
             (_markets) => {
                 $scope.markets = _markets;
                 $scope.$apply();
             }
         );
-        dataService.getAvailableEvents()
+        let p2 = dataService.getAvailableEvents()
             .then(
                 (_events) => {
                     toTableRows(_events);
@@ -87,7 +87,7 @@ function CarolerDashboardController($scope) {
                     $scope.$apply()
                 }
             );
-        dataService.getBookedEvents()
+        let p3 = dataService.getBookedEvents()
             .then(
                 (_events) => {
                     toTableRows(_events);
@@ -95,7 +95,7 @@ function CarolerDashboardController($scope) {
                     $scope.$apply()
                 }
             );
-        dataService.getPastEvents()
+        let p4 = dataService.getPastEvents()
             .then(
                 (_events) => {
                     toTableRows(_events);

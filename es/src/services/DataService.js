@@ -684,6 +684,7 @@ module.exports = class DataService {
             data: qs.stringify({
                 email: email,
                 password: newPassword,
+                password_confirmation: newPassword,
                 token: token
             })
         })

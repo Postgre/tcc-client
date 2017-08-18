@@ -20,15 +20,12 @@
         <div class="container clearfix">
             <div class="row">
                 <div class="fancy-title title-double-border">
-                    <h3>Showing Events from <span ng-bind="markets.length"></span> Markets</h3>
+                    <h3>Showing <span ng-bind="available.length"></span> Events from <span ng-bind="markets.length"></span> Markets</h3>
                 </div>
-                <div id="portfolio" class="portfolio portfolio-6 grid-container clearfix" style="position: relative; height: 888px;">
-
+                <div>
                     <article ng-repeat="market in markets" class="portfolio-item">
                         <div class="portfolio-image">
-                            <a>
-                                <img ng-src="{{market.image}}" alt="Open Imagination">
-                            </a>
+                            <img ng-src="{{market.image}}" alt="Open Imagination">
                         </div>
                         <div class="portfolio-desc">
                             <h3><a ng-href="market-page.php?market={{market.id}}" ng-bind="market.name"></a></h3>
