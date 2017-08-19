@@ -42,11 +42,10 @@
                                     </div>
 
                                     <div class="col_full">
-                                        <label for="template-contactform-location">City
+                                        <label>City
                                             <small>*</small>
                                         </label>
-                                        <input ng-model="form.city" type="text" id="template-contactform-location"
-                                               class="sm-form-control required" placeholder="King&apos;s Landing">
+                                        <input ng-model="form.city" class="sm-form-control">
                                     </div>
 
                                     <div class="clear"></div>
@@ -64,19 +63,19 @@
                         <h4>Search Radius</h4>
                         <div>
                             <label> <input ng-model="form.radius" ng-value="30" type="radio">
-                            0 - 30 miles</label>
+                                0 - 30 miles</label>
                         </div>
                         <div>
                             <label> <input ng-model="form.radius" ng-value="60" type="radio">
-                            31 - 60 miles</label>
+                                31 - 60 miles</label>
                         </div>
                         <div>
                             <label> <input ng-model="form.radius" ng-value="100" type="radio">
-                            61 - 100 miles</label>
+                                61 - 100 miles</label>
                         </div>
                         <div>
                             <label> <input ng-model="form.radius" ng-value="false" type="radio">
-                            Any Distance </label>
+                                Any Distance </label>
                         </div>
 
                     </div>
@@ -125,7 +124,7 @@
                                     </ul>
                                     <br>
                                     <div class="entry-content">
-                                        <p ng-bind="market.html" class="nobottommargin">
+                                        <p ng-bind-html="truncate(market.html, market.id)" class="nobottommargin">
                                             <!-- Market Description -->
                                         </p>
                                     </div>
