@@ -15,6 +15,7 @@ function HomeController($scope) {
         qr.submit().then((data) => {
                 $scope.quote = data.quote;
                 $scope.quote.market = data.market;
+                $scope.market = data.market;
                 $scope.$apply();
                 $("#quoteModal").modal("show");
                 quoteRequest = qr;
@@ -67,20 +68,6 @@ function HomeController($scope) {
                 }).catch(somethingWentWrong);
             });
     };
-    $scope.handleBookNow = () => {
-        window.navService.goto("book_event", {
-            market_id: $scope.quote.market.id,
-            quote: $scope.quote,
-            query: {
-                start_time: getStartTime(),
-                end_time: getEndTime(),
-                state: $scope.form.state,
-                city: $scope.form.city,
-                address: $scope.form.address,
-                caroler_config: $scope.form.caroler_config
-            }
-        });
-    };
 
     function init() {
         let today = new Date();
@@ -99,7 +86,7 @@ function HomeController($scope) {
 
         $(window).load(function () {
             window.dataService.getResourceAll("markets", {
-                published: true
+                published: 1
             }).then((markets) => {
                 let markers = [];
                 for (let i = 0; i < markets.length; i++) {

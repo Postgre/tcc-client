@@ -26,18 +26,12 @@ function MarketEditController($scope) {
 
     (function init() {
         let market_id = window.getQueryVariable('market');
-        // let market_id = navService.getNavParams().market_id;
-
-        // window.modelFactory.find("Market", market_id, true).then((market)=>{
-        //     $scope.market = market;
-        //     $scope.$apply();
-        // });
-
         let mkt = modelFactory.get("Market", market_id);
         mkt.loadSpecialDates();
         mkt.loadGallery();
         mkt.loadCarolerConfigs();
-        mkt.subscribe("async", function () {
+        mkt.subscribe(['ready', 'async'], function () {
+            $scope.ready = true;
             $scope.$apply();
         });
         $scope.market = mkt;

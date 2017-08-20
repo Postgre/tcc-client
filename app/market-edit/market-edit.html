@@ -49,7 +49,7 @@
                                 <input ng-model="market.address" type="text" class="sm-form-control">
                             </div>
 
-                            <div class="col_half">
+                            <div ng-if="ready" class="col_half">
                                 <label>State:</label>
                                 <tcc-state-select bind="market.state"></tcc-state-select>
                             </div>
