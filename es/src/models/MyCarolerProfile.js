@@ -22,7 +22,7 @@ module.exports = class MyCarolerProfile extends BaseModel {
             method: "POST"
         }).then(
             () => {
-                this.types.push({name:name});
+                this.types.push(name);
                 this.notify("async");
             },
             (err) => {
