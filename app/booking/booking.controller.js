@@ -65,9 +65,13 @@ function BookingController($scope) {
                 $scope.travelPreview = report;
                 $scope.$apply();
             }).catch((err) => {
-            let r = err.response.data.status;
-            alert(r);
-        });
+                let r = err.response.data.status;
+                if(r === "INVALID_DISTANCE"){
+                    notifyTooFar();
+                    return;
+                }
+                alert(r);
+            });
     };
 
     $scope.applyPromo = function () {
@@ -129,12 +133,21 @@ function BookingController($scope) {
     };
     $scope.stepToConfirm = function () {
         $scope.booking.submit()
-            .then((data) => {
-                $scope.booking.id = data;
-                process_tabs.tabs("enable", 3);
-                $scope.stepTo(3);
-                $scope.$apply();
-            }).catch(somethingWentWrong);
+            .then(
+                (data) => {
+                    $scope.booking.id = data;
+                    process_tabs.tabs("enable", 3);
+                    $scope.stepTo(3);
+                    $scope.$apply();
+                },
+                (err) => {
+                    let r = err.response.data.status;
+                    if(r === "INVALID_DISTANCE"){
+                        notifyTooFar(); return;
+                    }
+                    somethingWentWrong();
+                }
+            )
     };
     $scope.stepTo = function (tab_number) {
         process_tabs.tabs("option", "active", tab_number);
@@ -198,6 +211,10 @@ function googleMap(address) {
             overviewMapControl: false
         }
     });
+}
+
+function notifyTooFar(){
+    swal("Woah!", "That's too far out", "error");
 }
 
 const DEFAULT = {

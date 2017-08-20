@@ -37,7 +37,7 @@ function ResellersController( $scope ){
     };
 
     function init(){
-        window.modelFactory.all(RESOURCE, FILTERS).then((rows)=>{
+        window.modelFactory.all(RESOURCE, FILTERS, "promotion").then((rows)=>{
             $scope.rows = rows;
             $scope.$apply();
             setTimeout(initDataTable, 50);

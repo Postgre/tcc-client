@@ -48,7 +48,7 @@ function MarketSearchController($scope) {
     $scope.truncate = function truncate(marketBio, id){
         let charLimit = 255;
         if(marketBio.length <= charLimit) return marketBio;
-        return marketBio.substring(0, charLimit) + `<br/><a href='market-page.php?market=${id}'>see more</a>...`;
+        return marketBio.substring(0, charLimit) + `... &nbsp <a href='market-page.php?market=${id}'>see more</a>`;
     };
 
     init();

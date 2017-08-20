@@ -50,6 +50,12 @@ function MarketsManageController( $scope ) {
     };
     $scope.navService = window.navService;
 
+    $scope.truncate = function truncate(marketBio, id){
+        let charLimit = 255;
+        if(marketBio.length <= charLimit) return marketBio;
+        return marketBio.substring(0, charLimit) + `... &nbsp <a href='market-page.php?market=${id}'>see more</a>`;
+    };
+
     function parseNewMarketForm() {
         $scope.form['address'] = `${$scope.form.city}, ${$scope.form.state}`;
         return $scope.form;

@@ -88,6 +88,7 @@ function HomeController($scope) {
             window.dataService.getResourceAll("markets", {
                 published: 1
             }).then((markets) => {
+                console.log("markets", markets);
                 let markers = [];
                 for (let i = 0; i < markets.length; i++) {
                     let mkt = markets[i];
@@ -99,6 +100,7 @@ function HomeController($scope) {
                             iconanchor: [16, 36]
                         }
                     })
+                    console.log(mkt);
                 }
                 renderMap(markers);
             }).catch(window.somethingWentWrong);

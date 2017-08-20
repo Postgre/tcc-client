@@ -44,12 +44,15 @@ module.exports = class ModelFactory {
         if(data) Object.assign(instance, data);
         return instance;
     }
-    all(ModelClass, filters){
+    all(ModelClass, filters, relations){
+        let queryParams = {};
+        Object.assign(queryParams, filters);
+        Object.assign(queryParams, {"with": relations});
         return new Promise((resolve, reject)=>{
             this.ajaxDriver.execute({
                 url: this.getSchema(ModelClass).endpoint,
                 method: "GET",
-                params: filters
+                params: queryParams
             }).then((res)=>{
                 let _models = res.data;
                 let models = [];
