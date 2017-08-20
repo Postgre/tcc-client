@@ -31,10 +31,11 @@
                                             class="icon-pencil2"></i> Caroler Profile</a></li>
                                     <li ng-if="directorProfile"><a href="#tab-director-profile"><i
                                             class="icon-pencil2"></i> Director Profile</a></li>
+                                    <li ng-if="carolerProfile"><a href="#tab-square-cash"><i
+                                            class="icon-pencil2"></i> Square Cash</a></li>
                                 </ul>
 
                                 <div class="tab-container">
-
                                     <div class="tab-content clearfix" id="tab-profile">
                                         <div>
                                             <form class="nobottommargin">
@@ -148,19 +149,34 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col_md-12">
-                                                <div class="input-group">
-                                                    <label>Square Cash ID</label>
-                                                    <input ng-model="carolerProfile.square_cash" class="form-control" type="text" placeholder="$ExampleID">
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div ng-if="directorProfile" class="tab-content clearfix" id="tab-director-profile">
                                         <!-- Director-specific Fields -->
                                     </div>
-
+                                    <div ng-if="carolerProfile" class="tab-content clearfix" id="tab-square-cash">
+                                        <!-- Caroler-specific Fields -->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>The Christmas Carolers LLC pays Directors, Lead Carolers and Carolers on Friday after an event.
+                                                    The cut-off period is the day before. For exmaple, if you perform and event on Thursday night from 6pm to 8pm,
+                                                    your will be paid the following day. If you perform an event on Friday from 8am to 10am,
+                                                    you will be paid the following Friday. We use a payment system made by <a href="//squarecash.com">Square Cash</a>.
+                                                    Please visit <a href="https://cash.me/">https://cash.me/</a> to setup your account.
+                                                    Once you've set up your account, please enter your Square Cash ID below</p>
+                                                <p><em><b>Please Note: </b>your can set up your Square account to receive your money immediately but you will pay
+                                                    a small percentage for this convenience. Or, you can set up your account to wait 2-3 days for the money to process.
+                                                    There is no charge for this process</em></p>
+                                            </div>
+                                            <div class="col-md-6 col-md-offset-3 bottommargin">
+                                                <div class="col_full">
+                                                    <label>Square Cash ID:</label>
+                                                    <input ng-model="carolerProfile.square_cash"
+                                                           class="sm-form-control"
+                                                           placeholder="example: $JohnDoe">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
