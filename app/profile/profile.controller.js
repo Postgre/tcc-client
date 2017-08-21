@@ -111,5 +111,13 @@ function ProfileController($scope) {
             )
     };
 
+    $scope.completion = function completion(){
+        let res = 0;
+        // if($scope.carolerProfile) res += $scope.carolerProfile.calculateCompletion();
+        if($scope.userProfile) res += $scope.userProfile.calculateCompletion();
+        console.log(res);
+        return res;
+    };
+
     init();
 }

@@ -109,4 +109,9 @@ module.exports = class BaseModel {
         if(typeof this.observers[event] === 'undefined') this.observers[event] = [];
         this.observers[event].forEach( callback => callback(params) );
     }
+
+    /* Visitor */
+    visit(visitor){
+        visitor.accept(this);
+    }
 };

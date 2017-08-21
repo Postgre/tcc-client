@@ -1,6 +1,6 @@
-const BaseModel = require('./core/BaseModel');
+const Profile = require('./user/Profile');
 
-module.exports = class MyCarolerProfile extends BaseModel {
+module.exports = class MyCarolerProfile extends Profile {
     url(){ return this.endpoint; }
 
     loadCarolerTypes(){

@@ -1,5 +1,5 @@
-const BaseModel = require('./core/BaseModel');
+const Profile = require('./user/Profile');
 
-module.exports = class MyUserProfile extends BaseModel {
+module.exports = class MyUserProfile extends Profile {
     url(){ return this.endpoint; }
 };
