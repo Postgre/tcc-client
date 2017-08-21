@@ -4,14 +4,11 @@ const axios = require('axios');
  * CONFIGURATION
  * ========================
  */
-let site;
+let site = require('../../config/site-local.json');
 // detect environment
-switch (window.location.host){
-    case "localhost:8080": site = require('../../config/site-local.json'); break;
-    case "markets.thechristmascarolers.com": site = require('../../config/site-master.json'); break;
-    case "dev.thechristmascarolers.com": site = require('../../config/site-dev.json'); break;
-    default: site = require('../../config/site-dev.json')
-}
+let host = window.location.host;
+if(host.startsWith("markets")) site = require('../../config/site-master.json');
+if(host.startsWith("dev")) site = require('../../config/site-dev.json');
 console.info("Using Server: ", site.serverURL);
 const callbacks = require('../../config/callbacks.json');
 Object.assign(site, {callbacks: callbacks});
