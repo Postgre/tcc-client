@@ -5,10 +5,12 @@ const axios = require('axios');
  * ========================
  */
 let site = require('../../config/site-local.json');
+let site_master = require('../../config/site-master.json');
+let site_dev = require('../../config/site-dev.json');
 // detect environment
 let host = window.location.host;
-if(host.startsWith("markets")) site = require('../../config/site-master.json');
-if(host.startsWith("dev")) site = require('../../config/site-dev.json');
+if(host.startsWith("markets")) site = site_master;
+if(host.startsWith("dev")) site = site_dev;
 console.info("Using Server: ", site.serverURL);
 const callbacks = require('../../config/callbacks.json');
 Object.assign(site, {callbacks: callbacks});
