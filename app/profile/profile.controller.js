@@ -38,6 +38,10 @@ function ProfileController($scope) {
     };
 
     function init() {
+        switch(getQueryVariable("action")){
+            case null: void(0); break;
+            case "approved": swal("Welcome to the Team!", "This is where you can choose your caroler parts, upload your tax documents, and build your profile!", "success"); break;
+        }
         /* jquery plugin */
         $("#tabs-profile").on("tabsactivate", function (event, ui) {
             $('.flexslider .slide').resize();

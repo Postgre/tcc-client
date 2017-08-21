@@ -9,7 +9,13 @@ function CarolerRegisterController( $scope ){
     $scope.markets = [];
 
     function init(){
-        modelFactory.all("Market", {published: true}).then(
+        $scope.loggedin = authService.isLoggedIn();
+        if(action = getQueryVariable("action")){
+            switch (action){
+                case "invited": swal("You've been Invited!", "Welcome to The Christmas Carolers", ""); break;
+            }
+        }
+        modelFactory.all("Market", {published: 1}).then(
             (markets)=>{
                 $scope.imagemap = {};
                 markets.forEach((market)=>{
@@ -30,7 +36,7 @@ function CarolerRegisterController( $scope ){
                 if(market.id === $scope.form.market.id){
                     $scope.selectedMarket = market;
                 }
-            })
+            });
         });
     }
 
@@ -38,8 +44,8 @@ function CarolerRegisterController( $scope ){
         if(!validateRegisterForm(registerForm, $scope.form.market)) return;
         authService.register(registerForm.name, registerForm.email, registerForm.password)
             .then(
-                win => {
-                    dataService.requestInvite($scope.form.market, registerForm.email).then(
+                () => {
+                    dataService.sendCarolerRequest($scope.form.market, registerForm.email).then(
                         () => notifyRegistered(),
                         somethingWentWrong
                     )
@@ -53,37 +59,54 @@ function CarolerRegisterController( $scope ){
             );
     };
 
+    $scope.handleApply = function(){
+        if(!$scope.form.market){
+            alert("please select a market"); return;
+        }
+        dataService.sendCarolerRequest($scope.form.market, authService.user.email).then(
+            () => notifyApplied(),
+            somethingWentWrong
+        )
+    };
     init();
-}
 
-function notifyNeedValidate(){
-    swal("Not so Fast!", "You need to validate your email first.", "warning");
-}
-function notifyInvalid(){
-    swal("Invalid Login", "Try Again.", "error");
-}
-function notifyRegistered(){
-    swal("Success!", "You have been registered. Please check your email to validate your account. Welcome to The Christmas Carolers!", "success");
-}
-function notifyAlreadyRegistered(){
-    swal("Wait a Minute!", "There's already an account with that email", "warning");
-}
+    let EMAIL_REG = /(.+)@(.+){2,}\.(.+){2,}/;
+    function validateRegisterForm(registerForm, market) {
+        let passCheck = (registerForm.password === registerForm.passwordConfirm);
+        let emailCheck = (EMAIL_REG.test(registerForm.email));
 
-function validateRegisterForm(registerForm, market) {
-    let passCheck = (registerForm.password === registerForm.passwordConfirm);
-    let emailCheck = (EMAIL_REG.test(registerForm.email));
-
-    if(!passCheck){
-        alert("Passwords do not match");
-        return false;
+        if(!passCheck){
+            alert("Passwords do not match");
+            return false;
+        }
+        if(!emailCheck){
+            alert("Invalid email");
+            return false;
+        }
+        if(!market){
+            alert("Please select a market");
+            return false;
+        }
+        return true;
     }
-    if(!emailCheck){
-        alert("Invalid email");
-        return false;
+    function notifyNeedValidate(){
+        swal("Not so Fast!", "You need to validate your email first.", "warning");
     }
-    if(!market){
-        alert("Please select a market");
-        return false;
+    function notifyInvalid(){
+        swal("Invalid Login", "Try Again.", "error");
     }
-    return true;
+    function notifyRegistered(){
+        swal("Success!", "You have been registered. Please check your email to validate your account. Welcome to The Christmas Carolers!", "success");
+    }
+    function notifyApplied(){
+        swal("Request Sent!", "We'll notify you as soon as the market responds", "success")
+    }
+    function notifyAlreadyRegistered(){
+        swal({
+            title: "Wait a Minute!",
+            text: "There's already an account with that email. Do you need to <a href='login-register.php'>Login</a>?",
+            type: "warning",
+            html: true
+        });
+    }
 }

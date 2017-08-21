@@ -7,14 +7,12 @@
             <li class="active">Caroler Application</li>
         </ol>
     </div>
-
 </section>
 <section id="content">
 
     <div class="content-wrap">
 
         <div class="container clearfix">
-
             <div class="col_one_third nobottommargin">
 
                 <div class="well well-lg nobottommargin">
@@ -32,7 +30,7 @@
                 <p>Want to become a caroler for The Christmas Carolers? The pay is great and the experience
                     is even better. Apply to become a caroler in one of our core markets. Upon submission of this form, a city director
                     will get back to you with more information.</p>
-                <form class="nobottommargin">
+                <form ng-hide="loggedin" class="nobottommargin">
 
                     <div class="col_half">
                         <label>Name:</label>
@@ -64,7 +62,11 @@
                     </div>
 
                 </form>
-
+                <form ng-show="loggedin" class="nobottommargin">
+                    <div class="col_full nobottommargin">
+                        <button ng-click="handleApply()" class="button button-3d button-black nomargin" >Request Access</button>
+                    </div>
+                </form>
             </div>
 
         </div>

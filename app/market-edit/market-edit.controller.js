@@ -30,8 +30,8 @@ function MarketEditController($scope) {
         mkt.loadSpecialDates();
         mkt.loadGallery();
         mkt.loadCarolerConfigs();
-        mkt.subscribe(['ready', 'async'], function () {
-            $scope.ready = true;
+        mkt.$promise.then(()=>{ $scope.ready = true; $scope.$apply(); });
+        mkt.subscribe(['async'], function () {
             $scope.$apply();
         });
         $scope.market = mkt;

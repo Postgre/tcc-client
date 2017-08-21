@@ -48,10 +48,23 @@ function MarketPageController( $scope ) {
     $scope.handleBecomeCaroler = function handleBecomeCaroler(){
         if(!authService.isLoggedIn()){
             swal({
-                title: "Become a Caroler",
-                text: "Before requesting market access, you need to <a href='login-register.php'>create an account</a>",
-                html: true
-            });
+                    title: "Enter Your Email",
+                    text: "We'll notify you when the director responds",
+                    type: "input",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    animation: "slide-from-top",
+                    inputPlaceholder: "Your Email"
+                },
+                function(inputValue){
+                    if (inputValue === false) return false;
+
+                    if (inputValue === "") {
+                        swal.showInputError("You need to write something!");
+                        return false
+                    }
+                    sendRequest(inputValue);
+                });
             return;
         }
         swal({
@@ -64,12 +77,14 @@ function MarketPageController( $scope ) {
             closeOnConfirm: false
         },
         function(){
-            sendCarolerRequest();
+            sendRequest(authService.user.email);
         });
     };
 
-    function sendCarolerRequest(){
-        dataService.sendCarolerRequest($scope.market.id)
+    function sendRequest(email){
+        console.log(email);
+        console.log($scope.market.id);
+        dataService.sendCarolerRequest($scope.market.id, email)
             .then(
                 win => notifyRequestSent(),
                 status => {

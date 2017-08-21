@@ -5,8 +5,8 @@
         <span>Send Invites, Approve Requests, View Pending Invites</span>
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li><a href="markets-manage.php">Markets</a></li>
-            <li><a href="market-page.php" ng-bind="market.name"></a></li>
+            <li><a href="/markets-manage.php">Markets</a></li>
+            <li><a href="/market-page.php" ng-bind="market.name"></a></li>
             <li class="active">Carolers</li>
         </ol>
     </div>
@@ -21,7 +21,7 @@
                 <span ng-bind="market.address">This is the Sub Title of the Heading Block</span>
             </div>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
                         <div class="panel-heading"><strong>NEW CAROLER REQUESTS</strong></div>
@@ -31,12 +31,12 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading"><strong>PENDING INVITATIONS</strong></div>
+                        <div class="panel-heading"><strong>ACTIVE CAROLERS</strong></div>
                         <!-- Table -->
-                        <table ng-include="TABLE_INVITES" class="table">
+                        <table ng-include="TABLE_ACTIVE" class="table">
                             <!-- loaded from partial -->
                         </table>
                     </div>

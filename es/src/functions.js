@@ -50,3 +50,17 @@ window.subscribeToMailingList = function(form){
     });
     return false;
 };
+window.api = function(url){
+    localStorage.hostOverride = url;
+    console.log("Changed Server URL to: ", localStorage.hostOverride);
+    console.log("Reload page for changes to take effect");
+};
+window.reset = function(){
+    if(typeof localStorage.hostOverride === 'undefined'){
+        console.log("Already using default host: ", site.serverURL);
+        return;
+    }
+    delete localStorage.hostOverride;
+    console.log("Server URL reset.");
+    console.log("Reload page for changes to take effect");
+};

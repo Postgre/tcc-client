@@ -51,7 +51,7 @@
                                 </a></li>
                             </ul>
                             <div class="entry-content">
-                                <p ng-bind-html="truncate(market.html)"></p>
+                                <p ng-if="market.html" ng-bind-html="truncate(market.html)"></p>
                             </div>
                             <a ng-href="market-edit.php?market={{market.id}}" class="btn btn-warning"><i
                                     class="icon-edit"></i> &nbsp; Edit</a>

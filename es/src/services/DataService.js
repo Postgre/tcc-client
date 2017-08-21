@@ -140,7 +140,7 @@ module.exports = class DataService {
             method: "POST",
             data: qs.stringify({
                 email: email,
-                callback: this.config.callbacks.save_quote
+                callback: this.callback("save_quote")
             })
         })
     }
@@ -192,6 +192,14 @@ module.exports = class DataService {
         return new Promise((resolve, reject)=>{
             this.connection({
                 url: "markets/"+id+"/carolers",
+                method: "GET"
+            }).then((res)=>resolve(res.data), reject);
+        });
+    }
+    getMarketDirectors(id){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "markets/"+id+"/directors",
                 method: "GET"
             }).then((res)=>resolve(res.data), reject);
         });
@@ -388,27 +396,13 @@ module.exports = class DataService {
             )
         });
     }
-    redeemCarolerInvite(code){
-        return new Promise((resolve, reject)=>{
-            this.connection({
-                url: "invites/caroler/redeem/"+code,
-                method: "GET"
-            }).then(
-                (res) => resolve(res),
-                (err) => {
-                    if(err.response) reject(err.response.data.status);
-                    reject(err);
-                }
-            )
-        });
-    }
     approveCarolerRequest(request_id){
         return new Promise((resolve, reject)=>{
             this.connection({
                 url: `requests/caroler/${request_id}/approve`,
                 method: "GET",
                 params: {
-                    callback: this.config.callbacks.caroler_approved
+                    callback: this.callback("caroler_approved")
                 }
             }).then(resolve, reject);
         });
@@ -428,7 +422,7 @@ module.exports = class DataService {
                 method: "GET",
                 params: {
                     to: caroler_email,
-                    callback: this.config.callbacks.caroler_invite
+                    callback: this.callback("caroler_invite")
                 }
             }).then(
                 (res) => resolve(res),
@@ -442,13 +436,14 @@ module.exports = class DataService {
             method: "DELETE"
         })
     }
-    sendCarolerRequest(market_id){
+    sendCarolerRequest(market_id, email){
         return new Promise((resolve, reject)=>{
             this.connection({
                 url: `markets/${market_id}/request-caroler`,
                 method: "GET",
                 params: {
-                    callback: this.config.callbacks.caroler_request
+                    email: email,
+                    callback: this.callback("caroler_request", "market="+market_id)
                 }
             }).then(resolve, reject);
         });
@@ -461,7 +456,7 @@ module.exports = class DataService {
                 email: your_email
             }),
             params: {
-                callback: this.config.callbacks.invite_request+"?email="+your_email
+                callback: this.callback("invite_request", "email="+your_email)
             }
         })
     }
@@ -489,7 +484,7 @@ module.exports = class DataService {
                 method: "GET",
                 params: {
                     to: director_email,
-                    callback: this.config.callbacks.director_invite
+                    callback: this.callback("director_invite")
                 }
             }).then(
                 (res) => resolve(res),
@@ -502,6 +497,20 @@ module.exports = class DataService {
             url: "invites/director/"+invite_id,
             method: "DELETE"
         })
+    }
+    redeemCarolerInvite(code){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "invites/caroler/redeem/"+code,
+                method: "GET"
+            }).then(
+                (res) => resolve(res),
+                (err) => {
+                    if(err.response) reject(err.response.data.status);
+                    reject(err);
+                }
+            )
+        });
     }
     redeemDirectorInvite(code){
         return new Promise((resolve, reject)=>{
@@ -674,7 +683,7 @@ module.exports = class DataService {
             method: "POST",
             data: qs.stringify({
                 email: email,
-                callback: this.config.callbacks.recover+"?email="+email
+                callback: this.callback("recover", "email="+email)
             })
         });
     }
@@ -689,5 +698,17 @@ module.exports = class DataService {
                 token: token
             })
         })
+    }
+
+    callback(name, params){
+        let base = window.location.origin;
+        let activity = this.config.callbacks[name];
+        let callback = base+"/"+activity;
+        if(params){
+            if(Array.isArray(params)) callback += "?" + params.join("&");
+            if(!Array.isArray(params)) callback += "?" + params;
+        }
+        console.log("callback", callback);
+        return callback;
     }
 };

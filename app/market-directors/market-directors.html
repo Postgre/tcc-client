@@ -20,7 +20,17 @@
                 <h2>Directors of <span ng-bind="market.name"></span></h2>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading"><strong>ACTIVE DIRECTORS</strong></div>
+                        <!-- Table -->
+                        <table ng-include="TABLE_ACTIVE" class="table">
+                            <!-- loaded from partial -->
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
                         <div class="panel-heading"><strong>PENDING INVITATIONS</strong></div>

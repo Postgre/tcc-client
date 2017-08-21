@@ -84,7 +84,7 @@ module.exports = class AuthService {
                     name: name,
                     email: email,
                     password: password,
-                    callback: this.config.callbacks.login
+                    callback: this.callback('login')
                 })
             }).then(
                 (res) => {
@@ -132,5 +132,14 @@ module.exports = class AuthService {
         this.events[event_name].forEach((cb)=>{
             cb(params);
         });
+    }
+
+    callback(name, params){
+        let base = window.location.origin;
+        let activity = this.config.callbacks[name];
+        let callback = base+"/"+activity;
+        if(params) callback += "?" + params.join("&");
+        console.log("callback", callback);
+        return callback;
     }
 };

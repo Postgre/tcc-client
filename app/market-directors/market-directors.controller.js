@@ -3,10 +3,12 @@ angular.module('market-directors')
 
 function MarketDirectorsController($scope){
     $scope.TABLE_INVITES = "app/market-directors/table-invites.html";
+    $scope.TABLE_ACTIVE = "app/market-directors/table-active.html";
     $scope.MODAL_INVITE = "app/market-directors/modal-invite.html";
 
     $scope.market = {};
     $scope.invites = [];
+    $scope.active = [];
     $scope.form = {};
 
     function init(){
@@ -22,6 +24,12 @@ function MarketDirectorsController($scope){
         dataService.getDirectorInvites(market_id).then(
             (invites) => {
                 $scope.invites = invites;
+                $scope.$apply();
+            }, somethingWentWrong
+        );
+        dataService.getMarketDirectors(market_id).then(
+            (active) => {
+                $scope.active = active;
                 $scope.$apply();
             }, somethingWentWrong
         )

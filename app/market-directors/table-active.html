@@ -1,0 +1,18 @@
+<thead>
+<tr>
+    <td></td>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="director in active">
+    <td></td>
+    <td ng-bind="director.name"></td>
+    <td ng-bind="director.email"></td>
+    <td>
+        <a ng-href="mailto:{{director.email}}" class="btn btn-primary btn-sm" title="Send Email"><i class="icon-email"></i></a>
+    </td>
+</tr>
+</tbody>

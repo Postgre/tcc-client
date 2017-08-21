@@ -1,34 +1,37 @@
 const axios = require('axios');
 
-/* Configuration */
-const site = require('../../config/site.json');
+/**
+ * CONFIGURATION
+ * ========================
+ */
+let site;
+// detect environment
+switch (window.location.host){
+    case "localhost:8080": site = require('../../config/site-local.json'); break;
+    case "markets.thechristmascarolers.com": site = require('../../config/site-master.json'); break;
+    case "dev.thechristmascarolers.com": site = require('../../config/site-dev.json'); break;
+    default: site = require('../../config/site-dev.json')
+}
+console.info("Using Server: ", site.serverURL);
 const callbacks = require('../../config/callbacks.json');
 Object.assign(site, {callbacks: callbacks});
 const nav = require('../../config/nav.json');
 const schema = require('../../config/schema.json');
 const modelClassMap = require('./modelClassMap');
 
-/* allow Caleb to point at his local server */
+/**
+ * CONFIGURATION OVERRIDES
+ * ===================================
+ */
 if(localStorage.hostOverride){
     site.serverURL = localStorage.hostOverride;
-    console.log("Using server URL: ", localStorage.hostOverride);
+    console.info("Using server URL: ", localStorage.hostOverride);
 }
-window.api = function(url){
-    localStorage.hostOverride = url;
-    console.log("Changed Server URL to: ", localStorage.hostOverride);
-    console.log("Reload page for changes to take effect");
-};
-window.reset = function(){
-    if(typeof localStorage.hostOverride === 'undefined'){
-        console.log("Already using default host: ", site.serverURL);
-        return;
-    }
-    delete localStorage.hostOverride;
-    console.log("Server URL reset.");
-    console.log("Reload page for changes to take effect");
-};
 
-/* Services */
+/**
+ * APPLICATION SERVICES
+ * ===================================
+ */
 const AuthService = require('./services/AuthService');
 const DataService = require('./services/DataService');
 const ApplicationService = require('./services/ApplicationService');
@@ -50,23 +53,29 @@ let observers = [
     }
 ];
 
+/* instantiating */
 let authService = new AuthService(site, window.localStorage, observers);
 let connection = axios.create({
     baseURL: site.serverURL,
     headers: {
-        // 'Content-type': 'multipart/form-data',
         'Authorization': 'Bearer ' + authService.jwt
     }
 });
 let dataService = new DataService(connection, site);
 
-/* ORM Models */
+/**
+ * BOOTSTRAPPING ACTIVE RECORD
+ * ====================================
+ */
 const AxiosDriver = require('./models/core/drivers/AxiosDriver');
 const ModelFactory = require('./models/core/ModelFactory');
 let axiosDriver = new AxiosDriver(connection);
 let modelFactory = new ModelFactory(axiosDriver, modelClassMap, schema, dataService);
 
-/* Libraries */
+/**
+ * LIBRARIES
+ * ======================
+ */
 const tcc = {};
 const QuoteRequest = require('./lib/quote/QuoteRequest');
 const CarolerConfigs = require('./lib/caroler_configs/CarolerConfigs');
@@ -81,11 +90,13 @@ window.QuoteRequest = QuoteRequest;
 window.CarolerConfigs = CarolerConfigs;
 window.SpecialDate = SpecialDate;
 window.tcc = tcc;
-
-/* Document Functions */
-require('./functions');
 window.navService = new NavService(nav);
 window.appService = new ApplicationService();
+
+/* Global Functions */
+require('./functions');
+
+/* Render */
 new Bindings(authService, appService).apply();
 const jQuery = require('jQuery');
 jQuery(document).ready(function () {

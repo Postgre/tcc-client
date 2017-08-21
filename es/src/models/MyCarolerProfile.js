@@ -43,7 +43,6 @@ module.exports = class MyCarolerProfile extends BaseModel {
     }
 
     uploadW9(file){
-        alert(file);
         let formData = new FormData();
         formData.set("w9", file);
         return this.ajax({

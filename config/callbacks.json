@@ -1,11 +1,11 @@
 {
 
-  "save_quote": "http://dev.thechristmascarolers.com/event-book.php",
-  "login": "http://dev.thechristmascarolers.com/login-register.php?action=verified",
-  "caroler_invite": "http://dev.thechristmascarolers.com/login-register.php?action=redeem",
-  "director_invite": "http://dev.thechristmascarolers.com/login-register.php?action=redeemDirector",
-  "caroler_request": "http://dev.thechristmascarolers.com/market-carolers.php",
-  "caroler_approved": "http://dev.thechristmascarolers.com/login-register.php?action=approved",
-  "invite_request": "http://dev.thechristmascarolers.com/market-carolers.php?action=invite",
-  "recover": "http://dev.thechristmascarolers.com/reset-password.php"
+  "save_quote": "event-book.php",
+  "login": "login-register.php?action=verified",
+  "director_invite": "login-register.php?action=redeemDirector",
+  "caroler_invite": "caroler-register.php?action=invited",
+  "caroler_request": "market-carolers.php",
+  "caroler_approved": "login-register.php?action=approved",
+  "invite_request": "market-carolers.php?action=invite",
+  "recover": "reset-password.php"
 }

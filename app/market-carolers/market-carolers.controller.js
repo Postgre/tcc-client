@@ -2,7 +2,7 @@ angular.module('market-carolers')
     .controller("MarketCarolersController", MarketCarolersController);
 
 function MarketCarolersController($scope){
-    $scope.TABLE_INVITES = "app/market-carolers/table-invites.html";
+    $scope.TABLE_ACTIVE = "app/market-carolers/table-active.html";
     $scope.TABLE_REQUESTS = "app/market-carolers/table-requests.html";
     $scope.MODAL_INVITE = "app/market-carolers/modal-invite.html";
 
@@ -11,7 +11,6 @@ function MarketCarolersController($scope){
         address: "1500 1st Avenue N, Birmingham, AL"
     };
     $scope.requests = [];
-    $scope.invites = [];
     $scope.form = {};
 
     function init(){
@@ -31,14 +30,6 @@ function MarketCarolersController($scope){
                 $scope.$apply();
             }, somethingWentWrong
         );
-        /* load caroler invites */
-        dataService.getCarolerInvites(market_id).then(
-            (invites) => {
-                console.info("loaded invites", invites);
-                $scope.invites = invites;
-                $scope.$apply();
-            }, somethingWentWrong
-        )
     }
 
     /**
