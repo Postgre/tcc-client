@@ -7,9 +7,15 @@ function InviteRedeemController( $scope ){
     $scope.role = "caroler";
 
     function init(){
-        if(rac = getQueryVariable('code')){
-            $scope.code = rac;
-        }
+        let mkt = getQueryVariable("market");
+        let code = getQueryVariable("code");
+        let role = getQueryVariable("role");
+
+        $scope.market = modelFactory.get("Market", mkt);
+        $scope.market.$promise.then(
+            (market) => { $scope.$apply(); },
+            somethingWentWrong
+        )
     }
 
     $scope.handleSubmit = function (code){
@@ -17,25 +23,7 @@ function InviteRedeemController( $scope ){
             swal("Invalid Format", "Please review your code", "error");
             return;
         }
-        if(getQueryVariable("role") === "d"){
-            dataService.redeemDirectorInvite(code)
-                .then(
-                    onWin,
-                    reason => {
-                        if(reason === "INVITE_ALREADY_REDEEMED") {
-                            onDupes();
-                            return;
-                        }
-                        if(reason === "BAD_CODE") {
-                            onFail();
-                            return;
-                        }
-                        somethingWentWrong()
-                    }
-                );
-            return;
-        }
-        dataService.redeemCarolerInvite(code)
+        dataService.redeemDirectorInvite(code)
             .then(
                 onWin,
                 reason => {

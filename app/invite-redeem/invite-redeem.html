@@ -24,8 +24,8 @@
             <div class="col_half nobottommargin">
                 <img src="https://birminghambusinessalliance.com/wp-content/uploads/2012/04/vulcan.jpg">
                 <div class="tcc-img-overlay">
-                    <b>Birmingham, AL</b>
-                    <span>The Birmingham Carolers</span>
+                    <b ng-bind="market.city+', '+market.state"></b>
+                    <span ng-bind="market.name"></span>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
 
                 <div class="heading-block nobottomborder">
                     <h4>Almost There!</h4>
-                    <span>Enter your <strong ng-bind="role"></strong> registration code here to join the <strong>Birmingham Market</strong></span>
+                    <span>Enter your registration code here to join the <strong ng-bind="market.name"></strong></span>
                 </div>
 
                 <div class="nobottommargin" onsubmit="return false">
@@ -45,9 +45,9 @@
                     </div>
                 </div>
 
-                <div class="col_full widget_links topmargin nobottommargin">
-                    <b>* Note: </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget leo ut nisi eleifend consectetur. Nam molestie, ligula nec maximus.
-                </div>
+                <!--<div class="col_full widget_links topmargin nobottommargin">-->
+                    <!--<b>* Note: </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget leo ut nisi eleifend consectetur. Nam molestie, ligula nec maximus.-->
+                <!--</div>-->
 
             </div>
 
