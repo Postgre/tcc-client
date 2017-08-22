@@ -16,9 +16,7 @@
 <section id="content">
 
     <div class="content-wrap">
-
         <div class="container clearfix">
-
             <div class="postcontent nobottommargin">
                 <div class="col_full">
                     <label> Search: </label>
@@ -63,12 +61,12 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a ng-click="destroy(market)" href=""><i class="icon-trash"></i>
+                                    <li class="tcc_if_admin"><a ng-click="destroy(market)" href=""><i class="icon-trash"></i>
                                         Delete Market</a></li>
                                     <li class="divider"></li>
                                     <li><a ng-href="market-carolers.php?market={{market.id}}"><i class="icon-email"></i>
                                         Carolers</a></li>
-                                    <li><a ng-href="market-directors.php?market={{market.id}}" class="tcc_if_admin"><i
+                                    <li class="tcc_if_admin"><a ng-href="market-directors.php?market={{market.id}}" class="tcc_if_admin"><i
                                             class="icon-share"></i>
                                         Directors</a></li>
                                     <li class="divider"></li>
@@ -79,21 +77,17 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
             <div class="sidebar nobottommargin col_last clearfix">
                 <div class="sidebar-widgets-wrap">
-                    <div class="widget clearfix">
+                    <div class="widget clearfix tcc_if_admin">
                         <button data-target="#newMarketModal" data-toggle="modal" class="btn btn-success btn-block">
                             <i class="icon-line-plus"></i> Create a New Market
                         </button>
                     </div>
                 </div>
             </div>
-
             <div class="modal fade" id="newMarketModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-md">
                     <div class="modal-body">
@@ -105,13 +99,9 @@
                                 <h4 class="modal-title" id="myModalLabel">Create New Market</h4>
                             </div>
                             <div class="modal-body">
-
                                 <div>
-
                                     <form name="newMarketForm" class="nobottommargin">
-
                                         <div class="form-process"></div>
-
                                         <div class="col_full">
                                             <label>Market Name: </label>
                                             <input ng-model="form.name" name="name" type="text" class="form-control">
@@ -141,7 +131,6 @@
                                                     class="button button-3d nomargin">Submit
                                             </button>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
@@ -150,7 +139,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </section><!-- #content end -->
