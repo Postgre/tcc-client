@@ -56,7 +56,7 @@ function onWin(){
         closeOnConfirm: false
     },
     function(){
-        this.authService.refresh().then(()=>{
+        authService.refresh().then(()=>{
             window.location = "index.php";
         });
     });
