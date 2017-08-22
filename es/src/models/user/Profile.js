@@ -11,8 +11,4 @@ module.exports = class Profile extends BaseModel {
         }
         return (filled / fillable) * 100;
     }
-
-
-
-
 };

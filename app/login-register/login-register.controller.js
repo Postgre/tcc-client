@@ -16,8 +16,11 @@ function AuthController( $scope ){
                 case "redeem":
                     let code = getQueryVariable("invite_code");
                     let market = getQueryVariable("market");
-                    after_login = `invite-redeem.php?code=${codeDirector}&role=director&market=${market}`;
-                    if(authService.isLoggedIn()) window.location = after_login;
+                    after_login = `invite-redeem.php?code=${code}&role=director&market=${market}`;
+                    if(authService.isLoggedIn()){
+                        window.location = after_login;
+                        return;
+                    }
                     swal("Login or Create Account", "To redeem your invite, please login. You will be redirected. If you don't have an account yet, please create one, then click the invite link in your email again", "info");
                     break;
                 case "approved":

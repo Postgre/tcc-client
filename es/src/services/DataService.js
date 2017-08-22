@@ -484,7 +484,7 @@ module.exports = class DataService {
                 method: "GET",
                 params: {
                     to: director_email,
-                    callback: this.callback("director_invite", "market="+market_id)
+                    callback: this.callback("director_invite", ["market="+market_id, "action=redeem"])
                 }
             }).then(
                 (res) => resolve(res),

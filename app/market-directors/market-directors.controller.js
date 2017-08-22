@@ -83,6 +83,7 @@ function MarketDirectorsController($scope){
             .then(
                 () => {
                     swal("Done!", "Invite has been sent", "success");
+                    init();
                     $("#modal").modal("hide");
                 },
                 (status) => {

@@ -60,7 +60,6 @@ module.exports = class AuthService {
             }).then((res) => {
                 this.jwt = res.data.token;
                 this.storage.setItem('jwt', res.data.token);
-
                 let decoded = jwtDecode(res.data.token);
                 this.user = decoded.user;
                 this.jwtExpire = decoded.exp;
@@ -89,6 +88,38 @@ module.exports = class AuthService {
             }).then(
                 (res) => {
                     resolve("registered!");
+                },
+                (error) => {
+                    if(error.response){
+                        reject(error.response.status);
+                    }
+                    reject(error);
+                }
+            );
+        })
+    }
+
+    refresh(){
+        if(!this.jwt) throw "Tried to refresh token, but you don't even have one!";
+        return new Promise((resolve, reject) => {
+            this.connection({
+                url: '/refresh',
+                method: "GET",
+                data: qs.stringify({
+                    token: this.jwt
+                }),
+                headers: {
+                    'Authorization': 'Bearer ' + this.jwt
+                }
+            }).then(
+                (res) => {
+                    this.jwt = res.data.token;
+                    this.storage.setItem('jwt', res.data.token);
+                    let decoded = jwtDecode(res.data.token);
+                    this.user = decoded.user;
+                    console.info("refreshed jwt", this.jwt, this.user);
+                    this.jwtExpire = decoded.exp;
+                    resolve(true);
                 },
                 (error) => {
                     if(error.response){
