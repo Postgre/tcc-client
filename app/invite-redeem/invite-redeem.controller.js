@@ -51,7 +51,7 @@ function onWin(){
         title: "Success!",
         text: "You have joined this market!",
         type: "success",
-        showCancelButton: true,
+        showCancelButton: false,
         confirmButtonText: "Let's get started",
         closeOnConfirm: false
     },
