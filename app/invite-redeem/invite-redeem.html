@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li><a href="#">Markets</a></li>
-            <li class="active">Join</li>
+            <li class="active">Join.</li>
         </ol>
     </div>
 
@@ -22,7 +22,7 @@
         <div class="container clearfix">
 
             <div class="col_half nobottommargin">
-                <img src="https://birminghambusinessalliance.com/wp-content/uploads/2012/04/vulcan.jpg">
+                <img ng-src="{{market.image}}">
                 <div class="tcc-img-overlay">
                     <b ng-bind="market.city+', '+market.state"></b>
                     <span ng-bind="market.name"></span>
