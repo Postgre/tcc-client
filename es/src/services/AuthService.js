@@ -100,6 +100,38 @@ module.exports = class AuthService {
         })
     }
 
+    refresh(){
+        return new Promise((resolve, reject) => {
+            this.connection({
+                url: '/auth/refresh',
+                method: "POST",
+                data: qs.stringify({
+                    token: this.jwt
+                })
+            }).then(
+                (res) => {
+                    if(this.refreshJwtFromResponse(res)) resolve(true);
+                    reject(false);
+                },
+                (error) => {
+                    if(error.response){
+                        reject(error.response.status);
+                    }
+                    reject(error);
+                }
+            );
+        })
+    }
+
+    refreshJwtFromResponse(response){
+        if(!response.headers["Authorization"]) return false;
+        // -------------------
+        let header = response.headers['Authorization']; // Authorization: Bearer <jwt>
+        let newJwt = header.split(" ")[1];
+        this.storage.setItem('jwt', newJwt);
+        return true;
+    }
+
     logout() {
         /* Clearing login data */
         this.storage.removeItem('jwt');

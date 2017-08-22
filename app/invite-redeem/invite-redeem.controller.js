@@ -47,7 +47,18 @@ function InviteRedeemController( $scope ){
 
 function onWin(){
     swal("Success!", "You have joined this market!", "success");
-    authService.logout();
+    swal({
+        title: "Success!",
+        text: "You have joined this market!",
+        type: "success",
+        showCancelButton: true,
+        confirmButtonText: "Lets get started",
+        closeOnConfirm: false
+    },
+    function(){
+        authService.user.roles.push("director");
+        authService.logout();
+    });
 }
 function onDupes(){
     swal("Wait a Minute!", "You're already in this market", "warning");
