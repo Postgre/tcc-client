@@ -11,6 +11,7 @@ function MarketCarolersController($scope){
         address: "1500 1st Avenue N, Birmingham, AL"
     };
     $scope.requests = [];
+    $scope.active = [];
     $scope.form = {};
 
     function init(){
@@ -18,6 +19,10 @@ function MarketCarolersController($scope){
         let market_id = window.getQueryVariable('market');
         let market = modelFactory.get("Market", market_id);
         market.$promise.then(function(){
+            market.loadCarolers().then((_carolers)=>{
+                $scope.active = _carolers;
+                $scope.$apply();
+            });
             console.log("market loaded..", market);
             $scope.$apply();
         });
