@@ -52,12 +52,13 @@ function onWin(){
         text: "You have joined this market!",
         type: "success",
         showCancelButton: true,
-        confirmButtonText: "Lets get started",
+        confirmButtonText: "Let's get started",
         closeOnConfirm: false
     },
     function(){
-        authService.user.roles.push("director");
-        authService.logout();
+        this.authService.refresh().then(()=>{
+            window.location = "index.php";
+        });
     });
 }
 function onDupes(){

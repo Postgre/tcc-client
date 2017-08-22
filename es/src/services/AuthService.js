@@ -60,7 +60,6 @@ module.exports = class AuthService {
             }).then((res) => {
                 this.jwt = res.data.token;
                 this.storage.setItem('jwt', res.data.token);
-
                 let decoded = jwtDecode(res.data.token);
                 this.user = decoded.user;
                 this.jwtExpire = decoded.exp;
@@ -101,17 +100,26 @@ module.exports = class AuthService {
     }
 
     refresh(){
+        if(!this.jwt) throw "Tried to refresh token, but you don't even have one!";
         return new Promise((resolve, reject) => {
             this.connection({
-                url: '/auth/refresh',
-                method: "POST",
+                url: '/refresh',
+                method: "GET",
                 data: qs.stringify({
                     token: this.jwt
-                })
+                }),
+                headers: {
+                    'Authorization': 'Bearer ' + this.jwt
+                }
             }).then(
                 (res) => {
-                    if(this.refreshJwtFromResponse(res)) resolve(true);
-                    reject(false);
+                    this.jwt = res.data.token;
+                    this.storage.setItem('jwt', res.data.token);
+                    let decoded = jwtDecode(res.data.token);
+                    this.user = decoded.user;
+                    console.info("refreshed jwt", this.jwt, this.user);
+                    this.jwtExpire = decoded.exp;
+                    resolve(true);
                 },
                 (error) => {
                     if(error.response){
@@ -121,15 +129,6 @@ module.exports = class AuthService {
                 }
             );
         })
-    }
-
-    refreshJwtFromResponse(response){
-        if(!response.headers["Authorization"]) return false;
-        // -------------------
-        let header = response.headers['Authorization']; // Authorization: Bearer <jwt>
-        let newJwt = header.split(" ")[1];
-        this.storage.setItem('jwt', newJwt);
-        return true;
     }
 
     logout() {
