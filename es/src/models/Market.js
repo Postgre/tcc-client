@@ -73,7 +73,9 @@ module.exports = class Market extends BaseModel {
                     "with": "caroler_types"
                 }
             }).then((res)=>{
-                resolve(res.data);
+                let _carolers = res.data;
+                let carolers = this.factory.wrapAll("MyCarolerProfile", _carolers);
+                resolve(carolers);
             }, reject)
         });
     }
