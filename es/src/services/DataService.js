@@ -9,6 +9,13 @@ module.exports = class DataService {
         this.connection = connection
     }
 
+    verifyEmail(code){
+        return this.connection({
+            url: "auth/verify/"+code,
+            method: "GET"
+        })
+    }
+
     postResource( resourceName, body ){
         return new Promise((resolve, reject)=>{
             this.connection({

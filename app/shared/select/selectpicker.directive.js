@@ -13,10 +13,6 @@ function selectPicker(){
     };
 
     function link(scope, el, attr){
-        console.log("tcc-select-picker scope", scope);
-        scope.$watch('bind', function(){
-            console.log("bind", scope.bind);
-        });
         scope.blank = "-- Select One --";
         setTimeout(function(){
             $(el).selectpicker();

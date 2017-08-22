@@ -37,7 +37,7 @@
                                     <form id="details_form" name="details_form" class="nobottommargin" action="#"
                                           method="post">
 
-                                        <div class="col_full">
+                                        <div class="col_half">
                                             <label for="details-form-name">Event Name: </label>
                                             <input ng-model="booking.name" required type="text"
                                                    id="details-form-name" name="details-form-city"
@@ -45,11 +45,27 @@
                                                    placeholder="Give your event a descriptive name!">
                                         </div>
 
+                                        <div class="col_half col_last">
+                                            <label>Date:</label>
+                                            <datepicker>
+                                                <input ng-model="bind_date" class="sm-form-control" placeholder="Click Me!"/>
+                                            </datepicker>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <!--<input type="text" class="sm-form-control daterange" required>-->
+                                        </div>
+
                                         <div class="clear"></div>
 
-                                        <div class="col_full">
-                                            <label>Date:</label>
-                                            <input type="text" class="sm-form-control daterange" required>
+                                        <div class="col_half">
+                                            <label for="details-form-name">Start Time</label>
+                                            <div uib-timepicker ng-model="bind_start" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
+                                        </div>
+
+                                        <div class="col_half col_last">
+                                            <label for="details-form-name">End Time</label>
+                                            <div uib-timepicker ng-model="bind_end" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
                                         </div>
 
                                         <div class="clear"></div>

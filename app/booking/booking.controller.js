@@ -1,7 +1,13 @@
 angular.module('booking')
     .controller('BookingController', BookingController);
 
-function BookingController($scope) {
+function BookingController($scope, $log) {
+    window.log = function(){
+        $log.log("booking", $scope.booking);
+    };
+
+    const DATETIME_FORMAT = "YYYY-MM-DD HH:MM:SS";
+
     /**
      * Models
      * ===============
@@ -29,18 +35,38 @@ function BookingController($scope) {
         }
     ];
 
+    $scope.updateTimes = function() {
+        let date_format = DATETIME_FORMAT.split(" ")[0];
+        let time_format = DATETIME_FORMAT.split(" ")[1];
+        let d = $scope.bind_date;
+        let s = $scope.bind_start;
+        let e = $scope.bind_end;
+        $scope.booking.start_time = moment(d).format(date_format) + " " + moment(s).format(time_format);
+        $scope.booking.end_time =   moment(d).format(date_format) + " " + moment(s).format(time_format);
+    };
+
     /**
      * Init
      * ===============
      */
     (function init() {
+        initTabs();
         let market_id = getQueryVariable('market');
         if(!market_id) alert("No market set!");
 
-        initTabs();
-        initDatepicker();
         $scope.booking = window.modelFactory.create("Booking");
-        Object.assign($scope.booking, DEFAULT);
+        $scope.booking.start_time = new Date();
+        $scope.booking.end_time = new Date();
+
+        /* date and time pickers */
+        $scope.bind_date = new Date();
+        $scope.bind_start = $scope.booking.start_time;
+        $scope.bind_end = $scope.booking.end_time;
+        $scope.$watch('bind_date', function (value) {
+            $scope.updateTimes();
+        });
+        /* end date and time pickers */
+
         let market = modelFactory.get("Market", market_id);
         market.subscribe("ready", function () {
             $scope.booking.market_id = market.id;
@@ -161,67 +187,42 @@ function BookingController($scope) {
             }).catch(somethingWentWrong);
     }
 
+    window.process_tabs = null;
 
-    function initDatepicker() {
-        $(".daterange").daterangepicker({
-            "opens": "center",
-            timePicker: true,
-            timePickerIncrement: 30,
-            locale: {
-                format: 'MM/DD/YYYY h:mm A'
-            },
-            "buttonClasses": "button button-rounded button-mini nomargin",
-            "applyClass": "button-color",
-            "cancelClass": "button-light"
-        }).on('apply.daterangepicker', function (ev, picker) {
-            $scope.$apply(function () {
-                $scope.booking.start_time = picker.startDate.format("MM/DD/YYYY h:mm A");
-                $scope.booking.end_time = picker.endDate.format("MM/DD/YYYY h:mm A");
-            });
+    function initTabs() {
+        process_tabs = $("#processTabs").tabs({
+            show: {effect: "fade", duration: 400},
+            disabled: [1, 2, 3]
         });
     }
-}
 
-window.process_tabs = null;
-
-function initTabs() {
-    process_tabs = $("#processTabs").tabs({
-        show: {effect: "fade", duration: 400},
-        disabled: [1, 2, 3]
-    });
-}
-
-function googleMap(address) {
-    jQuery('#google-map-custom').gMap({
-        address: address,
-        maptype: 'ROADMAP',
-        zoom: 8,
-        markers: [
-            {
-                address: address
+    function googleMap(address) {
+        jQuery('#google-map-custom').gMap({
+            address: address,
+            maptype: 'ROADMAP',
+            zoom: 8,
+            markers: [
+                {
+                    address: address
+                }
+            ],
+            doubleclickzoom: false,
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
             }
-        ],
-        doubleclickzoom: false,
-        controls: {
-            panControl: true,
-            zoomControl: true,
-            mapTypeControl: true,
-            scaleControl: false,
-            streetViewControl: false,
-            overviewMapControl: false
-        }
-    });
-}
+        });
+    }
 
-function notifyTooFar(){
-    swal("Woah!", "That's too far out", "error");
-}
+    function notifyTooFar(){
+        swal("Woah!", "That's too far out", "error");
+    }
 
-const DEFAULT = {
-    name: "Test Event",
-    start_time: "8/19/2017 8:00PM",
-    end_time: "8/19/2017 10:00PM",
-    state: "NJ",
-    city: "Atlantic City",
-    address: "Martin Luther King Dr."
-};
+    function validateDetail(booking){
+        if(!booking.name) return false;
+    }
+}

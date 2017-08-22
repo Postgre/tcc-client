@@ -24,7 +24,7 @@ const modelClassMap = require('./modelClassMap');
  */
 if(localStorage.hostOverride){
     site.serverURL = localStorage.hostOverride;
-    console.info("Using server URL: ", localStorage.hostOverride);
+    console.info("Overriding URL: ", localStorage.hostOverride);
 }
 
 /**

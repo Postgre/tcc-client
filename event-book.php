@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body class="stretched" ng-app="booking" ng-controller="BookingController">
+<body class="stretched" ng-app="tcc" ng-controller="BookingController">
 <script>
     if (!window.authService.isLoggedIn()) {
         swal({

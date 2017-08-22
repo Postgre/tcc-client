@@ -11,8 +11,19 @@ function AuthController( $scope ){
         let action = getQueryVariable("action");
         if(action){
             switch (action){
-                case "verified":
-                    swal("You're all set!", "Your account has been validated", "success"); break;
+                case "verify":
+                    dataService.verifyEmail(getQueryVariable("code"))
+                        .then(
+                            (win) => { swal("Verified!", "Your email has been verified. You may now login.", "success"); },
+                            (err) => {
+                                if(!err.response){ somethingWentWrong(); return }
+                                if(err.response.data.status === "INVALID_CONFIRMATION_CODE"){
+                                    swal("Hmm..", "That code is no good. Have you already redeemed it?", "warning"); return;
+                                }
+                                alert(err.reponse.data.status);
+                            }
+                        );
+                    break;
                 case "redeem":
                     let code = getQueryVariable("invite_code");
                     let market = getQueryVariable("market");
