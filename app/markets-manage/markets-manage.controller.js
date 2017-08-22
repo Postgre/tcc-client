@@ -5,6 +5,7 @@ function MarketsManageController( $scope ) {
 
     $scope.markets = [];
     $scope.form = {};
+    $scope.roles = authService.user.roles;
 
     function init(){
         window.dataService.getMarketsManaged().then(function(_markets){
