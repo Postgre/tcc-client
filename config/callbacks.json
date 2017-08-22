@@ -2,7 +2,7 @@
 
   "save_quote": "event-book.php",
   "login": "login-register.php?action=verified",
-  "director_invite": "login-register.php?action=redeem",
+  "director_invite": "login-register.php",
   "caroler_invite": "caroler-register.php?action=invited",
   "caroler_request": "market-carolers.php",
   "caroler_approved": "login-register.php?action=approved",
