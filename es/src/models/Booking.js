@@ -36,7 +36,7 @@ module.exports = class Booking extends BaseModel {
      * Previews
      * ==================
      */
-    getTravelPreview(){
+    getTravelPreview(market_id){
         return this.dataService.previewTravel(this.market_id, this.address, this.city, this.state);
     }
     getInvoicePreview(){
@@ -68,11 +68,10 @@ module.exports = class Booking extends BaseModel {
      * ==================
      */
     validateDetails(){
+        console.log("booking", this.getData());
         return (
-            this.name
-            && this.start_time
+            this.start_time
             && this.end_time
-            && this.type
             && this.caroler_config
         )
     }

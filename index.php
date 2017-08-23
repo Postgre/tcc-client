@@ -19,8 +19,17 @@
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/settings.css" media="screen">
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/layers.css">
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
+
+    <style>
+        .advanced-real-estate-tabs {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            z-index: 2;
+        }
+    </style>
 </head>
-<body class="stretched" ng-app="home" ng-controller="HomeController">
+<body class="stretched" ng-app="tcc" ng-controller="HomeController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-1.php' ?>

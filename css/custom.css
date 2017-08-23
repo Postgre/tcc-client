@@ -88,3 +88,8 @@
     font-size: 15px;
     margin-top: 5px;
 }
+
+/* Booking Page */
+table.uib-timepicker {
+    margin: auto;
+}

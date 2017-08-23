@@ -1,5 +1,11 @@
-<!-- Content
-    ============================================= -->
+<section id="page-title" class="page-title-center">
+
+    <div class="container clearfix">
+        <h1>Get an Instant Quote</h1>
+        <span>No Account Necessary</span>
+    </div>
+
+</section>
 <section id="content">
 
     <div class="content-wrap">
@@ -22,13 +28,24 @@
                     </li>
                     <li>
                         <a href="#ptab4" class="i-circled i-bordered i-alt divcenter">4</a>
-                        <h5>Complete Payment</h5>
+                        <h5>Book Online Now</h5>
                     </li>
                 </ul>
                 <div>
                     <div id="ptab1">
                         <div class="container clearfix">
                             <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <h3 class="">Find a Market: </h3>
+                                    <input ng-model="market" uib-typeahead="mkt as mkt.name for mkt in markets | filter:{name:$viewValue} | limitTo:8" class="sm-form-control">
+                                    <br/>
+                                    <div class="fancy-title title-dotted-border title-center">
+                                        <h3 ng-bind="market.name"></h3>
+                                    </div>
+                                    <div class="col_full">
+                                        <img ng-src="{{market.image}}" width="100%">
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <h3>Event Details</h3>
 
@@ -37,15 +54,7 @@
                                     <form id="details_form" name="details_form" class="nobottommargin" action="#"
                                           method="post">
 
-                                        <div class="col_half">
-                                            <label for="details-form-name">Event Name: </label>
-                                            <input ng-model="booking.name" required type="text"
-                                                   id="details-form-name" name="details-form-city"
-                                                   class="sm-form-control"
-                                                   placeholder="Give your event a descriptive name!">
-                                        </div>
-
-                                        <div class="col_half col_last">
+                                        <div class="col_full">
                                             <label>Date:</label>
                                             <datepicker>
                                                 <input ng-model="bind_date" class="sm-form-control" placeholder="Click Me!"/>
@@ -58,102 +67,95 @@
 
                                         <div class="clear"></div>
 
-                                        <div class="col_half">
-                                            <label for="details-form-name">Start Time</label>
+                                        <div class="col_half center">
+                                            <label>Start Time</label>
                                             <div uib-timepicker ng-model="bind_start" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
                                         </div>
 
-                                        <div class="col_half col_last">
-                                            <label for="details-form-name">End Time</label>
+                                        <div class="col_half col_last center">
+                                            <label>End Time</label>
                                             <div uib-timepicker ng-model="bind_end" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
                                         </div>
 
                                         <div class="clear"></div>
 
-                                        <div class="col_full">
-                                            <label>Caroler Configuration</label>
-                                            <select ng-model="booking.caroler_config"
-                                                    ng-options="c.val as c.name for c in carolerConfigurations"
-                                                    id="cc" class="selectpicker form-control">
-                                                <option value="">-- Select a Configuration --</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col_half">
-                                            <label>Type of Event</label>
-                                            <tcc-select-picker bind="booking.type"
-                                                               options="eventTypes"></tcc-select-picker>
-                                        </div>
-
-                                        <div class="col_half col_last">
-                                            <label>Event Details</label>
-                                            <select ng-model="booking.details" class="selectpicker" multiple>
-                                                <option value="Only Outside">Only Outside</option>
-                                                <option value="Only Inside">Only Inside</option>
-                                                <option value="Mix of Inside and Outside">Mix of Inside and
-                                                    Outside
-                                                </option>
-                                                <option value="Expect Freezing Weather">Expect Freezing Weather
-                                                </option>
-                                                <option value="Carolers should welcome guests">Carolers should
-                                                    welcome guests
-                                                </option>
-                                                <option value="Carolers should stroll">Carolers should stroll
-                                                </option>
-                                                <option value="Carolers are to be background music">Carolers are to
-                                                    be background music
-                                                </option>
-                                                <option value="Carolers are to be on stage">Carolers are to be on
-                                                    stage
-                                                </option>
-                                            </select>
-                                        </div>
-
-                                        <!-- Conditionals
-                                        ========================-->
-                                        <div ng-if="booking.type=='company'" class="col_full">
-                                            <label>Company Name: </label>
-                                            <input ng-model="booking.company_name" type="text"
-                                                   class="sm-form-control">
-                                        </div>
-                                        <div ng-if="booking.type=='public'" class="col_full">
-                                            <label>Venue Name: </label>
-                                            <input ng-model="booking.venue_name" type="text"
-                                                   class="sm-form-control">
-                                        </div>
-
-                                        <div class="col_full">
-                                            <label for="special-requests">Special Requests
-                                                <small>*</small>
-                                            </label>
-                                            <textarea ng-model="booking.special_requests" class="sm-form-control"
-                                                      id="special-requests" name="shipping-form-message" rows="6"
-                                                      cols="30"></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="">Market Information</h3>
-                                    <form class="nobottommargin">
-
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">
-                                                    <strong ng-bind="market.name"></strong>
-                                                    &#xA0;
-                                                    &#xA0;
-                                                    <i class="icon-map-marker"></i> <em
-                                                        ng-bind="market.city+', '+market.state"></em>
-                                                </h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <img width="100%" ng-src="{{market.image}}">
-                                                <br>
-                                                <br>
-                                                <p ng-bind="market.bio"></p>
+                                        <div class="col_full center">
+                                            <div class="btn-group">
+                                                <label ng-hide="!market.hasConfig(1)"
+                                                       class="btn btn-danger" ng-model="radioModel" uib-btn-radio="'trio'"
+                                                       uib-popover="3 Carolers" popover-trigger="'mouseenter'">Trio</label>
+                                                <label ng-hide="!market.hasConfig(3)"
+                                                       class="btn btn-danger" ng-model="radioModel" uib-btn-radio="'quartet'"
+                                                       uib-popover="4 Carolers" popover-trigger="'mouseenter'">Quartet</label>
+                                                <label ng-hide="!market.hasConfig(4)"
+                                                       class="btn btn-danger" ng-model="radioModel" uib-btn-radio="'sextet'"
+                                                       uib-popover="4 Carolers" popover-trigger="'mouseenter'">Sextet</label>
+                                                <label ng-hide="!market.hasConfig(5)"
+                                                       class="btn btn-danger" ng-model="radioModel" uib-btn-radio="'octet'"
+                                                       uib-popover="4 Carolers" popover-trigger="'mouseenter'">Octet</label>
                                             </div>
                                         </div>
 
+                                        <!--<div class="col_full">-->
+                                            <!--<label>Caroler Configuration</label>-->
+                                            <!--<select ng-model="booking.caroler_config"-->
+                                                    <!--ng-options="c.val as c.name for c in carolerConfigurations"-->
+                                                    <!--id="cc" class="selectpicker form-control">-->
+                                                <!--<option value="">&#45;&#45; Select a Configuration &#45;&#45;</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col_half">-->
+                                            <!--<label>Type of Event</label>-->
+                                            <!--<tcc-select-picker bind="booking.type"-->
+                                                               <!--options="eventTypes"></tcc-select-picker>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col_half col_last">-->
+                                            <!--<label>Event Details</label>-->
+                                            <!--<select ng-model="booking.details" class="selectpicker" multiple>-->
+                                                <!--<option value="Only Outside">Only Outside</option>-->
+                                                <!--<option value="Only Inside">Only Inside</option>-->
+                                                <!--<option value="Mix of Inside and Outside">Mix of Inside and-->
+                                                    <!--Outside-->
+                                                <!--</option>-->
+                                                <!--<option value="Expect Freezing Weather">Expect Freezing Weather-->
+                                                <!--</option>-->
+                                                <!--<option value="Carolers should welcome guests">Carolers should-->
+                                                    <!--welcome guests-->
+                                                <!--</option>-->
+                                                <!--<option value="Carolers should stroll">Carolers should stroll-->
+                                                <!--</option>-->
+                                                <!--<option value="Carolers are to be background music">Carolers are to-->
+                                                    <!--be background music-->
+                                                <!--</option>-->
+                                                <!--<option value="Carolers are to be on stage">Carolers are to be on-->
+                                                    <!--stage-->
+                                                <!--</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+
+                                        <!--&lt;!&ndash; Conditionals-->
+                                        <!--========================&ndash;&gt;-->
+                                        <!--<div ng-if="booking.type=='company'" class="col_full">-->
+                                            <!--<label>Company Name: </label>-->
+                                            <!--<input ng-model="booking.company_name" type="text"-->
+                                                   <!--class="sm-form-control">-->
+                                        <!--</div>-->
+                                        <!--<div ng-if="booking.type=='public'" class="col_full">-->
+                                            <!--<label>Venue Name: </label>-->
+                                            <!--<input ng-model="booking.venue_name" type="text"-->
+                                                   <!--class="sm-form-control">-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col_full">-->
+                                            <!--<label for="special-requests">Special Requests-->
+                                                <!--<small>*</small>-->
+                                            <!--</label>-->
+                                            <!--<textarea ng-model="booking.special_requests" class="sm-form-control"-->
+                                                      <!--id="special-requests" name="shipping-form-message" rows="6"-->
+                                                      <!--cols="30"></textarea>-->
+                                        <!--</div>-->
                                     </form>
                                 </div>
                             </div>
@@ -170,13 +172,13 @@
                             <div class="row clearfix">
                                 <div class="col-md-6">
                                     <form name="travel_form" id="travel_form" class="nobottommargin">
-                                        <div class="col_full">
+                                        <div class="col_half">
                                             <label>State: </label>
                                             <tcc-state-select bind="booking.state"></tcc-state-select>
                                         </div>
 
-                                        <div class="col_full">
-                                            <label for="details-form-name">City: </label>
+                                        <div class="col_half col_last">
+                                            <label>City: </label>
                                             <input ng-model="booking.city" required id="city" type="text"
                                                    class="form-control">
                                         </div>

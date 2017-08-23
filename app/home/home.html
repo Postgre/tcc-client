@@ -129,63 +129,74 @@
             </div>
         </div><!-- END REVOLUTION SLIDER -->
     </div>
-</section>
 
-<div class="tabs advanced-real-estate-tabs clearfix" style="top: -62px">
+    <div class="tabs advanced-real-estate-tabs clearfix">
 
-    <div class="container clearfix">
-        <ul class="tab-nav clearfix">
-            <li><a href="#tab-properties" data-scrollto="#tab-properties" data-offset="133">Check Rates and
-                Availability</a></li>
-        </ul>
-    </div>
-
-    <div class="tab-container">
         <div class="container clearfix">
-            <div class="tab-content clearfix" id="tab-properties">
-                <!-- Start Rates & Availability Form-->
-                <form name="quoteForm" class="nobottommargin">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-12 bottommargin-sm">
-                            <label style="display:block;">Address</label>
-                            <input ng-model="form.address" name="address" type="text" class="form-control" placeholder="Address">
+            <ul class="tab-nav clearfix">
+                <li><a href="#tab-properties" data-scrollto="#tab-properties" data-offset="133">Check Rates and
+                    Availability</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-container">
+            <div class="container clearfix">
+                <div class="tab-content clearfix" id="tab-properties">
+                    <!-- Start Rates & Availability Form-->
+                    <form name="quoteForm" class="nobottommargin">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">Address</label>
+                                <input ng-model="form.address" name="address" type="text" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">City</label>
+                                <input name="city" ng-model="form.city" type="text" class="form-control" placeholder="City">
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>State</label>
+                                <tcc-state-select bind="form.state"></tcc-state-select>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
+                                <label>Number of Singers</label>
+                                <select ng-model="form.caroler_config" name="caroler_config" class="selectpicker form-control">
+                                    <option value="quartet">Quartet (4)</option>
+                                    <option value="trio_sab">Trio (3)</option>
+                                    <option value="sixtet">Sixtets (6)</option>
+                                    <option value="octet">Octets (8)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>Event Date</label>
+                                <datepicker>
+                                    <input ng-model="bind_date" class="sm-form-control" placeholder="Click Me!"/>
+                                </datepicker>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <!--<label>Start Time</label>-->
+                                <div uib-timepicker ng-model="bind_start" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <!--<label>End Time</label>-->
+                                <div uib-timepicker ng-model="bind_end" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
+                            </div>
+                            <div class="col-md-2 float-right">
+                                <br/>
+                                <br/>
+                                <button ng-click="handleGetQuote()" class="button button-red">Check Rates and Availability!
+                                </button>
+                            </div>
+                            <div class="clear visible-xs bottommargin-sm"></div>
                         </div>
-                        <div class="col-md-3 col-sm-12 bottommargin-sm">
-                            <label style="display:block;">City</label>
-                            <input name="city" ng-model="form.city" type="text" class="form-control" placeholder="City">
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                            <label>State</label>
-                            <tcc-state-select bind="form.state"></tcc-state-select>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
-                            <label>Number of Singers</label>
-                            <select ng-model="form.caroler_config" name="caroler_config" class="selectpicker form-control">
-                                <option value="quartet">Quartet (4)</option>
-                                <option value="trio_sab">Trio (3)</option>
-                                <option value="sixtet">Sixtets (6)</option>
-                                <option value="octet">Octets (8)</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12 bottommargin-sm">
-                            <label>Event Date and Time</label>
-                            <input type="text" class="sm-form-control daterange"
-                                   value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM">
-                        </div>
-                        <div class="col-md-4 col-md-offset-2 float-right">
-                            <button ng-click="handleGetQuote()" class="button button-3d button-rounded btn-block nomargin"
-                                    style="margin-top: 35px !important;">Check Rates and Availability!
-                            </button>
-                        </div>
-                        <div class="clear visible-xs bottommargin-sm"></div>
-                    </div>
-                </form>
-                <!-- End Rates & Availability Form -->
+                    </form>
+                    <!-- End Rates & Availability Form -->
+                </div>
             </div>
         </div>
+
     </div>
 
-</div>
+</section>
 
 <section id="content">
 
@@ -195,7 +206,7 @@
         <div class="container">
             <div id="about" class="row">
                 <div class="col-md-4">
-                    <img src="images/carolers/knockout.png" width="100%">
+                    <img src="/images/carolers/knockout.png" width="100%">
                 </div>
 
                 <div class="col-md-8">

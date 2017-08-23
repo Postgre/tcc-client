@@ -70,6 +70,15 @@ function HomeController($scope) {
     };
 
     function init() {
+        /* date and time pickers */
+        $scope.bind_date = new Date();
+        $scope.bind_start = null;
+        $scope.bind_end = null;
+        $scope.$watch('bind_date', function (value) {
+            $scope.updateTimes();
+        });
+        // end
+
         let today = new Date();
         let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
         let nowHour = today.getHours();
@@ -99,7 +108,7 @@ function HomeController($scope) {
                             iconsize: [32, 39],
                             iconanchor: [16, 36]
                         }
-                    })
+                    });
                     console.log(mkt);
                 }
                 renderMap(markers);
@@ -107,21 +116,25 @@ function HomeController($scope) {
         });
     }
 
+    $scope.updateTimes = function updateTimes() {
+        let DATETIME_FORMAT = "YYYY-MM-DD HH:MM:SS";
+        let date_format = DATETIME_FORMAT.split(" ")[0];
+        let time_format = DATETIME_FORMAT.split(" ")[1];
+        let d = $scope.bind_date;
+        let s = $scope.bind_start;
+        let e = $scope.bind_end;
+        $scope.start = moment(d).format(date_format) + " " + moment(s).format(time_format);
+        $scope.end =   moment(d).format(date_format) + " " + moment(e).format(time_format);
+    };
+
     function parseQuoteRequest() {
         let form = document.forms.quoteForm;
         return {
-            start_time: getStartTime(),
-            end_time: getEndTime(),
+            start_time: $scope.start,
+            end_time: $scope.end,
             address: formatAddress(form.address.value, form.city.value, $scope.form.state,),
             caroler_config: form.caroler_config.value
         }
-    }
-
-    function getStartTime(){
-        return $scope.daterange.data('daterangepicker').startDate.format("YYYY-MM-DD HH:MM")
-    }
-    function getEndTime(){
-        return $scope.daterange.data('daterangepicker').endDate.format("YYYY-MM-DD HH:MM");
     }
 
     init();

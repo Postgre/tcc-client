@@ -6,12 +6,18 @@ function BookingController($scope, $log) {
         $log.log("booking", $scope.booking);
     };
 
+    window.process_tabs = null;
     const DATETIME_FORMAT = "YYYY-MM-DD HH:MM:SS";
+
+    $scope.ngModelOptionsSelected = function(value) {
+        alert(value);
+    };
 
     /**
      * Models
      * ===============
      */
+    $scope.markets = [];
     $scope.market = {};
     $scope.booking = {};
     $scope.invoice = {};
@@ -42,7 +48,7 @@ function BookingController($scope, $log) {
         let s = $scope.bind_start;
         let e = $scope.bind_end;
         $scope.booking.start_time = moment(d).format(date_format) + " " + moment(s).format(time_format);
-        $scope.booking.end_time =   moment(d).format(date_format) + " " + moment(s).format(time_format);
+        $scope.booking.end_time =   moment(d).format(date_format) + " " + moment(e).format(time_format);
     };
 
     /**
@@ -51,12 +57,12 @@ function BookingController($scope, $log) {
      */
     (function init() {
         initTabs();
-        let market_id = getQueryVariable('market');
-        if(!market_id) alert("No market set!");
 
+        /* new blank booking */
         $scope.booking = window.modelFactory.create("Booking");
         $scope.booking.start_time = new Date();
         $scope.booking.end_time = new Date();
+        // end
 
         /* date and time pickers */
         $scope.bind_date = new Date();
@@ -65,14 +71,28 @@ function BookingController($scope, $log) {
         $scope.$watch('bind_date', function (value) {
             $scope.updateTimes();
         });
-        /* end date and time pickers */
+        // end
 
-        let market = modelFactory.get("Market", market_id);
-        market.subscribe("ready", function () {
-            $scope.booking.market_id = market.id;
-            $scope.$apply();
-        });
-        $scope.market = market;
+        /* load all markets */
+        modelFactory.all("Market", {published: 1}, "carolerConfigs").then(
+            (markets)=>{
+                $scope.markets = markets;
+                if( market_id = getQueryVariable('market') ){
+                    $scope.markets.forEach((market)=>{
+                        if(market.id == market_id){
+                            $scope.market = market;
+                        }
+                    });
+                }
+                $scope.ready = true;
+                $scope.$apply();
+            }
+        );
+        // end
+
+        /* sync market with booking's market key */
+        $scope.$watch("market", ()=>{ $scope.booking.market_id = $scope.market.id; });
+        // end
     })();
 
     /**
@@ -85,6 +105,7 @@ function BookingController($scope, $log) {
             return;
         }
         googleMap($scope.booking.getFormattedAddress());
+        console.log($scope.market.id);
         $scope.booking.getTravelPreview($scope.market.id)
             .then((report) => {
                 console.log("Travel Preview", report);
@@ -187,8 +208,6 @@ function BookingController($scope, $log) {
             }).catch(somethingWentWrong);
     }
 
-    window.process_tabs = null;
-
     function initTabs() {
         process_tabs = $("#processTabs").tabs({
             show: {effect: "fade", duration: 400},
@@ -222,7 +241,4 @@ function BookingController($scope, $log) {
         swal("Woah!", "That's too far out", "error");
     }
 
-    function validateDetail(booking){
-        if(!booking.name) return false;
-    }
 }

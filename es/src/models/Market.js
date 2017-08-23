@@ -32,6 +32,21 @@ module.exports = class Market extends BaseModel {
     getFormattedAddress(){
         return this.city+", "+this.state+", "+this.address;
     }
+    getFormattedCityState(){
+        return `${this.city}, ${this.state}`;
+    }
+
+    hasConfig(id){
+        if(!this.caroler_configs){
+            this.loadCarolerConfigs();
+            return false;
+        }
+        let found = false;
+        this.caroler_configs.forEach((_config)=>{
+            if(_config.id == id) found = true;
+        });
+        return found;
+    }
 
     addSpecialDate(){
         this.specialDates.push(new SpecialDate());
