@@ -18,7 +18,7 @@ function PaymentsController($scope) {
     function init() {
         let event = modelFactory.get("Booking", getQueryVariable("event"));
         event.subscribe("ready", function () {
-            Object.assign(event, event.loadPrettyDates(moment));
+            Object.assign(event, event.getPrettyDates(moment));
             Object.assign($scope.invoice, getDefaultInvoice());
             $scope.totalClass = "balanceDue";
             if ($scope.invoice.total - $scope.invoice.due === 0) $scope.totalClass = "balancePaid";

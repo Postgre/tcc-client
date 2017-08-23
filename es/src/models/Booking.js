@@ -3,11 +3,6 @@ const PromoCode = require('./PromoCode');
 
 module.exports = class Booking extends BaseModel {
 
-    constructor(){
-        super();
-        this.promo_codes = [];
-    }
-
     submit(){
         return this.dataService.postBooking(this.getData(), this.caroler_config, this.getPromoData());
     }
@@ -17,6 +12,7 @@ module.exports = class Booking extends BaseModel {
         return this.city+", "+this.state+", "+this.address;
     }
     getPromoData(){
+        if(!this.promo_codes) return [];
         let _promos = [];
         this.promo_codes.forEach((code)=>{
             _promos.push(code.code);
@@ -24,19 +20,16 @@ module.exports = class Booking extends BaseModel {
         return _promos;
     }
 
-    loadPrettyDates(moment){
-        Object.assign(this, {
+    getPrettyDates(moment){
+        return {
             date: moment(this.start_time).format("MM-DD-YYYY"),
             start: moment(this.start_time).format("HH:MM"),
             end: moment(this.end_time).format("HH:MM")
-        });
+        };
     }
 
-    /**
-     * Previews
-     * ==================
-     */
-    getTravelPreview(market_id){
+    /* Previews */
+    getTravelPreview(){
         return this.dataService.previewTravel(this.market_id, this.address, this.city, this.state);
     }
     getInvoicePreview(){
@@ -45,7 +38,9 @@ module.exports = class Booking extends BaseModel {
         console.log(postData);
         return this.dataService.postQuotePreview(postData, this.caroler_config, this.getPromoData());
     }
+    // end
 
+    /* Promo Codes */
     applyPromoCode(code){
         return new Promise((resolve, reject)=>{
             this.dataService.validatePromo(code, this.start_time, this.end_time)
@@ -62,18 +57,16 @@ module.exports = class Booking extends BaseModel {
         let ind = this.promo_codes.indexOf(promoCode);
         if(ind >= 0) this.promo_codes.splice(ind, 1);
     }
+    // end
 
-    /**
-     * Validators
-     * ==================
-     */
+    /* Validators */
     validateDetails(){
-        console.log("booking", this.getData());
-        return (
-            this.start_time
-            && this.end_time
-            && this.caroler_config
-        )
+        let configs = ['trio_stb', 'trio_sab', 'quartet', 'sixtet', 'octet'];
+        if(!this.start_time) return "start time";
+        if(!this.end_time) return "end_time";
+        if(!configs.includes(this.caroler_config)) return "caroler config";
+        console.log("valid details!", this.getData());
+        return "all good!";
     }
     validateAddress(){
         return (
@@ -82,4 +75,5 @@ module.exports = class Booking extends BaseModel {
             && this.address
         )
     }
+    // end
 };

@@ -48,7 +48,8 @@
       "city",
       "address",
       "type",
-      "requests"
+      "requests",
+      "caroler_config"
     ],
     "defaults": {
       "type": "personal",

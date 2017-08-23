@@ -7,7 +7,7 @@ $.fn.inlineStyle = function (prop) {
 $.fn.doOnce = function( func ) {
 	this.length && func.apply( this );
 	return this;
-}
+};
 
 if( $().infinitescroll ) {
 

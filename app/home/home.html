@@ -147,19 +147,19 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-12 bottommargin-sm">
                                 <label style="display:block;">Address</label>
-                                <input ng-model="form.address" name="address" type="text" class="form-control" placeholder="Address">
+                                <input ng-model="address" name="address" type="text" class="form-control" placeholder="Address">
                             </div>
                             <div class="col-md-3 col-sm-12 bottommargin-sm">
                                 <label style="display:block;">City</label>
-                                <input name="city" ng-model="form.city" type="text" class="form-control" placeholder="City">
+                                <input name="city" ng-model="city" type="text" class="form-control" placeholder="City">
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
                                 <label>State</label>
-                                <tcc-state-select bind="form.state"></tcc-state-select>
+                                <tcc-state-select bind="state"></tcc-state-select>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
                                 <label>Number of Singers</label>
-                                <select ng-model="form.caroler_config" name="caroler_config" class="selectpicker form-control">
+                                <select ng-model="caroler_config" name="caroler_config" class="selectpicker form-control">
                                     <option value="quartet">Quartet (4)</option>
                                     <option value="trio_sab">Trio (3)</option>
                                     <option value="sixtet">Sixtets (6)</option>
@@ -169,7 +169,7 @@
                             <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
                                 <label>Event Date</label>
                                 <datepicker>
-                                    <input ng-model="bind_date" class="sm-form-control" placeholder="Click Me!"/>
+                                    <input ng-model="bind_date" class="form-control" placeholder="Click Me!"/>
                                 </datepicker>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
@@ -421,7 +421,7 @@
                                         </li>
                                     </ul>
                                     <div class="entry-content">
-                                        <p class="tcc_market_bio" ng-bind="quote.market.html">Birmingham&apos;s best holiday entertainment</p>
+                                        <p ng-if="quote.market" ng-bind-html="truncate(quote.market.html, quote.market.id)">Birmingham&apos;s best holiday entertainment</p>
                                     </div>
                                 </div>
                             </div>
@@ -440,7 +440,7 @@
                                         </td>
 
                                         <td class="notopborder cart-product-name">
-                                            <span class="amount">$<span ng-bind="quote.carolers">loading..</span>
+                                            <span class="amount">$<span ng-bind="quote.carolers + quote.dates">loading..</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -452,15 +452,6 @@
                                         <td class="cart-product-name">
                                             <span class="amount">$<span ng-bind="quote.travel">loading..</span></span>
                                         </td>
-                                    </tr>
-                                    <tr class="cart_item">
-                                        <td class="cart-product-name">
-                                            <strong>Special Dates</strong>
-                                        </td>
-
-                                        <td class="cart-product-name">
-                                            <span class="amount">$<span ng-bind="quote.dates*-1">loading..</span>
-                                        </span></td>
                                     </tr>
                                     <tr class="cart_item">
                                         <td class="cart-product-name">
@@ -485,8 +476,8 @@
                                 </table>
 
                             </div>
-                            <a ng-href="event-book.php?market={{market.id}}&quote={{quote.id}}" class="button button-3d fright">Book Now</a>
-                            <a href="" ng-click="handleSaveQuote()" class="button button-3d fright">Email Quote (Book
+                            <a ng-href="event-book.php?market={{market.id}}&quote={{quote.id}}" class="button button-red fright">Book Now</a>
+                            <a href="" ng-click="handleSaveQuote()" class="button button-red fright">Email Quote (Book
                                 Later)</a>
                         </div>
                         f

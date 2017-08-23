@@ -2,11 +2,13 @@ angular.module("home")
     .controller("HomeController", HomeController);
 
 function HomeController($scope) {
-    $scope.daterange = null;
     $scope.quote = {};
-    $scope.form = {
-        caroler_config: "quartet"
-    };
+    /* instant quote form */
+    $scope.address = "1500 1st Avenue North";
+    $scope.city = "Birmingham";
+    $scope.state = "AL";
+    $scope.caroler_config = "quartet";
+    // end
 
     let quoteRequest = null;
     $scope.handleGetQuote = () => {
@@ -71,53 +73,38 @@ function HomeController($scope) {
 
     function init() {
         /* date and time pickers */
-        $scope.bind_date = new Date();
-        $scope.bind_start = null;
-        $scope.bind_end = null;
+        let date = moment().add(7, 'days');
+        let start = moment(date);
+        let end = moment(start).add(2, 'hours');
+        $scope.bind_date = date;
+        $scope.bind_start = start;
+        $scope.bind_end = end;
         $scope.$watch('bind_date', function (value) {
             $scope.updateTimes();
         });
         // end
 
-        let today = new Date();
-        let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
-        let nowHour = today.getHours();
-        $scope.daterange = $(".daterange").daterangepicker({
-            "showWeekNumbers": true,
-            "timePicker": true,
-            "timePicker24Hour": true,
-            "dateLimit": {
-                "days": 1
-            },
-            "startDate": "08/10/2017",
-            "endDate": "08/16/2017"
-        });
-
-        $(window).load(function () {
-            window.dataService.getResourceAll("markets", {
-                published: 1
-            }).then((markets) => {
-                console.log("markets", markets);
-                let markers = [];
-                for (let i = 0; i < markets.length; i++) {
-                    let mkt = markets[i];
-                    markers.push({
-                        address: formatAddress(mkt.address, mkt.city, mkt.state),
-                        icon: {
-                            image: "images/icons/map-icon-red.png",
-                            iconsize: [32, 39],
-                            iconanchor: [16, 36]
-                        }
-                    });
-                    console.log(mkt);
-                }
-                renderMap(markers);
-            }).catch(window.somethingWentWrong);
-        });
+        dataService.getResourceAll("markets", {
+            published: 1
+        }).then((markets) => {
+            let markers = [];
+            for (let i = 0; i < markets.length; i++) {
+                let mkt = markets[i];
+                markers.push({
+                    address: formatAddress(mkt.address, mkt.city, mkt.state),
+                    icon: {
+                        image: "images/icons/map-icon-red.png",
+                        iconsize: [32, 39],
+                        iconanchor: [16, 36]
+                    }
+                });
+            }
+            renderMap(markers);
+        }).catch(window.somethingWentWrong);
     }
 
     $scope.updateTimes = function updateTimes() {
-        let DATETIME_FORMAT = "YYYY-MM-DD HH:MM:SS";
+        let DATETIME_FORMAT = "MM/DD/YYYY HH:MM";
         let date_format = DATETIME_FORMAT.split(" ")[0];
         let time_format = DATETIME_FORMAT.split(" ")[1];
         let d = $scope.bind_date;
@@ -125,15 +112,22 @@ function HomeController($scope) {
         let e = $scope.bind_end;
         $scope.start = moment(d).format(date_format) + " " + moment(s).format(time_format);
         $scope.end =   moment(d).format(date_format) + " " + moment(e).format(time_format);
+        console.log($scope.start, $scope.end);
+    };
+
+    // TODO: make this re-usable
+    $scope.truncate = function truncate(marketBio, id){
+        let charLimit = 255;
+        if(marketBio.length <= charLimit) return marketBio;
+        return marketBio.substring(0, charLimit) + `... &nbsp <a href='market-page.php?market=${id}'>see more</a>`;
     };
 
     function parseQuoteRequest() {
-        let form = document.forms.quoteForm;
         return {
             start_time: $scope.start,
             end_time: $scope.end,
-            address: formatAddress(form.address.value, form.city.value, $scope.form.state,),
-            caroler_config: form.caroler_config.value
+            address: formatAddress($scope.address, $scope.city, $scope.state,),
+            caroler_config: $scope.caroler_config
         }
     }
 

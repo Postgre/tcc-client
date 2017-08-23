@@ -27,6 +27,9 @@
             bottom: 0;
             z-index: 2;
         }
+        ._720kb-datepicker-calendar {
+            bottom: 40px;
+        }
     </style>
 </head>
 <body class="stretched" ng-app="tcc" ng-controller="HomeController">
