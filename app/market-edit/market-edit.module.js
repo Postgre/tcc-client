@@ -1,1 +1,1 @@
-angular.module("market-edit", ['ui.utils.masks', 'plugins']);
+angular.module("market-edit", ['ui.utils.masks']);

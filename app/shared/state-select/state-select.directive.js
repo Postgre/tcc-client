@@ -1,4 +1,4 @@
-angular.module('plugins')
+angular.module('shared')
 .directive('tccStateSelect', tccStateSelect);
 
 function tccStateSelect(){

@@ -51,7 +51,10 @@ function PromosController( $scope ){
     };
 
     function init(){
-        window.modelFactory.all("PromoCode", { 'active': true }).then((promo_codes)=>{
+        window.modelFactory.all("PromoCode", {
+            'active': 'true',
+            'where': 'end_time > '+moment().format("YYYY-MM-DD")
+        }).then((promo_codes)=>{
             $scope.rows = promo_codes;
             $scope.$apply();
             setTimeout(function(){

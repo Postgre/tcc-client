@@ -3,6 +3,11 @@ const PromoCode = require('./PromoCode');
 
 module.exports = class Booking extends BaseModel {
 
+    constructor(){
+        super();
+        this.promo_codes = [];
+    }
+
     submit(){
         return this.dataService.postBooking(this.getData(), this.caroler_config, this.getPromoData());
     }

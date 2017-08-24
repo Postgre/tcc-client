@@ -1,1 +1,1 @@
-angular.module("resellers", [ 'plugins', 'ui.utils.masks' ]);
+angular.module("resellers", [ 'ui.utils.masks' ]);

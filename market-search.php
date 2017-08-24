@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="stretched" ng-app="market-search" ng-controller="MarketSearchController">
+<body class="stretched" ng-app="tcc" ng-controller="MarketSearchController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
 <?php require 'partials/header-2.php' ?>

@@ -1,1 +1,1 @@
-angular.module("promos", [ 'plugins', 'ui.utils.masks' ]);
+angular.module("promos", [ 'ui.utils.masks' ]);

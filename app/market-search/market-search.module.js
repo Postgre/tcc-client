@@ -1,1 +1,1 @@
-angular.module("market-search", ['plugins', 'ngSanitize']);
+angular.module("market-search", []);

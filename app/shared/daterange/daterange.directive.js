@@ -1,4 +1,4 @@
-angular.module('plugins')
+angular.module('shared')
     .directive('tccDateRange', tccDateRange);
 
 function tccDateRange() {

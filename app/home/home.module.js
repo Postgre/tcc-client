@@ -1,1 +1,1 @@
-angular.module("home", ['plugins']);
+angular.module("home", []);

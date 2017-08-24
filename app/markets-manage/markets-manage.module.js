@@ -1,1 +1,1 @@
-angular.module('markets-manage', ['plugins', 'ngSanitize']);
+angular.module('markets-manage', ['ngSanitize']);

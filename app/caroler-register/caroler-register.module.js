@@ -1,1 +1,1 @@
-angular.module("caroler-register", ['plugins']);
+angular.module("caroler-register", []);

@@ -188,9 +188,10 @@ function BookingController($scope) {
             console.log("Trying..");
             $scope.booking.applyPromoCode(code).then((promo) => {
                 swal("Success!", `Promo '${promo.name}' has been applied`, "success");
-                reloadInvoicePreview();
+                renderInvoicePreview($scope.booking);
             }).catch((err) => {
                 swal("Hmm..", "We couldn't find that code", "warning");
+                console.log("fail", err);
             });
         };
         swal({
@@ -213,7 +214,7 @@ function BookingController($scope) {
     };
     $scope.removePromo = (code) => {
         $scope.booking.removePromoCode(code);
-        reloadInvoicePreview();
+        renderInvoicePreview($scope.booking);
     };
     function renderInvoicePreview(booking) {
         $scope.inv_date = moment(booking.start_time).format(DATE_FORMAT);
