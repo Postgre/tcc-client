@@ -17,7 +17,7 @@
     <?php require 'partials/angular.html' ?>
 
 </head>
-<body class="stretched" ng-app="profile" ng-controller="ProfileController">
+<body class="stretched" ng-app="tcc" ng-controller="ProfileController">
 <div id="wrapper" class="clearfix">
 
     <?php require 'partials/top-bar.htm' ?>

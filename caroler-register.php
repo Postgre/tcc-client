@@ -6,7 +6,7 @@
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
 </head>
-<body class="stretched" ng-app="caroler-register" ng-controller="CarolerRegisterController">
+<body class="stretched" ng-app="tcc" ng-controller="CarolerRegisterController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>

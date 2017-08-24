@@ -13,7 +13,7 @@
         }
     </style>
 </head>
-<body class="stretched" ng-app="payments" ng-controller="PaymentsController">
+<body class="stretched" ng-app="tcc" ng-controller="PaymentsController">
 <script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
 
 <!-- Document Wrapper

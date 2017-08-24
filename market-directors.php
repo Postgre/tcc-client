@@ -7,7 +7,7 @@
 
     <?php require 'partials/angular.html' ?>
 </head>
-<body class="stretched" ng-app="market-directors" ng-controller="MarketDirectorsController">
+<body class="stretched" ng-app="tcc" ng-controller="MarketDirectorsController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php'?>

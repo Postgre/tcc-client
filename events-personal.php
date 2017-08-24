@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="stretched" ng-app="customer-events" ng-controller="CustomerEventsController">
+<body class="stretched" ng-app="tcc" ng-controller="CustomerEventsController">
 
 <!-- Document Wrapper
 ============================================= -->

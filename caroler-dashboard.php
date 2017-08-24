@@ -27,7 +27,7 @@
     ============================================= -->
     <?php require 'partials/angular.html' ?>
 </head>
-<body class="stretched" ng-app="caroler-dashboard" ng-controller="CarolerDashboardController">
+<body class="stretched" ng-app="tcc" ng-controller="CarolerDashboardController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>

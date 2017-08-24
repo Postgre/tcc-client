@@ -14,7 +14,7 @@
     ============================================= -->
     <?php require 'partials/angular.html' ?>
 </head>
-<body class="stretched" ng-app="markets-manage" ng-controller="MarketsManageController">
+<body class="stretched" ng-app="tcc" ng-controller="MarketsManageController">
 
 <!-- Document Wrapper
 ============================================= -->

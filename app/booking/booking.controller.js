@@ -226,12 +226,12 @@ function BookingController($scope) {
                 $scope.$apply();
             }).catch((err)=>{
                 if(!err.response){
-                    somethingWentWrong();
-                    return;
+                    somethingWentWrong(); return;
                 }
                 let status = err.response.data.status;
                 switch(status){
                     case "CONFIG_NOT_FOUND": alert("Please select a different caroler config"); break;
+                    case "INVALID_DISTANCE": alert("Invalid Distance"); break;
                     default:
                         alert("Error : "+status);
                 }

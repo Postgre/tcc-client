@@ -15,7 +15,7 @@
     ============================================= -->
     <?php require 'partials/angular.html' ?>
 </head>
-<body class="stretched" ng-app="resellers" ng-controller="ResellersController">
+<body class="stretched" ng-app="tcc" ng-controller="ResellersController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>

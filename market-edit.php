@@ -29,7 +29,7 @@
     ======================== -->
     <?php require 'partials/angular.html' ?>
 </head>
-<body class="stretched" ng-app="market-edit" ng-controller="MarketEditController">
+<body class="stretched" ng-app="tcc" ng-controller="MarketEditController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>

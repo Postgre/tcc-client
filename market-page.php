@@ -11,7 +11,7 @@
     <?php require 'partials/angular.html' ?>
 
 </head>
-<body class="stretched" ng-app="market-page" ng-controller="MarketPageController">
+<body class="stretched" ng-app="tcc" ng-controller="MarketPageController">
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
 <?php require 'partials/header-2.php' ?>
