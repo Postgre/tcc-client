@@ -17,6 +17,7 @@ angular.module("tcc", [
     'booking',
     'markets-manage',
     'payments',
+    'event-single',
     // external
     'ui.bootstrap',
     '720kb.datepicker'

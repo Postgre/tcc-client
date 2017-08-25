@@ -197,7 +197,7 @@
                             </table>
                         </div>
                     </div>
-                    <div id="tab-availability" class="tab-content clearfix">
+                    <div id="tab-availability" class="tab-content clearfix" style="overflow: -webkit-paged-y">
                         <h2>Special Dates</h2>
                         <div ng-repeat="date in market.specialDates" class="col_full row">
                             <div ng-show="editing_special_dates" class="col-sm-1">
@@ -205,8 +205,22 @@
                                 <button ng-click="deleteSpecialDate(date)" class="btn btn-danger">x</button>
                             </div>
                             <div ng-class="getEditClass()">
-                                <label>Date Range</label>
-                                <tcc-date-range to="date.date_to" from="date.date_from"></tcc-date-range>
+
+                                <div class="col-md-6">
+                                    <label>Start</label>
+                                    <datepicker date-format="yyyy-MM-dd">
+                                        <input ng-model="date.date_to" class="sm-form-control"
+                                               placeholder="Click Me!"/>
+                                    </datepicker>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>End</label>
+                                    <datepicker date-format="yyyy-MM-dd">
+                                        <input ng-model="date.date_from" class="sm-form-control"
+                                               placeholder="Click Me!"/>
+                                    </datepicker>
+                                </div>
+                                <!--<tcc-date-range to="date.date_to" from="date.date_from"></tcc-date-range>-->
                             </div>
                             <div class="col-sm-3">
                                 <label>Allow AutoBook</label>

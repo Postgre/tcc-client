@@ -2,6 +2,7 @@ angular.module('market-edit')
     .controller('MarketEditController', MarketEditController);
 
 function MarketEditController($scope) {
+    $scope.DATE_FORMAT = "yyyy-MM-dd";
 
     $scope.market = {};
 

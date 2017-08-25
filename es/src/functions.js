@@ -43,12 +43,13 @@ window.formatAddress = function(address, city, state){
     return `${address}, ${city}, ${state}`;
 };
 window.subscribeToMailingList = function(form){
-    this.dataService.subscribe(form.email.value).then(()=>{
-        swal("Done!", "You have been subscribed to our mailing list", "success");
-    }).catch(()=>{
-        swal("Coming Soon!", "Pardon our progress.", "warning")
-    });
-    return false;
+    swal("Coming Soon!", "Pardon our progress.", "warning");
+    // this.dataService.subscribe(form.email.value).then(()=>{
+    //     swal("Done!", "You have been subscribed to our mailing list", "success");
+    // }).catch(()=>{
+    //
+    // });
+    // return false;
 };
 /* API */
 window.api = {
