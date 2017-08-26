@@ -60,7 +60,7 @@
                                 <tbody>
                                 <tr ng-repeat="row in available | orderBy:s:r">
                                     <td></td>
-                                    <td>{{row.name}}</td>
+                                    <td><a ng-href="event-single.php?booking={{row.id}}">{{row.name}}</a></td>
                                     <td>{{row.address}}</td>
                                     <td><strong>{{row.date}}</strong></td>
                                     <td><label class="label label-primary" ng-bind="row.time"></label> </td>
@@ -92,7 +92,7 @@
                                 <tbody>
                                 <tr ng-repeat="row in booked | orderBy:s:r">
                                     <td></td>
-                                    <td>{{row.name}}</td>
+                                    <td><a ng-href="event-single.php?booking={{row.id}}">{{row.name}}</a></td>
                                     <td><strong>{{row.date}}</strong></td>
                                     <td><label class="label label-primary" ng-bind="row.time"></label> </td>
                                     <td><label class="label label-default">{{row.status}}</label></td>

@@ -7,7 +7,7 @@
  */
 // TODO: relations
 module.exports = class ModelFactory {
-    constructor(ajaxDriver, classMap, schema, dataService){
+    constructor(ajaxDriver, classMap, schema, dataService) {
         this.ajaxDriver = ajaxDriver;
         this.dataService = dataService;
         this.classMap = classMap;
@@ -19,91 +19,105 @@ module.exports = class ModelFactory {
         };
     }
 
-    get(ModelClass, id) {
+    get(ModelClass, id, relations) {
         this.validate(ModelClass);
+
+        let queryParams = {};
+        Object.assign(queryParams, {"with": relations});
+
         let instance = this.create(ModelClass);
         instance.id = id;
         let url = instance.url();
         instance.$promise = new Promise((resolve, reject) => {
-            this.ajaxDriver.execute({ url: url, method: "GET" })
-                .then((response)=>{
-                    let _model = response.data;
-                    instance.setData(_model);
-                    instance.notify("ready");
-                    resolve(instance);
-                }, reject);
+            this.ajaxDriver.execute({
+                url: url,
+                method: "GET",
+                params: queryParams
+            }).then((response) => {
+                let _model = response.data;
+                instance.setData(_model);
+                instance.notify("ready");
+                resolve(instance);
+            }, reject);
         });
         return instance;
     }
-    create(ModelClass, data){
+
+    create(ModelClass, data) {
         let schema = this.schema[ModelClass];
         let instance = new this.classMap[ModelClass]();
         Object.assign(instance, this.dependencies, schema);
         instance.init();
-        if(data) Object.assign(instance, data);
-        console.info("MODEL:",instance);
+        if (data) Object.assign(instance, data);
+        console.info("MODEL:", instance);
         return instance;
     }
-    all(ModelClass, filters, relations){
+
+    all(ModelClass, filters, relations) {
         let queryParams = {};
         Object.assign(queryParams, filters);
         Object.assign(queryParams, {"with": relations});
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve, reject) => {
             this.ajaxDriver.execute({
                 url: this.getSchema(ModelClass).endpoint,
                 method: "GET",
                 params: queryParams
-            }).then((res)=>{
+            }).then((res) => {
                 let _models = res.data;
                 let models = [];
                 let modelPromises = [];
-                _models.forEach((_model)=>{
+                _models.forEach((_model) => {
                     let model = this.create(ModelClass, _model);
                     model.load(modelPromises, Promise.resolve(model));
                     models.push(model);
                 });
-                Promise.all(modelPromises).then(()=>{ resolve(models) }, reject);
+                Promise.all(modelPromises).then(() => {
+                    resolve(models)
+                }, reject);
             }, reject);
         });
     }
 
-    wrapAll(ModelClass, dataArray){
+    wrapAll(ModelClass, dataArray) {
         let out = [];
-        dataArray.forEach((_model)=>{
+        dataArray.forEach((_model) => {
             out.push(this.create(ModelClass, _model));
         });
         return out;
     }
 
     /* Exception Handling */
-    validate(ModelClass){
-        if(!this.schema[ModelClass]) throw `${ModelClass} not defined in schema`;
-        if(!this.schema[ModelClass].endpoint) throw `${ModelClass} has no endpoint in schema`;
+    validate(ModelClass) {
+        if (!this.schema[ModelClass]) throw `${ModelClass} not defined in schema`;
+        if (!this.schema[ModelClass].endpoint) throw `${ModelClass} has no endpoint in schema`;
     }
-    getSchema(ModelClass){
+
+    getSchema(ModelClass) {
         this.validate(ModelClass);
         return this.schema[ModelClass];
     }
 
     /* SCHEDULED FOR DEPRECATION */
-    find(ModelClass, id, eager){
+    find(ModelClass, id, eager) {
         let instance = this.create(ModelClass);
         instance.id = id;
 
         let promises = [];
-        let resourcePromise = new Promise((resolve, reject)=>{
+        let resourcePromise = new Promise((resolve, reject) => {
             this.dataService.getResource(this.schema[ModelClass].endpoint, id)
-                .then((_model)=>{
+                .then((_model) => {
                     console.log(_model);
                     instance.setData(_model);
                     resolve(instance);
                 }).catch(reject);
         });
         promises.push(resourcePromise);
-        if(eager === true){ instance.load(promises, resourcePromise) }
+        if (eager === true) {
+            instance.load(promises, resourcePromise)
+        }
 
-        return new Promise((resolve, reject)=>{
-            Promise.all(promises).then((resolves)=>{
+        return new Promise((resolve, reject) => {
+            Promise.all(promises).then((resolves) => {
                 resolve(resolves[0]);
             })
         });

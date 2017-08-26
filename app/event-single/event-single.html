@@ -49,18 +49,18 @@
                         <h3>Registration Status</h3>
                     </div>
                     <div>
-                        <div ng-repeat="part in parts" class="col-md-6" style="margin-bottom: 25px">
+                        <div ng-repeat="part in enrollments" class="col-md-6" style="margin-bottom: 25px">
                             <div class="spost clearfix">
                                 <div class="entry-image">
-                                    <a ng-show="part.image" href=""><img class="part-found" ng-src="{{part.image}}" alt="Image"></a>
-                                    <a ng-hide="part.image"><img class="part-not-found" src="/images/icons/question-mark.png" alt="{{part}}"></a>
+                                    <a ng-show="part.user" href=""><img class="part-found" ng-src="{{part.user.image}}" alt="Image"></a>
+                                    <a ng-hide="part.user"><img class="part-not-found" src="/images/icons/question-mark.png" alt="{{part}}"></a>
                                 </div>
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h4 ng-bind="part.name"></h4>
+                                        <h4 ng-bind="part.caroler_type.name"></h4>
                                     </div>
                                     <ul class="entry-meta">
-                                        <li ng-if="part.user" class="color"><a href ng-bind="part.user"></a></li>
+                                        <li ng-if="part.user" class="color"><a href ng-bind="part.user.name"></a></li>
                                         <li ng-if="!part.user" class="color"><a style="color: red">Not Yet Found!</a></li>
                                     </ul>
                                 </div>

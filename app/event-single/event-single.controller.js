@@ -4,45 +4,42 @@ angular.module("event-single")
 EventSingleController.$inject = ['$scope'];
 function EventSingleController($scope){
     $scope.booking = {};
-    $scope.host = {
-        name: "Chris Rocco"
-    };
-    $scope.parts = [
-        {
-            name: "Alto",
-            user: "Caroler Joe",
-            image: "https://image.flaticon.com/icons/svg/145/145859.svg"
-        },
-        {
-            name: "Soprano",
-            user: "Caroler Bob",
-            image: "https://image.flaticon.com/icons/svg/288/288508.svg"
-        },
-        {
-            name: "Tenor",
-            user: false
-        }
-    ];
+    $scope.host = {};
+    $scope.enrollments = [];
 
     function init(){
-        /* load the booking */
         let booking_id = getQueryVariable("booking");
-        let booking = modelFactory.get("Booking", booking_id);
+
+        /* load the booking */
+        let booking = modelFactory.get("Booking", booking_id, ["user", "market", "leadCaroler"]);
         booking.subscribe("ready", function(){
             loadMap(booking.getFormattedAddress());
             $scope.booking = booking;
+            $scope.market = modelFactory.create("Market", booking.market);
+            $scope.host = booking.user;
+            $scope.parts = booking;
             $scope.$apply();
 
             /* start countdown */
             let newDate = moment($scope.booking.start_time).toDate();
             $('#countdown-ex2').countdown({until: newDate});
             // end
-
-            /* load the market */
-            $scope.market = modelFactory.get("Market", booking.market_id);
-            $scope.market.subscribe("ready", function(){ $scope.$apply(); });
-            // end
         });
+        // end
+
+        /* load the enrollments */
+        this.dataService.connection({
+            url: `events/${booking_id}/enrollments`,
+            method: "GET",
+            params: {
+                "with": ["user", "carolerType"]
+            }
+        }).then(
+            (res) => {
+                $scope.enrollments = res.data;
+                $scope.$apply();
+            }
+        );
         // end
     }
 

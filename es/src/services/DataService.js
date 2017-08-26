@@ -612,44 +612,6 @@ module.exports = class DataService {
             }, reject);
         });
     }
-    mockGetCarolerEvents(){
-        return new Promise((resolve, reject)=>{
-            function getRandomInt(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-            }
-
-            let out = [];
-
-            let cust = ['Jamie Lannister', 'Tyrion Lannister', 'Cersi Lannister', 'Tywin Lannister', 'Lancel Lannister', 'Kevan Lannister'];
-            let stats = ['booked', 'pending', 'pending approval', 'overdue'];
-
-            for(let i = 0; i < 100; i++){
-                let mom = moment().add(getRandomInt(1, 100), 'days').add(getRandomInt(1, 100), 'hours');
-                let date = mom.format("MM/DD/YYYY");
-                let time = mom.format("HH:MM");
-                let event = {
-                    customer: cust[getRandomInt(0, cust.length-1)],
-                    date: date,
-                    time: time,
-                    status: stats[getRandomInt(0, stats.length-1)],
-                    parts: [
-                        {
-                            name: "alto"
-                        },
-                        {
-                            name: "soprano"
-                        }
-                    ]
-                };
-
-                out.push(event);
-            }
-
-            setTimeout(resolve(out), 2000);
-        })
-    }
     claimEvent(enrollment_id){
         return this.connection({
             url: `events/enrollments/${enrollment_id}/claim`,
@@ -727,10 +689,7 @@ module.exports = class DataService {
     marketCarolers(market_id){
         return this.connection({
             method: "GET",
-            url: "market-carolers",
-            params: {
-                market_id: market_id
-            }
-        })
+            url: "market-carolers/"+market_id
+        });
     }
 };
