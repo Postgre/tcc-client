@@ -718,4 +718,19 @@ module.exports = class DataService {
         console.log("callback", callback);
         return callback;
     }
+
+
+    /**
+     * ACTIVITIES
+     * ========================
+     */
+    marketCarolers(market_id){
+        return this.connection({
+            method: "GET",
+            url: "market-carolers",
+            params: {
+                market_id: market_id
+            }
+        })
+    }
 };

@@ -90,7 +90,7 @@ module.exports = class Market extends BaseModel {
                 url: `markets/${this.id}/carolers`,
                 method: "GET",
                 params: {
-                    "with": "caroler_types"
+                    "with": [ "carolerTypes", "carolerProfile" ]
                 }
             }).then((res)=>{
                 let _carolers = res.data;

@@ -24,6 +24,5 @@ angular.module("tcc", [
     'event-single',
     // external
     'ui.bootstrap',
-    '720kb.datepicker',
-    'ui.knob'
+    '720kb.datepicker'
 ]);

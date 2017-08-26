@@ -6,10 +6,7 @@ function MarketCarolersController($scope){
     $scope.TABLE_REQUESTS = "app/market-carolers/table-requests.html";
     $scope.MODAL_INVITE = "app/market-carolers/modal-invite.html";
 
-    $scope.market = {
-        name: "Birmingham Market",
-        address: "1500 1st Avenue N, Birmingham, AL"
-    };
+    $scope.market = {};
     $scope.requests = [];
     $scope.active = [];
     $scope.form = {};
@@ -17,21 +14,12 @@ function MarketCarolersController($scope){
     function init(){
         /* load market */
         let market_id = window.getQueryVariable('market');
-        let market = modelFactory.get("Market", market_id);
-        market.$promise.then(function(){
-            market.loadCarolers().then((_carolers)=>{
-                $scope.active = _carolers;
-                $scope.$apply();
-            });
-            console.log("market loaded..", market);
-            $scope.$apply();
-        });
-        $scope.market = market;
-        /* load caroler requests */
-        dataService.getCarolerRequests(market_id).then(
-            (requests) => {
-                console.info("loaded requests", requests);
-                $scope.requests = requests;
+        dataService.marketCarolers(market_id).then(
+            (res) => {
+                let data = res.data;
+                $scope.market = data.market;
+                $scope.active = data.active;
+                $scope.requests = data.requests;
                 $scope.$apply();
             }, somethingWentWrong
         );

@@ -119,7 +119,7 @@ function ProfileController($scope) {
         fills = fills.concat($scope.carolerProfile.fillable);
         Object.assign(input, $scope.userProfile.getData(), $scope.carolerProfile.getData());
         let res = tcc.FilledService.getPercentage(input, fills);
-        console.log(input, fills, res);
+        $scope.carolerProfile.completion = res;
         return res;
     };
 
