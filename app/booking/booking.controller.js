@@ -33,13 +33,15 @@ function BookingController($scope) {
         costs: {},
         metrics: {}
     };
+    $scope.bind_duration = 1;
 
     $scope.updateTimes = function() {
         let d = $scope.bind_date;
         let s = $scope.bind_start;
-        let e = $scope.bind_end;
+        let e = moment(s).add($scope.bind_duration, 'hours');
         $scope.booking.start_time = moment(d).format(DATE_FORMAT) + " " + moment(s).format(TIME_FORMAT);
         $scope.booking.end_time =   moment(d).format(DATE_FORMAT) + " " + moment(e).format(TIME_FORMAT);
+        console.log("updated:", $scope.booking.start_time, $scope.booking.end_time);
     };
 
     /**

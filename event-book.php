@@ -10,6 +10,9 @@
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css" type="text/css">
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Checkboxes -->
+    <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
+
 
     <!-- Angular
     ============================================= -->
@@ -18,6 +21,9 @@
     <style>
         .travel_cost_breakdown b {
             color: #1ABC9C;
+        }
+        #quote-details .row {
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -38,9 +44,5 @@
 <!-- Bootstrap Select Plugin -->
 <script type="text/javascript" src="js/components/bs-select.js"></script>
 
-<!-- Google Maps -->
-<script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI"></script>
-<script type="text/javascript" src="js/jquery.gmap.js"></script>
 </body>
 </html>

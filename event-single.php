@@ -3,6 +3,17 @@
 <head>
     <?php require 'partials/head.htm' ?>
     <?php require 'partials/angular.html' ?>
+
+    <style>
+        .part-found {
+            /*border: solid #00961d 1px;*/
+            /*padding: 1px;*/
+        }
+        .part-not-found {
+            border: dashed red 1px;
+            padding: 6px;
+        }
+    </style>
 </head>
 <body class="stretched" ng-app="tcc" ng-controller="EventSingleController">
 <div id="wrapper" class="clearfix">

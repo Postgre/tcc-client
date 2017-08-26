@@ -35,6 +35,11 @@ module.exports = class Market extends BaseModel {
     getFormattedCityState(){
         return `${this.city}, ${this.state}`;
     }
+    getTruncatedBio(){
+        let charLimit = 255;
+        if(this.html.length <= charLimit) return this.html;
+        return this.html.substring(0, charLimit) + `... &nbsp <a href='market-page.php?market=${this.id}'>see more</a>`;
+    }
 
     hasConfig(id){
         if(!this.caroler_configs){

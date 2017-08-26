@@ -1,5 +1,9 @@
 angular.module("tcc", [
+    // services
+    'auth',
+    // activities
     'login-register',
+    'profile',
     'invite-redeem',
     'home',
     'customer-events',

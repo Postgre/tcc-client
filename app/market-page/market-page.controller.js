@@ -95,35 +95,33 @@ function MarketPageController( $scope ) {
                 }
             );
     }
+    function loadMap(address) {
+        jQuery('#event-location').gMap({
+            address: address,
+            maptype: 'ROADMAP',
+            zoom: 8,
+            markers: [
+                {
+                    address: address
+                }
+            ],
+            doubleclickzoom: false,
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: true,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            }
+        });
+    }
+    function notifyRequestSent(){
+        swal("Success!", "Your request has been sent to the city director", "success");
+    }
+    function notifyDupes(){
+        swal("Wait a Minute!", "You're already a part of this market", "warning");
+    }
 
     init();
-}
-
-function loadMap(address) {
-    jQuery('#event-location').gMap({
-        address: address,
-        maptype: 'ROADMAP',
-        zoom: 8,
-        markers: [
-            {
-                address: address
-            }
-        ],
-        doubleclickzoom: false,
-        controls: {
-            panControl: true,
-            zoomControl: true,
-            mapTypeControl: true,
-            scaleControl: false,
-            streetViewControl: false,
-            overviewMapControl: false
-        }
-    });
-}
-
-function notifyRequestSent(){
-    swal("Success!", "Your request has been sent to the city director", "success");
-}
-function notifyDupes(){
-    swal("Wait a Minute!", "You're already a part of this market", "warning");
 }
