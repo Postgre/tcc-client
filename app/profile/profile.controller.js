@@ -112,10 +112,14 @@ function ProfileController($scope) {
     };
 
     $scope.completion = function completion(){
-        let res = 0;
-        // if($scope.carolerProfile) res += $scope.carolerProfile.calculateCompletion();
-        if($scope.userProfile) res += $scope.userProfile.calculateCompletion();
-        console.log(res);
+        if(!($scope.userProfile && $scope.carolerProfile)) return 0;
+        let input = {};
+        let fills = [];
+        fills = fills.concat($scope.userProfile.fillable);
+        fills = fills.concat($scope.carolerProfile.fillable);
+        Object.assign(input, $scope.userProfile.getData(), $scope.carolerProfile.getData());
+        let res = tcc.FilledService.getPercentage(input, fills);
+        console.log(input, fills, res);
         return res;
     };
 

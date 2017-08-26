@@ -101,7 +101,7 @@
     "fillable": [
       "square_cash",
       "w9",
-      "perf_agreement"
+      "performance_agreement"
     ]
   },
   "MyDirectorProfile": {

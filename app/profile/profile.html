@@ -8,16 +8,22 @@
 
                 <div class="col-sm-9">
 
-                    <img ng-src="{{userProfile.image}}"
-                         class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar"
-                         style="max-width: 84px;">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <img ng-src="{{userProfile.image}}"
+                                 class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar"
+                                 style="max-width: 84px;">
 
-                    <div class="heading-block noborder">
-                        <h3 ng-bind="userProfile.name"></h3>
-                        <span ng-bind="userProfile.email"></span>
+                            <div class="heading-block noborder">
+                                <h3 ng-bind="userProfile.name"></h3>
+                                <span ng-bind="userProfile.email"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Profile Completion</p>
+                            <uib-progressbar class="progress-striped active" value="completion()" type="danger">{{completion()}}%</uib-progressbar>
+                        </div>
                     </div>
-
-                    <div class="clear"></div>
 
                     <div class="row clearfix">
 
@@ -206,10 +212,6 @@
 
                 <div class="col-sm-3 clearfix">
                     <!-- IDK what to put here -->
-                    <h6>Profile Completion</h6>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: {{completion()}}%" aria-valuemin="0" aria-valuemax="100">{{completion()}}%</div>
-                    </div>
                 </div>
 
             </div>

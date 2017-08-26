@@ -79,6 +79,7 @@ const tcc = {};
 const QuoteRequest = require('./lib/quote/QuoteRequest');
 const CarolerConfigs = require('./lib/caroler_configs/CarolerConfigs');
 const SpecialDate = require('./lib/special_date/SpecialDate');
+tcc.FilledService = require('./lib/filled/FilledService');
 tcc.Braintree = require("./lib/braintree/Braintree");
 
 /* Escaping Webpack */
