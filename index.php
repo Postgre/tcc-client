@@ -47,16 +47,6 @@
 
 <!-- Bootstrap Select Plugin -->
 <script type="text/javascript" src="js/components/bs-select.js"></script>
-<!-- Date & Time Picker JS -->
-<script type="text/javascript" src="js/components/moment.js"></script>
-<script type="text/javascript" src="js/components/datepicker.js"></script>
-<script type="text/javascript" src="js/components/timepicker.js"></script>
-<!-- Google Map -->
-<script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI"></script>
-<script type="text/javascript" src="js/jquery.gmap.js"></script>
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="js/components/daterangepicker.js"></script>
 
 <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
 <script type="text/javascript" src="include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
