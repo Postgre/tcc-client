@@ -29,10 +29,12 @@
                                     <li><a href="#tab-profile"><i class="icon-pencil2"></i> Profile</a></li>
                                     <li ng-if="carolerProfile"><a href="#tab-caroler-profile"><i
                                             class="icon-pencil2"></i> Caroler Profile</a></li>
+                                    <li ng-if="carolerProfile"><a href="#tab-caroler-costume"><i
+                                            class="icon-t-shirt"></i> Caroler Costumes</a></li>
+                                    <li ng-if="carolerProfile"><a href="#tab-square-cash"><i
+                                            class="icon-money"></i> Square Cash</a></li>
                                     <li ng-if="directorProfile"><a href="#tab-director-profile"><i
                                             class="icon-pencil2"></i> Director Profile</a></li>
-                                    <li ng-if="carolerProfile"><a href="#tab-square-cash"><i
-                                            class="icon-pencil2"></i> Square Cash</a></li>
                                 </ul>
 
                                 <div class="tab-container">
@@ -147,6 +149,15 @@
                                                     </div>
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-if="carolerProfile" class="tab-content clearfix" id="tab-caroler-costume">
+                                        <!-- Caroler-specific Fields -->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <iframe src="https://fs18.formsite.com/completeforms/form53/index.html" width="100%" height="650px">
+                                                </iframe>
                                             </div>
                                         </div>
                                     </div>

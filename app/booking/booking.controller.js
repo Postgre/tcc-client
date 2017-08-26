@@ -70,7 +70,7 @@ function BookingController($scope) {
         // end
 
         /* date and time pickers */
-        let date = moment().add(7, 'days');
+        let date = moment().add(7, 'days').format("MM/DD/YYYY");
         let start = moment(date);
         let end = moment(start).add(2, 'hours');
         $scope.bind_date = date;
