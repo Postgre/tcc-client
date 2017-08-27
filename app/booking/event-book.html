@@ -30,7 +30,7 @@
                     </li>
                 </ul>
                 <div>
-                    <div id="ptab1">
+                    <div id="ptab1" ng-controller="DetailsController">
                         <div class="container clearfix">
                             <div class="row clearfix">
                                 <div class="col-md-6">
@@ -71,7 +71,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <datepicker date-format="MM/dd/yyyy">
-                                                        <input ng-model="bind_date" class="sm-form-control"
+                                                        <input ng-model="date" class="sm-form-control"
                                                                placeholder="Click Me!"/>
                                                     </datepicker>
                                                 </div>
@@ -81,7 +81,7 @@
                                                     <label>Start Time</label>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <div uib-timepicker ng-model="bind_start" ng-change="updateTimes()"
+                                                    <div uib-timepicker ng-model="start" ng-change="updateTimes()"
                                                          hour-step="1" minute-step="15" show-meridian="true"></div>
                                                 </div>
                                             </div>
@@ -91,7 +91,7 @@
                                                     <p>(Hours)</p>
                                                 </div>
                                                 <div class="col-sm-6" id="btns-event-length">
-                                                    <tcc-number-inc bind="bind_duration"
+                                                    <tcc-number-inc bind="duration"
                                                                     min="1" max="10" change="updateTimes"></tcc-number-inc>
                                                 </div>
                                             </div>
@@ -99,27 +99,27 @@
                                                 <div class="col-sm-12 center">
                                                     <div class="btn-group">
                                                         <label ng-hide="!market.hasConfig(1)"
-                                                               class="btn btn-danger" ng-model="booking.caroler_config"
+                                                               class="btn btn-danger btn-sm" ng-model="config"
                                                                uib-btn-radio="'trio_stb'"
                                                                uib-popover="3 Carolers" popover-trigger="'mouseenter'">Trio
                                                             (S,T,B)</label>
                                                         <label ng-hide="!market.hasConfig(1)"
-                                                               class="btn btn-danger" ng-model="booking.caroler_config"
+                                                               class="btn btn-danger btn-sm" ng-model="config"
                                                                uib-btn-radio="'trio_sab'"
                                                                uib-popover="3 Carolers" popover-trigger="'mouseenter'">Trio
                                                             (S,A,B)</label>
                                                         <label ng-hide="!market.hasConfig(3)"
-                                                               class="btn btn-danger" ng-model="booking.caroler_config"
+                                                               class="btn btn-danger btn-sm" ng-model="config"
                                                                uib-btn-radio="'quartet'"
                                                                uib-popover="4 Carolers"
                                                                popover-trigger="'mouseenter'">Quartet</label>
                                                         <label ng-hide="!market.hasConfig(4)"
-                                                               class="btn btn-danger" ng-model="booking.caroler_config"
+                                                               class="btn btn-danger btn-sm" ng-model="config"
                                                                uib-btn-radio="'sixtet'"
                                                                uib-popover="6 Carolers"
                                                                popover-trigger="'mouseenter'">Sextet</label>
                                                         <label ng-hide="!market.hasConfig(5)"
-                                                               class="btn btn-danger" ng-model="booking.caroler_config"
+                                                               class="btn btn-danger btn-sm" ng-model="config"
                                                                uib-btn-radio="'octet'"
                                                                uib-popover="8 Carolers"
                                                                popover-trigger="'mouseenter'">Octet</label>
@@ -143,24 +143,24 @@
                             </div>
                         </div>
                     </div>
-                    <div id="ptab2">
+                    <div id="ptab2" ng-controller="TravelController">
                         <div class="container clearfix">
                             <div class="row clearfix">
                                 <div class="col-md-6">
                                     <form name="travel_form" id="travel_form" class="nobottommargin">
                                         <div class="col_full">
                                             <label for="address">Venue Address: </label>
-                                            <input ng-model="booking.address" required id="address" type="text"
+                                            <input ng-model="address" required id="address"
                                                    class="form-control">
                                         </div>
                                         <div class="col_half">
                                             <label>State: </label>
-                                            <tcc-state-select bind="booking.state"></tcc-state-select>
+                                            <tcc-state-select bind="state"></tcc-state-select>
                                         </div>
 
                                         <div class="col_half col_last">
                                             <label>City: </label>
-                                            <input ng-model="booking.city" required id="city" type="text"
+                                            <input ng-model="city" required id="city"
                                                    class="form-control">
                                         </div>
                                         <p id="location-coordinates" style="display: none; margin-top: 10px;">
@@ -196,13 +196,13 @@
                                     <h3>Parking</h3>
                                     <p>Please provide us with an overview of where the carolers will be able to
                                         park.</p>
-                                    <textarea ng-model="booking.parking" class="sm-form-control"
+                                    <textarea ng-model="parking" class="sm-form-control"
                                               rows="2"
                                               cols="20"></textarea>
                                     <br/>
                                     <h3>Other Expenses</h3>
                                     <p>Please let us know if there are any other expenses we should anticipate.</p>
-                                    <textarea ng-model="booking.other_expenses" class="sm-form-control"
+                                    <textarea ng-model="other" class="sm-form-control"
                                               rows="4"
                                               cols="30"></textarea>
                                 </div>
@@ -214,54 +214,14 @@
                         <a ng-click="stepToReview()" href class="button button-3d nomargin fright tab-linker">Review
                             Booking</a>
                     </div>
-                    <div id="ptab3">
+                    <div id="ptab3" ng-controller="QuoteController">
                         <div class="row clearfix">
                             <div class="col-md-6">
                                 <div class="table-responsive clearfix">
                                     <div class="fancy-title title-double-border">
                                         <h3>Your Event </h3>
                                     </div>
-
-                                    <table class="table table-striped">
-                                        <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <th>Date</th>
-                                            <td>{{inv_date}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <th>Time</th>
-                                            <td>{{inv_start+' - '+inv_end}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <th>Caroler Config</th>
-                                            <td>{{booking.caroler_config}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <th>Type</th>
-                                            <td>{{booking.type}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <th>State</th>
-                                            <td>{{booking.state}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <th>City</th>
-                                            <td>{{booking.city}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <th>Address</th>
-                                            <td>{{booking.address}}</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
+                                    <tcc-event-details booking="booking"></tcc-event-details>
                                     <div ng-if="booking.getPromoData().length > 0"
                                          class="fancy-title title-double-border">
                                         <h3>Promos and Discounts</h3>
@@ -289,52 +249,7 @@
                                 <div class="table-responsive">
                                     <h4>Cart Totals</h4>
 
-                                    <table class="table cart">
-                                        <tbody>
-                                        <tr class="cart_item">
-                                            <td class="cart-product-name">
-                                                <strong>Caroler Cost</strong>
-                                            </td>
-
-                                            <td class="cart-product-name">
-                                                $ <span ng-bind="invoice.carolers + invoice.date" class="amount"></span>
-                                            </td>
-                                        </tr>
-                                        <tr class="cart_item">
-                                            <td class="cart-product-name">
-                                                <strong>Travel Fees</strong>
-                                            </td>
-
-                                            <td class="cart-product-name">
-                                                $<span ng-bind="invoice.travel" class="amount">
-														</span>
-                                            </td>
-                                        </tr>
-                                        <tr class="cart_item">
-                                            <td class="cart-product-name">
-                                                <strong>Promos</strong>
-                                            </td>
-
-                                            <td class="cart-product-name">
-                                                $<span ng-bind="invoice.discounts" class="amount">
-														</span>
-                                            </td>
-                                        </tr>
-                                        <tr class="cart_item">
-                                            <td class="cart-product-name">
-                                                <strong>Total</strong>
-                                            </td>
-
-                                            <td class="cart-product-name">
-														<span class="amount color lead">
-															$<strong ng-bind="invoice.total">
-															</strong>
-														</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
+                                    <tcc-quote booking="booking"></tcc-quote>
                                 </div>
                                 <div class="accordion clearfix">
                                     <div class="acctitle">
@@ -364,7 +279,7 @@
                         <a ng-click="stepTo(1)" href="" class="button button-3d nomargin">Previous</a>
                         <a ng-click="handleBookIt()" href="" class="button button-3d nomargin fright">Book It!</a>
                     </div>
-                    <div id="ptab4">
+                    <div id="ptab4" ng-controller="MoreDetailsController">
 
                         <h3>We just need a few more details!</h3>
 
@@ -480,73 +395,7 @@
                                 <div class="fancy-title title-double-border">
                                     <h3>Your Event </h3>
                                 </div>
-                                <table class="table table-striped">
-                                    <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <th>Name</th>
-                                        <td>{{booking.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>Date</th>
-                                        <td>{{inv_date}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>Time</th>
-                                        <td>{{inv_start+' - '+inv_end}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>Caroler Config</th>
-                                        <td>{{booking.caroler_config}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>Type</th>
-                                        <td>{{booking.type}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>State</th>
-                                        <td>{{booking.state}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>City</th>
-                                        <td>{{booking.city}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>Address</th>
-                                        <td>{{booking.address}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>Special Requests</th>
-                                        <td>{{booking.special_requests}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <th>Other Details</th>
-                                        <td>
-                                            <ul>
-                                                <li ng-repeat="detail in booking.details" ng-bind="detail"></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr class="txt-md">
-                                        <td></td>
-                                        <th><b>Total</b></th>
-                                        <td class="cart-product-name">
-                                            <span class="amount color lead">
-                                                $<strong ng-bind="invoice.total"></strong>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <tcc-event-details booking="booking"></tcc-event-details>
                             </div>
                             <a ng-click="handleConfirmBooking()" class="button button-3d nomargin fright">Confirm
                                 Booking!</a>

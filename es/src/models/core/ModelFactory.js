@@ -49,7 +49,6 @@ module.exports = class ModelFactory {
         Object.assign(instance, this.dependencies, schema);
         instance.init();
         if (data) Object.assign(instance, data);
-        console.info("MODEL:", instance);
         return instance;
     }
 

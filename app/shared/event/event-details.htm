@@ -1,11 +1,11 @@
 <table class="table table-striped">
     <tbody>
-    <tr>
+    <tr ng-if="booking.name">
         <td></td>
         <th>Event Name</th>
         <td>{{booking.name}}</td>
     </tr>
-    <tr>
+    <tr ng-if="booking.status">
         <td></td>
         <th>Status</th>
         <td>
@@ -32,6 +32,16 @@
         <th>Type</th>
         <td>{{booking.type}}</td>
     </tr>
+    <tr ng-if="booking.company_name">
+        <td></td>
+        <th>Company</th>
+        <td>{{booking.company_name}}</td>
+    </tr>
+    <tr ng-if="booking.venue_name">
+        <td></td>
+        <th>Venue</th>
+        <td>{{booking.venue_name}}</td>
+    </tr>
     <tr>
         <td></td>
         <th>State</th>
@@ -46,6 +56,20 @@
         <td></td>
         <th>Address</th>
         <td>{{booking.address}}</td>
+    </tr>
+    <tr ng-if="booking.details">
+        <td></td>
+        <th>Details</th>
+        <td>
+            <ul>
+                <li ng-repeat="det in booking.details">{{det}}</li>
+            </ul>
+        </td>
+    </tr>
+    <tr ng-if="booking.special_requests">
+        <td></td>
+        <th>Special Requests</th>
+        <td>{{booking.special_requests}}</td>
     </tr>
     </tbody>
 </table>

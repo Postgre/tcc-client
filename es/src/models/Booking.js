@@ -80,5 +80,8 @@ module.exports = class Booking extends BaseModel {
             && this.address
         )
     }
+    validate(){
+        return( this.validateAddress() && this.validateDetails() )
+    }
     // end
 };

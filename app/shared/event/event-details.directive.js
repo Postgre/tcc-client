@@ -4,7 +4,8 @@ angular.module('shared')
 function tccEventDetails(){
     return {
         scope: {
-            booking: "="
+            booking: "=",
+            hidden: "="
         },
         templateUrl: "/app/shared/event/event-details.htm",
         controller: function($scope){
