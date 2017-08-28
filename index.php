@@ -30,6 +30,24 @@
         ._720kb-datepicker-calendar {
             bottom: 40px;
         }
+        .tcc-home-panel .panel-heading {
+            background-color: #800020;
+            color: white;
+            text-align: center;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+        }
+        .tcc-home-panel .panel-body {
+            text-align: justify;
+            font-size: 16px;
+        }
+        .tcc-home-panel .panel-body .button-wrapper {
+            text-align: center;
+        }
+        .tcc-home-panel .panel-body button {
+            background-color: #800020;
+            border-color: #6b1808;
+        }
     </style>
 </head>
 <body class="stretched" ng-app="tcc" ng-controller="HomeController">

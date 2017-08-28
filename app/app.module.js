@@ -18,6 +18,8 @@ angular.module("tcc", [
     'market-directors',
     'market-edit',
     'market-events',
+    'promos',
+    'resellers',
     'booking',
     'markets-manage',
     'payments',
