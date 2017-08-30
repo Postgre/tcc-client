@@ -112,9 +112,18 @@
 
                                     <div class="clear"></div>
 
-                                    <div class="col_full">
-                                        <label> Duration </label>
-                                        <tcc-date-range from="form.start_time" to="form.end_time"></tcc-date-range>
+                                    <div class="col_half">
+                                        <label> Start Date </label>
+                                        <datepicker date-format="MM-dd-yyyy">
+                                            <input ng-model="form.start_time" class="form-control" placeholder="Click Me!"/>
+                                        </datepicker>
+                                    </div>
+
+                                    <div class="col_half col_last">
+                                        <label> End Date </label>
+                                        <datepicker>
+                                            <input ng-model="form.end_time" class="form-control" placeholder="Click Me!"/>
+                                        </datepicker>
                                     </div>
 
                                     <div class="clear"></div>

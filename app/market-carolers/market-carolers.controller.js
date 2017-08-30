@@ -18,7 +18,7 @@ function MarketCarolersController($scope){
             (res) => {
                 let data = res.data;
                 $scope.market = data.market;
-                $scope.active = data.active;
+                $scope.active = data.carolers;
                 $scope.requests = data.requests;
                 $scope.$apply();
             }, somethingWentWrong
