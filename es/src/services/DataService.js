@@ -66,12 +66,12 @@ module.exports = class DataService {
             })
         })
     }
-    getResourceAll( resourceName, filters ){
+    getResourceAll( resourceName, params ){
         return new Promise((resolve, reject)=>{
             this.connection({
                 url: resourceName,
                 method: "GET",
-                params: filters
+                params: params
             }).then((res)=>{
                 resolve(res.data);
             }).catch((err)=>{
@@ -690,6 +690,16 @@ module.exports = class DataService {
         return this.connection({
             method: "GET",
             url: "market-carolers/"+market_id
+        });
+    }
+    carolerSingle(caroler_id){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "caroler-single/"+caroler_id,
+                method: "GET"
+            }).then((res)=>{
+                resolve(res.data);
+            }, reject);
         });
     }
 };

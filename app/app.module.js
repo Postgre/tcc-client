@@ -24,6 +24,8 @@ angular.module("tcc", [
     'markets-manage',
     'payments',
     'event-single',
+    'caroler-single',
+    'caroler-list',
     // external
     'ui.bootstrap',
     '720kb.datepicker'

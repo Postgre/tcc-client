@@ -1,0 +1,67 @@
+<!-- Page Title
+		============================================= -->
+<section id="page-title" class="page-title-pattern page-title-center">
+
+    <div class="container clearfix">
+        <h1>Active Carolers</h1>
+        <span>See all active carolers here</span>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+		============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <div class="table-responsive">
+
+                <table id="datatable" class="table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>City, State</th>
+                        <th>Phone</th>
+                        <th>W9</th>
+                        <th>Square Cash</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in carolers">
+                        <td class="col-cust">
+                            <img ng-src="{{row.image}}" width="40px"/>
+                        </td>
+                        <td class="col-cust">
+                            <b>{{row.name}}</b>
+                        </td>
+                        <td ng-bind="row.email"></td>
+                        <td>
+                            <span ng-if="row.city && row.state" ng-bind="row.city+', '+row.state">
+                            </span>
+                            <label ng-hide="row.city && row.state" class="label label-danger">Not Provided</label>
+                        </td>
+                        <td>
+                            {{row.phone}}
+                            <label ng-hide="row.phone" class="label label-danger">Not Provided</label>
+                        </td>
+                        <td>
+                            {{row.caroler_profile.w9}}
+                            <label ng-hide="row.caroler_profile.w9" class="label label-danger">Not Provided</label>
+                        </td>
+                        <td>
+                            {{row.caroler_profile.square_cash}}
+                            <label ng-hide="row.caroler_profile.square_cash" class="label label-danger">Not Provided</label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
