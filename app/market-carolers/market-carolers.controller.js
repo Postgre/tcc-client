@@ -2,7 +2,6 @@ angular.module('market-carolers')
     .controller("MarketCarolersController", MarketCarolersController);
 
 function MarketCarolersController($scope){
-    $scope.TABLE_ACTIVE = "app/market-carolers/table-active.html";
     $scope.TABLE_REQUESTS = "app/market-carolers/table-requests.html";
     $scope.MODAL_INVITE = "app/market-carolers/modal-invite.html";
 
