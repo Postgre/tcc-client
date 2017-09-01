@@ -33,10 +33,14 @@
                     <tbody>
                     <tr ng-repeat="row in carolers">
                         <td class="col-cust">
-                            <img ng-src="{{row.image}}" width="40px"/>
+                            <a ng-href="/caroler-single.php?caroler={{row.id}}">
+                                <img ng-src="{{row.image}}" width="40px"/>
+                            </a>
                         </td>
                         <td class="col-cust">
-                            <b>{{row.name}}</b>
+                            <a ng-href="/caroler-single.php?caroler={{row.id}}">
+                                <b>{{row.name}}</b>
+                            </a>
                         </td>
                         <td ng-bind="row.email"></td>
                         <td>

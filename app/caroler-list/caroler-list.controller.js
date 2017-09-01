@@ -4,7 +4,9 @@ angular.module("caroler-list")
         $scope.carolers = [];
 
         function init() {
-            dataService.getResourceAll("users").then((carolers)=>{
+            dataService.getResourceAll("users", {
+                role: "caroler"
+            }).then((carolers)=>{
                 $scope.carolers = carolers;
                 $scope.$apply();
             }).catch((err)=>{

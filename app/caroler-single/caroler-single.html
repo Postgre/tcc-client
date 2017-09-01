@@ -1,15 +1,10 @@
 <!-- Page Title
 		============================================= -->
-<section id="page-title" class="page-title-pattern">
+<section id="page-title" class="page-title-center">
 
     <div class="container clearfix">
-        <h1>Page Title</h1>
-        <span>Subtitle</span>
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Events</a></li>
-            <li class="active">---</li>
-        </ol>
+        <h1>Caroler Summary</h1>
+        <span>Upcoming Performances, Market Memberships, and Profile Details</span>
     </div>
 
 </section><!-- #page-title end -->
@@ -20,7 +15,115 @@
 
     <div class="content-wrap">
 
-        <h1>Coming Soon!</h1>
+        <div class="container clearfix">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;"
+                        ng-src="{{user.image}}">
+                    <div class="heading-block noborder" style="margin-bottom: 0">
+                        <h3 class="ng-binding">{{user.name}}</h3>
+                        <span class="ng-binding">{{user.email}}</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="heading-block pull-right noborder" style="margin-bottom: 0; text-align: right">
+                        <h3 class="ng-binding">{{user.phone}}</h3>
+                        <span class="ng-binding">{{user.address+', '+user.city+', '+user.state}}</span>
+                    </div>
+                </div>
+                <br/>
+            </div>
+            <br>
+            <label ng-repeat="type in types" class="label label-primary" style="margin-right: 20px">{{type.name}}</label>
+            <br>
+            <hr/>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="fancy-title title-dotted-border title-center">
+                        <h3>Upcoming Performances</h3>
+                    </div>
+                    <div ng-if="events.length === 0" class="center">
+                        <h4 style="color: red">No Upcoming Events</h4>
+                    </div>
+                    <div ng-repeat="enrollment in events" class="row clearfix bottommargin">
+                        <div class="col-md-3 center">
+                            <a ng-href="/event-single.php?booking={{enrollment.event.id}}" data-lightbox="image">
+                                <img class="image_fade" src="https://image.flaticon.com/icons/svg/290/290436.svg" height="60px">
+                            </a>
+                        </div>
+                        <div class="bottommargin-sm visible-sm visible-xs"></div>
+                        <div class="col-md-9 col-sm-7">
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <h4 class="nobottommargin">
+                                        <a ng-bind="enrollment.event.name" ng-href="/event-single.php?booking={{enrollment.event.id}}">
+                                            <!-- Market Name -->
+                                        </a>
+                                    </h4>
+                                </div>
+                                <p class="nobottommargin">{{enrollment.event.address}}</p>
+                                <p class="nobottommargin">{{enrollment.event.start_time}}</p>
+                                <ul class="entry-meta clearfix">
+                                    <li>
+                                        <i class="icon-checkmark"></i>
+                                        <a ng-bind="enrollment.caroler_type.name" href="#"></a>
+                                    </li>
+                                    <li>
+                                        <tcc-status status="enrollment.event.status"></tcc-status>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <p ng-bind="market.html.substring(0, 100)+'...';" class="nobottommargin">
+                            <!-- Market Description -->
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="fancy-title title-dotted-border title-center">
+                        <h3>Market Memberships</h3>
+                    </div>
+                    <div ng-if="markets.length === 0" class="center">
+                        <h4 style="color: red">No Market Memberships</h4>
+                    </div>
+                    <div class="clearfix">
+                        <div ng-repeat="market in markets" class="row clearfix bottommargin">
+                            <div class="col-md-4">
+                                <a href="{{market.image}}" data-lightbox="image">
+                                    <img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
+                                </a>
+                            </div>
+                            <div class="bottommargin-sm visible-sm visible-xs"></div>
+                            <div class="col-md-8 col-sm-8">
+                                <div class="entry-c">
+                                    <div class="entry-title">
+                                        <h4>
+                                            <a ng-bind="market.name" href="/market-page.php?market={{market.id}}">
+                                                <!-- Market Name -->
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li>
+                                            <i class="icon-map-marker2"></i>
+                                            <a ng-bind="market.city + ', ' + market.state" href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <p ng-bind="market.html.substring(0, 100)+'...';" class="nobottommargin">
+                                <!-- Market Description -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 

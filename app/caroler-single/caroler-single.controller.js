@@ -6,6 +6,8 @@ angular.module("caroler-single")
         $scope.events = [];
         $scope.types = [];
 
+        $scope.test = "Ready!";
+
         function init() {
             window.scope = $scope;
             let caroler_id = getQueryVariable("caroler");
@@ -14,7 +16,7 @@ angular.module("caroler-single")
                 $scope.caroler_profile = data.caroler_profile;
                 $scope.markets = data.markets;
                 $scope.events = data.events;
-                $scope.types = data.types;
+                $scope.types = data.caroler_types;
                 $scope.$apply();
             });
         }

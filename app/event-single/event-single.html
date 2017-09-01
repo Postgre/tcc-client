@@ -22,15 +22,16 @@
 
         <div class="container clearfix">
             <div class="row">
-                <div class="col-md-4">
-                    <img class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;"src="https://www.misskatecuttables.com/uploads/shopping_cart/11180/large_santa-face.png">
+                <div class="col-md-5">
+                    <img class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;"
+                        ng-src="{{booking.user.image}}">
                     <div class="heading-block noborder" style="margin-bottom: 0">
-                        <h3 class="ng-binding">Santa Claus</h3>
-                        <span class="ng-binding">admin@example.com</span>
+                        <h3 class="ng-binding">{{booking.user.name}}</h3>
+                        <span class="ng-binding">{{booking.user.email}}</span>
                     </div>
                     <div class="clear"></div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div id="countdown-ex2" class="countdown countdown-medium"></div>
                 </div>
             </div>
@@ -52,12 +53,14 @@
                         <div ng-repeat="part in enrollments" class="col-md-6" style="margin-bottom: 25px">
                             <div class="spost clearfix">
                                 <div class="entry-image">
-                                    <a ng-show="part.user" href=""><img class="part-found" ng-src="{{part.user.image}}" alt="Image"></a>
+                                    <a ng-show="part.user" ng-href="/caroler-single.php?caroler={{part.user.id}}"><img class="part-found" ng-src="{{part.user.image}}" alt="Image"></a>
                                     <a ng-hide="part.user"><img class="part-not-found" src="/images/icons/question-mark.png" alt="{{part}}"></a>
                                 </div>
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h4 ng-bind="part.caroler_type.name"></h4>
+                                        <a ng-href="/caroler-single.php?caroler={{part.user.id}}">
+                                            <h4 ng-bind="part.caroler_type.name"></h4>
+                                        </a>
                                     </div>
                                     <ul class="entry-meta">
                                         <li ng-if="part.user" class="color"><a href ng-bind="part.user.name"></a></li>
@@ -72,9 +75,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="fancy-title title-dotted-border title-center">
-                        <h3>Location: <span ng-bind="booking.getFormattedAddress()"></span> </h3>
+                        <h3>Location</h3>
                     </div>
                     <section id="event-location" class="gmap" style="height: 300px;"></section>
+                    <br/>
+                    <h5 class="nobottommargin"><span>{{booking.getFormattedAddress()}}</span></h5>
                 </div>
                 <div class="col-md-6">
                     <div class="fancy-title title-dotted-border title-center">
