@@ -21,6 +21,7 @@ angular.module("caroler-list")
         //=================================================
 
         function loadW9(caroler){
+            $scope.modalTitle = `${caroler.name}'s W9 Document`;
             window.dataService.connection({
                 url: `users/${caroler.id}/w9`,
                 method: "GET",
@@ -31,8 +32,12 @@ angular.module("caroler-list")
 
                 $('#frame').attr('src',url);
                 $("#modal").modal("show");
+                $scope.doc_error = false;
 
-                // window.open(url); // Mostly the same, I was just experimenting with different approaches, tried link.click, iframe and other solutions
+            }).catch((err)=>{
+                $scope.doc_error = true;
+                $("#modal").modal("show");
+                $scope.$apply();
             });
         }
 
