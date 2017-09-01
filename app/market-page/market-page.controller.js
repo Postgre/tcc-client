@@ -3,6 +3,7 @@ angular.module('market-page')
 
 function MarketPageController( $scope ) {
     $scope.market = {};
+    $scope.carolers = [];
     $scope.base_rate = -1; // this is how much it costs to book a 1 hour event with 4 carolers
 
     function init(){
@@ -20,6 +21,11 @@ function MarketPageController( $scope ) {
             $scope.$apply();
         });
         $scope.market = market;
+
+        dataService.getMarketCarolers(market_id).then((carolers)=>{
+            $scope.carolers = carolers;
+            $scope.$apply();
+        })
 
         /* Older */
         // modelFactory.find("Market", market_id).then((market)=>{
