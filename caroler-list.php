@@ -3,6 +3,9 @@
 <head>
     <?php require 'partials/head.htm' ?>
     <?php require 'partials/angular.html' ?>
+
+    <!-- Bootstrap Data Table Plugin -->
+    <link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css"/>
 </head>
 <body class="stretched" ng-app="tcc" ng-controller="CarolerListController">
 <div id="wrapper" class="clearfix">
@@ -15,5 +18,7 @@
 <!-- JAVASCRIPTS
 =========================== -->
 <?php require 'partials/javascripts.htm' ?>
+<!-- Bootstrap Data Table Plugin -->
+<script type="text/javascript" src="js/components/bs-datatable.js"></script>
 </body>
 </html>

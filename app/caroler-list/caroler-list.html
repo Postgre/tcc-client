@@ -17,7 +17,6 @@
 
         <div class="container clearfix">
             <div class="table-responsive">
-
                 <table id="datatable" class="table" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -52,17 +51,35 @@
                             {{row.phone}}
                             <label ng-hide="row.phone" class="label label-danger">Not Provided</label>
                         </td>
-                        <td>
-                            {{row.caroler_profile.w9}}
-                            <label ng-hide="row.caroler_profile.w9" class="label label-danger">Not Provided</label>
+                        <td class="center">
+                            <label ng-show="!row.caroler_profile.w9" class="label label-danger">Not Provided</label>
+                            <button ng-show="row.caroler_profile.w9" ng-click="loadW9(row)" class="btn btn-default btn-sm">open</button>
                         </td>
-                        <td>
-                            {{row.caroler_profile.square_cash}}
-                            <label ng-hide="row.caroler_profile.square_cash" class="label label-danger">Not Provided</label>
+                        <td class="center">
+                            <label ng-show="!row.caroler_profile.w9" class="label label-danger">Not Provided</label>
+                            <button ng-show="row.caroler_profile.w9" class="btn btn-default btn-sm">open</button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                x
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Create New Promotion</h4>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="frame" src="" width="100%" height="700px"></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
