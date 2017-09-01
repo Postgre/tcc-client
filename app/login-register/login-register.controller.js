@@ -69,7 +69,9 @@ function AuthController( $scope ){
                 fail => {
                     switch(fail){
                         case 409: notifyAlreadyRegistered(); break;
-                        default: somethingWentWrong();
+                        default:
+                            console.log(fail);
+                            somethingWentWrong();
                     }
                 }
             );

@@ -83,7 +83,7 @@ module.exports = class AuthService {
                     name: name,
                     email: email,
                     password: password,
-                    callback: this.callback('verify_your_email', "action=verify")
+                    callback: this.callback('verify_your_email', ["action=verify"])
                 })
             }).then(
                 (res) => {
