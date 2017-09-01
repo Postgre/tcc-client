@@ -23,9 +23,9 @@
                         <th></th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>City, State</th>
                         <th>Phone</th>
                         <th>W9</th>
+                        <th>Performance Agreement</th>
                         <th>Square Cash</th>
                     </tr>
                     </thead>
@@ -43,21 +43,16 @@
                         </td>
                         <td ng-bind="row.email"></td>
                         <td>
-                            <span ng-if="row.city && row.state" ng-bind="row.city+', '+row.state">
-                            </span>
-                            <label ng-hide="row.city && row.state" class="label label-danger">Not Provided</label>
-                        </td>
-                        <td>
                             {{row.phone}}
-                            <label ng-hide="row.phone" class="label label-danger">Not Provided</label>
                         </td>
                         <td class="center">
-                            <label ng-show="!row.caroler_profile.w9" class="label label-danger">Not Provided</label>
                             <button ng-show="row.caroler_profile.w9" ng-click="loadW9(row)" class="btn btn-default btn-sm">open</button>
                         </td>
                         <td class="center">
-                            <label ng-show="!row.caroler_profile.w9" class="label label-danger">Not Provided</label>
-                            <button ng-show="row.caroler_profile.w9" class="btn btn-default btn-sm">open</button>
+                            <button ng-show="row.caroler_profile.performance_agreement" ng-click="loadPerfAgreement(row)" class="btn btn-default btn-sm">open</button>
+                        </td>
+                        <td>
+                            {{row.caroler_profile.square_cash}}
                         </td>
                     </tr>
                     </tbody>

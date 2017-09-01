@@ -17,6 +17,7 @@ angular.module("caroler-list")
         }
 
         $scope.loadW9 = loadW9;
+        $scope.loadPerfAgreement = loadPerfAgreement;
 
         //=================================================
 
@@ -33,7 +34,28 @@ angular.module("caroler-list")
                 $('#frame').attr('src',url);
                 $("#modal").modal("show");
                 $scope.doc_error = false;
+                $scope.$apply();
+            }).catch((err)=>{
+                $scope.doc_error = true;
+                $("#modal").modal("show");
+                $scope.$apply();
+            });
+        }
 
+        function loadPerfAgreement(caroler){
+            $scope.modalTitle = `${caroler.name}'s Performance Agreement`;
+            window.dataService.connection({
+                url: `users/${caroler.id}/performance-agreement`,
+                method: "GET",
+                responseType: 'arraybuffer'
+            }).then((response) => {
+                let blob = new Blob([response.data], { type: response.headers['content-type'] } );
+                let url = window.URL.createObjectURL(blob);
+
+                $('#frame').attr('src',url);
+                $("#modal").modal("show");
+                $scope.doc_error = false;
+                $scope.$apply();
             }).catch((err)=>{
                 $scope.doc_error = true;
                 $("#modal").modal("show");
