@@ -9,11 +9,11 @@
             color: red;
         }
         .balancePaid {
-            color: green;
+            color: #1ABC9C;
         }
     </style>
 </head>
-<body class="stretched" ng-app="tcc" ng-controller="PaymentsController">
+<body class="stretched" ng-app="tcc" ng-controller="CheckoutController">
 <script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
 
 <!-- Document Wrapper
@@ -21,7 +21,7 @@
 <div id="wrapper" class="clearfix">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>
-    <?php require 'app/payments/payments.html' ?>
+    <?php require 'app/checkout/checkout.html' ?>
     <?php require 'partials/footer.htm' ?>
 </div>
 

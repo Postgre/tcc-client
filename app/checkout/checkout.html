@@ -1,78 +1,29 @@
+<!-- Page Title
+		============================================= -->
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Event Invoice</h1>
+        <span>{{booking.name}}</span>
+        <ol class="breadcrumb">
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/events-personal.php">Events</a></li>
+            <li class="active">{{booking.name}}</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
 <section id="content">
     <div class="content-wrap">
 
         <div class="container clearfix">
             <div class="row clearfix">
                 <div class="col-md-6">
-                    <div class="fancy-title title-double-border">
-                        <h4>Event: <span><b ng-bind="event.name"></b></span></h4>
-                    </div>
 
-                    <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                            <td></td>
-                            <th>Date</th>
-                            <td>{{event.date}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>Time</th>
-                            <td>{{event.start+' - '+event.end}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>Caroler Config</th>
-                            <td>{{event.caroler_config}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>Type</th>
-                            <td>{{event.type}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>State</th>
-                            <td>{{event.state}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>City</th>
-                            <td>{{event.city}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>Address</th>
-                            <td>{{event.address}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>Created</th>
-                            <td>{{event.created_at}}</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>Special Requests</th>
-                            <td>{{event.special_requests}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="col_full nobottommargin">
-                        <img ng-src="{{market.image}}">
-                        <div class="tcc-img-overlay">
-                            <b ng-bind="market.city+', '+market.state"></b>
-                            <span ng-bind="market.name"></span>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-md-6">
-                    <div id="res" style="" class="style-msg successmsg">
-                        <div class="sb-msg" id="tokenize_data"></div>
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    </div>
                     <div class="table-responsive">
-                        <h3>Invoice Totals</h3>
+                        <h3>Event Invoice</h3>
 
                         <table class="table cart">
                             <tbody>
@@ -114,11 +65,20 @@
                             </tr>
                             <tr class="cart_item">
                                 <td class="cart-product-name">
+                                    <strong>Previous Payments</strong>
+                                </td>
+
+                                <td class="cart-product-name">
+                                    <span class="amount color lead"><strong>${{invoice.total - invoice.balance}}</strong></span>
+                                </td>
+                            </tr>
+                            <tr class="cart_item">
+                                <td class="cart-product-name">
                                     <strong>This Payment</strong>
                                 </td>
 
                                 <td class="cart-product-name">
-                                    <span class="amount color lead"><strong>- ${{invoice.due}}</strong></span>
+                                    <input ui-money-mask="0" class="form-control" ng-model="amount" style="width: 100px"/>
                                 </td>
                             </tr>
                             <tr class="cart_item">
@@ -127,12 +87,20 @@
                                 </td>
 
                                 <td class="cart-product-name">
-                                    <span class="amount color lead"><strong ng-class="totalClass">${{invoice.total - invoice.due}}</strong></span>
+                                    <span class="amount lead" style="color: red"
+                                          ng-hide="amount > invoice.balance || amount < dueNow">
+                                        <strong ng-class="{
+                                            'balanceDue': invoice.balance-amount > 0,
+                                            'balancePaid': invoice.balance-amount === 0
+                                        }">${{invoice.balance - amount}}</strong></span>
+                                    <span style="color: red"
+                                          ng-show="amount > invoice.balance || amount < dueNow">Invalid Amount</span>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-
+                        <p style="color: red" ng-show="amount < dueNow">amount must be at least ${{dueNow}}</p>
+                        <p style="color: red" ng-show="amount > invoice.balance">that's more than your remaining balance!</p>
                     </div>
                     <div class="accordion clearfix">
                         <div class="acctitle">
