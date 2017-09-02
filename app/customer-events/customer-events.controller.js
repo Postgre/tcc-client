@@ -1,6 +1,18 @@
 angular.module("customer-events")
     .controller('CustomerEventsController', CustomerEventsController);
 
+/**
+ * Server response format:
+ * {
+ *  orders: [
+ *      {
+ *          event: {},
+ *          market: {},
+ *          invoice: {}
+ *      }
+ *  ]
+ * }
+ */
 function CustomerEventsController( $scope ) {
 
     $scope.upcoming_events = [];
@@ -14,6 +26,11 @@ function CustomerEventsController( $scope ) {
      * Functions
      * ===============
      */
+    $scope.fmtDate = fmtDate;
+
+    function fmtDate(date){
+        return moment(date).format("MM/DD/YYYY");
+    }
 
     /**
      * Init
