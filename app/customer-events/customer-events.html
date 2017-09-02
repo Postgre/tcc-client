@@ -2,7 +2,7 @@
 
     <div class="content-wrap">
 
-        <div class="parallax header-stick bottommargin-lg dark"
+        <!--<div class="parallax header-stick bottommargin-lg dark"
              style="padding: 60px 0; background-image: url('images/red_deer.jpg'); height: 100%;"
              data-stellar-background-ratio="0.5">
 
@@ -10,7 +10,7 @@
 
                 <div class="events-calendar">
                     <div class="events-calendar-header clearfix">
-                        <!--<h2>Events Overview</h2>-->
+                        &lt;!&ndash;<h2>Events Overview</h2>&ndash;&gt;
                         <h3 class="calendar-month-year">
                             <span id="calendar-month" class="calendar-month"></span>
                             <span id="calendar-year" class="calendar-year"></span>
@@ -30,7 +30,7 @@
 
             </div>
 
-        </div>
+        </div>-->
 
         <div class="container clearfix">
 
@@ -84,7 +84,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button class="btn btn-default btn-block">Submit Payment</button>
+                                                    <a ng-href="/checkout.php?booking={{event.id}}" class="btn btn-default btn-block">Submit Payment</a>
                                                     <hr/>
                                                     <button class="btn btn-default btn-block">View Invoice</button>
                                                     <button class="btn btn-default btn-block">Transactions</button>

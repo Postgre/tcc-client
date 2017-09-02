@@ -37,7 +37,7 @@ function CustomerEventsController( $scope ) {
      * ===============
      */
     function init(){
-        loadCalendar({});
+        // loadCalendar({});
 
         function ready(){
             $scope.$apply();
@@ -48,15 +48,15 @@ function CustomerEventsController( $scope ) {
         modelFactory.all("Booking", {
             where: "end_time > "+now
         }).then((events)=>{
-            let calData = {};
+            // let calData = {};
             events.forEach(function(event){
                 // loading into calendar format
                 let date = moment(event.start_time);
                 event.startDate = date.format("D");
                 event.startMonth = date.format("MMM");
-                calData[date.format("MM-DD-YYYY")] = event.name;
+                // calData[date.format("MM-DD-YYYY")] = `<a href="/event-single.php?booking=${event.id}">${event.name}</a>`;
             });
-            loadCalendar(calData);
+            // loadCalendar(calData);
             $scope.upcoming = events;
             ready();
         });
@@ -76,4 +76,38 @@ function CustomerEventsController( $scope ) {
         });
         // end
     }
+
+    var cal = null;
+    var $month = null;
+    var $year = null;
+
+    function loadCalendar(data) {
+        cal = $('#calendar').calendario({
+            onDayClick: function ($el, $contentEl, dateProperties) {
+
+                for (var key in dateProperties) {
+                    console.log(key + ' = ' + dateProperties[key]);
+                }
+
+            },
+            caldata: data
+        }),
+            $month = $('#calendar-month').html(cal.getMonthName()),
+            $year = $('#calendar-year').html(cal.getYear());
+    }
+
+    $('#calendar-next').on('click', function () {
+        cal.gotoNextMonth(updateMonthYear);
+    });
+    $('#calendar-prev').on('click', function () {
+        cal.gotoPreviousMonth(updateMonthYear);
+    });
+    $('#calendar-current').on('click', function () {
+        cal.gotoNow(updateMonthYear);
+    });
+
+    function updateMonthYear() {
+        $month.html(cal.getMonthName());
+        $year.html(cal.getYear());
+    };
 }

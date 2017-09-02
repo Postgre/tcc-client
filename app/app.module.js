@@ -1,4 +1,6 @@
 angular.module("tcc", [
+    // core
+    'ngRoute',
     // services
     'auth',
     // activities
