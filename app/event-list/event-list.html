@@ -1,0 +1,85 @@
+<!-- Page Title
+		============================================= -->
+<section id="page-title" class="page-title-pattern page-title-center">
+
+    <div class="container clearfix">
+        <h1>Admin Events View</h1>
+        <span>Here, you can see all events across the application</span>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+		============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <div class="table-responsive">
+                <table id="datatable" class="table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Customer</th>
+                        <th>Event Name</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="event in events">
+                        <td class="col-cust">
+                            <a href>
+                                <img ng-src="{{event.user.image}}" width="40px"/>
+                            </a>
+                        </td>
+                        <td class="col-cust txt-sm">
+                            <b>{{event.user.name}}</b>
+                        </td>
+                        <td><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a></td>
+                        <td class="col-cust">
+                            <b>{{event.address}}</b>
+                            <br/>
+                            <small>{{event.city+', '+event.state}}</small>
+                        </td>
+                        <td>
+                            <tcc-status status="event.status"></tcc-status>
+                        </td>
+                        <td>{{fmt(event.start_time)}}</td>
+                        <td>
+                            <button class="btn btn-default">View Order</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                x
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                {{modalTitle}}
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <h2 ng-if="doc_error" style="color: red">Hmm.. something went wrong loading the
+                                document</h2>
+                            <iframe ng-hide="doc_error" id="frame" src="" width="100%" height="700px"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
