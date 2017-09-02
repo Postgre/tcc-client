@@ -3,8 +3,8 @@
 <section id="page-title">
 
     <div class="container clearfix">
-        <h1>Event Invoice</h1>
-        <span>{{booking.name}}</span>
+        <h1>Submit Event Payment</h1>
+        <span><a ng-href="/event-single.php?booking={{booking.id}}">{{booking.name}}</a></span>
         <ol class="breadcrumb">
             <li><a href="/index.php">Home</a></li>
             <li><a href="/events-personal.php">Events</a></li>
@@ -19,7 +19,14 @@
         <div class="container clearfix">
             <div class="row clearfix">
                 <div class="col-md-6">
+                    <h3>Event Summary</h3>
+                    <tcc-event-details booking="booking"></tcc-event-details>
 
+                    <!--====================================-->
+
+                    <section id="event-location" class="gmap" style="height: 300px;"></section>
+                    <br/>
+                    <h5 class="nobottommargin"><span>{{booking.getFormattedAddress()}}</span></h5>
                 </div>
                 <div class="col-md-6">
                     <div class="table-responsive">
@@ -114,8 +121,7 @@
                             over an encrypted connection, and a payment details are never saved.
                         </div>
                     </div>
-                    <div id="dropin-container"></div>
-                    <a id="submit-button" href class="button button-3d fright">Place Order</a>
+                    <a id="customButton" href class="button button-3d fright">Place Order</a>
                 </div>
             </div>
         </div>

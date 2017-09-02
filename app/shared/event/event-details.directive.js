@@ -5,7 +5,7 @@ function tccEventDetails(){
     return {
         scope: {
             booking: "=",
-            hidden: "="
+            hidden: "=",
         },
         templateUrl: "/app/shared/event/event-details.htm",
         controller: function($scope){

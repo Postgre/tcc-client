@@ -13,7 +13,7 @@ function EventSingleController($scope){
         /* load the booking */
         let booking = modelFactory.get("Booking", booking_id, ["user", "market", "leadCaroler"]);
         booking.subscribe("ready", function(){
-            loadMap(booking.getFormattedAddress());
+            window.loadMap('#event-location', booking.getFormattedAddress());
             $scope.booking = booking;
             $scope.market = modelFactory.create("Market", booking.market);
             $scope.host = booking.user;
@@ -41,28 +41,6 @@ function EventSingleController($scope){
             }
         );
         // end
-    }
-
-    function loadMap(address) {
-        $('#event-location').gMap({
-            address: address,
-            maptype: 'ROADMAP',
-            zoom: 8,
-            markers: [
-                {
-                    address: address
-                }
-            ],
-            doubleclickzoom: false,
-            controls: {
-                panControl: true,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: false,
-                streetViewControl: false,
-                overviewMapControl: false
-            }
-        });
     }
 
     init();

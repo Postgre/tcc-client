@@ -93,3 +93,11 @@
 table.uib-timepicker {
     margin: auto;
 }
+
+/* checkout page */
+.balanceDue {
+    color: red;
+}
+.balancePaid {
+    color: #1ABC9C;
+}

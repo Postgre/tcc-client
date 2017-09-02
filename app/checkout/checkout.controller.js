@@ -1,6 +1,12 @@
 angular.module('checkout')
     .controller('CheckoutController', CheckoutController);
 
+/**
+ * REQUIRES:
+ * + booking
+ * + invoice
+ * + mode (full | deposit)
+ */
 function CheckoutController($scope) {
 
     $scope.invoice = getDefaultInvoice();
@@ -12,7 +18,7 @@ function CheckoutController($scope) {
         }
     ];
     $scope.booking = {
-        name: "Turn up in Time Square",
+        name: "My Demo Event",
         caroler_config: "Quartet",
         start: "8:00pm",
         end: "10:00pm",
@@ -24,6 +30,35 @@ function CheckoutController($scope) {
     $scope.amount = $scope.dueNow;
 
     function init() {
+        /* load event details */
+        window.loadMap("#event-location", $scope.booking.address);
+        // end
+
+        let handler = StripeCheckout.configure({
+            key: 'pk_test_nk8Ijhb3A3DJQHoZB9DRvtm4',
+            image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+            locale: 'auto',
+            token: function(token) {
+                // You can access the token ID with `token.id`.
+                // Get the token ID to your server-side code for use.
+                console.log("Your Token", token);
+            }
+        });
+
+        document.getElementById('customButton').addEventListener('click', function(e) {
+            // Open Checkout with further options:
+            handler.open({
+                name: 'The Christmas Carolers',
+                description: 'Event Payment',
+                amount: $scope.amount * 100
+            });
+            e.preventDefault();
+        });
+
+// Close Checkout on page navigation:
+        window.addEventListener('popstate', function() {
+            handler.close();
+        });
     }
 
     init();

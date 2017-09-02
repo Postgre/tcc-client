@@ -4,14 +4,7 @@
     <?php require 'partials/head.htm' ?>
     <?php require 'partials/angular.html' ?>
     <link rel="stylesheet" href="node_modules/card/dist/card.css" />
-    <style>
-        .balanceDue {
-            color: red;
-        }
-        .balancePaid {
-            color: #1ABC9C;
-        }
-    </style>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
 </head>
 <body class="stretched" ng-app="tcc" ng-controller="CheckoutController">
 <script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
