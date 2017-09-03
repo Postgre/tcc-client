@@ -87,7 +87,12 @@ module.exports = class AuthService {
                 })
             }).then(
                 (res) => {
-                    resolve("registered!");
+                    this.jwt = res.data.token;
+                    this.storage.setItem('jwt', res.data.token);
+                    let decoded = jwtDecode(res.data.token);
+                    this.user = decoded.user;
+                    this.jwtExpire = decoded.exp;
+                    resolve(res);
                 },
                 (error) => {
                     if(error.response){

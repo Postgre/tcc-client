@@ -110,7 +110,8 @@ angular.module('booking')
 
             $scope.process_tabs = $("#processTabs").tabs({
                 show: {effect: "fade", duration: 400},
-                disabled: [1, 2, 3, 4, 5, 6]
+                // disabled: [1, 2, 3, 4, 5, 6]
+                disabled: []
             });
             /* new blank booking */
             $scope.booking = window.modelFactory.create("Booking");
@@ -470,10 +471,15 @@ angular.module('booking')
             $scope.loadingRegister = true;
             console.log($scope.quickRegister);
             // quick register with release
-            setTimeout(function(){
-                $scope.loadingRegister = false;
-                $scope.$apply();
-            }, 2000);
+
+            let data = $scope.quickRegister;
+            authService.register(data.name, data.email, data.password)
+                .then((res)=>{
+                    $scope.loadingRegister = false;
+                    $scope.$apply();
+                    appService.renderSession();
+                    swal("Success!", "We've created your account \n You're signed in now, but you'll need to verify your email before signing in again!", "success");
+                }, somethingWentWrong);
         }
     })
     .controller("ConfirmationController", function($scope){

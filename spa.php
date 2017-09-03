@@ -112,7 +112,7 @@
     </header>
     <!-- #header end -->
 
-    <div ng-view></div>
+    <ng-view></ng-view>
     <?php require 'partials/footer.htm' ?>
 </div>
 <div id="gotoTop" class="icon-angle-up"></div>
