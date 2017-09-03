@@ -1,4 +1,4 @@
-angular.module('shared')
+angular.module("components")
 .directive('tccSelectPicker', selectPicker);
 
 function selectPicker(){
@@ -9,7 +9,7 @@ function selectPicker(){
             bind: "=bind",
             options: "=options" // { val: 1, name: 'One' }
         },
-        templateUrl: "app/shared/select/selectpicker.htm"
+        templateUrl: "app/shared/components/select/selectpicker.htm"
     };
 
     function link(scope, el, attr){

@@ -1,8 +1,10 @@
 angular.module("tcc", [
     // core
     'ngRoute',
+    'components',
     // services
     'auth',
+    'dataservice',
     // activities
     'home',
     'login-register',
@@ -10,7 +12,6 @@ angular.module("tcc", [
     'invite-redeem',
     'profile',
     'customer-events',
-    'shared',
     'market-page',
     'market-search',
     'market-carolers',

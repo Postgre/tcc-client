@@ -37,8 +37,8 @@
             <div class="col_half fright col_last nobottommargin">
                 <div class="top-links">
                     <ul>
-                        <li class="tcc_if_director tcc_if_admin"><a href="/markets-manage.php">Markets</a></li>
-                        <li class="tcc_if_customer"><a href="/customer-events.php">My Events</a></li>
+                        <li class="tcc_if_director tcc_if_admin"><a href="#!markets-manage">Markets</a></li>
+                        <li class="tcc_if_customer"><a href="#!customer-events">My Events</a></li>
                         <li class="tcc_if_admin"><a href="/promos.php">Promos</a></li>
                         <li class="tcc_if_admin"><a href="/resellers.php">Resellers</a></li>
                         <li class="tcc_if_admin"><a href="#!caroler-list">Carolers</a></li>
@@ -86,12 +86,12 @@
                 <nav id="primary-menu">
                     <ul>
                         <li>
-                            <a href="/index.php">
+                            <a href="#!">
                                 <div>Home</div>
                             </a>
                         </li>
                         <li>
-                            <a href="/market-search.php">
+                            <a href="#!locations">
                                 <div>Locations</div>
                             </a>
                         </li>

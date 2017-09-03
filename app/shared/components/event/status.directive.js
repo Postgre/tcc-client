@@ -1,4 +1,4 @@
-angular.module("shared")
+angular.module("components")
 .directive("tccStatus", function(){
     return {
         scope: {

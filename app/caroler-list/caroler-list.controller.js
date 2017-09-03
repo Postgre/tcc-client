@@ -9,6 +9,7 @@ angular.module("caroler-list")
                 carolerProfile: true
             }).then((carolers)=>{
                 $scope.carolers = carolers;
+                $scope.ready = true;
                 $scope.$apply();
                 setTimeout(initDataTable, 2000);
             }).catch((err)=>{

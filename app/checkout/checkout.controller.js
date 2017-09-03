@@ -41,7 +41,7 @@ function CheckoutController($scope) {
             token: function(token) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
-                console.log("Your Token", token);
+                swal("Here's your Token!", token.id, "success");
             }
         });
 
@@ -55,7 +55,7 @@ function CheckoutController($scope) {
             e.preventDefault();
         });
 
-// Close Checkout on page navigation:
+        // Close Checkout on page navigation:
         window.addEventListener('popstate', function() {
             handler.close();
         });

@@ -1,6 +1,68 @@
 angular.module('booking')
-    .controller('BookingController', function BookingController($scope) {
+    .controller('BookingController', function BookingController($scope, dataService, authService) {
         $scope.booking = {};
+        let tabMap = {
+            "eventDetails": {
+                id: 0,
+                prev: false,
+                validator: function(data){
+                    let valid = true;
+                    if(!data.market_id){ valid = false; swal("Invalid Market"); }
+                    if(!data.start_time){ valid = false; swal("Invalid Start Time"); }
+                    if(!data.end_time) { valid = false; swal("Invalid End Time"); }
+                    return valid;
+                }
+            },
+            "personalDetails": {
+                id: 1,
+                validator: function(data){
+                    if(!data.name){
+                        swal("Invalid Event Name");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            "travel": {
+                id: 2,
+                validator: function(data){
+                    return new Promise((resolve, reject)=>{
+                        if(!data.city || !data.state || !data.address){
+                            alert("Please fill out all fields");
+                            reject();
+                        }
+                        $scope.booking.getInvoicePreview()
+                            .then(
+                                (invoice) => {
+                                    $scope.invoice = invoice;
+                                    $scope.$apply();
+                                    resolve();
+                                },
+                                (err)=>{
+                                    swal("Invalid Travel Details", err.response.data.status, "error");
+                                    reject();
+                                });
+                    });
+                },
+                async: true
+            },
+            "summary": {
+                id: 3
+            },
+            "review": {
+                id: 4,
+                validator: function(data){
+                    if(!authService.isLoggedIn()){
+                        swal("Ready to Book", "You'll just need to create an account first!", "info");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            "confirmation": {
+                id: 5
+            }
+        };
 
         function init() {
             $scope.process_tabs = $("#processTabs").tabs({
@@ -26,23 +88,43 @@ angular.module('booking')
             }
             return true;
         };
-        $scope.stepToQuote = function(){
-            if(!$scope.booking.city || !$scope.booking.state || !$scope.booking.address){
-                alert("Please fill out all fields"); return false;
-            }
-            return $scope.booking.getInvoicePreview().then((invoice) => {
-                $scope.invoice = invoice;
-                $scope.$apply();
-            });
-        };
         $scope.stepTo = function (tab_number) {
             $scope.process_tabs.tabs("option", "active", tab_number);
         };
         // end
 
+        $scope.next = function (current){
+            let step = () => {
+                $scope.process_tabs.tabs("enable", tab.id+1);
+                $scope.stepTo(tab.id+1);
+                $scope.process_tabs.tabs("disable", tab.id);
+            };
+
+            // validate. go to next.
+            let tab = tabMap[current];
+            if(!tab.validator) {
+                step();
+                return;
+            }
+            if(!tab.async){
+                let result = tab.validator($scope.booking);
+                if(result === true) step();
+            }
+            if(tab.async){
+                let p = tab.validator($scope.booking);
+                p.then(step);
+            }
+        };
+        $scope.prev = function (current){
+            let tab = tabMap[current];
+            $scope.process_tabs.tabs("enable", tab.id-1);
+            $scope.stepTo(tab.id-1);
+            $scope.process_tabs.tabs("disable", tab.id);
+        };
+
         init();
     })
-    .controller("DetailsController", function DetailsController($scope){
+    .controller("EventDetailsController", function DetailsController($scope){
         let DATETIME_FORMAT = "YYYY-MM-DD HH:MM";
         let DATE_FORMAT = DATETIME_FORMAT.split(" ")[0];
         let TIME_FORMAT = DATETIME_FORMAT.split(" ")[1];
@@ -53,15 +135,6 @@ angular.module('booking')
         $scope.start = null;
         $scope.end = null;
         $scope.duration = null;
-
-        let tab = 0;
-        $scope.next = function(){
-            if(!$scope.stepToTravel()) return;
-            //========================
-            $scope.process_tabs.tabs("enable", tab+1);
-            $scope.stepTo(tab+1);
-            $scope.process_tabs.tabs("disable", tab);
-        };
 
         function init(){
             /* load all markets */
@@ -120,6 +193,44 @@ angular.module('booking')
             let end_time = moment(d).format(DATE_FORMAT) + " " + moment(e).format(TIME_FORMAT);
             return [start_time, end_time];
         }
+
+        $scope.handleMultipleEvents = handleMultipleEvents;
+        function handleMultipleEvents(){
+            swal("Coming Soon!", "Please pardon our progress", "info");
+        }
+    })
+    .controller("PersonalDetailsController", function PersonalDetailsController($scope){
+        $scope.type = "public";
+        $scope.details = "";
+        $scope.eventTypes = [
+            {
+                name: "Public",
+                val: "public"
+            },
+            {
+                name: "Personal",
+                val: "personal"
+            },
+            {
+                name: "Company",
+                val: "company"
+            }
+        ];
+
+        $scope.handleConfirmBooking = function handleConfirmBooking() {
+            if(!$scope.booking.name){
+                swal("Invalid Form", "Please make sure you've filled all required fields", "warning"); return;
+            }
+            $scope.booking.submit().then(
+                (data) => {
+                    $scope.booking.id = data.id;
+                    $scope.booked = true;
+                    $scope.$apply();
+                }, (err) => {
+                    alert("Invalid Booking");
+                }
+            )
+        };
     })
     .controller("TravelController", function TravelController($scope){
         $scope.state = null;
@@ -133,6 +244,7 @@ angular.module('booking')
         };
 
         function init(){
+            window.tscope = $scope;
             $scope.$watchGroup(["state", "city", "address"], function(){
                 $scope.booking.state = $scope.state;
                 $scope.booking.city = $scope.city;
@@ -147,10 +259,12 @@ angular.module('booking')
                 return;
             }
             googleMap($scope.booking.getFormattedAddress());
+            $scope.loadingTravel = true;
             $scope.booking.getTravelPreview($scope.booking.market_id)
                 .then((report) => {
                     console.log("Travel Preview", report);
                     $scope.travelPreview = report;
+                    $scope.loadingTravel = false;
                     $scope.$apply();
                 }).catch((err) => {
                     let r = err.response.data.status;
@@ -184,26 +298,12 @@ angular.module('booking')
         }
 
         init();
-
-        let tab = 1;
-        $scope.prev = function(){
-            $scope.process_tabs.tabs("enable", tab-1);
-            $scope.stepTo(tab-1);
-            $scope.process_tabs.tabs("disable", tab);
-        };
-        $scope.next = function(){
-            let p = $scope.stepToQuote();
-            if(!p) return;
-            p.then(function(){
-                $scope.process_tabs.tabs("enable", tab+1);
-                $scope.stepTo(tab+1);
-                $scope.process_tabs.tabs("disable", tab);
-            });
-        };
     })
-    .controller("QuoteController", function QuoteController($scope){
+    .controller("SummaryController", function($scope){
+        // nothing to see here
+    })
+    .controller("ReviewController", function QuoteController($scope){
 
-        /* Review Event */
         $scope.applyPromo = function () {
             let tryIt = (code) => {
                 console.log("Trying..");
@@ -237,7 +337,7 @@ angular.module('booking')
             $scope.booking.removePromoCode(code);
             reload();
         };
-        // end
+        $scope.handleEmailQuote = handleEmailQuote;
 
         function reload(){
             $scope.booking.getInvoicePreview().then((invoice) => {
@@ -245,56 +345,10 @@ angular.module('booking')
                 $scope.$apply();
             });
         }
-
-        let tab = 2;
-        $scope.prev = function(){
-            $scope.process_tabs.tabs("enable", tab-1);
-            $scope.stepTo(tab-1);
-            $scope.process_tabs.tabs("disable", tab);
-        };
-        $scope.next = function(){
-            $scope.process_tabs.tabs("enable", tab+1);
-            $scope.stepTo(tab+1);
-            $scope.process_tabs.tabs("disable", tab);
-        };
+        function handleEmailQuote(){
+            swal("Coming Soon!", "pardon our progress", "info");
+        }
     })
-    .controller("MoreDetailsController", function MoreDetailsController($scope){
-        $scope.type = "public";
-        $scope.details = "";
-        $scope.eventTypes = [
-            {
-                name: "Public",
-                val: "public"
-            },
-            {
-                name: "Personal",
-                val: "personal"
-            },
-            {
-                name: "Company",
-                val: "company"
-            }
-        ];
+    .controller("ConfirmationController", function($scope){
 
-        $scope.handleConfirmBooking = function handleConfirmBooking() {
-            if(!$scope.booking.name){
-                swal("Invalid Form", "Please make sure you've filled all required fields", "warning"); return;
-            }
-            $scope.booking.submit().then(
-                (data) => {
-                    $scope.booking.id = data.id;
-                    $scope.booked = true;
-                    $scope.$apply();
-                }, (err) => {
-                    alert("Invalid Booking");
-                }
-            )
-        };
-
-        let tab = 3;
-        $scope.prev = function(){
-            $scope.process_tabs.tabs("enable", tab-1);
-            $scope.stepTo(tab-1);
-            $scope.process_tabs.tabs("disable", tab);
-        };
     });

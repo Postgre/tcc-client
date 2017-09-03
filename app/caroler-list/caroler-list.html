@@ -16,7 +16,10 @@
     <div class="content-wrap">
 
         <div class="container clearfix">
-            <div class="table-responsive">
+            <div id="loading-container" ng-hide="ready">
+                <div id="loader"></div>
+            </div>
+            <div class="table-responsive" ng-show="ready">
                 <table id="datatable" class="table" cellspacing="0" width="100%">
                     <thead>
                     <tr>

@@ -1,4 +1,4 @@
-angular.module('shared')
+angular.module("components")
 .directive('tccEventDetails', tccEventDetails);
 
 function tccEventDetails(){
@@ -7,7 +7,7 @@ function tccEventDetails(){
             booking: "=",
             hidden: "=",
         },
-        templateUrl: "/app/shared/event/event-details.htm",
+        templateUrl: "/app/shared/components/event/event-details.htm",
         controller: function($scope){
             let DATETIME_FORMAT = "YYYY-MM-DD HH:MM";
             let DATE_FORMAT = DATETIME_FORMAT.split(" ")[0];

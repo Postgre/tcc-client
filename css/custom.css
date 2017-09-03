@@ -5,6 +5,43 @@
 	Overwriting Default Theme Styles for Better Hanlding Updates
 -----------------------------------------------------------------*/
 
+/* loaders */
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -50px 0 0 -50px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #800020;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader.sm{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -25px 0 0 -25px;
+    border: 7px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 7px solid #800020;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#load-wrap, #loading-container, #lc {
+    min-height: 400px;
+}
+#load-wrap.sm, #loading-container.sm, #lc.sm {
+    min-height: 100px;
+}
+/* end */
+
 #top-bar {
     background-color: #800020;
     border-bottom-color: #610000;
