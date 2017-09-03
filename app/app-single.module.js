@@ -25,4 +25,16 @@ angular.module("tcc-single", ['tcc'])
                 templateUrl : "app/customer-events/customer-events.html",
                 controller : "CustomerEventsController"
             })
+            .when("/event-book", {
+                templateUrl : "app/event-book/event-book.html",
+                controller : "BookingController"
+            })
+            .when("/promos", {
+                templateUrl : "app/promos/promos.html",
+                controller : "PromosController"
+            })
+            .when("/resellers", {
+                templateUrl : "app/resellers/resellers.html",
+                controller : "ResellersController"
+            })
     });
