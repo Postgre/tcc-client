@@ -16,17 +16,20 @@ function HomeController($scope) {
 
     let quoteRequest = null;
     $scope.handleGetQuote = () => {
+        $scope.loadingQuote = true;
         let data = parseQuoteRequest();
         let qr = new QuoteRequest(data, dataService);
         qr.submit().then((data) => {
-                $scope.quote = data.quote;
-                $scope.quote.market = data.market;
-                $scope.market = data.market;
-                $scope.$apply();
-                $("#quoteModal").modal("show");
-                quoteRequest = qr;
-                quoteRequest.id = $scope.quote.id;
+            $scope.quote = data.quote;
+            $scope.quote.market = data.market;
+            $scope.market = data.market;
+            $scope.loadingQuote = false;
+            $scope.$apply();
+            $("#quoteModal").modal("show");
+            quoteRequest = qr;
+            quoteRequest.id = $scope.quote.id;
         }).catch((reason) => {
+            $scope.loadingQuote = false;
             if (reason === "INVALID_DATE_TIME") {
                 swal("Oops..", "Invalid Date Time", "error");
             }
@@ -61,7 +64,7 @@ function HomeController($scope) {
                 animation: "slide-from-top",
                 inputPlaceholder: "Your Email"
             },
-            function(inputValue){
+            function (inputValue) {
                 if (inputValue === false) return false;
 
                 if (inputValue === "") {
@@ -69,7 +72,7 @@ function HomeController($scope) {
                     return false
                 }
 
-                quoteRequest.save(inputValue).then(()=>{
+                quoteRequest.save(inputValue).then(() => {
                     swal("Done!", "We've sent the quote to your email", "success");
                 }).catch(somethingWentWrong);
             });
@@ -115,14 +118,14 @@ function HomeController($scope) {
         let s = $scope.bind_start;
         let e = $scope.bind_end;
         $scope.start = moment(d).format(date_format) + " " + moment(s).format(time_format);
-        $scope.end =   moment(d).format(date_format) + " " + moment(e).format(time_format);
+        $scope.end = moment(d).format(date_format) + " " + moment(e).format(time_format);
         console.log($scope.start, $scope.end);
     };
 
     // TODO: make this re-usable
-    $scope.truncate = function truncate(marketBio, id){
+    $scope.truncate = function truncate(marketBio, id) {
         let charLimit = 255;
-        if(marketBio.length <= charLimit) return marketBio;
+        if (marketBio.length <= charLimit) return marketBio;
         return marketBio.substring(0, charLimit) + `... &nbsp <a href='market-page.php?market=${id}'>see more</a>`;
     };
 
@@ -137,7 +140,7 @@ function HomeController($scope) {
 
     init();
 
-    function initRevSlider(){
+    function initRevSlider() {
         var tpj = jQuery;
 
         var revapi431;

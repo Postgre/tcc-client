@@ -5,19 +5,31 @@ angular.module('booking')
             "eventDetails": {
                 id: 0,
                 prev: false,
-                validator: function(data){
+                validator: function (data) {
                     let valid = true;
-                    if(!data.market_id){ valid = false; swal("Invalid Market"); }
-                    if(!data.start_time){ valid = false; swal("Invalid Start Time"); }
-                    if(!data.end_time) { valid = false; swal("Invalid End Time"); }
-                    if(!data.caroler_config) { valid = false; swal("Invalid Caroler Config"); }
+                    if (!data.market_id) {
+                        valid = false;
+                        swal("Invalid Market");
+                    }
+                    if (!data.start_time) {
+                        valid = false;
+                        swal("Invalid Start Time");
+                    }
+                    if (!data.end_time) {
+                        valid = false;
+                        swal("Invalid End Time");
+                    }
+                    if (!data.caroler_config) {
+                        valid = false;
+                        swal("Invalid Caroler Config");
+                    }
                     return valid;
                 }
             },
             "personalDetails": {
                 id: 1,
-                validator: function(data){
-                    if(!data.name){
+                validator: function (data) {
+                    if (!data.name) {
                         swal("Invalid Event Name");
                         return false;
                     }
@@ -26,9 +38,9 @@ angular.module('booking')
             },
             "travel": {
                 id: 2,
-                validator: function(data){
-                    return new Promise((resolve, reject)=>{
-                        if(!data.city || !data.state || !data.address){
+                validator: function (data) {
+                    return new Promise((resolve, reject) => {
+                        if (!data.city || !data.state || !data.address) {
                             alert("Please fill out all fields");
                             reject();
                         }
@@ -41,7 +53,7 @@ angular.module('booking')
                                     $scope.$apply();
                                     resolve();
                                 },
-                                (err)=>{
+                                (err) => {
                                     swal("Invalid Travel Details", err.response.data.status, "error");
                                     $scope.validatingTravel = false;
                                     $scope.$apply();
@@ -56,35 +68,48 @@ angular.module('booking')
             },
             "review": {
                 id: 4,
-                validator: function(data){
+                validator: function (data) {
                     console.log("validating review", data);
-                    return new Promise((resolve, reject)=>{
-                        if(!data.iAgree){
-                            swal("You must agree to the terms and conditions");
-                            reject();
+                    return new Promise((resolve, reject) => {
+                        if (authService.isLoggedIn()) {
+                            if (!data.iAgree) {
+                                swal("You must agree to the terms and conditions");
+                                reject();
+                                return;
+                            }
+                            $scope.loadingInvoice = true;
+                            $scope.booking.submit()
+                                .then((data) => {
+                                    $scope.invoice = data;
+                                    $scope.loadingInvoice = false;
+                                    $scope.$apply();
+                                    resolve(data);
+                                }).catch(() => {
+                                    $scope.loadingInvoice = false;
+                                    $scope.$apply();
+                                    reject();
+                                });
                             return;
                         }
-                        if(authService.isLoggedIn()) resolve();
-
-                        swal({
-                            title: "Ready to Book?",
-                            text: "You'll just need to create an account first! \n We can do that now. \n (you wont lose your progress here!)",
-                            type: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#0bbb00",
-                            confirmButtonText: "Create Account!",
-                            cancelButtonText: "No Thanks"
-                            // closeOnConfirm: false,
-                            // closeOnCancel: false
-                        },
-                        function(isConfirm){
-                            if (isConfirm) {
-                                $("#quickRegisterModal").modal("show");
-                                reject();
-                            }
-                            swal("Call us when You're ready!");
-                            reject();
-                        });
+                        if (authService.isLoggedIn() === false) {
+                            swal({
+                                    title: "Ready to Book?",
+                                    text: "You'll just need to create an account first! \n We can do that now. \n (you wont lose your progress here!)",
+                                    type: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#0bbb00",
+                                    confirmButtonText: "Create Account!",
+                                    cancelButtonText: "No Thanks"
+                                },
+                                function (isConfirm) {
+                                    if (isConfirm) {
+                                        $("#quickRegisterModal").modal("show");
+                                        reject();
+                                    }
+                                    swal("Call us when You're ready!");
+                                    reject();
+                                });
+                        }
                     });
                 },
                 async: true
@@ -95,14 +120,16 @@ angular.module('booking')
         };
 
         function init() {
+            $scope.authService = authService;
+
             let quote = getQueryVariable("quote");
-            if(getQueryVariable("quote_id")) quote = getQueryVariable("quote_id");
-            if(quote){
+            if (getQueryVariable("quote_id")) quote = getQueryVariable("quote_id");
+            if (quote) {
                 dataService.connection({
-                    url: "quotes/"+quote
-                }).then((res)=>{
+                    url: "quotes/" + quote
+                }).then((res) => {
                     loadSaved(res.data.quote);
-                }).catch((err)=>{
+                }).catch((err) => {
                     swal("Oops..", "Failed to load quote", "error");
                     console.error(err);
                 });
@@ -118,7 +145,7 @@ angular.module('booking')
             // end
 
             /* load existing booking */
-            if(localStorage.booking){
+            if (localStorage.booking) {
                 let saved = JSON.parse(localStorage.booking);
                 $scope.emit("load", saved);
             }
@@ -126,9 +153,10 @@ angular.module('booking')
         }
 
         /* helpers */
-        $scope.stepToTravel = function(){
-            if(!$scope.booking.market_id){
-                alert("No Market Selected!"); return false;
+        $scope.stepToTravel = function () {
+            if (!$scope.booking.market_id) {
+                alert("No Market Selected!");
+                return false;
             }
             return true;
         };
@@ -137,37 +165,39 @@ angular.module('booking')
         };
         // end
 
-        $scope.next = function (current){
+        $scope.next = function (current) {
             let step = () => {
-                $scope.process_tabs.tabs("enable", tab.id+1);
-                $scope.stepTo(tab.id+1);
+                $scope.process_tabs.tabs("enable", tab.id + 1);
+                $scope.stepTo(tab.id + 1);
                 $scope.process_tabs.tabs("disable", tab.id);
             };
 
             // validate. go to next.
             let tab = tabMap[current];
-            if(!tab.validator) {
+            if (!tab.validator) {
                 step();
                 return;
             }
-            if(!tab.async){
+            if (!tab.async) {
                 let result = tab.validator($scope.booking);
-                if(result === true) step();
+                if (result === true) step();
             }
-            if(tab.async){
+            if (tab.async) {
                 tab.validator($scope.booking)
                     .then(step)
-                    .catch((err)=>{ console.error("failed validation: ", err)})
+                    .catch((err) => {
+                        console.error("failed validation: ", err)
+                    })
             }
         };
-        $scope.prev = function (current){
+        $scope.prev = function (current) {
             let tab = tabMap[current];
-            $scope.process_tabs.tabs("enable", tab.id-1);
-            $scope.stepTo(tab.id-1);
+            $scope.process_tabs.tabs("enable", tab.id - 1);
+            $scope.stepTo(tab.id - 1);
             $scope.process_tabs.tabs("disable", tab.id);
         };
 
-        function loadSaved(data){
+        function loadSaved(data) {
             console.info("loading from: ", data);
             toastr["success"]("Loaded Quote Data!");
             toastr.options = {
@@ -192,7 +222,7 @@ angular.module('booking')
 
         init();
     })
-    .controller("EventDetailsController", function DetailsController($scope){
+    .controller("EventDetailsController", function DetailsController($scope) {
         let DATETIME_FORMAT = "YYYY-MM-DD HH:MM";
         let DATE_FORMAT = DATETIME_FORMAT.split(" ")[0];
         let TIME_FORMAT = DATETIME_FORMAT.split(" ")[1];
@@ -204,24 +234,26 @@ angular.module('booking')
         $scope.end = null;
         $scope.duration = null;
 
-        function init(){
+        function init() {
             /* load all markets */
             let market_id = parseInt(getQueryVariable("market"));
-            function loadMarkets(markets){
+
+            function loadMarkets(markets) {
                 $scope.markets = markets;
                 $scope.market = $scope.markets[0];
-                if( market_id !== null ){
-                    $scope.markets.forEach((market)=>{
-                        if(market.id === market_id){
+                if (market_id !== null) {
+                    $scope.markets.forEach((market) => {
+                        if (market.id === market_id) {
                             $scope.market = market;
                         }
                     });
                 }
                 $scope.$apply();
             }
-            modelFactory.all("Market", { published: 1 }, "carolerConfigs").then(loadMarkets);
-            $scope.$watch("market", function(){
-                if(!$scope.market){
+
+            modelFactory.all("Market", {published: 1}, "carolerConfigs").then(loadMarkets);
+            $scope.$watch("market", function () {
+                if (!$scope.market) {
                     $scope.booking.market_id = null;
                     return;
                 }
@@ -235,7 +267,7 @@ angular.module('booking')
             $scope.date = moment().add(7, 'days').format(DATE_FORMAT);
             $scope.start = moment($scope.date).add(2, 'hours');
             $scope.end = moment($scope.start).add($scope.duration, 'hours');
-            $scope.$watchGroup(["date", "start", "duration"], function(){
+            $scope.$watchGroup(["date", "start", "duration"], function () {
                 let times = formatStartEnd();
                 $scope.booking.start_time = times[0];
                 $scope.booking.end_time = times[1];
@@ -244,7 +276,7 @@ angular.module('booking')
             // end
 
             /* caroler config */
-            $scope.$watch("config", function(){
+            $scope.$watch("config", function () {
                 $scope.booking.caroler_config = $scope.config;
                 console.info("watch(config)", $scope.booking);
             });
@@ -253,7 +285,7 @@ angular.module('booking')
 
         init();
 
-        function formatStartEnd(){
+        function formatStartEnd() {
             let d = $scope.date;
             let s = $scope.start;
             let e = moment(s).add($scope.duration, 'hours');
@@ -263,15 +295,16 @@ angular.module('booking')
         }
 
         $scope.handleMultipleEvents = handleMultipleEvents;
-        function handleMultipleEvents(){
+
+        function handleMultipleEvents() {
             swal("Coming Soon!", "Please pardon our progress", "info");
         }
 
-        $scope.$on("loadSaved", function(event, data){
+        $scope.$on("loadSaved", function (event, data) {
             console.info("Loading details..", data);
             // set market
-            $scope.markets.forEach((market)=>{
-                if(market.id === data.market_id){
+            $scope.markets.forEach((market) => {
+                if (market.id === data.market_id) {
                     $scope.market = market;
                 }
             });
@@ -283,19 +316,28 @@ angular.module('booking')
             $scope.duration = duration.asHours();
             // set config
             let con = "";
-            switch (data.caroler_count){
-                case 3: con="trio_sab"; break;
-                case 4: con="quartet"; break;
-                case 6: con="sixtet"; break;
-                case 8: con="octet"; break;
-                default: con="trio_stb";
+            switch (data.caroler_count) {
+                case 3:
+                    con = "trio_sab";
+                    break;
+                case 4:
+                    con = "quartet";
+                    break;
+                case 6:
+                    con = "sixtet";
+                    break;
+                case 8:
+                    con = "octet";
+                    break;
+                default:
+                    con = "trio_stb";
             }
             $scope.config = con;
             $scope.$apply();
             console.info("scope..", $scope);
         })
     })
-    .controller("PersonalDetailsController", function PersonalDetailsController($scope){
+    .controller("PersonalDetailsController", function PersonalDetailsController($scope) {
         $scope.type = "public";
         $scope.details = "";
         $scope.eventTypes = [
@@ -314,8 +356,9 @@ angular.module('booking')
         ];
 
         $scope.handleConfirmBooking = function handleConfirmBooking() {
-            if(!$scope.booking.name){
-                swal("Invalid Form", "Please make sure you've filled all required fields", "warning"); return;
+            if (!$scope.booking.name) {
+                swal("Invalid Form", "Please make sure you've filled all required fields", "warning");
+                return;
             }
             $scope.booking.submit().then(
                 (data) => {
@@ -328,7 +371,7 @@ angular.module('booking')
             )
         };
     })
-    .controller("TravelController", function TravelController($scope){
+    .controller("TravelController", function TravelController($scope) {
         $scope.state = null;
         $scope.city = null;
         $scope.address = null;
@@ -339,9 +382,9 @@ angular.module('booking')
             metrics: {}
         };
 
-        function init(){
+        function init() {
             window.tscope = $scope;
-            $scope.$watchGroup(["state", "city", "address"], function(){
+            $scope.$watchGroup(["state", "city", "address"], function () {
                 $scope.booking.state = $scope.state;
                 $scope.booking.city = $scope.city;
                 $scope.booking.address = $scope.address;
@@ -363,16 +406,17 @@ angular.module('booking')
                     $scope.loadingTravel = false;
                     $scope.$apply();
                 }).catch((err) => {
-                    let r = err.response.data.status;
-                    if(r === "INVALID_DISTANCE"){
-                        swal("Woah!", "That's too far out", "error");
-                        return;
-                    }
-                    swal(r);
-                    $scope.loadingTravel = false;
-                    $scope.$apply();
-                });
+                let r = err.response.data.status;
+                if (r === "INVALID_DISTANCE") {
+                    swal("Woah!", "That's too far out", "error");
+                    return;
+                }
+                swal(r);
+                $scope.loadingTravel = false;
+                $scope.$apply();
+            });
         };
+
         function googleMap(address) {
             jQuery('#google-map-custom').gMap({
                 address: address,
@@ -397,7 +441,7 @@ angular.module('booking')
 
         init();
 
-        $scope.$on("loadSaved", function(event, data){
+        $scope.$on("loadSaved", function (event, data) {
             console.info("Loading travel..", data);
             // set state, city, address
             $scope.state = data.state;
@@ -406,19 +450,20 @@ angular.module('booking')
             console.info("scope..", $scope);
         })
     })
-    .controller("SummaryController", function($scope){
+    .controller("SummaryController", function ($scope) {
         // nothing to see here
     })
-    .controller("ReviewController", function QuoteController($scope){
+    .controller("ReviewController", function QuoteController($scope) {
 
         $scope.quickRegister = {};
         $scope.iAgree = false;
 
-        function init(){
-            $scope.$watch('iAgree', function(){
+        function init() {
+            $scope.$watch('iAgree', function () {
                 $scope.booking.iAgree = $scope.iAgree;
             })
         }
+
         init();
 
         $scope.applyPromo = function () {
@@ -433,22 +478,22 @@ angular.module('booking')
                 });
             };
             swal({
-                title: "Enter Your Code:",
-                text: "",
-                type: "input",
-                showCancelButton: true,
-                closeOnConfirm: false,
-                animation: "slide-from-top",
-                inputPlaceholder: "Ex: XMAS2017"
-            },
-            function (inputValue) {
-                if (inputValue === false) return false;
-                if (inputValue === "") {
-                    swal.showInputError("You need to write something!");
-                    return false
-                }
-                tryIt(inputValue);
-            });
+                    title: "Enter Your Code:",
+                    text: "",
+                    type: "input",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    animation: "slide-from-top",
+                    inputPlaceholder: "Ex: XMAS2017"
+                },
+                function (inputValue) {
+                    if (inputValue === false) return false;
+                    if (inputValue === "") {
+                        swal.showInputError("You need to write something!");
+                        return false
+                    }
+                    tryIt(inputValue);
+                });
         };
         $scope.removePromo = (code) => {
             $scope.booking.removePromoCode(code);
@@ -457,31 +502,40 @@ angular.module('booking')
         $scope.handleEmailQuote = handleEmailQuote;
         $scope.handleQuickRegister = handleQuickRegister;
 
-        function reload(){
+        function reload() {
             $scope.booking.getInvoicePreview().then((invoice) => {
                 $scope.invoice = invoice;
                 $scope.$apply();
             });
         }
-        function handleEmailQuote(){
+
+        function handleEmailQuote() {
             swal("Coming Soon!", "pardon our progress", "info");
         }
 
-        function handleQuickRegister(){
+        function handleQuickRegister() {
             $scope.loadingRegister = true;
-            console.log($scope.quickRegister);
-            // quick register with release
-
             let data = $scope.quickRegister;
             authService.register(data.name, data.email, data.password)
-                .then((res)=>{
+                .then((res) => {
                     $scope.loadingRegister = false;
                     $scope.$apply();
                     appService.renderSession();
+                    console.log(authService);
                     swal("Success!", "We've created your account \n You're signed in now, but you'll need to verify your email before signing in again!", "success");
-                }, somethingWentWrong);
+                }).catch((status) => {
+                if (status === 409) swal("Wait a minute!", "There's already an account with that email", "warning");
+                $scope.loadingRegister = false;
+                $scope.$apply();
+            });
         }
     })
-    .controller("ConfirmationController", function($scope){
+    .controller("ConfirmationController", function ($scope) {
+        $scope.requireFull = requireFull;
 
+        function requireFull() {
+            let ev = moment($scope.booking.start_time);
+            let now = moment();
+            return ev.diff(now, 'days') < 30;
+        }
     });

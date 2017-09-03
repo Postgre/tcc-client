@@ -20,115 +20,119 @@
     <div class="content-wrap">
 
         <div class="container clearfix">
-            <div class="entry clearfix">
-                <div class="row clearfix">
-                    <div class="col-md-4">
-                        <a href="{{market.image}}" data-lightbox="image">
-                            <img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
-                        </a>
-                    </div>
-                    <div class="bottommargin-sm visible-sm visible-xs"></div>
-                    <div class="col-md-6 col-sm-8">
-                        <div class="entry-c">
-                            <div class="entry-title">
-                                <h2>
-                                    <a ng-bind="market.name" href="#">
-                                        <!-- Market Name -->
-                                    </a>
-                                </h2>
+            <div class="loading-container" ng-if="!ready">
+                <div class="loader"></div>
+            </div>
+            <div ng-if="ready">
+                <div class="entry clearfix">
+                    <div class="row clearfix">
+                        <div class="col-md-4">
+                            <a href="{{market.image}}" data-lightbox="image">
+                                <img class="image_fade" ng-src="{{market.image}}" alt="Bronze Time Hotel">
+                            </a>
+                        </div>
+                        <div class="bottommargin-sm visible-sm visible-xs"></div>
+                        <div class="col-md-6 col-sm-8">
+                            <div class="entry-c">
+                                <div class="entry-title">
+                                    <h2>
+                                        <a ng-bind="market.name" href="#">
+                                            <!-- Market Name -->
+                                        </a>
+                                    </h2>
+                                </div>
+                                <ul class="entry-meta clearfix">
+                                    <li>
+                                        <i class="icon-map-marker2"></i>
+                                        <a ng-bind="market.city + ', ' + market.state" href="#"></a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-line-map"></i>
+                                        <a id="viewMap" href="" data-lightbox="iframe">
+                                            View map
+                                        </a>
+                                    </li>
+                                </ul>
+                                <br>
+                                <div class="entry-content">
+                                    <div class="clearfix" style="margin-bottom: 10px;">
+                                        <hr>
+                                    </div>
+                                    <p ng-bind-html="market.html" class="nobottommargin">
+                                        <!-- Market Description -->
+                                    </p>
+                                </div>
+                                <div class="entry-content">
+                                    <a ng-click="handleBecomeCaroler()" class="pull-right" href>Become a Caroler ></a>
+                                </div>
                             </div>
-                            <ul class="entry-meta clearfix">
-                                <li>
-                                    <i class="icon-map-marker2"></i>
-                                    <a ng-bind="market.city + ', ' + market.state" href="#"></a>
-                                </li>
-                                <li>
-                                    <i class="icon-line-map"></i>
-                                    <a id="viewMap" href="" data-lightbox="iframe">
-                                        View map
-                                    </a>
-                                </li>
-                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-4 center">
+                            <div class="hotel-price">
+                                <i class="icon-dollar"></i>
+                                <span ng-bind="base_rate"></span>
+                            </div>
+                            <small><em>Base rate*</em></small>
                             <br>
-                            <div class="entry-content">
-                                <div class="clearfix" style="margin-bottom: 10px;">
-                                    <hr>
-                                </div>
-                                <p ng-bind-html="market.html" class="nobottommargin">
-                                    <!-- Market Description -->
-                                </p>
-                            </div>
-                            <div class="entry-content">
-                                <a ng-click="handleBecomeCaroler()" class="pull-right" href>Become a Caroler ></a>
-                            </div>
+                            <a ng-href="event-book.php?market={{market.id}}" class="button button-rounded topmargin-sm">
+                                Book Now</a>
                         </div>
-                    </div>
-                    <div class="col-md-2 col-sm-4 center">
-                        <div class="hotel-price">
-                            <i class="icon-dollar"></i>
-                            <span ng-bind="base_rate"></span>
-                        </div>
-                        <small><em>Base rate*</em></small>
-                        <br>
-                        <a ng-href="event-book.php?market={{market.id}}" class="button button-rounded topmargin-sm">
-                            Book Now</a>
                     </div>
                 </div>
-            </div>
-            <div class="postcontent nobottommargin clearfix">
-                <div class="single-event">
+                <div class="postcontent nobottommargin clearfix">
+                    <div class="single-event">
 
-                    <div class="col_full">
+                        <div class="col_full">
 
-                        <h3>Location</h3>
+                            <h3>Location</h3>
 
-                        <section id="event-location" class="gmap" style="height: 300px;"></section>
+                            <section id="event-location" class="gmap" style="height: 300px;"></section>
 
-                    </div>
+                        </div>
 
-                    <div class="col_full clearfix">
+                        <div class="col_full clearfix">
 
-                        <h3>Gallery</h3>
+                            <h3>Gallery</h3>
 
-                        <div class="masonry-thumbs col-5" data-big="1" data-lightbox="gallery">
-                            <a ng-repeat="item in market.mediaLinks" href="{{item.url}}" data-lightbox="gallery-item"><img class="image_fade" ng-src="{{item.url}}"></a>
+                            <div class="masonry-thumbs col-5" data-big="1" data-lightbox="gallery">
+                                <a ng-repeat="item in market.mediaLinks" href="{{item.url}}" data-lightbox="gallery-item"><img class="image_fade" ng-src="{{item.url}}"></a>
+                            </div>
+
                         </div>
 
                     </div>
-
                 </div>
-            </div>
-            <div class="sidebar nobottommargin col_last clearfix">
-                <div class="sidebar-widgets-wrap">
+                <div class="sidebar nobottommargin col_last clearfix">
+                    <div class="sidebar-widgets-wrap">
 
-                    <div class="widget clearfix">
-                        <div class="fancy-title title-dotted-border title-center">
-                            <h3>Caroling Team</h3>
-                        </div>
-                        <div ng-repeat="user in carolers" style="margin-bottom: 25px">
-                            <div class="spost clearfix">
-                                <div class="entry-image">
-                                    <a ng-href="/caroler-single.php?caroler={{user.id}}">
-                                        <img ng-src="{{user.image}}" alt="Image">
-                                    </a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
+                        <div class="widget clearfix">
+                            <div class="fancy-title title-dotted-border title-center">
+                                <h3>Caroling Team</h3>
+                            </div>
+                            <div ng-repeat="user in carolers" style="margin-bottom: 25px">
+                                <div class="spost clearfix">
+                                    <div class="entry-image">
                                         <a ng-href="/caroler-single.php?caroler={{user.id}}">
-                                            <h4 ng-bind="user.name"></h4>
+                                            <img ng-src="{{user.image}}" alt="Image">
                                         </a>
                                     </div>
-                                    <ul class="entry-meta">
-                                        <li class="color"><a href ng-bind="user.email"></a></li>
-                                    </ul>
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <a ng-href="/caroler-single.php?caroler={{user.id}}">
+                                                <h4 ng-bind="user.name"></h4>
+                                            </a>
+                                        </div>
+                                        <ul class="entry-meta">
+                                            <li class="color"><a href ng-bind="user.email"></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-
         </div>
 
     </div>

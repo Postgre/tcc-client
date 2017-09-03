@@ -7,13 +7,12 @@ module.exports = class Bindings {
 
     apply(){
         let self = this;
-        let loggedIn = this.authService.isLoggedIn();
 
         this.appService.registerIf( "#login-register", function () {
-            return !loggedIn;
+            return !self.authService.isLoggedIn();
         });
         this.appService.registerIf( "#my-account", function () {
-            return loggedIn;
+            return self.authService.isLoggedIn();
         });
         this.appService.registerIf( ".tcc_if_admin", function(){
             return self.authService.hasRole('admin');

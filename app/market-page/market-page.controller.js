@@ -10,15 +10,17 @@ function MarketPageController( $scope ) {
         let market_id = navService.getNavParam('market_id');
         if(getQueryVariable('market')) market_id = getQueryVariable('market');
 
+        $scope.ready = false;
         let market = modelFactory.get("Market", market_id);
         market.loadGallery();
         market.subscribe("async", function(){
             $scope.$apply();
         });
         market.$promise.then(()=>{
-            loadMap(market.getFormattedAddress());
             $scope.base_rate = market.rate_caroler_first * 4;
+            $scope.ready = true;
             $scope.$apply();
+            loadMap(market.getFormattedAddress());
         });
         $scope.market = market;
 

@@ -1,9 +1,3 @@
-<section id="page-title" class="page-title-center">
-    <div class="container clearfix">
-        <h1>Get an Instant Quote</h1>
-        <span>No Account Necessary</span>
-    </div>
-</section>
 <section id="content">
 
     <div class="content-wrap">
@@ -353,7 +347,7 @@
                         <div class="line"></div>
                         <a ng-click="prev('travel')" href class="button button-3d nomargin">Previous</a>
                         <a ng-click="next('travel')" href class="button button-3d nomargin fright tab-linker">
-                            <img src="/images/preloader-dark.gif" ng-show="validatingTravel" />
+                            <img src="/images/preloader-dark.gif" ng-show="validatingTravel"/>
                             <b ng-hide="validatingTravel">Next</b>
                         </a>
                     </div>
@@ -487,13 +481,238 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <iframe src="https://vlaa.org/wp-content/uploads/2015/05/Sample-Performance-Agreement.pdf" style="height: 500px; width: 100%"></iframe>
+                                    <div style="height: 500px; width: 100%; overflow: scroll">
+                                        <p>
+                                            {{authService.user.name}},
+                                            <!--located at {{authService.user.address}}-->
+                                            (hereafter called "Purchaser") and The Christmas Carolers, LLC, located at POBox 2151, Birmingham,
+                                            AL 35201 (hereafter called “Artist”) agree that the following provisions are the
+                                            terms of the Performance Agreement. The parties agree that the terms of this
+                                            attachment prevail over the terms of any other document relating to and a part
+                                            of the contract in which this attachment is incorporated.
+                                        </p>
+
+                                        <ol>
+                                            <li>
+                                                <h5>PAYMENT AND COMPENSATION</h5>
+                                                <p>Purchaser will make a full-payment to Artist 30 days prior to the
+                                                    arrival date of the performance(s), or if the event has been booked
+                                                    within 30 days of the event the Purchaser will make a full-payment
+                                                    to the Artist at the time of booking.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>ARTIST’S RIGHT TO TERMINATE OR CANCEL AGREEMENT</h5>
+                                                <p> Artist shall have the right to terminate or cancel this agreement
+                                                    and refund the full deposit or fees paid without obligation or
+                                                    notice.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>PURCHASER CANCELLATION</h5>
+                                                <p> The deposit will be refunded if cancelled 30 days prior to event. No
+                                                    refund if booked or cancelled within 30 days of event.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>FORCE MAJEURE</h5>
+                                                <p> Neither Artist nor Purchaser shall be liable for failure to appear
+                                                    or perform its obligations under thisagreement in the event that
+                                                    such failure is caused by or due to the acts or regulations of
+                                                    public authorities, labor difficulties, civil tumult, inclement
+                                                    weather, strike, epidemic, interruption or delay of transportation
+                                                    service, or any other legitimate cause beyond the control of Artist
+                                                    and Purchaser.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>SICKNESS AND ACCIDENTS</h5>
+                                                <p> Artist’s agreement to perform is subject to proven detention by
+                                                    sickness or accident. In the event of such non-performance, the full
+                                                    payment (if any) advanced to the Artist shall be returned
+                                                    promptly.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>PROMOTION AND PRODUCTION</h5>
+                                                <p> Purchaser shall be responsible for all matters pertaining to the
+                                                    promotion and production of the scheduled engagement, including but
+                                                    not limited to venue rentals, security, and advertising. Artist
+                                                    agrees that Purchaser may use Artist’s name, pictures, photographs,
+                                                    recordings, and other likenesses in connection with advertising and
+                                                    publicizing the engagement(s) hereunder, but such use shall not be
+                                                    without prior approval of Artist.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>VIDEO AND AUDIO TAPING</h5>
+                                                <p> Purchaser permits any person to, record, broadcast or digitally
+                                                    stream the Artist’s performance.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>TECHNICAL RESPONSIBILITIES</h5>
+                                                <p> Sound and/or lighting equipment and/or services shall be the sole
+                                                    responsibility of the Purchaser.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>COSTUMES AND TALENT</h5>
+                                                <p> The Artist will arrive dressed in costumes similar to what the
+                                                    Purchaser will find in pictures found on
+                                                    www.thechristmascarolers.com. Costumes can vary slightly and may not
+                                                    be exactly what’s found on the site but will be very similar. The
+                                                    Purchaser waives any rights to refunds based on any complaints due
+                                                    to the costumes. Purchaser waives any rights to refund based on any
+                                                    complaints due to the vocal ability of the Artist.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>SECURITY</h5>
+                                                <p> Purchaser shall provide adequate security so as to guarantee the
+                                                    safety of the audience and the Artist. Purchaser shall be
+                                                    responsible for any theft or damage to the property or premise of
+                                                    the location.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>PYROTECHNIC DEVICES</h5>
+                                                <p> No pyrotechnic devices shall be used without the prior express
+                                                    written consent of both Artist and Purchaser. Any such device shall
+                                                    be subject to applicable fire laws and shall be administered by a
+                                                    person with professional experience in pyrotechnics. Purchaser shall
+                                                    be responsible for obtaining all applicable permits.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>INDEPENDENT CONTRACTORS</h5>
+                                                <p> Artist acknowledges that it is an independent contractor and not an
+                                                    employee of the Purchaser and shall be responsible for all taxes.
+                                                    The Artist shall control the times and division of the performance
+                                                    as well as the manner, means, and details of such performance.
+                                                    Purchaser also holds the Artist harmless for all activities related
+                                                    to Artist’s engagement and performance. Except for claims arising
+                                                    from Artist’s willful or intentional acts, Purchaser shall release
+                                                    Artist for any actions of the Performers and will not take any legal
+                                                    action against the Artist for any reason.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>GENERAL LIABILITY RELEASE OF CLAIMS</h5>
+                                                <p> In consideration of the payment rendered by Purchaser to the Artists
+                                                    for the performance, the receipt and sufficiency of which is hereby
+                                                    acknowledged, do hereby release and forever discharge the Artist,
+                                                    their agents, employees, successors and assigns, and their
+                                                    respective heirs, personal representatives, affiliates, successors
+                                                    and assigns, and any and all persons, firms or corporations liable
+                                                    or who might be claimed liable, whether or not herein name, from any
+                                                    an all claims, demands, actions, causes or suites of any kind or
+                                                    nature whatsoever, whether known or unknown, fixed or contingent,
+                                                    which Purchaser now have or may hereafter have or claim to have, as
+                                                    a result of or in any way relating to the performance. It is
+                                                    understood and agreed that, along with this agreement, the invoice
+                                                    has been made and received in full and complete settlement and
+                                                    satisfaction of the aforesaid actions, causes of action, claims and
+                                                    demands, that this agreement is the entire agreement between
+                                                    parties; and that the terms of this agreement are contractual and
+                                                    not merely a recital. Further more, this agreement shall be binding
+                                                    upon the undersigned, and his respective heirs, executors,
+                                                    administrators, personal representatives, successors and assigns.
+                                                    Each of the parties to this agreement expressly waives the
+                                                    protection of Section 1542 of the California Civil Code, and
+                                                    expressly waives and releases any rights or benefits arising
+                                                    thereunder.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>INSURANCE</h5>
+                                                <p> While the Artist covers its performers with general liability
+                                                    insurance, Purchaser, or location of the event (which will be the
+                                                    purchaser’s responsibility to obtain) shall obtain and maintain, at
+                                                    its own expense, adequate personal injury and property damage
+                                                    liability insurance coverage and such coverage shall extend to all
+                                                    activities related to Artist’s engagement and performance. Except
+                                                    for claims arising from Artist’s willful or intentional acts,
+                                                    Purchaser shall indemnify Artist for any third party claims. The
+                                                    Artist does not hold any type of liability insurance on it’s
+                                                    contract laborers. The Contract Laborers are responsible for their
+                                                    own insurance and legal representation.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>NO PERSONAL LIABILITY OF PURCHASER’S REPRESENTATIVES OR AGENTS</h5>
+                                                <p> Any representative of Purchaser executing this agreement as
+                                                    Purchaser or an agent thereof shall not be held personally liable
+                                                    for the payment of any costs or fees related to this contract.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>ASSIGNMENT, ENTIRETY OF AGREEMENT, GOVERNING, JURISDICTION, AND
+                                                    MEDIATION</h5>
+                                                <p> This agreement cannot be assigned or transferred without the written
+                                                    consent of Artist. This agreement constitutes the entire agreement
+                                                    between the parties. No modification shall be enforceable except in
+                                                    writing and signed by the parties hereto. This agreement shall be
+                                                    governed by the laws of the state of Alabama. In the event any
+                                                    dispute arising under this agreement results in litigation,
+                                                    arbitration, or mediation, such action or proceeding shall be
+                                                    brought within the state or federal courts of Alabama.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>SEVERABILITY</h5>
+                                                <p> If any provision of this Agreement or the application thereof is
+                                                    held invalid, the invalidity shall not affect other provisions or
+                                                    applications of this Agreement which can be given effect without the
+                                                    invalid provisions or application, and to this end the provisions of
+                                                    this Agreement are declared to be severable.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>REPRESENTATIVE’S AUTHORITY TO CONTRACT</h5>
+                                                <p> By agreeing this document, the representative and/or agent of the
+                                                    Artist hereby represent that such person is duly authorized and that
+                                                    the Artist agrees to be bound by the provisions of this Agreement.
+                                                    It is expressly understood and agreed that in acting hereunder
+                                                    solely in the capacity of representative or agent of Artist, said
+                                                    person is not a party to this contract and shall not be liable or
+                                                    responsible in any way for the omissions of Artist, nor for any
+                                                    failure by Artist to adequately perform or comply with any term or
+                                                    condition hereof.</p>
+                                            </li>
+
+                                            <li>
+                                                <h5>TRAVEL EXPENSES</h5>
+                                                <p> The purchaser will be billed Artists travel expenses determined by
+                                                    the Artist prior to the event. If additional unknown expenses
+                                                    arrive, the Purchaser will be informed of the additional expense
+                                                    prior to the Artist performing.</p>
+                                            </li>
+
+                                        </ol>
+
+                                        <p>
+                                            Electronic Signature Agreement. By electronically signing this Agreement
+                                            electronically. You agree your electronic signature is the legal equivalent of
+                                            your physical signature on paper. By signing this you consent to be legally
+                                            bound by this Agreement's terms and conditions. You further agree that your use
+                                            of a key pad, finger, mouse or other device to select an item, button, icon or
+                                            similar act/action, or to otherwise provide the Artists regarding any agreement,
+                                            acknowledgement, consent terms, disclosures or conditions constitutes your
+                                            signature (hereafter referred to as "E-Signature"), acceptance and agreement as
+                                            if actually signed by you (the Purchaser) in writing. You also agree that no
+                                            certification authority or other third party verification is necessary to
+                                            validate your E-Signature and that the lack of such certification or third party
+                                            verification will not in any way affect the enforceability of your ESignature or
+                                            any resulting contract between you (the Purchaser) and the Artist. You also
+                                            represent that you are authorized to enter into this Agreement for your company
+                                            and will be bound by the terms of this Agreement. You further agree that each
+                                            use of your E-Signature in obtaining the Artists services constitutes your
+                                            agreement to be bound by the terms and conditions of this Agreements as it exist
+                                            on the date of your E-Signature.
+                                        </p>
+                                    </div>
                                     <div class="center">
-                                        <!--<div class="checkbox">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" ng-model="parentScrollable"> Parent scrollable-->
-                                            <!--</label>-->
-                                        <!--</div>-->
                                         <input ng-model="iAgree" id="checkbox-5" class="checkbox-style" type="checkbox">
                                         <label for="checkbox-5" class="checkbox-style-1-label">
                                             By checking this box, I agree to the terms of The Christmas Carolers'
@@ -511,20 +730,23 @@
                         <div class="line"></div>
                         <a ng-click="prev('review')" href class="button button-3d nomargin">Previous</a>
 
-                        <a ng-click="next('review')" href class="button button-3d nomargin fright tab-linker"> Book
-                            It! </a>
+                        <a ng-click="next('review')" href class="button button-3d nomargin fright tab-linker">
+                            <img src="/images/preloader.gif" ng-if="loadingInvoice" />
+                            <b ng-hide="loadingInvoice">Book It!</b> </a>
                         <a ng-click="handleEmailQuote()" href class="button button-3d button-small button-blue fright">Email
                             Quote</a>
                     </div>
                     <div id="ptab6" ng-controller="ConfirmationController">
-                        <div class="container clearfix">
+                        <div class="container center clearfix">
                             <h3>Last Step, we Promise!</h3>
-                            <p>Before we begin building your caroling
-                                team, we require a minimum deposit of ___ ( half of the full cost - ___ ).</p>
-                            <p>Your event is within 30 days of occurring. Before we start building your
-                                caroling team, we require payment in full</p>
-                            <button class="button button-3d">Make Payment Now</button>
-                            <button class="button button-3d">Make Deposit Now</button>
+                            <h4 ng-show="requireFull() === false">Before we begin building your caroling
+                                team, we require a minimum deposit of <span style="color: #4cae4c">{{invoice.balance/100/2}}</span> ( half of the full cost -
+                                <span style="color: #4cae4c">{{invoice.balance/100}}</span> ).</h4>
+                            <h4 ng-show="requireFull() === true">Your event is within 30 days of occurring. Before we start building your
+                                caroling team, we require the full payment of <span style="color: #4cae4c">{{invoice.balance/100}}</span></h4>
+                            <a class="button button-3d" ng-href="/checkout.php?mode=full&invoice={{invoice.id}}">Pay Full Balance</a>
+                            <a ng-show="requireFull() === false"
+                               class="button button-3d" ng-href="/checkout.php?mode=half&invoice={{invoice.id}}">Make Deposit</a>
                         </div>
                     </div>
                 </div>
@@ -545,7 +767,8 @@
                                 <div class="loading-container" ng-show="loadingRegister">
                                     <div class="loader"></div>
                                 </div>
-                                <form name="quickRegisterForm" ng-submit="handleQuickRegister()" ng-hide="loadingRegister"
+                                <form name="quickRegisterForm" ng-submit="handleQuickRegister()"
+                                      ng-hide="loadingRegister"
                                       class="nobottommargin">
 
                                     <div class="col_full">
