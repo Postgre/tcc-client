@@ -6,7 +6,7 @@
 -----------------------------------------------------------------*/
 
 /* loaders */
-#loader {
+#loader, .loader {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -34,7 +34,8 @@
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
-#load-wrap, #loading-container, #lc {
+#load-wrap, #loading-container, #lc,
+.load-wrap, .loading-container, .lc {
     min-height: 400px;
 }
 #load-wrap.sm, #loading-container.sm, #lc.sm {

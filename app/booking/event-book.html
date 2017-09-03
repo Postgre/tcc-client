@@ -60,7 +60,8 @@
                                         <img ng-src="{{market.image}}" width="100%">
                                     </div>
                                     <div class="center">
-                                        <input ng-change="handleMultipleEvents()" ng-model="multiple_events" id="checkbox-4" class="checkbox-style" type="checkbox">
+                                        <input ng-change="handleMultipleEvents()" ng-model="multiple_events"
+                                               id="checkbox-4" class="checkbox-style" type="checkbox">
                                         <label for="checkbox-4" class="checkbox-style-1-label">
                                             I will book multiple events this season
                                         </label>
@@ -100,7 +101,8 @@
                                                 </div>
                                                 <div class="col-sm-6" id="btns-event-length">
                                                     <tcc-number-inc bind="duration"
-                                                                    min="1" max="10" change="updateTimes"></tcc-number-inc>
+                                                                    min="1" max="10"
+                                                                    change="updateTimes"></tcc-number-inc>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -141,19 +143,21 @@
                         </div>
 
                         <div class="line"></div>
-                        <a ng-click="next('eventDetails')" href class="button button-3d nomargin fright tab-linker"> Next </a>
+                        <a ng-click="next('eventDetails')" href class="button button-3d nomargin fright tab-linker">
+                            Next </a>
                     </div>
                     <div id="ptab2" ng-controller="PersonalDetailsController">
                         <div class="container clearfix">
                             <div class="row clearfix">
                                 <div class="col-md-6">
-                                    <h3>Tell us About Yourself!</h3>
+                                    <h3>Tell us about your event!</h3>
                                     <div>
                                         <form name="bookingForm" ng-submit="submitForm(bookingForm.$valid)" novalidate>
                                             <div class="col_full"
                                                  ng-class="{ 'has-error' : bookingForm.eventName.$invalid && !bookingForm.eventName.$pristine }">
                                                 <label>Event Name: </label>
-                                                <input ng-model="booking.name" name="eventName" required class="form-control">
+                                                <input ng-model="booking.name" name="eventName" required
+                                                       class="form-control">
                                                 <p ng-show="bookingForm.eventName.$invalid && !bookingForm.eventName.$pristine"
                                                    class="help-block">An event name is required.</p>
                                             </div>
@@ -215,7 +219,8 @@
                                     <!-- ---------- after booking -------- -->
                                     <div ng-if="booked">
                                         <div class="alert alert-success">
-                                            <strong>Thank You!</strong> Your event is booked! Please submit payment by 30 days
+                                            <strong>Thank You!</strong> Your event is booked! Please submit payment by
+                                            30 days
                                             prior to the booking.
                                         </div>
 
@@ -226,7 +231,8 @@
                                         <a ng-href="payments.php?event={{booking.id}}&mode=half" type="button"
                                            class="btn btn-outline btn-info">
                                             Make Deposit </a>
-                                        <a href="/customer-events.php" type="button" class="btn btn-outline btn-info"> Go to My
+                                        <a href="/customer-events.php" type="button" class="btn btn-outline btn-info">
+                                            Go to My
                                             Events </a>
                                     </div>
                                 </div>
@@ -235,7 +241,8 @@
                                     <form novalidate>
                                         <div class="col_full">
                                             <label>Full Name:</label>
-                                            <input ng-model="booking.poc_name" pattern="[a-zA-Z]{4,}" class="form-control">
+                                            <input ng-model="booking.poc_name" pattern="[a-zA-Z]{4,}"
+                                                   class="form-control">
                                         </div>
 
                                         <div class="col_half">
@@ -254,7 +261,8 @@
 
                         <div class="line"></div>
                         <a ng-click="prev('personalDetails')" href class="button button-3d nomargin">Previous</a>
-                        <a ng-click="next('personalDetails')" href class="button button-3d nomargin fright tab-linker"> Next </a>
+                        <a ng-click="next('personalDetails')" href class="button button-3d nomargin fright tab-linker">
+                            Next </a>
                     </div>
                     <div id="ptab3" ng-controller="TravelController">
                         <div class="container clearfix">
@@ -302,14 +310,16 @@
                                             <p>Choose an address!</p>
                                         </div>
                                         <div ng-show="loadingTravel === false">
-                                            <p>Your event location is <b ng-bind="travelPreview.metrics.distance">___</b>
+                                            <p>Your event location is <b
+                                                    ng-bind="travelPreview.metrics.distance">___</b>
                                                 miles from where
                                                 our carolers are located and the estimated travel time is <b
                                                         ng-bind="travelPreview.metrics.duration">___</b> minutes</p>
                                             <p>The Christmas Carolers charges $2 for every mile over 30 miles from the
                                                 starting point. $<b ng-bind="travelPreview.costs.distance">___</b> will
                                                 be added to your invoice for
-                                                mileage. The Christmas Carolers also charges $60 per hour of travel over 30
+                                                mileage. The Christmas Carolers also charges $60 per hour of travel over
+                                                30
                                                 minutes. $<b ng-bind="travelPreview.costs.duration">___</b> will be
                                                 added to your
                                                 invoice for extra travel time.</p>
@@ -319,7 +329,11 @@
                                     <p>The lead caroler will estimate the amount for toll roads as they travel to
                                         this booking.</p>-->
                                     <h3>Additional Travel Expenses</h3>
-                                    <p>Please add the following applicable travel related expenses as it pertains to your event. Carolers will also add any applicable toll-road or public transportation fees required to get to your event’s location in additional to mileage and time calculated above. These expenses will be approved by you prior to your event.</p>
+                                    <p>Please add the following applicable travel related expenses as it pertains to
+                                        your event. Carolers will also add any applicable toll-road or public
+                                        transportation fees required to get to your event’s location in additional to
+                                        mileage and time calculated above. These expenses will be approved by you prior
+                                        to your event.</p>
                                     <div class="col_half">
                                         <label>Description</label>
                                         <input class="form-control" ng-model="booking.custom_expense_desc">
@@ -338,7 +352,10 @@
 
                         <div class="line"></div>
                         <a ng-click="prev('travel')" href class="button button-3d nomargin">Previous</a>
-                        <a ng-click="next('travel')" href class="button button-3d nomargin fright tab-linker"> Next </a>
+                        <a ng-click="next('travel')" href class="button button-3d nomargin fright tab-linker">
+                            <img src="/images/preloader-dark.gif" ng-show="validatingTravel" />
+                            <b ng-hide="validatingTravel">Next</b>
+                        </a>
                     </div>
                     <div id="ptab4" ng-controller="SummaryController">
                         <div class="container clearfix">
@@ -351,27 +368,41 @@
                                     <h2>Important Information</h2>
                                     <div>
                                         <h4 class="nobottommargin">Booking Requirments</h4>
-                                        <p>The creation of an account and either a 50% deposit or a full payment is required to book carolers for your event. If your event is more than 30 days from today's date, you can pay a minimum 50% deposit to book your event. If your event is less than 30 days from today's date, you will need to make a full payment to book the event.</p>
+                                        <p>The creation of an account and either a 50% deposit or a full payment is
+                                            required to book carolers for your event. If your event is more than 30 days
+                                            from today's date, you can pay a minimum 50% deposit to book your event. If
+                                            your event is less than 30 days from today's date, you will need to make a
+                                            full payment to book the event.</p>
                                     </div>
                                     <div>
                                         <h4 class="nobottommargin">Payment Options</h4>
-                                        <p>You will have the option of paying with a credit card (charges apply) or by check (no charge). Again, an event is not booked until a payment has been received and processed.</p>
+                                        <p>You will have the option of paying with a credit card (charges apply) or by
+                                            check (no charge). Again, an event is not booked until a payment has been
+                                            received and processed.</p>
                                     </div>
                                     <div>
                                         <h4 class="nobottommargin">Event Cancellation and Refund Policy</h4>
-                                        <p>The Christmas Carolers reserves the right to cancel any event, for any reason and at any time with a full refund provided to the customer. Customers who cancel an event 30+ days from the date of the event will receive a full refund of all monies paid to-date. Customers who cancel an event within 30 days of the date of the event will forfeit all monies paid to-date.</p>
+                                        <p>The Christmas Carolers reserves the right to cancel any event, for any reason
+                                            and at any time with a full refund provided to the customer. Customers who
+                                            cancel an event 30+ days from the date of the event will receive a full
+                                            refund of all monies paid to-date. Customers who cancel an event within 30
+                                            days of the date of the event will forfeit all monies paid to-date.</p>
                                     </div>
                                     <div>
                                         <h4 class="nobottommargin">General and Liability Coverage</h4>
-                                        <p>The Christmas Carolers carry $1,000,000 general liability coverage as well as professional liability coverage.</p>
+                                        <p>The Christmas Carolers carry $1,000,000 general liability coverage as well as
+                                            professional liability coverage.</p>
                                     </div>
                                     <div>
                                         <div class="col-md-9">
                                             <h4 class="nobottommargin">National Carolers Association</h4>
-                                            <p>Each of our carolers are members of the <a href="//www.nationalcarolersassociation.com">National Carolers Association</a> ensuring our commitment to quality music and costumes.</p>
+                                            <p>Each of our carolers are members of the <a
+                                                    href="//www.nationalcarolersassociation.com">National Carolers
+                                                Association</a> ensuring our commitment to quality music and costumes.
+                                            </p>
                                         </div>
                                         <div class="col-md-3">
-                                            <img src="/images/nca.png" />
+                                            <img src="/images/nca.png"/>
                                         </div>
                                     </div>
                                 </div>
@@ -380,7 +411,8 @@
 
                         <div class="line"></div>
                         <a ng-click="prev('summary')" href class="button button-3d nomargin">Previous</a>
-                        <a ng-click="next('summary')" href class="button button-3d nomargin fright tab-linker"> Review Quote </a>
+                        <a ng-click="next('summary')" href class="button button-3d nomargin fright tab-linker"> Review
+                            Quote </a>
                     </div>
                     <div id="ptab5" ng-controller="ReviewController">
                         <div class="container clearfix">
@@ -398,7 +430,8 @@
                                                         <strong>Caroler Cost</strong>
                                                     </td>
                                                     <td class="cart-product-name">
-                                                        $ <span ng-bind="invoice.carolers + invoice.date" class="amount"></span>
+                                                        $ <span ng-bind="invoice.carolers + invoice.date"
+                                                                class="amount"></span>
                                                     </td>
                                                 </tr>
                                                 <tr class="cart_item">
@@ -454,13 +487,22 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <iframe src="//www.google.com" style="height: 500px; width: 100%"></iframe>
+                                    <iframe src="https://vlaa.org/wp-content/uploads/2015/05/Sample-Performance-Agreement.pdf" style="height: 500px; width: 100%"></iframe>
                                     <div class="center">
+                                        <!--<div class="checkbox">-->
+                                            <!--<label>-->
+                                                <!--<input type="checkbox" ng-model="parentScrollable"> Parent scrollable-->
+                                            <!--</label>-->
+                                        <!--</div>-->
                                         <input ng-model="iAgree" id="checkbox-5" class="checkbox-style" type="checkbox">
                                         <label for="checkbox-5" class="checkbox-style-1-label">
-                                            By checking this box, I agree to the terms of The Christmas Carolers' Performance Agreement.
+                                            By checking this box, I agree to the terms of The Christmas Carolers'
+                                            Performance Agreement.
                                         </label>
-                                        <small>Not ready to book? Click "Email Quote" below and a link will be emailed to you enabling you to retrieve the information you've entered so far without having to creating an account.</small>
+                                        <small>Not ready to book? Click "Email Quote" below and a link will be emailed
+                                            to you enabling you to retrieve the information you've entered so far
+                                            without having to creating an account.
+                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -469,8 +511,10 @@
                         <div class="line"></div>
                         <a ng-click="prev('review')" href class="button button-3d nomargin">Previous</a>
 
-                        <a ng-click="next('review')" href class="button button-3d nomargin fright tab-linker"> Book It! </a>
-                        <a ng-click="handleEmailQuote()" href class="button button-3d button-small button-blue fright">Email Quote</a>
+                        <a ng-click="next('review')" href class="button button-3d nomargin fright tab-linker"> Book
+                            It! </a>
+                        <a ng-click="handleEmailQuote()" href class="button button-3d button-small button-blue fright">Email
+                            Quote</a>
                     </div>
                     <div id="ptab6" ng-controller="ConfirmationController">
                         <div class="container clearfix">
@@ -488,6 +532,61 @@
 
         </div>
 
+        <div class="modal fade" id="quickRegisterModal" ng-controller="ReviewController" tabindex="-1">
+            <div class="modal-dialog modal-md">
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"> x</button>
+                            <h4 class="modal-title">Create Account</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <div class="loading-container" ng-show="loadingRegister">
+                                    <div class="loader"></div>
+                                </div>
+                                <form name="quickRegisterForm" ng-submit="handleQuickRegister()" ng-hide="loadingRegister"
+                                      class="nobottommargin">
+
+                                    <div class="col_full">
+                                        <label>Name: </label>
+                                        <input ng-model="quickRegister.name" required
+                                               name="name" tabindex="1"
+                                               class="form-control">
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Email: </label>
+                                        <input ng-model="quickRegister.email" type="email" required
+                                               name="email" tabindex="2"
+                                               class="form-control">
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Password: </label>
+                                        <input ng-model="quickRegister.password" type="password"
+                                               pattern="\w{4,}"
+                                               name="password" tabindex="3"
+                                               required class="form-control">
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label>Confirm Password: </label>
+                                        <input ng-model="quickRegister.confirm" type="password" required
+                                               name="confirm" tabindex="4"
+                                               class="form-control">
+                                    </div>
+
+                                    <div class="col_full">
+                                        <button class="button button-3d nomargin" tabindex="5"> Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </section><!-- #content end -->
