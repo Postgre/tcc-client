@@ -771,12 +771,12 @@
                             <button type="button" class="close" data-dismiss="modal"> x</button>
                             <h4 class="modal-title">Create Account</h4>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" ng-init="quickView='register'">
                             <div>
                                 <div class="loading-container" ng-show="loadingRegister">
                                     <div class="loader"></div>
                                 </div>
-                                <form name="quickRegisterForm" ng-submit="handleQuickRegister()"
+                                <form ng-if="quickView==='register'" name="quickRegisterForm" ng-submit="handleQuickRegister()"
                                       ng-hide="loadingRegister"
                                       class="nobottommargin">
 
@@ -811,7 +811,28 @@
 
                                     <div class="col_full">
                                         <button class="button button-3d nomargin" tabindex="5"> Submit</button>
+                                        <a href ng-click="quickView='login'" class="fright">Login</a>
                                     </div>
+                                </form>
+                                <form ng-if="quickView==='login'" id="login-form" name="login-form" class="nobottommargin" ng-submit="handleQuickLogin()">
+
+                                    <h3>Login to your Account</h3>
+
+                                    <div class="col_full">
+                                        <label for="login-form-username">Email:</label>
+                                        <input ng-model="quickLogin.email" type="email" id="login-form-username" name="login-form-username" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full">
+                                        <label for="login-form-password">Password:</label>
+                                        <input ng-model="quickLogin.password" type="password" id="login-form-password" name="login-form-password" value="" class="form-control" />
+                                    </div>
+
+                                    <div class="col_full nobottommargin">
+                                        <button class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+                                        <a href ng-click="quickView='register'" class="fright">Register</a>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>

@@ -281,7 +281,7 @@ angular.module('booking')
         function formatStartEnd() {
             let date = $scope.date;
             let start = $scope.start;
-            let end = moment(start).add($scope.duration_m, 'minutes');
+            let end = moment(start).add($scope.duration_h, 'hours').add($scope.duration_m, 'minutes');
             let start_time = moment(date).format(DATE_FORMAT) + " " + moment(start).format(TIME_FORMAT);
             let end_time = moment(date).format(DATE_FORMAT) + " " + moment(end).format(TIME_FORMAT);
             return [start_time, end_time];
@@ -450,6 +450,7 @@ angular.module('booking')
     .controller("ReviewController", function QuoteController($scope) {
 
         $scope.quickRegister = {};
+        $scope.quickLogin = {};
         $scope.iAgree = false;
 
         function init() {
@@ -495,6 +496,7 @@ angular.module('booking')
         };
         $scope.handleEmailQuote = handleEmailQuote;
         $scope.handleQuickRegister = handleQuickRegister;
+        $scope.handleQuickLogin = handleQuickLogin;
 
         function reload() {
             $scope.booking.getInvoicePreview().then((invoice) => {
@@ -522,6 +524,23 @@ angular.module('booking')
                 $scope.loadingRegister = false;
                 $scope.$apply();
             });
+        }
+
+        function handleQuickLogin() {
+            $scope.loadingRegister = true;
+            let data = $scope.quickLogin;
+            authService.login(data.email, data.password)
+                .then((res) => {
+                    $scope.loadingRegister = false;
+                    $scope.$apply();
+                    appService.renderSession();
+                    console.log(authService);
+                    swal("Success!", "You're Logged In", "success");
+                }).catch((status) => {
+                    swal("Invalid Login", "", "warning");
+                    $scope.loadingRegister = false;
+                    $scope.$apply();
+                });
         }
     })
     .controller("ConfirmationController", function ($scope) {
