@@ -7,31 +7,30 @@ angular.module('checkout')
  * + invoice
  * + mode (full | deposit)
  */
-function CheckoutController($scope) {
+function CheckoutController($scope, dataService) {
 
-    $scope.invoice = getDefaultInvoice();
-    $scope.dueNow = 230;
-    $scope.payments = [
-        {
-            'date': '9/1/2017',
-            'amount': 230
-        }
-    ];
-    $scope.booking = {
-        name: "My Demo Event",
-        caroler_config: "Quartet",
-        start: "8:00pm",
-        end: "10:00pm",
-        date: "8/18/2017",
-        state: "AL",
-        city: "Birmingham",
-        address: "1617 13th Avenue South"
-    };
-    $scope.amount = $scope.dueNow;
+    $scope.invoice = {};
+    $scope.event = {};
+    $scope.amount = 0;
 
     function init() {
         /* load event details */
-        window.loadMap("#event-location", $scope.booking.address);
+        dataService.connection({
+            url: "checkout",
+            method: "GET",
+            params: {
+                invoice_id: getQueryVariable("invoice")
+            }
+        }).then((res)=>{
+            $scope.invoice = res.data.invoice;
+            let mode = getQueryVariable("mode");
+            if(mode === 'full') $scope.dueNow = $scope.invoice.balance;
+            if(mode === 'half') $scope.dueNow = $scope.invoice.balance / 2;
+            $scope.amount = $scope.dueNow;
+            $scope.event = res.data.event;
+            $scope.ready = true;
+            $scope.$apply();
+        }, somethingWentWrong);
         // end
 
         let handler = StripeCheckout.configure({
@@ -41,7 +40,14 @@ function CheckoutController($scope) {
             token: function(token) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
-                swal("Here's your Token!", token.id, "success");
+                dataService.submitPayment($scope.invoice.id, token, $scope.amount).then(
+                    (res)=>{
+                        swal("Success!", "Payment submitted successfully", "success");
+                    },
+                    (err)=>{
+                        swal("Oops..", "Transaction could not be completed", "error");
+                    }
+                );
             }
         });
 
@@ -50,7 +56,7 @@ function CheckoutController($scope) {
             handler.open({
                 name: 'The Christmas Carolers',
                 description: 'Event Payment',
-                amount: $scope.amount * 100
+                amount: $scope.amount
             });
             e.preventDefault();
         });
@@ -63,20 +69,9 @@ function CheckoutController($scope) {
 
     init();
 
-    function getDefaultInvoice() {
-        let c = 400;
-        let d = 0;
-        let t = 120;
-        let tot = c + d + t;
-        let due = tot / 2;
-        let rem = tot - due;
-        return {
-            carolers: c,
-            discounts: d,
-            travel: t,
-            total: tot,
-            due: due,
-            balance: rem
-        }
+    $scope.fmtDate = fmtDate;
+
+    function fmtDate(date){
+        return moment(date).format("MM/DD/YYYY");
     }
 }

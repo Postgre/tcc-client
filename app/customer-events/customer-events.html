@@ -13,7 +13,8 @@
             <div class="postcontent nobottommargin clearfix" ng-show="ready">
                 <div class="row">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" data-target="#upcoming" href><strong>UPCOMING</strong></a></li>
+                        <li class="active"><a data-toggle="tab" data-target="#upcoming"
+                                              href><strong>UPCOMING</strong></a></li>
                         <li><a data-toggle="tab" data-target="#past" href><b>PAST</b></a></li>
                         <li><a data-toggle="tab" data-target="#canceled" href><b>CANCELED</b></a></li>
                     </ul>
@@ -21,7 +22,11 @@
                         <div id="upcoming" class="tab-pane fade in active" style="padding: 30px">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div ng-repeat="event in open" class="panel panel-default">
+                                    <div ng-repeat="event in open"
+                                         class="panel panel-default"
+                                         ng-class="{
+                                            'overduePanel': event.status === 'overdue'
+                                         }">
                                         <div class="panel-heading">
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -30,7 +35,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <small>TOTAL</small>
-                                                    <h2 class="panel-title">$450</h2>
+                                                    <h2 class="panel-title">${{event.invoice.total/100}}</h2>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <small>EVENT DATE</small>
@@ -38,7 +43,8 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <small>OPEN BALANCE</small>
-                                                    <h2 class="panel-title" style="color: red">$200</h2>
+                                                    <h2 class="panel-title" style="color: red">
+                                                        ${{event.invoice.balance/100}}</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -46,22 +52,34 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="col-md-4">
-                                                        <img class="image_fade" src="/images/logo-red.png" style="width: 100%">
+                                                        <img class="image_fade" src="/images/logo-red.png"
+                                                             style="width: 100%">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <h4 class="nobottommargin"><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a> </h4>
-                                                        <p class="nobottommargin">{{event.city+', '+event.state+', '+event.address}}</p>
-                                                        <small>hosted by <b><a ng-href="/market-page.php?market={{event.market_id}}">Demo Market Name</a> </b></small>
+                                                        <h4 class="nobottommargin"><a
+                                                                ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                                        </h4>
+                                                        <p class="nobottommargin">{{event.city+', '+event.state+',
+                                                            '+event.address}}</p>
+                                                        <small>hosted by <b><a
+                                                                ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                                            Market Name</a> </b></small>
+                                                        <br/>
+                                                        <tcc-status status="event.status"></tcc-status>
                                                     </div>
                                                     <div class="col-md-12">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <a ng-href="/checkout.php?booking={{event.id}}" class="btn btn-default btn-block">Submit Payment</a>
+                                                    <a ng-href="/checkout.php?invoice={{event.invoice.id}}&mode=full"
+                                                       class="btn btn-danger btn-block">Submit Payment</a>
+                                                    <a ng-href="/checkout.php?invoice={{event.invoice.id}}&mode=half"
+                                                       ng-hide="requireFull(event.start_time)"
+                                                       class="btn btn-danger btn-block">Make Deposit</a>
                                                     <hr/>
                                                     <button class="btn btn-default btn-block">View Invoice</button>
                                                     <button class="btn btn-default btn-block">Transactions</button>
-                                                    <button class="btn btn-danger btn-block">Cancel Order</button>
+                                                    <button class="btn btn-default btn-block">Cancel Order</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,12 +115,18 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="col-md-4">
-                                                        <img class="image_fade" src="/images/logo-red.png" style="width: 100%">
+                                                        <img class="image_fade" src="/images/logo-red.png"
+                                                             style="width: 100%">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <h4 class="nobottommargin"><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a> </h4>
-                                                        <p class="nobottommargin">{{event.city+', '+event.state+', '+event.address}}</p>
-                                                        <small>hosted by <b><a ng-href="/market-page.php?market={{event.market_id}}">Demo Market Name</a> </b></small>
+                                                        <h4 class="nobottommargin"><a
+                                                                ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                                        </h4>
+                                                        <p class="nobottommargin">{{event.city+', '+event.state+',
+                                                            '+event.address}}</p>
+                                                        <small>hosted by <b><a
+                                                                ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                                            Market Name</a> </b></small>
                                                     </div>
                                                     <div class="col-md-12">
                                                     </div>
@@ -146,12 +170,18 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="col-md-4">
-                                                        <img class="image_fade" src="/images/logo-red.png" style="width: 100%">
+                                                        <img class="image_fade" src="/images/logo-red.png"
+                                                             style="width: 100%">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <h4 class="nobottommargin"><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a> </h4>
-                                                        <p class="nobottommargin">{{event.city+', '+event.state+', '+event.address}}</p>
-                                                        <small>hosted by <b><a ng-href="/market-page.php?market={{event.market_id}}">Demo Market Name</a> </b></small>
+                                                        <h4 class="nobottommargin"><a
+                                                                ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                                        </h4>
+                                                        <p class="nobottommargin">{{event.city+', '+event.state+',
+                                                            '+event.address}}</p>
+                                                        <small>hosted by <b><a
+                                                                ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                                            Market Name</a> </b></small>
                                                     </div>
                                                     <div class="col-md-12">
                                                     </div>

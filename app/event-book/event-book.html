@@ -481,10 +481,9 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div style="height: 500px; width: 100%; overflow: scroll">
+                                    <div style="height: 500px; width: 100%; overflow: scroll; border: solid gray 1px; padding: 30px;">
+                                        <h5>{{authService.user.name}}</h5>
                                         <p>
-                                            {{authService.user.name}},
-                                            <!--located at {{authService.user.address}}-->
                                             (hereafter called "Purchaser") and The Christmas Carolers, LLC, located at POBox 2151, Birmingham,
                                             AL 35201 (hereafter called “Artist”) agree that the following provisions are the
                                             terms of the Performance Agreement. The parties agree that the terms of this
@@ -712,6 +711,7 @@
                                             on the date of your E-Signature.
                                         </p>
                                     </div>
+                                    <br/>
                                     <div class="center">
                                         <input ng-model="iAgree" id="checkbox-5" class="checkbox-style" type="checkbox">
                                         <label for="checkbox-5" class="checkbox-style-1-label">

@@ -18,6 +18,14 @@ function CustomerEventsController( $scope, dataService ) {
         return moment(date).format("MM/DD/YYYY");
     }
 
+    $scope.requireFull = requireFull;
+
+    function requireFull(date) {
+        let ev = moment(date);
+        let now = moment();
+        return ev.diff(now, 'days') < 30;
+    }
+
     /**
      * Init
      * ===============
@@ -31,6 +39,11 @@ function CustomerEventsController( $scope, dataService ) {
             let d = res.data;
             $scope.past = d.past;
             $scope.open = d.open;
+            $scope.open.sort(function(evA, evB){
+                // moves overdue events up
+                if(evA.status === 'overdue') return -1;
+                if(evB.status === 'overdue') return 1;
+            });
             $scope.cancelled = d.cancelled;
             marketMap = d.markets;
             $scope.ready = true;

@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="node_modules/card/dist/card.css" />
     <script src="https://checkout.stripe.com/checkout.js"></script>
 </head>
-<body class="stretched" ng-app="tcc" ng-controller="CheckoutController">
+<body class="stretched">
 <script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
 
 <!-- Document Wrapper
 ============================================= -->
-<div id="wrapper" class="clearfix">
+<div id="wrapper" class="clearfix" ng-app="tcc" ng-controller="CheckoutController">
     <?php require 'partials/top-bar.htm' ?>
     <?php require 'partials/header-2.php' ?>
     <?php require 'app/checkout/checkout.html' ?>

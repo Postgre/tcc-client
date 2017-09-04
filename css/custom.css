@@ -43,6 +43,7 @@
 }
 /* end */
 
+/* top bar */
 #top-bar {
     background-color: #800020;
     border-bottom-color: #610000;
@@ -94,6 +95,8 @@
     background-color: #800020;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+/* end */
 
 .txt-lg {
     font-size: large;
@@ -169,3 +172,10 @@ table.uib-timepicker {
 .balancePaid {
     color: #1ABC9C;
 }
+/* end */
+
+/* orders page */
+.overduePanel {
+    border: solid red 2px;
+}
+/* end */
