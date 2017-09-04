@@ -8,9 +8,9 @@ function HomeController($scope) {
     // end
 
     /* instant quote form */
-    $scope.address = "1500 1st Avenue North";
-    $scope.city = "Birmingham";
-    $scope.state = "AL";
+    $scope.address = "";
+    $scope.city = "";
+    $scope.state = "";
     $scope.caroler_config = "quartet";
     // end
 
@@ -83,7 +83,7 @@ function HomeController($scope) {
         let date = moment().add(7, 'days');
         let start = moment(date);
         let end = moment(start).add(2, 'hours');
-        $scope.bind_date = date;
+        $scope.bind_date = date.format("MM/DD/YYYY");
         $scope.bind_start = start;
         $scope.bind_end = end;
         $scope.$watch('bind_date', function (value) {
