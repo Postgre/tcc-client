@@ -102,6 +102,12 @@ module.exports = class AuthService {
         })
     }
 
+    resend(email){
+        return this.connection({
+            url: "auth/resend/"+email
+        });
+    }
+
     refresh(){
         if(!this.jwt) throw "Tried to refresh token, but you don't even have one!";
         return new Promise((resolve, reject) => {

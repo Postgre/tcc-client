@@ -6,6 +6,7 @@ function AuthController( $scope ){
 
     $scope.loginForm = {};
     $scope.registerForm = {};
+    $scope.resendForm = {};
 
     function init(){
         let action = getQueryVariable("action");
@@ -63,10 +64,18 @@ function AuthController( $scope ){
     };
     $scope.handleRegister = function handleRegister(registerForm){
         if(!validateRegisterForm(registerForm)) return;
+        $scope.ajaxRegister = true;
         authService.register(registerForm.name, registerForm.email, registerForm.password)
             .then(
-                win => notifyRegistered(),
+                win => {
+                    notifyRegistered();
+                    $scope.afterSent = true;
+                    $scope.ajaxRegister = false;
+                    $scope.$apply();
+                },
                 fail => {
+                    $scope.ajaxRegister = false;
+                    $scope.$apply();
                     switch(fail){
                         case 409: notifyAlreadyRegistered(); break;
                         default:
@@ -84,6 +93,22 @@ function AuthController( $scope ){
                 },
                 (fail) => {
                     swal("Hmm..", "We don't have that email in our database", "error");
+                }
+            );
+    };
+    $scope.handleResend = function handleResend(email){
+        $scope.ajaxResend = true;
+        authService.resend(email)
+            .then(
+                (win) => {
+                    swal("Done!", "We've sent a recovery link to your inbox", "success");
+                    $scope.ajaxResend = false;
+                    $scope.$apply();
+                },
+                (fail) => {
+                    swal("Hmm..", "We don't have that email in our database", "error");
+                    $scope.ajaxResend = false;
+                    $scope.$apply();
                 }
             );
     };
@@ -110,11 +135,11 @@ function AuthController( $scope ){
         let emailCheck = (EMAIL_REG.test(registerForm.email));
 
         if(!passCheck){
-            alert("Passwords do not match");
+            swal("Passwords do not match");
             return false;
         }
         if(!emailCheck){
-            alert("Invalid email");
+            swal("Invalid email");
             return false;
         }
         return true;
@@ -123,10 +148,10 @@ function AuthController( $scope ){
         let emailCheck = EMAIL_REG.test(loginForm.email);
         let passCheck = /.{3,}/.test(loginForm.password);
         if(!emailCheck){
-            alert("Invalid Email"); return;
+            swal("Invalid Email"); return;
         }
         if(!passCheck){
-            alert("Invalid Password. Too Short."); return;
+            swal("Invalid Password. Too Short."); return;
         }
         return true;
     }

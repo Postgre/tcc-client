@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="col_two_third col_last nobottommargin">
+            <div ng-hide="afterSent || viewResend" class="col_two_third col_last nobottommargin">
                 <h3>Don&apos;t have an Account? Register Now.</h3>
                 <p>You can expect superior quality when you hire the Christmas Carolers. We cherry-pick our talented
                     singers from music schools across the country.
@@ -84,9 +84,53 @@
                     <div class="clear"></div>
 
                     <div class="col_full nobottommargin">
-                        <button ng-click="handleRegister(registerForm)" class="button button-3d button-black nomargin" >Register Now
+                        <button ng-click="handleRegister(registerForm)" class="button button-3d button-black nomargin" >
+                            <img src="/images/preloader-dark.gif" ng-if="ajaxRegister"/>
+                            <b ng-hide="ajaxRegister">Register Now</b>
+                        </button>
+
+                        <a ng-click="viewResend=true" class="fright" href>Resend Email</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div ng-show="afterSent && !viewResend" class="col_two_third col_last nobottommargin center">
+                <h3>We sent you an email!</h3>
+                <p>It usually takes less than five minutes. Follow the instructions in the email
+                to verify your account.</p>
+                <form class="nobottommargin">
+
+                    <div class="col_full nobottommargin">
+                        <button ng-click="handleResend(registerForm.email)" class="button button-3d button-black nomargin" >
+                            <img src="/images/preloader-dark.gif" ng-if="ajaxResend"/>
+                            <b ng-hide="ajaxResend">Resend Email</b>
                         </button>
                     </div>
+
+                </form>
+
+            </div>
+
+            <div ng-show="viewResend" class="col_two_third col_last nobottommargin center">
+                <h3>Didn't get an Email?</h3>
+                <p>Enter your email again here, and we'll resend the verification.</p>
+                <form class="nobottommargin" ng-submit="handleResend(resendForm.email)">
+
+                    <div class="col_one_fourth"></div>
+                    <div class="col_half col_last">
+                        <input ng-model="resendForm.email" type="email" required class="email form-control">
+                    </div>
+
+                    <div class="col_full nobottommargin">
+                        <button class="button button-3d button-black nomargin" type="submit">
+                            <img src="/images/preloader-dark.gif" ng-if="ajaxResend"/>
+                            <b ng-hide="ajaxResend">Resend Email</b>
+                        </button>
+                    </div>
+                    <br/>
+                    <a ng-click="viewResend=false" href>Go Back</a>
 
                 </form>
 
