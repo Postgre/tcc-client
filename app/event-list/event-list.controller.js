@@ -6,7 +6,7 @@ angular.module("event-list")
         function init() {
             dataService.getResourceAll("events", {
                 where: "end_time > "+moment().format("YYYY-MM-DD"),
-                with: "user"
+                with: ["user", "invoice", "carolerConfig"]
             }).then((events)=>{
                 $scope.events = events;
                 $scope.$apply();
@@ -15,6 +15,11 @@ angular.module("event-list")
         }
 
         $scope.fmt = (date) => moment(date).format("MM/DD/YYYY HH:MM");
+
+        $scope.viewOrder = function(event){
+            $scope.event = event;
+            $("#modal").modal("show");
+        };
 
         //=================================================
 

@@ -50,7 +50,7 @@
                         </td>
                         <td>{{fmt(event.start_time)}}</td>
                         <td>
-                            <button class="btn btn-default">View Order</button>
+                            <button class="btn btn-default" ng-click="viewOrder(event)">View Order</button>
                         </td>
                     </tr>
                     </tbody>
@@ -67,13 +67,53 @@
                                 x
                             </button>
                             <h4 class="modal-title" id="myModalLabel">
-                                {{modalTitle}}
+                                Event Order Summary
                             </h4>
                         </div>
                         <div class="modal-body">
-                            <h2 ng-if="doc_error" style="color: red">Hmm.. something went wrong loading the
-                                document</h2>
-                            <iframe ng-hide="doc_error" id="frame" src="" width="100%" height="700px"></iframe>
+                            <div class="panel panel-default"
+                                 ng-class="{
+                                    'overduePanel': event.status === 'overdue'
+                                 }">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <small>ORDER PLACED</small>
+                                            <h2 class="panel-title">{{fmt(event.created_at)}}</h2>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <small>TOTAL</small>
+                                            <h2 class="panel-title">${{event.invoice.total / 100}}</h2>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <small>EVENT DATE</small>
+                                            <h2 class="panel-title">{{fmt(event.start_time)}}</h2>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <small>OPEN BALANCE</small>
+                                            <h2 class="panel-title" style="color: red">${{event.invoice.balance / 100}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-4">
+                                                <img src="/images/logo-red.png"/>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h4 class="nobottommargin"><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a> </h4>
+                                                <p class="nobottommargin">{{event.city+', '+event.state+', '+event.address}}</p>
+                                                <small>hosted by <b><a ng-href="/market-page.php?market={{event.market_id}}">Demo Market Name</a> </b></small>
+                                            </div>
+                                            <div class="col-md-12" ng-if="event">
+                                                <br/>
+                                                <tcc-event-details booking="event"></tcc-event-details>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
