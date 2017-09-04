@@ -99,6 +99,10 @@ function HomeController($scope) {
                 let mkt = markets[i];
                 markers.push({
                     address: formatAddress(mkt.address, mkt.city, mkt.state),
+                    html:
+                        '<a href="/market-page.php?market='+mkt.id+'">' +
+                            '<b>'+ mkt.name+'</b>' +
+                        '</a>',
                     icon: {
                         image: "images/icons/map-icon-red.png",
                         iconsize: [32, 39],
@@ -366,44 +370,43 @@ function HomeController($scope) {
             });
         });
     }
-}
 
-
-function renderMap(markers) {
-    $('#popular-dest-map').gMap({
-        address: 'United States',
-        maptype: 'ROADMAP',
-        zoom: 4,
-        markers: markers,
-        doubleclickzoom: false,
-        controls: {
-            panControl: false,
-            zoomControl: true,
-            mapTypeControl: false,
-            scaleControl: false,
-            streetViewControl: false,
-            overviewMapControl: false
-        },
-        styles: [{
-            "featureType": "landscape.natural",
-            "elementType": "geometry.fill",
-            "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-        }, {
-            "featureType": "poi",
-            "elementType": "geometry.fill",
-            "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-        }, {
-            "featureType": "road",
-            "elementType": "geometry",
-            "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-        }, {
-            "featureType": "road",
-            "elementType": "labels",
-            "stylers": [{"visibility": "off"}]
-        }, {
-            "featureType": "transit.line",
-            "elementType": "geometry",
-            "stylers": [{"visibility": "on"}, {"lightness": 700}]
-        }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
-    });
+    function renderMap(markers) {
+        $('#popular-dest-map').gMap({
+            address: 'United States',
+            maptype: 'ROADMAP',
+            zoom: 4,
+            markers: markers,
+            doubleclickzoom: false,
+            controls: {
+                panControl: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false
+            },
+            styles: [{
+                "featureType": "landscape.natural",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry.fill",
+                "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+            }, {
+                "featureType": "road",
+                "elementType": "labels",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{"visibility": "on"}, {"lightness": 700}]
+            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#7dcdcd"}]}]
+        });
+    }
 }
