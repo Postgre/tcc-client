@@ -115,7 +115,7 @@ function HomeController($scope) {
     }
 
     $scope.updateTimes = function updateTimes() {
-        let DATETIME_FORMAT = "MM/DD/YYYY HH:MM";
+        let DATETIME_FORMAT = "MM/DD/YYYY HH:mm";
         let date_format = DATETIME_FORMAT.split(" ")[0];
         let time_format = DATETIME_FORMAT.split(" ")[1];
         let d = $scope.bind_date;

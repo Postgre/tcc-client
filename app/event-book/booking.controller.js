@@ -152,18 +152,9 @@ angular.module('booking')
             // end
         }
 
-        /* helpers */
-        $scope.stepToTravel = function () {
-            if (!$scope.booking.market_id) {
-                alert("No Market Selected!");
-                return false;
-            }
-            return true;
-        };
         $scope.stepTo = function (tab_number) {
             $scope.process_tabs.tabs("option", "active", tab_number);
         };
-        // end
 
         $scope.next = function (current) {
             let step = () => {
@@ -223,7 +214,7 @@ angular.module('booking')
         init();
     })
     .controller("EventDetailsController", function DetailsController($scope) {
-        let DATETIME_FORMAT = "YYYY-MM-DD HH:MM";
+        let DATETIME_FORMAT = "YYYY-MM-DD HH:mm";
         let DATE_FORMAT = DATETIME_FORMAT.split(" ")[0];
         let TIME_FORMAT = DATETIME_FORMAT.split(" ")[1];
 
@@ -232,7 +223,8 @@ angular.module('booking')
         $scope.config = 'quartet';
         $scope.start = null;
         $scope.end = null;
-        $scope.duration = null;
+        $scope.duration_h = null;
+        $scope.duration_m = null;
 
         function init() {
             /* load all markets */
@@ -263,11 +255,12 @@ angular.module('booking')
             // end
 
             /* date and time pickers */
-            $scope.duration = 1;
+            $scope.duration_h = 1;
+            $scope.duration_m = 0;
             $scope.date = moment().add(7, 'days').format(DATE_FORMAT);
             $scope.start = moment($scope.date).add(2, 'hours');
-            $scope.end = moment($scope.start).add($scope.duration, 'hours');
-            $scope.$watchGroup(["date", "start", "duration"], function () {
+            $scope.end = moment($scope.start).add($scope.duration_h, 'hours').add($scope.duration_m, 'minutes');
+            $scope.$watchGroup(["date", "start", "duration_h", "duration_m"], function () {
                 let times = formatStartEnd();
                 $scope.booking.start_time = times[0];
                 $scope.booking.end_time = times[1];
@@ -286,11 +279,11 @@ angular.module('booking')
         init();
 
         function formatStartEnd() {
-            let d = $scope.date;
-            let s = $scope.start;
-            let e = moment(s).add($scope.duration, 'hours');
-            let start_time = moment(d).format(DATE_FORMAT) + " " + moment(s).format(TIME_FORMAT);
-            let end_time = moment(d).format(DATE_FORMAT) + " " + moment(e).format(TIME_FORMAT);
+            let date = $scope.date;
+            let start = $scope.start;
+            let end = moment(start).add($scope.duration_m, 'minutes');
+            let start_time = moment(date).format(DATE_FORMAT) + " " + moment(start).format(TIME_FORMAT);
+            let end_time = moment(date).format(DATE_FORMAT) + " " + moment(end).format(TIME_FORMAT);
             return [start_time, end_time];
         }
 
@@ -313,7 +306,8 @@ angular.module('booking')
             $scope.start = $scope.date;
             // $scope.end = moment(data.end_time).format(DATETIME_FORMAT);
             let duration = moment.duration(moment(data.end_time).diff(moment(data.start_time)));
-            $scope.duration = duration.asHours();
+            $scope.duration_h = Math.floor(duration.asMinutes() / 60);
+            $scope.duration_m = duration.asMinutes() % 60;
             // set config
             let con = "";
             switch (data.caroler_count) {

@@ -3,20 +3,23 @@ angular.module("components")
     return {
         scope: {
             bind: "=",
-            min: "=",
-            max: "=",
-            change: "="
+            min: "=?",
+            max: "=?",
+            change: "=?",
+            step: "=?"
         },
         controller: function($scope){
+            if(!$scope.step) $scope.step = 1;
+
             $scope.inc = function inc(){
-                if($scope.bind < $scope.max){
-                    $scope.bind++;
+                if($scope.bind + $scope.step <= $scope.max){
+                    $scope.bind += $scope.step;
                     if($scope.change) $scope.change($scope.bind);
                 }
             };
             $scope.dec = function dec(){
-                if($scope.bind > $scope.min){
-                    $scope.bind--;
+                if($scope.bind - $scope.step >= $scope.min){
+                    $scope.bind -= $scope.step;
                     if($scope.change) $scope.change($scope.bind);
                 }
             };

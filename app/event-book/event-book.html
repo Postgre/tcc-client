@@ -70,7 +70,8 @@
                                         <div id="quote-details" style="width: 458px;">
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <label>Date:</label>
+                                                    <h4 class="nobottommargin">Date of your event</h4>
+                                                    <p class="hidden-xs"><small>Click a day on the calendar.</small></p>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <datepicker date-format="MM/dd/yyyy">
@@ -81,7 +82,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <label>Start Time</label>
+                                                    <h4 class="nobottommargin">Start Time</h4>
+                                                    <p class="hidden-xs"><small>When will we start singing</small></p>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div uib-timepicker ng-model="start" ng-change="updateTimes()"
@@ -90,13 +92,19 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <label>Event Duration</label>
-                                                    <p>(Hours)</p>
+                                                    <h4 class="nobottommargin">Event Duration</h4>
+                                                    <p class="hidden-xs"><small>How long will we be there?</small></p>
                                                 </div>
                                                 <div class="col-sm-6" id="btns-event-length">
-                                                    <tcc-number-inc bind="duration"
-                                                                    min="1" max="10"
-                                                                    change="updateTimes"></tcc-number-inc>
+                                                    <small>Hours</small>
+                                                    <tcc-number-inc bind="duration_h"
+                                                                    min="1" max="10"></tcc-number-inc>
+                                                    <br/>
+                                                    <small>minutes</small>
+                                                    <tcc-number-inc bind="duration_m"
+                                                                    min="0" max="45"
+                                                                    step="15"></tcc-number-inc>
+                                                    <br/>
                                                 </div>
                                             </div>
                                             <div class="row">
