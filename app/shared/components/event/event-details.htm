@@ -22,10 +22,15 @@
         <th>Time</th>
         <td><label class="label label-default">{{start}}</label> - <label class="label label-default">{{end}}</label></td>
     </tr>
-    <tr>
+    <tr ng-hide="booking.caroler_config.name">
         <td></td>
         <th>Caroler Config</th>
         <td>{{booking.caroler_config}}</td>
+    </tr>
+    <tr ng-if="booking.caroler_config.name">
+        <td></td>
+        <th>Caroler Config</th>
+        <td>{{booking.caroler_config.name}}</td>
     </tr>
     <tr>
         <td></td>
