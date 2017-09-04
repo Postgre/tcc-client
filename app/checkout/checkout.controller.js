@@ -43,6 +43,7 @@ function CheckoutController($scope, dataService) {
                 dataService.submitPayment($scope.invoice.id, token, $scope.amount).then(
                     (res)=>{
                         swal("Success!", "Payment submitted successfully", "success");
+                        init();
                     },
                     (err)=>{
                         swal("Oops..", "Transaction could not be completed", "error");
