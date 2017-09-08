@@ -15,12 +15,12 @@
     <tr>
         <td></td>
         <th>Date</th>
-        <td>{{date}}</td>
+        <td>{{fmt(booking.start_time, "MM/DD/YYYY")}}</td>
     </tr>
     <tr>
         <td></td>
         <th>Time</th>
-        <td><label class="label label-default">{{start}}</label> - <label class="label label-default">{{end}}</label></td>
+        <td><label class="label label-default">{{fmt(booking.start_time, "HH:mm")}}</label> - <label class="label label-default">{{fmt(booking.end_time, "HH:mm")}}</label></td>
     </tr>
     <tr ng-hide="booking.caroler_config.name">
         <td></td>
