@@ -23,9 +23,10 @@ function CheckoutController($scope, dataService) {
             }
         }).then((res)=>{
             $scope.invoice = res.data.invoice;
+
             let mode = getQueryVariable("mode");
             if(mode === 'full') $scope.dueNow = $scope.invoice.balance;
-            if(mode === 'half') $scope.dueNow = $scope.invoice.balance / 2;
+            if(mode === 'half') $scope.dueNow = $scope.invoice.minimum_payment;
             $scope.amount = $scope.dueNow;
             $scope.event = res.data.event;
             $scope.ready = true;
@@ -43,7 +44,6 @@ function CheckoutController($scope, dataService) {
                 dataService.submitPayment($scope.invoice.id, token.id, $scope.amount).then(
                     (res)=>{
                         swal("Success!", "Payment submitted successfully", "success");
-                        window.location = window.location.host + `?mode=full&invoice=${getQueryVariable('invoice')}`;
                         init();
                     },
                     (err)=>{

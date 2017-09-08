@@ -43,7 +43,11 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <small>OPEN BALANCE</small>
-                                                    <h2 class="panel-title" style="color: red">
+                                                    <h2 class="panel-title"
+                                                        ng-class="{
+                                                            'balanceDue': event.invoice.balance > 0,
+                                                            'balancePaid': event.invoice.balance == 0
+                                                         }">
                                                         ${{event.invoice.balance/100}}</h2>
                                                 </div>
                                             </div>
@@ -72,6 +76,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <a ng-href="/checkout.php?invoice={{event.invoice.id}}&mode=full"
+                                                       ng-if="event.invoice.balance != 0"
                                                        class="btn btn-danger btn-block">Submit Payment</a>
                                                     <a ng-href="/checkout.php?invoice={{event.invoice.id}}&mode=half"
                                                        ng-hide="requireFull(event.start_time)"
