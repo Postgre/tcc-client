@@ -23,6 +23,9 @@ function CheckoutController($scope, dataService) {
             }
         }).then((res)=>{
             $scope.invoice = res.data.invoice;
+            if($scope.invoice.balance){
+                swal("Success!", "your event has been paid in full", "success");
+            }
 
             let mode = getQueryVariable("mode");
             if(mode === 'full') $scope.dueNow = $scope.invoice.maximum_payment;
