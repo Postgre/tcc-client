@@ -40,7 +40,7 @@ function CheckoutController($scope, dataService) {
             token: function(token) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
-                dataService.submitPayment($scope.invoice.id, token, $scope.amount).then(
+                dataService.submitPayment($scope.invoice.id, token.id, $scope.amount).then(
                     (res)=>{
                         swal("Success!", "Payment submitted successfully", "success");
                         init();

@@ -54,9 +54,11 @@
                                         <img src="/images/logo-red.png"/>
                                     </div>
                                     <div class="col-md-8">
-                                        <h4 class="nobottommargin"><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a> </h4>
+                                        <h4 class="nobottommargin"><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                        </h4>
                                         <p class="nobottommargin">{{event.city+', '+event.state+', '+event.address}}</p>
-                                        <small>hosted by <b><a ng-href="/market-page.php?market={{event.market_id}}">Demo Market Name</a> </b></small>
+                                        <small>hosted by <b><a ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                            Market Name</a> </b></small>
                                     </div>
                                     <div class="col-md-12">
                                         <br/>
@@ -73,80 +75,82 @@
 
                         <table class="table cart">
                             <tbody>
-                            <tr class="cart_item">
-                                <td class="notopborder cart-product-name">
-                                    <strong>Carolers</strong>
-                                </td>
+                                <tr class="cart_item">
+                                    <td class="notopborder cart-product-name">
+                                        <strong>Carolers</strong>
+                                    </td>
 
-                                <td class="notopborder cart-product-name">
-                                    <span class="amount">$<b ng-bind="invoice.carolers"></b></span>
-                                </td>
-                            </tr>
-                            <tr class="cart_item">
-                                <td class="cart-product-name">
-                                    <strong>Travel</strong>
-                                </td>
+                                    <td class="notopborder cart-product-name">
+                                        <span class="amount">$<b ng-bind="invoice.caroler_line.cost + invoice.date_total"></b></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Travel</strong>
+                                    </td>
 
-                                <td class="cart-product-name">
-                                    <span class="amount">$<b ng-bind="invoice.travel"></b></span>
-                                </td>
-                            </tr>
-                            <tr class="cart_item">
-                                <td class="cart-product-name">
-                                    <strong>Discounts</strong>
-                                </td>
+                                    <td class="cart-product-name">
+                                        <span class="amount">
+                                            $ <b ng-bind="(invoice.mileage_line.cost + invoice.travel_time_line.cost).toFixed(2)"></b>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Discounts</strong>
+                                    </td>
+                                    <td class="cart-product-name">
+                                        <span class="amount">$<b ng-bind="invoice.promo_total"></b></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Total</strong>
+                                    </td>
 
-                                <td class="cart-product-name">
-                                    <span class="amount">$<b ng-bind="invoice.discounts"></b></span>
-                                </td>
-                            </tr>
-                            <tr class="cart_item">
-                                <td class="cart-product-name">
-                                    <strong>Total</strong>
-                                </td>
+                                    <td class="cart-product-name">
+                                        <span class="amount">$<b ng-bind="invoice.total/100"></b></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Previous Payments</strong>
+                                    </td>
 
-                                <td class="cart-product-name">
-                                    <span class="amount">$<b ng-bind="invoice.total/100"></b></span>
-                                </td>
-                            </tr>
-                            <tr class="cart_item">
-                                <td class="cart-product-name">
-                                    <strong>Previous Payments</strong>
-                                </td>
+                                    <td class="cart-product-name">
+                                        <span class="amount color lead"><strong>${{(invoice.total - invoice.balance) / 100}}</strong></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>This Payment</strong>
+                                    </td>
 
-                                <td class="cart-product-name">
-                                    <span class="amount color lead"><strong>${{(invoice.total - invoice.balance) / 100}}</strong></span>
-                                </td>
-                            </tr>
-                            <tr class="cart_item">
-                                <td class="cart-product-name">
-                                    <strong>This Payment</strong>
-                                </td>
+                                    <td class="cart-product-name">
+                                        <span class="amount color lead"><strong>${{amount / 100}}</strong></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Remaining Balance</strong>
+                                    </td>
 
-                                <td class="cart-product-name">
-                                    <span class="amount color lead"><strong>${{amount / 100}}</strong></span>
-                                </td>
-                            </tr>
-                            <tr class="cart_item">
-                                <td class="cart-product-name">
-                                    <strong>Remaining Balance</strong>
-                                </td>
-
-                                <td class="cart-product-name">
-                                    <span class="amount lead" style="color: red"
-                                          ng-hide="amount > invoice.balance || amount < dueNow">
-                                        <strong ng-class="{
-                                            'balanceDue': invoice.balance-amount > 0,
-                                            'balancePaid': invoice.balance-amount === 0
-                                        }">${{(invoice.balance - amount) / 100}}</strong></span>
-                                    <span style="color: red"
-                                          ng-show="amount > invoice.balance || amount < dueNow">Invalid Amount</span>
-                                </td>
-                            </tr>
+                                    <td class="cart-product-name">
+                                        <span class="amount lead" style="color: red"
+                                              ng-hide="amount > invoice.balance || amount < dueNow">
+                                            <strong ng-class="{
+                                                'balanceDue': invoice.balance-amount > 0,
+                                                'balancePaid': invoice.balance-amount === 0
+                                            }">${{(invoice.balance - amount) / 100}}</strong></span>
+                                        <span style="color: red"
+                                              ng-show="amount > invoice.balance || amount < dueNow">Invalid Amount</span>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <p style="color: red" ng-show="amount < dueNow">amount must be at least ${{dueNow/100}}</p>
-                        <p style="color: red" ng-show="amount > invoice.balance">that's more than your remaining balance!</p>
+                        <p style="color: red" ng-show="amount > invoice.balance">that's more than your remaining
+                            balance!</p>
                     </div>
                     <div class="accordion clearfix">
                         <div class="acctitle">
@@ -166,6 +170,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
