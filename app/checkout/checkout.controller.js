@@ -25,7 +25,7 @@ function CheckoutController($scope, dataService) {
             $scope.invoice = res.data.invoice;
 
             let mode = getQueryVariable("mode");
-            if(mode === 'full') $scope.dueNow = $scope.invoice.balance;
+            if(mode === 'full') $scope.dueNow = $scope.invoice.maximum_payment;
             if(mode === 'half') $scope.dueNow = $scope.invoice.minimum_payment;
             $scope.amount = $scope.dueNow;
             $scope.event = res.data.event;
