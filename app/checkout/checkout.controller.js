@@ -23,7 +23,7 @@ function CheckoutController($scope, dataService) {
             }
         }).then((res)=>{
             $scope.invoice = res.data.invoice;
-            if($scope.invoice.balance){
+            if($scope.invoice.balance === 0){
                 swal("Success!", "your event has been paid in full", "success");
             }
 
