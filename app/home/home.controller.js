@@ -84,8 +84,8 @@ function HomeController($scope) {
         let start = moment(date);
         let end = moment(start).add(2, 'hours');
         $scope.bind_date = date.format("MM/DD/YYYY");
-        $scope.bind_start = start;
-        $scope.bind_end = end;
+        $scope.bind_start = start.hour(17).minute(0);
+        $scope.bind_end = end.hour(20).minute(0);
         $scope.$watch('bind_date', function (value) {
             $scope.updateTimes();
         });
