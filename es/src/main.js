@@ -1,12 +1,15 @@
 const axios = require('axios');
 
+console.log("master!");
+
 /**
  * CONFIGURATION
  * ========================
  */
-let site = require('../../config/site-local.json');
+let site_local = require('../../config/site-local.json');
 let site_master = require('../../config/site-master.json');
 let site_dev = require('../../config/site-dev.json');
+let site = site_master;
 // detect environment
 let host = window.location.host;
 if(host.startsWith("markets")) site = site_master;

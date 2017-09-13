@@ -2,6 +2,7 @@ angular.module("home")
     .controller("HomeController", HomeController);
 
 function HomeController($scope) {
+    window.$scope = $scope;
     $scope.quote = {};
     /* Revolution Slider */
     initRevSlider();
