@@ -106,6 +106,7 @@ module.exports = class DataService {
                     discounts: q.cost_discounts,
                     total: q.cost_total
                 };
+                Object.assign(quote, q);
                 resolve({
                     market: market,
                     quote: quote
