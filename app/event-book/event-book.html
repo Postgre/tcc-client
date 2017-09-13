@@ -276,13 +276,13 @@
                                                    class="form-control">
                                         </div>
                                         
-                                        <div class="col_half col_last">
+                                        <div class="col_half">
                                             <label>City: </label>
                                             <input ng-model="city" required id="city"
                                                    class="form-control">
                                         </div>
                                         
-                                        <div class="col_half">
+                                        <div class="col_half col_last">
                                             <label>State: </label>
                                             <tcc-state-select bind="state"></tcc-state-select>
                                         </div>
@@ -334,7 +334,7 @@
                                     <h3>Additional Travel Expenses</h3>
                                     
                                     <div class="col_half col_last">
-                                        <label>Parking / Valet Fees (if applicable)</label>
+                                        <label>Parking / Valet Fees<small>(if applicable)</small></label>
                                         <input class="form-control" ng-model="booking.custom_expense" ui-money-mask="2">
                                     </div>
                                     <!--<br/>
