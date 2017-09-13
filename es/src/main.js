@@ -4,13 +4,13 @@ const axios = require('axios');
  * CONFIGURATION
  * ========================
  */
-let site = require('../../config/site-local.json');
+let site_local = require('../../config/site-local.json');
 let site_master = require('../../config/site-master.json');
 let site_dev = require('../../config/site-dev.json');
+let site = site_master;
 // detect environment
 let host = window.location.host;
 if(host.startsWith("markets")) site = site_master;
-if(host.startsWith("thechristmascarolers.com")) site = site_master;
 if(host.startsWith("dev")) site = site_dev;
 console.info("Using Server: ", site.serverURL);
 const callbacks = require('../../config/callbacks.json');
