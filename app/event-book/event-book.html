@@ -38,7 +38,7 @@
                                 <div class="col-md-6">
                                     <form name="findMarketForm" novalidate
                                           ng-class="{ 'has-error' : findMarketForm.market.$invalid && !findMarketForm.market.$pristine }">
-                                        <h3 ng-click="logActivity()">Find a Market: </h3>
+                                        <h3 ng-click="logActivity()">Choose a Market: </h3>
                                         <input ng-model="market"
                                                name="market"
                                                uib-typeahead="mkt as mkt.name for mkt in markets | filter:{name:$viewValue} | limitTo:8"
@@ -209,7 +209,6 @@
 
                                             <div class="col_full">
                                                 <label for="special-requests">Special Requests
-                                                    <small>*</small>
                                                 </label>
                                                 <textarea ng-model="booking.special_requests" class="sm-form-control"
                                                           id="special-requests" name="shipping-form-message" rows="6"
@@ -276,16 +275,18 @@
                                             <input ng-model="address" required id="address"
                                                    class="form-control">
                                         </div>
-                                        <div class="col_half">
-                                            <label>State: </label>
-                                            <tcc-state-select bind="state"></tcc-state-select>
-                                        </div>
-
+                                        
                                         <div class="col_half col_last">
                                             <label>City: </label>
                                             <input ng-model="city" required id="city"
                                                    class="form-control">
                                         </div>
+                                        
+                                        <div class="col_half">
+                                            <label>State: </label>
+                                            <tcc-state-select bind="state"></tcc-state-select>
+                                        </div>
+
                                         <p id="location-coordinates" style="display: none; margin-top: 10px;">
                                             <small id="latitude-text"><em>Latitude:</em></small> &#xB7;
                                             <small id="longitude-text"><em>Longitude:</em></small>
@@ -331,17 +332,9 @@
                                     <p>The lead caroler will estimate the amount for toll roads as they travel to
                                         this booking.</p>-->
                                     <h3>Additional Travel Expenses</h3>
-                                    <p>Please add the following applicable travel related expenses as it pertains to
-                                        your event. Carolers will also add any applicable toll-road or public
-                                        transportation fees required to get to your event’s location in additional to
-                                        mileage and time calculated above. These expenses will be approved by you prior
-                                        to your event.</p>
-                                    <div class="col_half">
-                                        <label>Description</label>
-                                        <input class="form-control" ng-model="booking.custom_expense_desc">
-                                    </div>
+                                    
                                     <div class="col_half col_last">
-                                        <label>Amount</label>
+                                        <label>Parking / Valet Fees (if applicable)</label>
                                         <input class="form-control" ng-model="booking.custom_expense" ui-money-mask="2">
                                     </div>
                                     <!--<br/>
@@ -491,7 +484,8 @@
                                 <div class="col-md-6">
                                     <h3>Performance Agreement</h3>
                                     <div style="height: 500px; width: 100%; overflow: scroll; border: solid gray 1px; padding: 30px;">
-                                        <h5>{{authService.user.name}}</h5>
+                                        <h5 ng-if="authService.isLoggedIn()">{{authService.user.name}}</h5>
+                                        <h5 ng-if="!authService.isLoggedIn()">The person signing this agreement</h5>
                                         <p>
                                             (hereafter called "Purchaser") and The Christmas Carolers, LLC, located at POBox 2151, Birmingham,
                                             AL 35201 (hereafter called “Artist”) agree that the following provisions are the
