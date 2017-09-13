@@ -1,0 +1,171 @@
+<!-- Page Title
+		============================================= -->
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Submit Event Payment</h1>
+        <span><a ng-href="/event-single.php?booking={{booking.id}}">{{booking.name}}</a></span>
+        <ol class="breadcrumb">
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/customer-events.php">Events</a></li>
+            <li class="active">{{booking.name}}</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+<section id="content">
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+            <div class="row clearfix">
+                <div class="col-md-6">
+                    <h3>Order Summary</h3>
+                    <div class="loading-container" ng-if="!ready">
+                        <div class="loader"></div>
+                    </div>
+                    <div ng-if="ready" class="panel panel-default"
+                         ng-class="{
+                            'overduePanel': event.status === 'overdue'
+                         }">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-3 col-xs-6 col-sm-6">
+                                    <small>ORDER PLACED</small>
+                                    <h2 class="panel-title">{{fmtDate(event.created_at)}}</h2>
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-sm-6">
+                                    <small>TOTAL</small>
+                                    <h2 class="panel-title">${{invoice.total / 100}}</h2>
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-sm-6">
+                                    <small>EVENT DATE</small>
+                                    <h2 class="panel-title">{{fmtDate(event.start_time)}}</h2>
+                                </div>
+                                <div class="col-md-3 col-xs-6 col-sm-6">
+                                    <small>OPEN BALANCE</small>
+                                    <h2 class="panel-title" style="color: red">${{invoice.balance / 100}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <img src="/images/logo-red.png"/>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4 class="nobottommargin"><a ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                        </h4>
+                                        <p class="nobottommargin">{{event.city+', '+event.state+', '+event.address}}</p>
+                                        <small>hosted by <b><a ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                            Market Name</a> </b></small>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <br/>
+                                        <tcc-event-details booking="event"></tcc-event-details>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <h3>Event Invoice</h3>
+
+                        <table class="table cart">
+                            <tbody>
+                                <tr class="cart_item">
+                                    <td class="notopborder cart-product-name">
+                                        <strong>Carolers</strong>
+                                    </td>
+
+                                    <td class="notopborder cart-product-name">
+                                        <span class="amount">$<b ng-bind="invoice.caroler_line.cost + invoice.date_total"></b></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Travel</strong>
+                                    </td>
+
+                                    <td class="cart-product-name">
+                                        <span class="amount">
+                                            $ <b ng-bind="(invoice.mileage_line.cost + invoice.travel_time_line.cost).toFixed(2)"></b>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Discounts</strong>
+                                    </td>
+                                    <td class="cart-product-name">
+                                        <span class="amount">$<b ng-bind="invoice.promo_total"></b></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Total</strong>
+                                    </td>
+
+                                    <td class="cart-product-name">
+                                        <span class="amount">$<b ng-bind="invoice.total/100"></b></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Previous Payments</strong>
+                                    </td>
+
+                                    <td class="cart-product-name">
+                                        <span class="amount color lead"><strong>${{(invoice.total - invoice.balance) / 100}}</strong></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>This Payment</strong>
+                                    </td>
+
+                                    <td class="cart-product-name">
+                                        <span class="amount color lead"><strong>${{amount / 100}}</strong></span>
+                                    </td>
+                                </tr>
+                                <tr class="cart_item">
+                                    <td class="cart-product-name">
+                                        <strong>Remaining Balance</strong>
+                                    </td>
+
+                                    <td class="cart-product-name">
+                                        <span class="amount lead" style="color: red"
+                                              ng-hide="amount > invoice.balance || amount < dueNow">
+                                            <strong ng-class="{
+                                                'balanceDue': invoice.balance-amount > 0,
+                                                'balancePaid': invoice.balance-amount === 0
+                                            }">${{(invoice.balance - amount) / 100}}</strong></span>
+                                        <span style="color: red"
+                                              ng-show="amount > invoice.balance || amount < dueNow">Invalid Amount</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="color: red" ng-show="amount < dueNow">amount must be at least ${{dueNow/100}}</p>
+                        <p style="color: red" ng-show="amount > invoice.balance">that's more than your remaining
+                            balance!</p>
+                    </div>
+                    <div class="accordion clearfix">
+                        <div class="acctitle">
+                            <i class="acc-closed icon-ok-circle"></i>
+                            <i class="acc-open icon-remove-circle"></i>
+                            Security
+                        </div>
+                        <div class="acc_content clearfix">
+                            Your security is important to us. All transactions are handled by reputable
+                            third-party service providers over an encrypted connection, and a payment details are never saved.
+                        </div>
+                    </div>
+                    <a id="customButton" href class="button button-3d fright">Submit Payment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

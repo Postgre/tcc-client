@@ -72,3 +72,27 @@ window.api = {
     }
 };
 // end
+
+/* general Gmap loader */
+window.loadMap = function loadMap(selector, address) {
+    $(selector).gMap({
+        address: address,
+        maptype: 'ROADMAP',
+        zoom: 8,
+        markers: [
+            {
+                address: address
+            }
+        ],
+        doubleclickzoom: false,
+        controls: {
+            panControl: true,
+            zoomControl: true,
+            mapTypeControl: true,
+            scaleControl: false,
+            streetViewControl: false,
+            overviewMapControl: false
+        }
+    });
+}
+// end

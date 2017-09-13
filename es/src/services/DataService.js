@@ -681,6 +681,20 @@ module.exports = class DataService {
         return callback;
     }
 
+    submitPayment(invoice_id, stripeToken, amount){
+        return new Promise((resolve, reject)=>{
+            this.connection({
+                url: "checkout",
+                method: "POST",
+                data: qs.stringify({
+                    invoice_id: invoice_id,
+                    stripeToken: stripeToken,
+                    amount: amount
+                })
+            }).then(resolve, reject)
+        });
+    }
+
 
     /**
      * ACTIVITIES

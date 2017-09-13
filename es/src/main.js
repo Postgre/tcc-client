@@ -62,6 +62,15 @@ let connection = axios.create({
 });
 let dataService = new DataService(connection, site);
 
+authService.subscribe("newToken", function(){
+    dataService.connection = axios.create({
+        baseURL: site.serverURL,
+        headers: {
+            'Authorization': 'Bearer ' + authService.jwt
+        }
+    });
+});
+
 /**
  * BOOTSTRAPPING ACTIVE RECORD
  * ====================================
@@ -81,6 +90,7 @@ const CarolerConfigs = require('./lib/caroler_configs/CarolerConfigs');
 const SpecialDate = require('./lib/special_date/SpecialDate');
 tcc.FilledService = require('./lib/filled/FilledService');
 tcc.Braintree = require("./lib/braintree/Braintree");
+tcc.qs = require('qs');
 
 /* Escaping Webpack */
 window.authService = authService;
@@ -97,7 +107,8 @@ window.appService = new ApplicationService();
 require('./functions');
 
 /* Render */
-new Bindings(authService, appService).apply();
+tcc.bindings = new Bindings(authService, appService);
+tcc.bindings.apply();
 const jQuery = require('jQuery');
 jQuery(document).ready(function () {
     appService.renderSession();

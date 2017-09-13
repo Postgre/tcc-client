@@ -15,6 +15,7 @@ function MarketSearchController($scope) {
 
     /* controller actions */
     $scope.search = function (form) {
+        $scope.ready = false;
         params = {
             address: form.city + ", " + form.state,
             published: true
@@ -24,9 +25,14 @@ function MarketSearchController($scope) {
             .then((_markets) => {
                 _markets.forEach( _market => _market.base_rate = _market.rate_caroler_first * 4 );
                 $scope.markets = _markets;
+                $scope.ready = true;
                 $scope.$apply();
             },
-            (err) => console.log(err)
+            (err) => {
+                $scope.ready = true;
+                $scope.$apply();
+                somethingWentWrong();
+            }
         );
     };
     $scope.openMap = function (market) {

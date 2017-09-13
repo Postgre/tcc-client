@@ -2,155 +2,222 @@
 
     <div class="content-wrap">
 
-        <div class="parallax header-stick bottommargin-lg dark"
-             style="padding: 60px 0; background-image: url('images/red_deer.jpg'); height: 100%;"
-             data-stellar-background-ratio="0.5">
-
-            <div class="container clearfix">
-
-                <div class="events-calendar">
-                    <div class="events-calendar-header clearfix">
-                        <!--<h2>Events Overview</h2>-->
-                        <h3 class="calendar-month-year">
-                            <span id="calendar-month" class="calendar-month"></span>
-                            <span id="calendar-year" class="calendar-year"></span>
-                            <nav>
-                                    <span id="calendar-prev" class="calendar-prev"><i
-                                            class="icon-chevron-left"></i></span>
-                                <span id="calendar-next" class="calendar-next"><i
-                                        class="icon-chevron-right"></i></span>
-                                <span id="calendar-current" class="calendar-current" title="Got to current date"><i
-                                        class="icon-reload"></i></span>
-                            </nav>
-                        </h3>
-                    </div>
-                    <div id="calendar" class="fc-calendar-container"></div>
-                </div>
-
-
-            </div>
-
-        </div>
-
         <div class="container clearfix">
-            <div class="row">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#upcoming"><strong>UPCOMING</strong></a></li>
-                    <li><a data-toggle="tab" href="#past"><b>PAST</b></a></li>
-                </ul>
-                <div class="tab-content">
-                    <div id="upcoming" class="tab-pane fade in active">
-                        <div id="posts" class="events small-thumbs">
-                            <div ng-repeat="event in upcoming" class="entry clearfix">
-                                <div class="entry-image">
-                                    <a ng-href="/event-single.php?booking={{event.id}}">
-                                        <img src="https://static1.squarespace.com/static/56043717e4b0a2d546ed7e0f/5672fc19a2bab8f9c977c761/57e29bda893fc0483504108b/1474469124333/christmas-party.jpg?format=1500w"
-                                             alt="Inventore voluptates velit totam ipsa tenetur">
-                                        <div class="entry-date">
-                                            <b ng-bind="event.startDate"></b>
-                                            <span ng-bind="event.startMonth">[month]</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h2>
-                                            <a ng-href="/event-single.php?booking={{event.id}}" ng-bind="event.name"></a>
-                                        </h2>
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li>
-                                    <span ng-bind="event.type" class="label label-warning">
 
-                                    </span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="icon-time"></i>
-                                                {{event.start_time}}
-                                            </a>
-                                        </li>
-                                        <li><a href="#"><i class="icon-map-marker2"></i>
-                                            {{event.city+', '+event.state}}
-                                        </a></li>
-                                    </ul>
-                                    <div class="entry-content">
-                                        <p>
-                                            <b>Balance Due:</b>
-                                            <!-- TODO -->
-                                            <label class="label label-success" title="Booked!">$0</label>
-                                            <label class="label label-danger" title="Overdue">$400</label>
-                                            <label class="label label-primary" title="Filled!">$400</label>
-                                        </p>
-                                        <p>
-                                            <em>Please pay or make deposit by <label class="label label-default">8/18/2017</label></em>
-                                        </p>
-                                        <a ng-href="payments.php?event={{event.id}}&mode=full" class="btn btn-primary"> Pay Now </a>
-                                        <a ng-href="payments.php?event={{event.id}}&mode=half" class="btn btn-primary"> Make Deposit </a>
-                                        <a ng-click="handleCancel(event)" class="btn btn-danger"> Cancel Event </a>
+            <div id="load-wrap" ng-hide="ready">
+                <div id="loader"></div>
+            </div>
+
+            <!-- Post Content
+					============================================= -->
+            <div class="postcontent nobottommargin clearfix" ng-show="ready">
+                <div class="row">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" data-target="#upcoming"
+                                              href><strong>UPCOMING</strong></a></li>
+                        <li><a data-toggle="tab" data-target="#past" href><b>PAST</b></a></li>
+                        <li><a data-toggle="tab" data-target="#canceled" href><b>CANCELED</b></a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="upcoming" class="tab-pane fade in active" style="padding: 30px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div ng-repeat="event in open"
+                                         class="panel panel-default"
+                                         ng-class="{
+                                            'overduePanel': event.status === 'overdue'
+                                         }">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <small>ORDER PLACED</small>
+                                                    <h2 class="panel-title">{{fmtDate(event.created_at)}}</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>TOTAL</small>
+                                                    <h2 class="panel-title">${{event.invoice.total/100}}</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>EVENT DATE</small>
+                                                    <h2 class="panel-title">{{fmtDate(event.start_time)}}</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>OPEN BALANCE</small>
+                                                    <h2 class="panel-title"
+                                                        ng-class="{
+                                                            'balanceDue': event.invoice.balance > 0,
+                                                            'balancePaid': event.invoice.balance == 0
+                                                         }">
+                                                        ${{event.invoice.balance/100}}</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="col-md-4">
+                                                        <img class="image_fade" src="/images/logo-red.png"
+                                                             style="width: 100%">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h4 class="nobottommargin"><a
+                                                                ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                                        </h4>
+                                                        <p class="nobottommargin">{{event.city+', '+event.state+',
+                                                            '+event.address}}</p>
+                                                        <small>hosted by <b><a
+                                                                ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                                            Market Name</a> </b></small>
+                                                        <br/>
+                                                        <tcc-status status="event.status"></tcc-status>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a ng-href="/checkout.php?invoice={{event.invoice.id}}&mode=full"
+                                                       ng-if="event.invoice.balance != 0"
+                                                       class="btn btn-danger btn-block">Submit Payment</a>
+                                                    <a ng-href="/checkout.php?invoice={{event.invoice.id}}&mode=half"
+                                                       ng-hide="requireFull(event.start_time)"
+                                                       class="btn btn-danger btn-block">Make Deposit</a>
+                                                    <hr/>
+                                                    <button onclick="alert('coming soon!')" class="btn btn-default btn-block">View Invoice</button>
+                                                    <button onclick="alert('coming soon!')" class="btn btn-default btn-block">Transactions</button>
+                                                    <button onclick="alert('coming soon!')" class="btn btn-default btn-block">Cancel Order</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-                    <div id="past" class="tab-pane fade">
-                        <div class="events small-thumbs">
-                            <div ng-repeat="event in past" class="entry clearfix">
-                                <div class="entry-image">
-                                    <a ng-href="/event-single.php?booking={{event.id}}">
-                                        <img src="https://static1.squarespace.com/static/56043717e4b0a2d546ed7e0f/5672fc19a2bab8f9c977c761/57e29bda893fc0483504108b/1474469124333/christmas-party.jpg?format=1500w"
-                                             alt="Inventore voluptates velit totam ipsa tenetur">
-                                        <div class="entry-date">
-                                            <b ng-bind="event.startDate"></b>
-                                            <span ng-bind="event.startMonth">[month]</span>
+                        <div id="past" class="tab-pane fade" style="padding: 30px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div ng-repeat="event in past" class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <small>ORDER PLACED</small>
+                                                    <h2 class="panel-title">{{fmtDate(event.created_at)}}</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>TOTAL</small>
+                                                    <h2 class="panel-title">$450</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>EVENT DATE</small>
+                                                    <h2 class="panel-title">{{fmtDate(event.start_time)}}</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>OPEN BALANCE</small>
+                                                    <h2 class="panel-title" style="color: red">$200</h2>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h2>
-                                            <a ng-href="/event-single.php?booking={{event.id}}" ng-bind="event.name"></a>
-                                        </h2>
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li>
-                                    <span ng-bind="event.type" class="label label-warning">
-
-                                    </span>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="icon-time"></i>
-                                                {{event.start_time}}
-                                            </a>
-                                        </li>
-                                        <li><a href="#"><i class="icon-map-marker2"></i>
-                                            {{event.city+', '+event.state}}
-                                        </a></li>
-                                    </ul>
-                                    <div class="entry-content">
-                                        <p>
-                                            <b>Balance Due:</b>
-                                            <!-- TODO -->
-                                            <label class="label label-success" title="Booked!">$0</label>
-                                            <label class="label label-danger" title="Overdue">$400</label>
-                                            <label class="label label-primary" title="Filled!">$400</label>
-                                        </p>
-                                        <p>
-                                            <em>Please pay or make deposit by <label class="label label-default">8/18/2017</label></em>
-                                        </p>
-                                        <a ng-href="payments.php?event={{event.id}}&mode=full" class="btn btn-primary"> Pay Now </a>
-                                        <a ng-href="payments.php?event={{event.id}}&mode=half" class="btn btn-primary"> Make Deposit </a>
-                                        <a ng-click="handleCancel(event)" class="btn btn-danger"> Cancel Event </a>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="col-md-4">
+                                                        <img class="image_fade" src="/images/logo-red.png"
+                                                             style="width: 100%">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h4 class="nobottommargin"><a
+                                                                ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                                        </h4>
+                                                        <p class="nobottommargin">{{event.city+', '+event.state+',
+                                                            '+event.address}}</p>
+                                                        <small>hosted by <b><a
+                                                                ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                                            Market Name</a> </b></small>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="btn btn-default btn-block">View Invoice</button>
+                                                    <button class="btn btn-default btn-block">Transactions</button>
+                                                    <button class="btn btn-default btn-block">Leave Feedback</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div id="canceled" class="tab-pane fade in" style="padding: 30px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div ng-repeat="event in cancelled" class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <small>ORDER PLACED</small>
+                                                    <h2 class="panel-title">{{fmtDate(event.created_at)}}</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>TOTAL</small>
+                                                    <h2 class="panel-title">$450</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>EVENT DATE</small>
+                                                    <h2 class="panel-title">{{fmtDate(event.start_time)}}</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <small>OPEN BALANCE</small>
+                                                    <h2 class="panel-title" style="color: red">$200</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="col-md-4">
+                                                        <img class="image_fade" src="/images/logo-red.png"
+                                                             style="width: 100%">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h4 class="nobottommargin"><a
+                                                                ng-href="/event-single.php?booking={{event.id}}">{{event.name}}</a>
+                                                        </h4>
+                                                        <p class="nobottommargin">{{event.city+', '+event.state+',
+                                                            '+event.address}}</p>
+                                                        <small>hosted by <b><a
+                                                                ng-href="/market-page.php?market={{event.market_id}}">Demo
+                                                            Market Name</a> </b></small>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="btn btn-default btn-block">View Invoice</button>
+                                                    <button class="btn btn-default btn-block">Transactions</button>
+                                                    <button class="btn btn-default btn-block">Leave Feedback</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><!-- .postcontent end -->
+
+
+            <!-- Sidebar
+					============================================= -->
+            <div class="sidebar nobottommargin col_last clearfix">
+                <div class="sidebar-widgets-wrap">
+
+                    <div class="widget clearfix">
+
+                    </div>
+
+                </div>
+            </div><!-- .sidebar end -->
 
         </div>
     </div>

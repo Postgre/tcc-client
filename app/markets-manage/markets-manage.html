@@ -24,7 +24,9 @@
                            placeholder="Search by: location, name, description, or type!">
                 </div>
                 <div id="posts" class="events small-thumbs">
-
+                    <div id="loading-container" ng-hide="ready">
+                        <div id="loader"></div>
+                    </div>
                     <div ng-repeat="market in markets | filter : search" class="entry clearfix">
                         <div class="entry-image">
                             <a ng-href="market-page.php?market={{market.id}}">

@@ -88,9 +88,13 @@
             ============================================= -->
             <div class="postcontent nobottommargin col_last clearfix">
 
+                <div class="loading-container" ng-if="!ready">
+                    <div class="loader"></div>
+                </div>
+
                 <!-- Posts
                 ============================================= -->
-                <div id="posts" class="small-thumbs">
+                <div id="posts" class="small-thumbs" ng-if="ready">
 
                     <div ng-repeat="market in markets" class="entry clearfix">
                         <div class="row clearfix">

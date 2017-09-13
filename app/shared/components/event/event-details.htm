@@ -1,0 +1,80 @@
+<table class="table">
+    <tbody>
+    <tr ng-if="booking.name">
+        <td></td>
+        <th>Event Name</th>
+        <td>{{booking.name}}</td>
+    </tr>
+    <tr ng-if="booking.status">
+        <td></td>
+        <th>Status</th>
+        <td>
+            <tcc-status status="booking.status"></tcc-status>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <th>Date</th>
+        <td>{{fmt(booking.start_time, "MM/DD/YYYY")}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <th>Time</th>
+        <td><label class="label label-default">{{fmt(booking.start_time, "HH:mm")}}</label> - <label class="label label-default">{{fmt(booking.end_time, "HH:mm")}}</label></td>
+    </tr>
+    <tr ng-hide="booking.caroler_config.name">
+        <td></td>
+        <th>Caroler Config</th>
+        <td>{{booking.caroler_config}}</td>
+    </tr>
+    <tr ng-if="booking.caroler_config.name">
+        <td></td>
+        <th>Caroler Config</th>
+        <td>{{booking.caroler_config.name}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <th>Type</th>
+        <td>{{booking.type}}</td>
+    </tr>
+    <tr ng-if="booking.company_name">
+        <td></td>
+        <th>Company</th>
+        <td>{{booking.company_name}}</td>
+    </tr>
+    <tr ng-if="booking.venue_name">
+        <td></td>
+        <th>Venue</th>
+        <td>{{booking.venue_name}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <th>State</th>
+        <td>{{booking.state}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <th>City</th>
+        <td>{{booking.city}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <th>Address</th>
+        <td>{{booking.address}}</td>
+    </tr>
+    <tr ng-if="booking.details">
+        <td></td>
+        <th>Details</th>
+        <td>
+            <ul>
+                <li ng-repeat="det in booking.details">{{det}}</li>
+            </ul>
+        </td>
+    </tr>
+    <tr ng-if="booking.special_requests">
+        <td></td>
+        <th>Special Requests</th>
+        <td>{{booking.special_requests}}</td>
+    </tr>
+    </tbody>
+</table>

@@ -6,11 +6,7 @@ const jwtDecode = require('jwt-decode');
 /* Auth Service */
 module.exports = class AuthService {
     constructor(config, storage, observers) {
-        /* Events */
-        this.events = {
-            'logout': [],
-            'expired': []
-        };
+        this.events = {};
         /* Register Observers */
         if(observers){
             observers.forEach((observer)=>{
@@ -64,6 +60,7 @@ module.exports = class AuthService {
                 this.user = decoded.user;
                 this.jwtExpire = decoded.exp;
 
+                this.trigger("newToken");
                 resolve('Logged in');
             }).catch((error) => {
                 if(error.response){
@@ -87,7 +84,13 @@ module.exports = class AuthService {
                 })
             }).then(
                 (res) => {
-                    resolve("registered!");
+                    this.jwt = res.data.token;
+                    this.storage.setItem('jwt', res.data.token);
+                    let decoded = jwtDecode(res.data.token);
+                    this.user = decoded.user;
+                    this.jwtExpire = decoded.exp;
+                    this.trigger("newToken");
+                    resolve(res);
                 },
                 (error) => {
                     if(error.response){
@@ -97,6 +100,12 @@ module.exports = class AuthService {
                 }
             );
         })
+    }
+
+    resend(email){
+        return this.connection({
+            url: "auth/resend/"+email
+        });
     }
 
     refresh(){
@@ -155,6 +164,7 @@ module.exports = class AuthService {
     }
 
     subscribe(event_name, callback){
+        if(!this.events[event_name]) this.events[event_name] = [];
         this.events[event_name].push(callback);
     }
 

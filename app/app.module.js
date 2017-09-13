@@ -1,32 +1,36 @@
 angular.module("tcc", [
+    // core
+    'ngRoute',
+    'components',
     // services
     'auth',
+    'dataservice',
     // activities
-    'login-register',
-    'profile',
-    'invite-redeem',
     'home',
-    'customer-events',
-    'caroler-register',
-    'caroler-dashboard',
-    'booking',
-    'shared',
+    'login-register',
     'reset-password',
+    'invite-redeem',
+    'profile',
+    'customer-events',
     'market-page',
     'market-search',
     'market-carolers',
     'market-directors',
     'market-edit',
     'market-events',
+    'markets-manage',
     'promos',
     'resellers',
     'booking',
-    'markets-manage',
-    'payments',
+    'checkout',
+    'event-list',
     'event-single',
-    'caroler-single',
+    'caroler-register',
+    'caroler-dashboard',
     'caroler-list',
+    'caroler-single',
     // external
     'ui.bootstrap',
-    '720kb.datepicker'
+    '720kb.datepicker',
+    'ui.utils.masks'
 ]);

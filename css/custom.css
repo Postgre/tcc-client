@@ -5,6 +5,45 @@
 	Overwriting Default Theme Styles for Better Hanlding Updates
 -----------------------------------------------------------------*/
 
+/* loaders */
+#loader, .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -50px 0 0 -50px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #800020;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader.sm{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -25px 0 0 -25px;
+    border: 7px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 7px solid #800020;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#load-wrap, #loading-container, #lc,
+.load-wrap, .loading-container, .lc {
+    min-height: 400px;
+}
+#load-wrap.sm, #loading-container.sm, #lc.sm {
+    min-height: 100px;
+}
+/* end */
+
+/* top bar */
 #top-bar {
     background-color: #800020;
     border-bottom-color: #610000;
@@ -57,6 +96,8 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+/* end */
+
 .txt-lg {
     font-size: large;
 }
@@ -67,6 +108,36 @@
     font-size: small;
 }
 
+/* home page */
+
+.advanced-real-estate-tabs {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+}
+._720kb-datepicker-calendar {
+    bottom: 40px;
+}
+.tcc-home-panel .panel-heading {
+    background-color: #800020;
+    color: white;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+}
+.tcc-home-panel .panel-body {
+    text-align: justify;
+    font-size: 16px;
+}
+.tcc-home-panel .panel-body .button-wrapper {
+    text-align: center;
+}
+.tcc-home-panel .panel-body button {
+    background-color: #800020;
+    border-color: #6b1808;
+}
+/* end */
 
 .tcc-img-overlay {
     position: absolute;
@@ -93,3 +164,18 @@
 table.uib-timepicker {
     margin: auto;
 }
+
+/* checkout page */
+.balanceDue {
+    color: red;
+}
+.balancePaid {
+    color: #1ABC9C;
+}
+/* end */
+
+/* orders page */
+.overduePanel {
+    border: solid red 2px;
+}
+/* end */

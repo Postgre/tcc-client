@@ -1,62 +1,56 @@
 angular.module("customer-events")
     .controller('CustomerEventsController', CustomerEventsController);
 
-function CustomerEventsController( $scope ) {
+function CustomerEventsController( $scope, dataService ) {
 
-    $scope.upcoming_events = [];
-    init();
-    /**
-     * Models
-     * ===============
-     */
+    $scope.past = [];
+    $scope.open = [];
+    $scope.cancelled = [];
+    let marketMap = {};
 
     /**
      * Functions
      * ===============
      */
+    $scope.fmtDate = fmtDate;
+
+    function fmtDate(date){
+        return moment(date).format("MM/DD/YYYY");
+    }
+
+    $scope.requireFull = requireFull;
+
+    function requireFull(date) {
+        let ev = moment(date);
+        let now = moment();
+        return ev.diff(now, 'days') < 30;
+    }
 
     /**
      * Init
      * ===============
      */
     function init(){
-        loadCalendar({});
 
-        function ready(){
+        dataService.connection({
+            url: "customer/orders",
+            method: "GET",
+        }).then((res)=>{
+            let d = res.data;
+            $scope.past = d.past;
+            $scope.open = d.open;
+            $scope.open.sort(function(evA, evB){
+                // moves overdue events up
+                if(evA.status === 'overdue') return -1;
+                if(evB.status === 'overdue') return 1;
+            });
+            $scope.cancelled = d.cancelled;
+            marketMap = d.markets;
+            $scope.ready = true;
             $scope.$apply();
-        }
-
-        let now = moment().format("YYYY-MM-DD");
-        /* load upcoming events */
-        modelFactory.all("Booking", {
-            where: "end_time > "+now
-        }).then((events)=>{
-            let calData = {};
-            events.forEach(function(event){
-                // loading into calendar format
-                let date = moment(event.start_time);
-                event.startDate = date.format("D");
-                event.startMonth = date.format("MMM");
-                calData[date.format("MM-DD-YYYY")] = event.name;
-            });
-            loadCalendar(calData);
-            $scope.upcoming = events;
-            ready();
         });
-        // end
-        /* load past events */
-        modelFactory.all("Booking", {
-            where: "end_time < "+now
-        }).then((events)=>{
-            events.forEach(function(event){
-                let date = moment(event.start_time);
-                event.startDate = date.format("D");
-                event.startMonth = date.format("MMM");
-            });
 
-            $scope.past = events;
-            ready();
-        });
-        // end
     }
+
+    init();
 }

@@ -9,8 +9,8 @@
             <b ng-bind="market.city + ', ' + market.state"></b>
         </span>
         <ol class="breadcrumb">
-            <li><a href="javascript:navService.goto('home')">Home</a></li>
-            <li><a href="javascript:navService.goto('manage_markets')">Manage Markets</a></li>
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/markets-manage.php">Manage Markets</a></li>
             <li class="active" ng-bind="market.name"></li>
         </ol>
     </div>
@@ -209,14 +209,14 @@
                                 <div class="col-md-6">
                                     <label>Start</label>
                                     <datepicker date-format="yyyy-MM-dd">
-                                        <input ng-model="date.date_to" class="sm-form-control"
+                                        <input ng-model="date.date_from" class="sm-form-control"
                                                placeholder="Click Me!"/>
                                     </datepicker>
                                 </div>
                                 <div class="col-md-6">
                                     <label>End</label>
                                     <datepicker date-format="yyyy-MM-dd">
-                                        <input ng-model="date.date_from" class="sm-form-control"
+                                        <input ng-model="date.date_to" class="sm-form-control"
                                                placeholder="Click Me!"/>
                                     </datepicker>
                                 </div>

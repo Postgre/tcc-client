@@ -1,5 +1,6 @@
 <script src="/node_modules/angular/angular.min.js"></script>
 <script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/node_modules/angular-route/angular-route.min.js"></script>
 
 <!-- Plugins -->
 <script src="/node_modules/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
@@ -10,22 +11,23 @@
 <script src='/bower_components/angular-file-model/angular-file-model.js'></script>
 
 <!-- Services -->
-<script src="/app/auth/auth.module.js"></script>
-<script src="/app/auth/auth.service.js"></script>
+<script src="/app/shared/services/auth/auth.module.js"></script>
+<script src="/app/shared/services/auth/auth.service.js"></script>
+<script src="/app/shared/services/dataservice/dataservice.module.js"></script>
+<script src="/app/shared/services/dataservice/dataservice.service.js"></script>
 
 <!-- Core -->
-<script src="/app/shared/shared.module.js"></script>
-<script src="/app/shared/state-select/state-select.directive.js"></script>
-<script src="/app/shared/select/selectpicker.directive.js"></script>
-<script src="/app/shared/daterange/daterange.directive.js"></script>
-<script src="/app/shared/event/event-details.directive.js"></script>
-<script src="/app/shared/event/status.directive.js"></script>
-<script src="/app/shared/event/config.directive.js"></script>
-<script src="/app/shared/input/number-inc.directive.js"></script>
+<script src="/app/shared/components/components.module.js"></script>
+<script src="/app/shared/components/state-select/state-select.directive.js"></script>
+<script src="/app/shared/components/select/selectpicker.directive.js"></script>
+<script src="/app/shared/components/event/event-details.directive.js"></script>
+<script src="/app/shared/components/event/status.directive.js"></script>
+<script src="/app/shared/components/event/config.directive.js"></script>
+<script src="/app/shared/components/input/number-inc.directive.js"></script>
 
 <!-- Activities -->
-<script src="/app/booking/booking.module.js"></script>
-<script src="/app/booking/booking.controller.js"></script>
+<script src="/app/event-book/booking.module.js"></script>
+<script src="/app/event-book/booking.controller.js"></script>
 
 <script src="/app/caroler-dashboard/caroler-dashboard.module.js"></script>
 <script src="/app/caroler-dashboard/caroler-dashboard.controller.js"></script>
@@ -78,8 +80,8 @@
 <script src="/app/reset-password/reset-password.module.js"></script>
 <script src="/app/reset-password/reset-password.controller.js"></script>
 
-<script src="/app/payments/payments.module.js"></script>
-<script src="/app/payments/payments.controller.js"></script>
+<script src="/app/checkout/checkout.module.js"></script>
+<script src="/app/checkout/checkout.controller.js"></script>
 
 <script src="/app/event-single/event-single.module.js"></script>
 <script src="/app/event-single/event-single.controller.js"></script>
@@ -90,4 +92,8 @@
 <script src="/app/caroler-list/caroler-list.module.js"></script>
 <script src="/app/caroler-list/caroler-list.controller.js"></script>
 
+<script src="/app/event-list/event-list.module.js"></script>
+<script src="/app/event-list/event-list.controller.js"></script>
+
 <script src="/app/app.module.js"></script>
+<script src="/app/app-single.module.js"></script>

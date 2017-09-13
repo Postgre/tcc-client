@@ -165,10 +165,6 @@
 
 <?php require 'partials/javascripts.htm' ?>
 
-<script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI"></script>
-<script type="text/javascript" src="js/jquery.gmap.js"></script>
-
 <script type="text/javascript">
 
     jQuery('#google-map').gMap({
@@ -178,7 +174,7 @@
         markers: [
             {
                 address: "1500 1st avenue north, Birmingham, AL",
-                html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;"><span>The Christmas Carolers HQ</span></h4><p class="nobottommargin"></p></div>',
+                html: '<b><a href>The Christmas Carolers HQ</a></b>',
                 icon: {
                     image: "images/icons/map-icon-red.png",
                     iconsize: [32, 39],
