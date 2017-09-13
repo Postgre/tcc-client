@@ -38,7 +38,7 @@ function CheckoutController($scope, dataService) {
         // end
 
         let handler = StripeCheckout.configure({
-            key: 'pk_test_nk8Ijhb3A3DJQHoZB9DRvtm4',
+            key: 'pk_live_WWYrAcrdyEOwjVTONMdalKsX',
             image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
             locale: 'auto',
             token: function(token) {
