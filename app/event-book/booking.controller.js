@@ -137,8 +137,8 @@ angular.module('booking')
 
             $scope.process_tabs = $("#processTabs").tabs({
                 show: {effect: "fade", duration: 400},
-                // disabled: [1, 2, 3, 4, 5, 6]
-                disabled: []
+                disabled: [1, 2, 3, 4, 5, 6]
+                // disabled: []
             });
             /* new blank booking */
             $scope.booking = window.modelFactory.create("Booking");
