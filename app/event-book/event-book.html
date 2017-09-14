@@ -273,13 +273,13 @@
                                                    class="form-control">
                                         </div>
                                         
-                                        <div class="col_half col_last">
+                                        <div class="col_half">
                                             <label>City: </label>
                                             <input ng-model="city" required id="city"
                                                    class="form-control">
                                         </div>
                                         
-                                        <div class="col_half">
+                                        <div class="col_half col_last">
                                             <label>State: </label>
                                             <tcc-state-select bind="state"></tcc-state-select>
                                         </div>
@@ -330,7 +330,7 @@
                                         this booking.</p>-->
                                     <h3>Additional Travel Expenses</h3>
                                     
-                                    <div class="col_half col_last">
+                                    <div class="col_full">
                                         <label>Parking / Valet Fees (if applicable)</label>
                                         <input class="form-control" ng-model="booking.custom_expense" ui-money-mask="2">
                                     </div>
@@ -386,14 +386,14 @@
                                             professional liability coverage.</p>
                                     </div>
                                     <div>
-                                        <div class="col-md-9">
+                                        <div class="col_three_fourth">
                                             <h4 class="nobottommargin">National Carolers Association</h4>
                                             <p>Each of our carolers are members of the <a
                                                     href="//www.nationalcarolersassociation.com">National Carolers
                                                 Association</a> ensuring our commitment to quality music and costumes.
                                             </p>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col_one_fourth">
                                             <img src="/images/nca.png"/>
                                         </div>
                                     </div>
@@ -785,14 +785,14 @@
                                     <div class="col_full">
                                         <label>Password: </label>
                                         <input ng-model="quickRegister.password" type="password"
-                                               pattern="\w{4,}"
                                                name="password" tabindex="3"
                                                required class="form-control">
                                     </div>
 
                                     <div class="col_full">
                                         <label>Confirm Password: </label>
-                                        <input ng-model="quickRegister.confirm" type="password" required
+                                        <input ng-model="quickRegister.confirm" type="password"
+                                               required
                                                name="confirm" tabindex="4"
                                                class="form-control">
                                     </div>
