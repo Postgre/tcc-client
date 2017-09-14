@@ -743,10 +743,10 @@
                         <div class="container center clearfix">
                             <h3>Last Step, we Promise!</h3>
                             <h4 ng-show="requireFull() === false">Before we begin building your caroling
-                                team, we require a minimum deposit of <span style="color: #4cae4c">{{invoice.balance/100/2}}</span> ( half of the full cost -
+                                team, we require a minimum deposit of <span style="color: #4cae4c">${{invoice.balance/100/2}}</span> ( half of the full cost -
                                 <span style="color: #4cae4c">{{invoice.balance/100}}</span> ).</h4>
                             <h4 ng-show="requireFull() === true">Your event is within 30 days of occurring. Before we start building your
-                                caroling team, we require the full payment of <span style="color: #4cae4c">{{invoice.balance/100}}</span></h4>
+                                caroling team, we require the full payment of <span style="color: #4cae4c">${{invoice.balance/100}}</span></h4>
                             <a class="button button-3d" ng-href="/checkout.php?mode=full&invoice={{invoice.id}}">Pay Full Balance</a>
                             <a ng-show="requireFull() === false"
                                class="button button-3d" ng-href="/checkout.php?mode=half&invoice={{invoice.id}}">Make Deposit</a>
@@ -764,12 +764,12 @@
                             <button type="button" class="close" data-dismiss="modal"> x</button>
                             <h4 class="modal-title">Create Account</h4>
                         </div>
-                        <div class="modal-body" ng-init="quickView='register'">
+                        <div class="modal-body">
                             <div>
                                 <div class="loading-container" ng-show="loadingRegister">
                                     <div class="loader"></div>
                                 </div>
-                                <form ng-if="quickView==='register'" name="quickRegisterForm" ng-submit="handleQuickRegister()"
+                                <form ng-show="!loginView" name="quickRegisterForm" ng-submit="handleQuickRegister()"
                                       ng-hide="loadingRegister"
                                       class="nobottommargin">
 
@@ -804,10 +804,10 @@
 
                                     <div class="col_full">
                                         <button class="button button-3d nomargin" tabindex="5"> Submit</button>
-                                        <a href ng-click="quickView='login'" class="fright">Login</a>
+                                        <a href ng-click="loginView=true" class="fright">Login</a>
                                     </div>
                                 </form>
-                                <form ng-if="quickView==='login'" id="login-form" name="login-form" class="nobottommargin" ng-submit="handleQuickLogin()">
+                                <form ng-show="loginView" id="login-form" name="login-form" class="nobottommargin" ng-submit="handleQuickLogin()">
 
                                     <h3>Login to your Account</h3>
 
@@ -823,7 +823,7 @@
 
                                     <div class="col_full nobottommargin">
                                         <button class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
-                                        <a href ng-click="quickView='register'" class="fright">Register</a>
+                                        <a href ng-click="loginView=false" class="fright">Register</a>
                                     </div>
 
                                 </form>
