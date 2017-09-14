@@ -39,10 +39,7 @@
                                     <form name="findMarketForm" novalidate
                                           ng-class="{ 'has-error' : findMarketForm.market.$invalid && !findMarketForm.market.$pristine }">
                                         <h3 ng-click="logActivity()">Choose a Market: </h3>
-                                        <input ng-model="market"
-                                               name="market"
-                                               uib-typeahead="mkt as mkt.name for mkt in markets | filter:{name:$viewValue} | limitTo:8"
-                                               class="sm-form-control" required>
+                                        <select ng-model="market" ng-options="market as market.name for market in markets" class="form-control"></select>
                                         <p ng-show="findMarketForm.market.$invalid && !findMarketForm.market.$pristine"
                                            class="help-block">A market is required</p>
                                     </form>
@@ -754,7 +751,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="modal fade" id="quickRegisterModal" ng-controller="ReviewController" tabindex="-1">
             <div class="modal-dialog modal-md">
@@ -769,8 +765,7 @@
                                 <div class="loading-container" ng-show="loadingRegister">
                                     <div class="loader"></div>
                                 </div>
-                                <form ng-show="!loginView" name="quickRegisterForm" ng-submit="handleQuickRegister()"
-                                      ng-hide="loadingRegister"
+                                <form ng-show="!loginView && !loadingRegister" name="quickRegisterForm" ng-submit="handleQuickRegister()"
                                       class="nobottommargin">
 
                                     <div class="col_full">
