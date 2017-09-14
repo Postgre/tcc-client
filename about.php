@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <a href="javascript:navService.goto('find_market')"
+            <a href="/market-search.php"
                class="button button-full center tright topmargin footer-stick">
                 <div class="container clearfix">
                     We are Available! <strong>Book Carolers Today</strong> <i class="icon-caret-right"
