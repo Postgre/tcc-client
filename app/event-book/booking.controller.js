@@ -340,12 +340,16 @@ angular.module('booking')
                 val: "public"
             },
             {
-                name: "Personal",
+                name: "Private",
                 val: "personal"
             },
             {
-                name: "Company",
+                name: "Corporate",
                 val: "company"
+            },
+            {
+                name: "Other",
+                val: "other"
             }
         ];
 

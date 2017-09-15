@@ -105,31 +105,6 @@
                 <div class="sidebar nobottommargin col_last clearfix">
                     <div class="sidebar-widgets-wrap">
 
-                        <div class="widget clearfix">
-                            <div class="fancy-title title-dotted-border title-center">
-                                <h3>Caroling Team</h3>
-                            </div>
-                            <div ng-repeat="user in carolers" style="margin-bottom: 25px">
-                                <div class="spost clearfix">
-                                    <div class="entry-image">
-                                        <a ng-href="/caroler-single.php?caroler={{user.id}}">
-                                            <img ng-src="{{user.image}}" alt="Image">
-                                        </a>
-                                    </div>
-                                    <div class="entry-c">
-                                        <div class="entry-title">
-                                            <a ng-href="/caroler-single.php?caroler={{user.id}}">
-                                                <h4 ng-bind="user.name"></h4>
-                                            </a>
-                                        </div>
-                                        <ul class="entry-meta">
-                                            <li class="color"><a href ng-bind="user.email"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>

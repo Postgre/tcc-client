@@ -14,6 +14,7 @@
             <div class="video-overlay"></div>
         </div>
 
+<<<<<<< HEAD
         <div class="tabs advanced-real-estate-tabs clearfix">
 
             <div class="tab-container">
@@ -65,6 +66,56 @@
                                     </button>
                                 </div>
                                 <div class="clear visible-xs bottommargin-sm"></div>
+=======
+        <div class="tab-container">
+            <div class="container clearfix">
+                <div class="tab-content clearfix" id="tab-properties">
+                    <!-- Start Rates & Availability Form-->
+                    <form name="quoteForm" class="nobottommargin">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">Address</label>
+                                <input ng-model="address" name="address" type="text" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                                <label style="display:block;">City</label>
+                                <input name="city" ng-model="city" type="text" class="form-control" placeholder="City">
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>State</label>
+                                <tcc-state-select bind="state"></tcc-state-select>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
+                                <label>Number of Singers</label>
+                                <select ng-model="caroler_config" name="caroler_config" class="selectpicker form-control">
+                                    <option value="quartet">Quartet (4)</option>
+                                    <!--<option value="trio_sab">Trio (3)</option>-->
+                                    <option value="sixtet">Sextets (6)</option>
+                                    <option value="octet">Octet (8)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>Event Date</label>
+                                <datepicker date-format="MM/dd/yyyy">
+                                    <input ng-model="bind_date" class="form-control" placeholder="Click Me!"/>
+                                </datepicker>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>Start Time</label>
+                                <div uib-timepicker ng-model="bind_start" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                                <label>End Time</label>
+                                <div uib-timepicker ng-model="bind_end" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
+                            </div>
+                            <div class="col-md-2 float-right">
+                                <br/>
+                                <br/>
+                                <button ng-click="handleGetQuote()" class="button button-red">
+                                    <img src="/images/preloader-dark.gif" ng-if="loadingQuote"/>
+                                    <b ng-hide="loadingQuote">Check Rates and Availability!</b>
+                                </button>
+>>>>>>> master
                             </div>
                         </form>
                     </div>

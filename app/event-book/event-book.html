@@ -39,10 +39,7 @@
                                     <form name="findMarketForm" novalidate
                                           ng-class="{ 'has-error' : findMarketForm.market.$invalid && !findMarketForm.market.$pristine }">
                                         <h3 ng-click="logActivity()">Choose a Market: </h3>
-                                        <input ng-model="market"
-                                               name="market"
-                                               uib-typeahead="mkt as mkt.name for mkt in markets | filter:{name:$viewValue} | limitTo:8"
-                                               class="sm-form-control" required>
+                                        <select ng-model="market" ng-options="market as market.name for market in markets" class="form-control"></select>
                                         <p ng-show="findMarketForm.market.$invalid && !findMarketForm.market.$pristine"
                                            class="help-block">A market is required</p>
                                     </form>
@@ -333,8 +330,13 @@
                                         this booking.</p>-->
                                     <h3>Additional Travel Expenses</h3>
                                     
+<<<<<<< HEAD
                                     <div class="col_half col_last">
                                         <label>Parking / Valet Fees <small>(if applicable)</small></label>
+=======
+                                    <div class="col_full">
+                                        <label>Parking / Valet Fees (if applicable)</label>
+>>>>>>> master
                                         <input class="form-control" ng-model="booking.custom_expense" ui-money-mask="2">
                                     </div>
                                     <!--<br/>
@@ -389,14 +391,14 @@
                                             professional liability coverage.</p>
                                     </div>
                                     <div>
-                                        <div class="col-md-9">
+                                        <div class="col_three_fourth nomargin">
                                             <h4 class="nobottommargin">National Carolers Association</h4>
                                             <p>Each of our carolers are members of the <a
                                                     href="//www.nationalcarolersassociation.com">National Carolers
                                                 Association</a> ensuring our commitment to quality music and costumes.
                                             </p>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col_one_fourth nomargin">
                                             <img src="/images/nca.png"/>
                                         </div>
                                     </div>
@@ -741,20 +743,23 @@
                     </div>
                     <div id="ptab6" ng-controller="ConfirmationController">
                         <div class="container center clearfix">
-                            <h3>Last Step, we Promise!</h3>
-                            <h4 ng-show="requireFull() === false">Before we begin building your caroling
-                                team, we require a minimum deposit of <span style="color: #4cae4c">{{invoice.balance/100/2}}</span> ( half of the full cost -
-                                <span style="color: #4cae4c">{{invoice.balance/100}}</span> ).</h4>
-                            <h4 ng-show="requireFull() === true">Your event is within 30 days of occurring. Before we start building your
-                                caroling team, we require the full payment of <span style="color: #4cae4c">{{invoice.balance/100}}</span></h4>
+                            <h3>Success! You've created an event.</h3>
+                            <h4 ng-show="requireFull() === false">
+                                Please note, events are not considered booked until a 50% deposit <span style="color: #4cae4c">${{invoice.balance/100/2}}</span> has been paid
+                                ( half of the full cost - <span style="color: #4cae4c">{{invoice.balance/100}}</span> ).</h4>
+                            <h4 ng-show="requireFull() === true">
+                                Your event is within 30 days of occurring. Before we start building your
+                                caroling team, we require the full payment of <span style="color: #4cae4c">${{invoice.balance/100}}</span></h4>
                             <a class="button button-3d" ng-href="/checkout.php?mode=full&invoice={{invoice.id}}">Pay Full Balance</a>
                             <a ng-show="requireFull() === false"
                                class="button button-3d" ng-href="/checkout.php?mode=half&invoice={{invoice.id}}">Make Deposit</a>
+                            <!--<a class="button button-3d" onclick="alert('Make Checks Payable To:\nThe Christmas Carolers, LLC\nPO Box 2151\nBirmingham, AL 35201\nOnce your check has been received, you will receive a confirmation of your event being booked.')">-->
+                                <!--Pay by Check-->
+                            <!--</a>-->
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="modal fade" id="quickRegisterModal" ng-controller="ReviewController" tabindex="-1">
             <div class="modal-dialog modal-md">
@@ -764,13 +769,12 @@
                             <button type="button" class="close" data-dismiss="modal"> x</button>
                             <h4 class="modal-title">Create Account</h4>
                         </div>
-                        <div class="modal-body" ng-init="quickView='register'">
+                        <div class="modal-body">
                             <div>
                                 <div class="loading-container" ng-show="loadingRegister">
                                     <div class="loader"></div>
                                 </div>
-                                <form ng-if="quickView==='register'" name="quickRegisterForm" ng-submit="handleQuickRegister()"
-                                      ng-hide="loadingRegister"
+                                <form ng-show="!loginView && !loadingRegister" name="quickRegisterForm" ng-submit="handleQuickRegister()"
                                       class="nobottommargin">
 
                                     <div class="col_full">
@@ -790,24 +794,24 @@
                                     <div class="col_full">
                                         <label>Password: </label>
                                         <input ng-model="quickRegister.password" type="password"
-                                               pattern="\w{4,}"
                                                name="password" tabindex="3"
                                                required class="form-control">
                                     </div>
 
                                     <div class="col_full">
                                         <label>Confirm Password: </label>
-                                        <input ng-model="quickRegister.confirm" type="password" required
+                                        <input ng-model="quickRegister.confirm" type="password"
+                                               required
                                                name="confirm" tabindex="4"
                                                class="form-control">
                                     </div>
 
                                     <div class="col_full">
                                         <button class="button button-3d nomargin" tabindex="5"> Submit</button>
-                                        <a href ng-click="quickView='login'" class="fright">Login</a>
+                                        <a href ng-click="loginView=true" class="fright">Login</a>
                                     </div>
                                 </form>
-                                <form ng-if="quickView==='login'" id="login-form" name="login-form" class="nobottommargin" ng-submit="handleQuickLogin()">
+                                <form ng-show="loginView" id="login-form" name="login-form" class="nobottommargin" ng-submit="handleQuickLogin()">
 
                                     <h3>Login to your Account</h3>
 
@@ -823,7 +827,7 @@
 
                                     <div class="col_full nobottommargin">
                                         <button class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
-                                        <a href ng-click="quickView='register'" class="fright">Register</a>
+                                        <a href ng-click="loginView=false" class="fright">Register</a>
                                     </div>
 
                                 </form>
