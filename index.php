@@ -22,12 +22,20 @@
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
 
     <style>
-        .advanced-real-estate-tabs {
+        /*.advanced-real-estate-tabs {
             position: absolute;
             width: 100%;
             bottom: 0;
             z-index: 2;
+        }*/
+
+        #header, #header-wrap, #logo img {
+            height: 250px;
         }
+        #header.transparent-header + #slider, #header.transparent-header + #page-title.page-title-parallax, #header.transparent-header + #google-map, #slider + #header.transparent-header {
+            top: -250px;
+        }
+
         ._720kb-datepicker-calendar {
             bottom: 40px;
         }
