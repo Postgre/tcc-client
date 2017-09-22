@@ -1,91 +1,52 @@
-<section id="slider" class="force-full-screen full-screen">
+<section id="slider" class="revslider-wrap full-screen clearfix">
 
-    <div class="force-full-screen full-screen section nopadding nomargin noborder ohidden">
+    <div id="rev_slider_431_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="christmas-snow"
+         style="background-color:transparent;padding:0px;">
+        <!-- START REVOLUTION SLIDER 5.2.0 fullscreen mode -->
+        <div id="rev_slider_431_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.2.0">
+            <ul>
+                <!-- SLIDE  -->
+                <li data-index="rs-1495" class="dark" data-transition="fade" data-slotamount="default"
+                    data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default"
+                    data-masterspeed="1000" data-thumb="include/rs-plugin/demos/assets/images/red_deer-100x50.jpg"
+                    data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2=""
+                    data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8=""
+                    data-param9="" data-param10="" data-description="">
+                    <!-- MAIN IMAGE -->
+                    <img src="/images/illustration.jpg" alt=""
+                         data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                         data-bgparallax="3" class="rev-slidebg" data-no-retina="">
+                    <!-- LAYERS -->
 
-        <div class="container clearfix">
-            <div class="slider-caption slider-caption-center">
+                </li>
+            </ul>
+            <div style="" class="tp-static-layers">
+                <!-- Need this here for snow effect? -->
             </div>
-        </div>
-        <div class="video-wrap">
-            <video poster="images/videos/explore.jpg" preload="auto" loop autoplay muted>
-                <source src='/images/movie.mp4' type='video/mp4' />
-                <source src='images/videos/explore.webm' type='video/webm' />
-            </video>
-            <div class="video-overlay"></div>
-        </div>
+        </div><!-- END REVOLUTION SLIDER -->
+    </div>
 
-<<<<<<< HEAD
-        <div class="tabs advanced-real-estate-tabs clearfix">
+    <div class="tabs advanced-real-estate-tabs clearfix">
 
-            <div class="tab-container">
-                <div class="container clearfix">
-                    <div class="tab-content clearfix" id="tab-properties">
-                        <form name="quoteForm" class="nobottommargin">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 bottommargin-sm">
-                                    <label style="display:block;">Address</label>
-                                    <input ng-model="address" name="address" type="text" class="form-control" placeholder="Address">
-                                </div>
-                                <div class="col-md-3 col-sm-12 bottommargin-sm">
-                                    <label style="display:block;">City</label>
-                                    <input name="city" ng-model="city" type="text" class="form-control" placeholder="City">
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                    <label>State</label>
-                                    <tcc-state-select bind="state"></tcc-state-select>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
-                                    <label>Number of Singers</label>
-                                    <select ng-model="caroler_config" name="caroler_config" class="selectpicker form-control">
-                                        <option value="quartet">Quartet (4)</option>
-                                        <option value="trio_sab">Trio (3)</option>
-                                        <option value="sixtet">Sixtets (6)</option>
-                                        <option value="octet">Octets (8)</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                    <label>Event Date</label>
-                                    <datepicker date-format="MM/dd/yyyy">
-                                        <input ng-model="bind_date" class="form-control" placeholder="Click Me!"/>
-                                    </datepicker>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                    <label>Start Time</label>
-                                    <div uib-timepicker ng-model="bind_start" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                    <label>End Time</label>
-                                    <div uib-timepicker ng-model="bind_end" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
-                                </div>
-                                <div class="col-md-2 float-right">
-                                    <br/>
-                                    <br/>
-                                    <button ng-click="handleGetQuote()" class="button button-red">
-                                        <img src="/images/preloader-dark.gif" ng-if="loadingQuote"/>
-                                        <b ng-hide="loadingQuote">Check Rates and Availability!</b>
-                                    </button>
-                                </div>
-                                <div class="clear visible-xs bottommargin-sm"></div>
-=======
         <div class="tab-container">
             <div class="container clearfix">
                 <div class="tab-content clearfix" id="tab-properties">
                     <!-- Start Rates & Availability Form-->
                     <form name="quoteForm" class="nobottommargin">
                         <div class="row">
-                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                            <div class="col-md-3 col-sm-12 nobottommargin">
                                 <label style="display:block;">Address</label>
                                 <input ng-model="address" name="address" type="text" class="form-control" placeholder="Address">
                             </div>
-                            <div class="col-md-3 col-sm-12 bottommargin-sm">
+                            <div class="col-md-3 col-sm-12 nobottommargin">
                                 <label style="display:block;">City</label>
                                 <input name="city" ng-model="city" type="text" class="form-control" placeholder="City">
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                            <div class="col-md-3 col-sm-6 col-xs-12 nobottommargin">
                                 <label>State</label>
                                 <tcc-state-select bind="state"></tcc-state-select>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 bottommargin-sm">
+                            <div class="col-md-3 col-sm-6 col-xs-6 nobottommargin">
                                 <label>Number of Singers</label>
                                 <select ng-model="caroler_config" name="caroler_config" class="selectpicker form-control">
                                     <option value="quartet">Quartet (4)</option>
@@ -94,18 +55,18 @@
                                     <option value="octet">Octet (8)</option>
                                 </select>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
+                            <div class="col-md-3 col-sm-6 col-xs-12 nobottommargin">
                                 <label>Event Date</label>
                                 <datepicker date-format="MM/dd/yyyy">
                                     <input ng-model="bind_date" class="form-control" placeholder="Click Me!"/>
                                 </datepicker>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                <label>Start Time</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12 nobottommargin">
+                                <!--<label>Start Time</label>-->
                                 <div uib-timepicker ng-model="bind_start" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 bottommargin-sm">
-                                <label>End Time</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12 nobottommargin">
+                                <!--<label>End Time</label>-->
                                 <div uib-timepicker ng-model="bind_end" ng-change="updateTimes()" hour-step="1" minute-step="15" show-meridian="true"></div>
                             </div>
                             <div class="col-md-2 float-right">
@@ -115,14 +76,15 @@
                                     <img src="/images/preloader-dark.gif" ng-if="loadingQuote"/>
                                     <b ng-hide="loadingQuote">Check Rates and Availability!</b>
                                 </button>
->>>>>>> master
                             </div>
-                        </form>
-                    </div>
+                            <div class="clear visible-xs nobottommargin"></div>
+                        </div>
+                    </form>
+                    <!-- End Rates & Availability Form -->
                 </div>
             </div>
-
         </div>
+
     </div>
 
 </section>
@@ -137,7 +99,6 @@
                 <div class="col-md-4">
                     <img src="/images/carolers/knockout.png" width="100%">
                 </div>
-
                 <div class="col-md-8">
                     <h2 class="t400">ABOUT OUR CAROLERS</h2>
                     <p style="font-size: large">The Christmas Carolers recruites highly skilled voice students from

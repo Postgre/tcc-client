@@ -19,11 +19,16 @@ function CustomerEventsController( $scope, dataService ) {
     }
 
     $scope.requireFull = requireFull;
+    $scope.cancelEvent = cancelEvent;
 
     function requireFull(date) {
         let ev = moment(date);
         let now = moment();
         return ev.diff(now, 'days') < 30;
+    }
+
+    function cancelEvent(event){
+        swal("Cancel Event", "To cancel or modify an existing event, please call us", "info");
     }
 
     /**
