@@ -283,6 +283,12 @@ module.exports = class DataService {
             }).then(res=>resolve(res.data), reject);
         });
     }
+    cancelEvent(id){
+        return this.connection({
+            url: "events/"+id+"/cancel",
+            method: "GET"
+        })
+    }
 
     /**
      * BOOKING

@@ -23,7 +23,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading"><strong>ACTIVE DIRECTORS</strong></div>
+                        <div class="panel-heading"><strong>ACTIVE DIRECTORS</strong> <span class="badge pull-right">{{active.length}}</span></div>
                         <!-- Table -->
                         <table ng-include="TABLE_ACTIVE" class="table">
                             <!-- loaded from partial -->
@@ -33,7 +33,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading"><strong>PENDING INVITATIONS</strong></div>
+                        <div class="panel-heading"><strong>PENDING INVITATIONS</strong> <span class="badge pull-right">{{invites.length}}</span></div>
                         <!-- Table -->
                         <table ng-include="TABLE_INVITES" class="table">
                             <!-- loaded from partial -->

@@ -24,7 +24,7 @@
                 <div class="col-md-7">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading"><strong>NEW CAROLER REQUESTS</strong></div>
+                        <div class="panel-heading"><strong>NEW CAROLER REQUESTS</strong> <span class="badge pull-right">{{requests.length}}</span> </div>
                         <!-- Table -->
                         <table ng-include="TABLE_REQUESTS" class="table table-responsive">
                             <!-- loaded from partial -->
@@ -34,7 +34,7 @@
                 <div class="col-md-5">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading"><strong>ACTIVE CAROLERS</strong></div>
+                        <div class="panel-heading"><strong>ACTIVE CAROLERS</strong> <span class="badge pull-right">{{active.length}}</span></div>
                         <!-- Table -->
                         <table class="table">
                             <thead>

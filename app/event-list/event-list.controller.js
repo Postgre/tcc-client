@@ -21,6 +21,30 @@ angular.module("event-list")
             $("#modal").modal("show");
         };
 
+        $scope.cancelEvent = function(event){
+            swal({
+                title: "Are you sure?",
+                text: "Your will not be able to undo this action!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, cancel it!",
+                closeOnConfirm: false
+            },
+            function(){
+                dataService.cancelEvent(event.id)
+                    .then(
+                        (res)=>{
+                            swal("Done.", "The event has been cancelled.\nNOTE: the amount has not been refunded automatically", "success");
+                        },
+                        (err)=>{
+                            let d = err.response.data;
+                            swal(d.status, d.msg, "error");
+                        }
+                    )
+            });
+        };
+
         $scope.recordPayment = function(event){
             let doit = (invoiceID, userID, amount) => {
                 dataService.recordPayment(invoiceID, userID, amount)
