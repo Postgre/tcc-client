@@ -21,6 +21,46 @@ angular.module("event-list")
             $("#modal").modal("show");
         };
 
+        $scope.recordPayment = function(event){
+            let doit = (invoiceID, userID, amount) => {
+                dataService.recordPayment(invoiceID, userID, amount)
+                    .then(
+                        (res) => {
+                            swal("Success!", "Payment has been recorded", "success");
+                            init();
+                        },
+                        (err) => {
+                            swal(err.response.data.status, "Could not record payment", "error");
+                        }
+                    )
+            };
+
+            $("#modal").modal("hide");
+            let invoiceID = event.invoice.id;
+            let userID = event.host_id;
+
+            swal({
+                title: "Record Payment",
+                text: "Provide an Amount:",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                inputPlaceholder: "Ex: 400"
+            }, function (inputValue) {
+                amount = parseInt(inputValue);
+                if (amount === false) return false;
+                if (amount === "") {
+                    swal.showInputError("You need to write something!");
+                    return false
+                }
+
+                /* convert from pennies to dollars */
+                amount *= 100;
+                doit(invoiceID, userID, amount);
+            });
+            console.log(event);
+        };
+
         //=================================================
 
         init();

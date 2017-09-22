@@ -695,7 +695,17 @@ module.exports = class DataService {
             }).then(resolve, reject)
         });
     }
-
+    recordPayment(invoiceID, userID, amount){
+        return this.connection({
+            url: "record-payment",
+            method: "POST",
+            data: qs.stringify({
+                invoice_id: invoiceID,
+                user_id: userID,
+                amount: amount
+            })
+        });
+    }
 
     /**
      * ACTIVITIES
