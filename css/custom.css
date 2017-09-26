@@ -108,14 +108,26 @@
     font-size: small;
 }
 
-/* home page */
-
 .advanced-real-estate-tabs {
     position: absolute;
     width: 100%;
     bottom: 0;
     z-index: 2;
 }
+
+/* home page */
+@media (max-width: 760px) {
+    .advanced-real-estate-tabs {
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        z-index: 2;
+    }
+    #header, #header-wrap, #logo img {
+        height: auto;
+    }
+}
+
 ._720kb-datepicker-calendar {
     bottom: 40px;
 }
