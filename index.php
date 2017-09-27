@@ -22,12 +22,6 @@
     <link rel="stylesheet" type="text/css" href="include/rs-plugin/css/navigation.css">
 
     <style>
-        /*.advanced-real-estate-tabs {
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            z-index: 2;
-        }*/
 
         #header, #header-wrap, #logo img {
             height: 250px;
