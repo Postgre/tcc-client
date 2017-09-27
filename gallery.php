@@ -39,19 +39,6 @@
 
                     <div class="masonry-thumbs col-4" data-big="4" data-lightbox="gallery">
 
-                        <div class="col-md-6 portfolio-single-image">
-                            <iframe height="315" src="https://www.youtube.com/embed/y4a3IXYH-Aw" allowfullscreen></iframe>
-                        </div>
-                        <div class="col-md-6 portfolio-single-image">
-                            <iframe height="315" src="https://www.youtube.com/embed/06NoFpUkEd8" allowfullscreen></iframe>
-                        </div>
-                        <div class="col-md-6 portfolio-single-image">
-                            <iframe height="315" src="https://www.youtube.com/embed/qzKip64K3HQ" allowfullscreen></iframe>
-                        </div>
-                        <div class="col-md-6 portfolio-single-image">
-                            <iframe height="315" src="https://www.youtube.com/embed/y4a3IXYH-Aw" allowfullscreen></iframe>
-                        </div>
-
                         <a href="https://mlsvc01-prod.s3.amazonaws.com/cd7ecbe5501/963087d7-5a25-4e7c-bcde-624d4e926259.jpg?ver=1502318187000" data-lightbox="gallery-item">
                             <img class="image_fade" src="https://mlsvc01-prod.s3.amazonaws.com/cd7ecbe5501/963087d7-5a25-4e7c-bcde-624d4e926259.jpg?ver=1502318187000">
                         </a>
