@@ -137,7 +137,7 @@
                             <div class="fbox-icon">
                                 <a href="#"><i class="icon-phone3"></i></a>
                             </div>
-                            <h3>Call Us<span class="subtitle">(800) 833-CAROLER</span></h3>
+                            <h3>Call Us<span class="subtitle">833-CAROLER</span></h3>
                         </div>
                     </div>
 
