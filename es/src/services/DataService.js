@@ -9,72 +9,76 @@ module.exports = class DataService {
         this.connection = connection
     }
 
-    verifyEmail(code){
+    verifyEmail(code) {
         return this.connection({
-            url: "auth/verify/"+code,
+            url: "auth/verify/" + code,
             method: "GET"
         })
     }
 
-    postResource( resourceName, body ){
-        return new Promise((resolve, reject)=>{
+    postResource(resourceName, body) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: resourceName,
                 method: "POST",
                 data: qs.stringify(body)
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data.id);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         })
     }
-    deleteResource( resourceName, id ){
-        return new Promise((resolve, reject)=>{
+
+    deleteResource(resourceName, id) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: resourceName+"/"+id,
+                url: resourceName + "/" + id,
                 method: "DELETE"
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         })
     }
-    putResource( resourceName, body, id ){
-        return new Promise((resolve, reject)=>{
+
+    putResource(resourceName, body, id) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: resourceName+"/"+id,
+                url: resourceName + "/" + id,
                 method: "PUT",
                 data: qs.stringify(body)
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data.id);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         })
     }
-    getResource( resourceName, id ){
-        return new Promise((resolve, reject)=>{
+
+    getResource(resourceName, id) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: resourceName+"/"+id,
+                url: resourceName + "/" + id,
                 method: "GET"
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         })
     }
-    getResourceAll( resourceName, params ){
-        return new Promise((resolve, reject)=>{
+
+    getResourceAll(resourceName, params) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: resourceName,
                 method: "GET",
                 params: params
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         })
@@ -84,8 +88,8 @@ module.exports = class DataService {
      * QUOTES
      * =============================
      */
-    postQuote( address, start_time, end_time, caroler_config ){
-        return new Promise((resolve, reject)=>{
+    postQuote(address, start_time, end_time, caroler_config) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "quotes",
                 method: "POST",
@@ -95,10 +99,10 @@ module.exports = class DataService {
                     end_time: end_time,
                     caroler_config: caroler_config
                 })
-            }).then((res)=>{
-                let market  = res.data.market;
+            }).then((res) => {
+                let market = res.data.market;
                 let q = res.data.quote;
-                let quote   = {
+                let quote = {
                     id: q.id,
                     carolers: q.cost_carolers,
                     travel: q.cost_travel,
@@ -111,40 +115,42 @@ module.exports = class DataService {
                     market: market,
                     quote: quote
                 });
-            }).catch((err)=>{
+            }).catch((err) => {
                 console.log(err);
-                if(err.response.data.status){
+                if (err.response.data.status) {
                     reject(err.response.data.status);
                 }
                 reject(err);
             })
         });
     }
-    postQuotePreview( event, caroler_config, promo_codes ){
+
+    postQuotePreview(event, caroler_config, promo_codes) {
         event['caroler_config'] = caroler_config;
         event['promo_codes'] = promo_codes;
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "quotes/preview",
                 method: "POST",
                 data: qs.stringify(event)
-            }).then((res)=>{
+            }).then((res) => {
                 let myFormat = {
-                    carolers:   res.data.cost_carolers,
-                    date:       res.data.cost_date,
-                    discounts:  res.data.cost_discounts,
-                    travel:     res.data.cost_travel_distance + res.data.cost_travel_duration,
-                    total:      res.data.cost_total
+                    carolers: res.data.cost_carolers,
+                    date: res.data.cost_date,
+                    discounts: res.data.cost_discounts,
+                    travel: res.data.cost_travel_distance + res.data.cost_travel_duration,
+                    total: res.data.cost_total
                 };
                 resolve(myFormat);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         })
     }
-    postSaveQuote( quote_id, email ){
+
+    postSaveQuote(quote_id, email) {
         return this.connection({
-            url: "quotes/"+quote_id+"/save",
+            url: "quotes/" + quote_id + "/save",
             method: "POST",
             data: qs.stringify({
                 email: email,
@@ -157,26 +163,27 @@ module.exports = class DataService {
      * MARKETS
      * =============================
      */
-    putMarket( id, params ){
+    putMarket(id, params) {
         return this.connection({
-            url: "markets/"+id,
+            url: "markets/" + id,
             method: "PUT",
             data: qs.stringify(params)
         });
     }
-    searchMarkets( search, limit, offset ){
+
+    searchMarkets(search, limit, offset) {
         let params = {};
-        if( search ) params.search = search;
-        if( limit ) params.limit = limit;
-        if( offset ) params.offset = offset;
+        if (search) params.search = search;
+        if (limit) params.limit = limit;
+        if (offset) params.offset = offset;
         return this.connection({
             url: "markets",
             method: "GET",
             params: params
         })
     }                   // TODO: resolve
-    searchMarketsGeo( params ){
-        return new Promise((resolve, reject)=>{
+    searchMarketsGeo(params) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "markets/geo",
                 method: "GET",
@@ -184,108 +191,116 @@ module.exports = class DataService {
             }).then((res) => resolve(res.data), reject);
         });
     }       // TODO: resolve
-    getMarketsManaged(){
-        return new Promise((resolve, reject)=>{
+    getMarketsManaged() {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "markets/managed",
                 method: "GET"
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         });
     }
-    getMarketCarolers(id){
-        return new Promise((resolve, reject)=>{
+
+    getMarketCarolers(id) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: "markets/"+id+"/carolers",
+                url: "markets/" + id + "/carolers",
                 method: "GET"
-            }).then((res)=>resolve(res.data), reject);
+            }).then((res) => resolve(res.data), reject);
         });
     }
-    getMarketDirectors(id){
-        return new Promise((resolve, reject)=>{
+
+    getMarketDirectors(id) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: "markets/"+id+"/directors",
+                url: "markets/" + id + "/directors",
                 method: "GET"
-            }).then((res)=>resolve(res.data), reject);
+            }).then((res) => resolve(res.data), reject);
         });
     }
-    putSpecialDates( market_id, specialDates ){
+
+    putSpecialDates(market_id, specialDates) {
         return this.connection({
-            url: "markets/"+market_id+"/special-dates",
+            url: "markets/" + market_id + "/special-dates",
             method: "PUT",
             data: qs.stringify({
                 special_dates: specialDates
             })
         })
     }
-    getSpecialDates(market_id){
+
+    getSpecialDates(market_id) {
         return this.connection({
-            url: "markets/"+market_id+"/special-dates",
+            url: "markets/" + market_id + "/special-dates",
             method: "GET"
         })
     }                               // TODO: resolve
-    putMedia(market_id, links){
+    putMedia(market_id, links) {
         return this.connection({
-            url: "markets/"+market_id+"/gallery",
+            url: "markets/" + market_id + "/gallery",
             method: "PUT",
             data: qs.stringify({
                 gallery: links
             })
         })
     }
-    getMedia(market_id){
+
+    getMedia(market_id) {
         return this.connection({
-            url: "markets/"+market_id+"/gallery",
+            url: "markets/" + market_id + "/gallery",
             method: "GET"
         })
     }                                       // TODO: resolve
-    putCarolerConfigs(market_id, carolerConfigs){
+    putCarolerConfigs(market_id, carolerConfigs) {
         return this.connection({
-            url: "markets/"+market_id+"/caroler-configs",
+            url: "markets/" + market_id + "/caroler-configs",
             method: "PUT",
             data: qs.stringify(carolerConfigs)
         })
     }
-    getCarolerConfigs(market_id){
-        return new Promise((resolve, reject)=>{
+
+    getCarolerConfigs(market_id) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: "markets/"+market_id+"/caroler-configs",
+                url: "markets/" + market_id + "/caroler-configs",
                 method: "GET"
-            }).then((res)=>{
-                if(res.data) resolve(res.data);
+            }).then((res) => {
+                if (res.data) resolve(res.data);
                 reject();
             })
         })
     }
-    marketUpcomingEvents(market_id){
-        return new Promise((resolve, reject)=>{
+
+    marketUpcomingEvents(market_id) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 method: "GET",
                 url: `markets/${market_id}/events/upcoming`
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
             }, reject);
         });
     }
-    
+
     /**
      * EVENTS
      * ==================
      */
-    getMyEvents(){
-        return new Promise((resolve, reject)=>{
+    getMyEvents() {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "users/events/booked",
                 method: "GET"
-            }).then(res=>resolve(res.data), reject);
+            }).then(res => resolve(res.data), reject);
         });
     }
-    cancelEvent(id){
+
+    cancelEvent(id) {
         return this.connection({
-            url: "events/"+id+"/cancel",
+            url: "events/" + id + "/cancel",
             method: "GET"
         })
     }
@@ -294,8 +309,25 @@ module.exports = class DataService {
      * BOOKING
      * ==============================
      */
-    previewTravel( market_id, address, city, state ){
+    checkAvailability(market_id, start, end){
         return new Promise((resolve, reject)=>{
+            this.connection({
+                url: `markets/${market_id}/availability`,
+                params: {
+                    start_time: start,
+                    end_time: end
+                }
+            }).then(
+                (res)=>{
+                    resolve(res.data)
+                },
+                reject
+            )
+        });
+    }
+
+    previewTravel(market_id, address, city, state) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "quotes/preview/travel",
                 method: "POST",
@@ -305,7 +337,7 @@ module.exports = class DataService {
                     city: city,
                     state: state
                 }
-            }).then((res)=>{
+            }).then((res) => {
                 let myFormat = {
                     costs: {
                         distance: res.data.cost_travel_distance,
@@ -313,32 +345,34 @@ module.exports = class DataService {
                     },
                     metrics: {
                         distance: res.data.travel_distance,
-                        duration: Math.round( res.data.travel_duration * 60 )// hours => minutes
+                        duration: Math.round(res.data.travel_duration * 60)// hours => minutes
                     }
                 };
                 resolve(myFormat);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         });
     }
-    postBooking(event, caroler_config, promo_codes){
+
+    postBooking(event, caroler_config, promo_codes) {
         event['promo_codes'] = promo_codes;
         event['caroler_config'] = caroler_config;
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "events/book",
                 method: "POST",
                 data: qs.stringify(event)
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data)
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err);
             })
         })
     }
-    validatePromo( code, start, end ){
-        return new Promise((resolve, reject)=>{
+
+    validatePromo(code, start, end) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "promotions/validate/" + code,
                 method: "GET",
@@ -346,9 +380,9 @@ module.exports = class DataService {
                     start_time: start,
                     end_time: end
                 }
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
-            }).catch((err)=>{
+            }).catch((err) => {
                 reject(err.response.data.status);
             })
         })
@@ -358,13 +392,13 @@ module.exports = class DataService {
      * PROFILE
      * ========================
      */
-    getProfiles(){
+    getProfiles() {
         return this.connection({
             url: "users/profile",
             method: "GET"
         })
     } // TODO: resolve
-    putProfile( params ){
+    putProfile(params) {
         return this.connection({
             url: "users/profile",
             method: "PUT",
@@ -376,8 +410,8 @@ module.exports = class DataService {
      * DELEGATIONS
      * ====================
      */
-    getCarolerInvites(market_id){
-        return new Promise((resolve, reject)=>{
+    getCarolerInvites(market_id) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "invites/caroler",
                 method: "GET",
@@ -393,9 +427,10 @@ module.exports = class DataService {
             )
         });
     }
-    getCarolerRequests(market_id){
+
+    getCarolerRequests(market_id) {
         console.log();
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "requests/caroler",
                 method: "GET",
@@ -410,8 +445,9 @@ module.exports = class DataService {
             )
         });
     }
-    approveCarolerRequest(request_id){
-        return new Promise((resolve, reject)=>{
+
+    approveCarolerRequest(request_id) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: `requests/caroler/${request_id}/approve`,
                 method: "GET",
@@ -421,16 +457,18 @@ module.exports = class DataService {
             }).then(resolve, reject);
         });
     }
-    rejectCarolerRequest(request_id){
-        return new Promise((resolve, reject)=>{
+
+    rejectCarolerRequest(request_id) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: `requests/caroler/${request_id}/reject`,
                 method: "GET"
             }).then(resolve, reject);
         });
     }
-    sendCarolerInvite(market_id, caroler_email){
-        return new Promise((resolve, reject)=>{
+
+    sendCarolerInvite(market_id, caroler_email) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: `markets/${market_id}/invite-caroler`,
                 method: "GET",
@@ -444,25 +482,28 @@ module.exports = class DataService {
             );
         });
     }
-    cancelCarolerInvite(invite_id){
+
+    cancelCarolerInvite(invite_id) {
         return this.connection({
-            url: "invites/caroler/"+invite_id,
+            url: "invites/caroler/" + invite_id,
             method: "DELETE"
         })
     }
-    sendCarolerRequest(market_id, email){
-        return new Promise((resolve, reject)=>{
+
+    sendCarolerRequest(market_id, email) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: `markets/${market_id}/request-caroler`,
                 method: "GET",
                 params: {
                     email: email,
-                    callback: this.callback("caroler_request", "market="+market_id)
+                    callback: this.callback("caroler_request", "market=" + market_id)
                 }
             }).then(resolve, reject);
         });
     }
-    requestInvite(market_id, your_email){
+
+    requestInvite(market_id, your_email) {
         return this.connection({
             url: `markets/${market_id}/request-caroler-invite`,
             method: "POST",
@@ -470,12 +511,13 @@ module.exports = class DataService {
                 email: your_email
             }),
             params: {
-                callback: this.callback("invite_request", "email="+your_email)
+                callback: this.callback("invite_request", "email=" + your_email)
             }
         })
     }
-    getDirectorInvites(market_id){
-        return new Promise((resolve, reject)=>{
+
+    getDirectorInvites(market_id) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "invites/director",
                 method: "GET",
@@ -491,14 +533,15 @@ module.exports = class DataService {
             )
         });
     }
-    sendDirectorInvite(market_id, director_email){
-        return new Promise((resolve, reject)=>{
+
+    sendDirectorInvite(market_id, director_email) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: `markets/${market_id}/invite-director`,
                 method: "GET",
                 params: {
                     to: director_email,
-                    callback: this.callback("director_invite", ["market="+market_id, "action=redeem"])
+                    callback: this.callback("director_invite", ["market=" + market_id, "action=redeem"])
                 }
             }).then(
                 (res) => resolve(res),
@@ -506,35 +549,38 @@ module.exports = class DataService {
             );
         });
     }
-    cancelDirectorInvite(invite_id){
+
+    cancelDirectorInvite(invite_id) {
         return this.connection({
-            url: "invites/director/"+invite_id,
+            url: "invites/director/" + invite_id,
             method: "DELETE"
         })
     }
-    redeemCarolerInvite(code){
-        return new Promise((resolve, reject)=>{
+
+    redeemCarolerInvite(code) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: "invites/caroler/redeem/"+code,
+                url: "invites/caroler/redeem/" + code,
                 method: "GET"
             }).then(
                 (res) => resolve(res),
                 (err) => {
-                    if(err.response) reject(err.response.data.status);
+                    if (err.response) reject(err.response.data.status);
                     reject(err);
                 }
             )
         });
     }
-    redeemDirectorInvite(code){
-        return new Promise((resolve, reject)=>{
+
+    redeemDirectorInvite(code) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: "invites/director/redeem/"+code,
+                url: "invites/director/redeem/" + code,
                 method: "GET"
             }).then(
                 (res) => resolve(res),
                 (err) => {
-                    if(err.response) reject(err.response.data.status);
+                    if (err.response) reject(err.response.data.status);
                     reject(err);
                 }
             )
@@ -545,7 +591,7 @@ module.exports = class DataService {
      * CONTACT
      * =========================
      * */
-    postContact(name, email, phone, subject, message){
+    postContact(name, email, phone, subject, message) {
         return this.connection({
             url: "contact",
             method: "POST",
@@ -558,7 +604,8 @@ module.exports = class DataService {
             })
         })
     }
-    subscribe(email){
+
+    subscribe(email) {
         return this.connection({
             url: "subscribe",
             method: "POST",
@@ -572,60 +619,64 @@ module.exports = class DataService {
      * ADMINS
      * =========================
      */
-    searchUsers(query){
-        return new Promise((resolve, reject)=>{
+    searchUsers(query) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "users",
                 method: "GET",
                 params: {
                     search: query
                 }
-           }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
-            }).catch(()=>{
+            }).catch(() => {
                 reject();
             })
         });
     }
 
     /* caroler-dashboard.php */
-    getAvailableEvents(){
-        return new Promise((resolve, reject)=>{
+    getAvailableEvents() {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "events/enrollments/available",
                 method: "GET"
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
             }, reject);
         });
     }
-    getBookedEvents(){
-        return new Promise((resolve, reject)=>{
+
+    getBookedEvents() {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "events/enrollments/booked",
                 method: "GET"
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
             }, reject);
         });
     }
-    getPastEvents(){
-        return new Promise((resolve, reject)=>{
+
+    getPastEvents() {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "events/enrollments/completed",
                 method: "GET"
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
             }, reject);
         });
     }
-    claimEvent(enrollment_id){
+
+    claimEvent(enrollment_id) {
         return this.connection({
             url: `events/enrollments/${enrollment_id}/claim`,
             method: "POST"
         });
     }
-    withdrawEvent(enrollment_id){
+
+    withdrawEvent(enrollment_id) {
         return this.connection({
             url: `events/enrollments/${enrollment_id}/withdraw`,
             method: "POST"
@@ -633,15 +684,16 @@ module.exports = class DataService {
     }
 
     /* profile.php */
-    getAllCarolerTypes(){
-        return new Promise((resolve, reject)=>{
+    getAllCarolerTypes() {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "caroler-types"
-            }).then((res)=>resolve(res.data), reject);
+            }).then((res) => resolve(res.data), reject);
         });
     }
-    marketsICarolIn(){
-        return new Promise((resolve, reject)=>{
+
+    marketsICarolIn() {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "/markets/enrolled",
                 method: "GET"
@@ -651,19 +703,20 @@ module.exports = class DataService {
             )
         });
     }
-    
+
     /* login-register */
-    recoverPassword(email){
+    recoverPassword(email) {
         return this.connection({
             url: "auth/recovery",
             method: "POST",
             data: qs.stringify({
                 email: email,
-                callback: this.callback("recover", "email="+email)
+                callback: this.callback("recover", "email=" + email)
             })
         });
     }
-    resetPassword(email, newPassword, token){
+
+    resetPassword(email, newPassword, token) {
         return this.connection({
             url: "auth/reset",
             method: "POST",
@@ -676,20 +729,20 @@ module.exports = class DataService {
         })
     }
 
-    callback(name, params){
+    callback(name, params) {
         let base = window.location.origin;
         let activity = this.config.callbacks[name];
-        let callback = base+"/"+activity;
-        if(params){
-            if(Array.isArray(params)) callback += "?" + params.join("&");
-            if(!Array.isArray(params)) callback += "?" + params;
+        let callback = base + "/" + activity;
+        if (params) {
+            if (Array.isArray(params)) callback += "?" + params.join("&");
+            if (!Array.isArray(params)) callback += "?" + params;
         }
         console.log("callback", callback);
         return callback;
     }
 
-    submitPayment(invoice_id, stripeToken, amount){
-        return new Promise((resolve, reject)=>{
+    submitPayment(invoice_id, stripeToken, amount) {
+        return new Promise((resolve, reject) => {
             this.connection({
                 url: "checkout",
                 method: "POST",
@@ -701,7 +754,8 @@ module.exports = class DataService {
             }).then(resolve, reject)
         });
     }
-    recordPayment(invoiceID, userID, amount){
+
+    recordPayment(invoiceID, userID, amount) {
         return this.connection({
             url: "record-payment",
             method: "POST",
@@ -717,18 +771,19 @@ module.exports = class DataService {
      * ACTIVITIES
      * ========================
      */
-    marketCarolers(market_id){
+    marketCarolers(market_id) {
         return this.connection({
             method: "GET",
-            url: "market-carolers/"+market_id
+            url: "market-carolers/" + market_id
         });
     }
-    carolerSingle(caroler_id){
-        return new Promise((resolve, reject)=>{
+
+    carolerSingle(caroler_id) {
+        return new Promise((resolve, reject) => {
             this.connection({
-                url: "caroler-single/"+caroler_id,
+                url: "caroler-single/" + caroler_id,
                 method: "GET"
-            }).then((res)=>{
+            }).then((res) => {
                 resolve(res.data);
             }, reject);
         });

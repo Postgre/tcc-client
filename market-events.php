@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+<html lang="en-US">
 <head>
     <!-- CSS
     =========================================== -->

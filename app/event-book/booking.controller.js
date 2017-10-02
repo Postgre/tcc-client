@@ -5,25 +5,37 @@ angular.module('booking')
             "eventDetails": {
                 id: 0,
                 prev: false,
+                async: true,
                 validator: function (data) {
-                    let valid = true;
-                    if (!data.market_id) {
-                        valid = false;
-                        swal("Invalid Market");
-                    }
-                    if (!data.start_time) {
-                        valid = false;
-                        swal("Invalid Start Time");
-                    }
-                    if (!data.end_time) {
-                        valid = false;
-                        swal("Invalid End Time");
-                    }
-                    if (!data.caroler_config) {
-                        valid = false;
-                        swal("Invalid Caroler Config");
-                    }
-                    return valid;
+                    return new Promise((resolve, reject)=>{
+                        let valid = true;
+                        if (!data.market_id) {
+                            valid = false;
+                            swal("Invalid Market");
+                        }
+                        if (!data.start_time) {
+                            valid = false;
+                            swal("Invalid Start Time");
+                        }
+                        if (!data.end_time) {
+                            valid = false;
+                            swal("Invalid End Time");
+                        }
+                        if (!data.caroler_config) {
+                            valid = false;
+                            swal("Invalid Caroler Config");
+                        }
+                        if(!valid) reject();
+
+                        dataService.checkAvailability(data.market_id, data.start_time, data.end_time)
+                            .then(available => {
+                                console.log(available, "available?");
+                                if(available === "true")
+                                    resolve();
+                                swal("Notice", "This is one of our busy days. We'll need to approve this event before it is considered booked.", "warning");
+                                resolve()
+                            }, reject);
+                    });
                 }
             },
             "personalDetails": {
@@ -290,7 +302,17 @@ angular.module('booking')
         $scope.handleMultipleEvents = handleMultipleEvents;
 
         function handleMultipleEvents() {
-            swal("Coming Soon!", "Please pardon our progress", "info");
+            swal({
+                title: "Booking Multiple Events?",
+                text: "Please contact our sales team with your requirements!",
+                type: "warning",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function() {
+                window.location = "contact.php";
+            });
         }
 
         $scope.$on("loadSaved", function (event, data) {
