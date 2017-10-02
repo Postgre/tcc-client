@@ -31,6 +31,7 @@ function HomeController($scope) {
             quoteRequest.id = $scope.quote.id;
         }).catch((reason) => {
             $scope.loadingQuote = false;
+            $scope.$apply();
             if (reason === "INVALID_DATE_TIME") {
                 swal("Oops..", "Invalid Date Time", "error");
             }
