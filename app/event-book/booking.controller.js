@@ -30,9 +30,10 @@ angular.module('booking')
                         dataService.checkAvailability(data.market_id, data.start_time, data.end_time)
                             .then(available => {
                                 console.log(available, "available?");
-                                if(available === "true")
+                                if(available === true)
                                     resolve();
                                 swal("Notice", "This is one of our busy days. We'll need to approve this event before it is considered booked.", "warning");
+                                $scope.busyDate = true; $scope.$apply();
                                 resolve()
                             }, reject);
                     });

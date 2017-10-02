@@ -20,7 +20,7 @@ function MarketEventsController( $scope ){
     const RESOURCE  =   "Market";
     const ACTIVITY  =   {
         title: "Events by Market",
-        subtitle: "View a Market's Upcoming Events"
+        subtitle: "View and Approvce Upcoming Events"
     };
 
     function init(){
@@ -86,6 +86,28 @@ function MarketEventsController( $scope ){
             confirmButtonText: "Yes!",
             closeOnConfirm: false
         }, doit);
+    };
+
+    $scope.approveSpecial = (event) => {
+        window.dataService.approveEvent(event.id)
+            .then(
+                res => {
+                    swal("Approved!", "This event has been approved. The customer will be notified", "success");
+                    init();
+                },
+                somethingWentWrong
+            );
+    };
+
+    $scope.rejectSpecial = (event) => {
+        window.dataService.cancelEvent(event.id)
+            .then(
+                res => {
+                    swal("Rejected.", "This event has been rejected. The customer will be notified", "success");
+                    init();
+                },
+                somethingWentWrong
+            );
     };
 
     /**

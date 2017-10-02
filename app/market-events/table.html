@@ -20,7 +20,8 @@
         <label ng-bind="row.status" class="label label-primary"></label>
     </td>
     <td>
-        <button ng-click="view(row)" class="btn btn-default"><i class="icon-eye-open"></i> View</button>
+        <button ng-if="row.status === 'pending_approval'" ng-click="approveSpecial(row)" class="btn btn-success"><i class="icon-check"></i> Approve</button>
+        <button ng-if="row.status === 'pending_approval'" ng-click="rejectSpecial(row)" class="btn btn-danger"><i class="icon-eye-open"></i> Reject</button>
     </td>
 </tr>
 </tbody>

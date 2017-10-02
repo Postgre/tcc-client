@@ -305,6 +305,12 @@ module.exports = class DataService {
         })
     }
 
+    approveEvent(id){
+        return this.connection({
+            url: "events/"+id+"/approve-pending"
+        });
+    }
+
     /**
      * BOOKING
      * ==============================

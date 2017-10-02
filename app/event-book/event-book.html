@@ -739,15 +739,21 @@
                     <div id="ptab6" ng-controller="ConfirmationController">
                         <div class="container center clearfix">
                             <h3>Success! You've created an event.</h3>
-                            <h4 ng-show="requireFull() === false">
+                            <h4 ng-show="busyDate">
+                                You've booked an event on a busy date. You'll hear back from us shortly regarding confirmation for this event.
+                            </h4>
+                            <h4 ng-show="requireFull() === false" ng-hide="busyDate">
                                 Please note, events are not considered booked until a 50% deposit <span style="color: #4cae4c">${{invoice.balance/100/2}}</span> has been paid
                                 ( half of the full cost - <span style="color: #4cae4c">{{invoice.balance/100}}</span> ).</h4>
-                            <h4 ng-show="requireFull() === true">
+                            <h4 ng-show="requireFull() === true" ng-hide="busyDate">
                                 Your event is within 30 days of occurring. Before we start building your
                                 caroling team, we require the full payment of <span style="color: #4cae4c">${{invoice.balance/100}}</span></h4>
-                            <a class="button button-3d" ng-href="/checkout.php?mode=full&invoice={{invoice.id}}">Pay Full Balance</a>
-                            <a ng-show="requireFull() === false"
+                            <a ng-hide="busyDate"
+                               class="button button-3d" ng-href="/checkout.php?mode=full&invoice={{invoice.id}}">Pay Full Balance</a>
+                            <a ng-show="requireFull() === false" ng-hide="busyDate"
                                class="button button-3d" ng-href="/checkout.php?mode=half&invoice={{invoice.id}}">Make Deposit</a>
+                            <a ng-show="busyDate"
+                               class="button button-3d" ng-href="/customer-events.php">Go To Events</a>
                             <!--<a class="button button-3d" onclick="alert('Make Checks Payable To:\nThe Christmas Carolers, LLC\nPO Box 2151\nBirmingham, AL 35201\nOnce your check has been received, you will receive a confirmation of your event being booked.')">-->
                                 <!--Pay by Check-->
                             <!--</a>-->
